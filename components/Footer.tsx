@@ -34,8 +34,8 @@ const Footer = () => {
   return (
     <FooterContainer>
       <Links>
-        <Link href="/">Terms &amp; Conditions</Link>
-        <Link href="/">Privacy Policy</Link>
+        <Link href="/terms">Terms &amp; Conditions</Link>
+        <Link href="/privacy-policy">Privacy Policy</Link>
         <Link href="/contact">Contact</Link>
       </Links>
       <Socials>

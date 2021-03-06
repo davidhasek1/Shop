@@ -6,12 +6,8 @@ import PageNavigation from "../components/PageNavigation";
 import Header from "../components/HomePage/Header";
 import ContentItem from "../components/HomePage/ContentItem";
 import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 
-const Container = styled.div`
-  max-width: 1200px;
-  text-align: center;
-  margin: auto;
-`;
 const ItemsWrapper = styled.section`
   display: flex;
   justify-content: space-between;
@@ -27,14 +23,14 @@ const Home: NextPage = () => {
       </Head>
       <Navigation />
       <PageNavigation />
-      <Container>
+      <Layout>
         <Header />
         <ItemsWrapper>
           <ContentItem />
           <ContentItem />
           <ContentItem />
         </ItemsWrapper>
-      </Container>
+      </Layout>
       <Footer />
     </div>
   );
