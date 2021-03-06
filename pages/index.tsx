@@ -5,7 +5,7 @@ import Navigation from "../components/Navigation";
 import PageNavigation from "../components/PageNavigation";
 import Header from "../components/Header";
 import ContentItem from "../components/ContentItem";
-import Footer from '../components/Footer'
+import Footer from "../components/Footer";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -15,7 +15,7 @@ const Container = styled.div`
 const ItemsWrapper = styled.section`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 60px;
+  padding: 60px 0;
 `;
 
 const Home: NextPage = () => {
