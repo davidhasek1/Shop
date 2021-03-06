@@ -2,15 +2,16 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const PageNavWrapper = styled.div`
-  height: 50px;
   display: flex;
   text-align: center;
+  flex-wrap: wrap;
   margin: auto;
   padding-left: 10%;
+  background-color: #ffffff;
 `;
 const StyledLink = styled.a`
-  margin: 5px;
-  padding: 2px 20px;
+  margin: 15px;
+  padding: 5px 20px;
   background: none;
   border: none;
   outline: none;

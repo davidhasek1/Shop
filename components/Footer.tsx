@@ -9,12 +9,15 @@ const FooterContainer = styled.section`
   display: flex;
   justify-content: space-between;
   padding: 30px;
+  background-color: #ffffff;
 `;
 const Links = styled.div`
   width: 50%;
   display flex;
   justify-content: space-around;
   align-items: center;
+  font-size: 12px;
+  padding: 0 50px;
 `;
 const Socials = styled(Links)``;
 
@@ -31,8 +34,8 @@ const Footer = () => {
   return (
     <FooterContainer>
       <Links>
-        <Link href="/">Terms &amp; Conditions</Link>
-        <Link href="/">Privacy Policy</Link>
+        <Link href="/terms">Terms &amp; Conditions</Link>
+        <Link href="/privacy-policy">Privacy Policy</Link>
         <Link href="/contact">Contact</Link>
       </Links>
       <Socials>

@@ -1,8 +1,13 @@
-const Layout = ({children}) => {
-  return (
-    <div>{children}</div>
-  )
-}
+import styled from "styled-components";
 
-export default Layout
+const Container = styled.div`
+  max-width: 1200px;
+  text-align: center;
+  margin: auto;
+`;
 
+const Layout = ({ children }) => {
+  return <Container>{children}</Container>;
+};
+
+export default Layout;
