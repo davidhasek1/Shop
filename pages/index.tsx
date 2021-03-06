@@ -3,8 +3,8 @@ import Head from "next/head";
 import styled from "styled-components";
 import Navigation from "../components/Navigation";
 import PageNavigation from "../components/PageNavigation";
-import Header from "../components/Header";
-import ContentItem from "../components/ContentItem";
+import Header from "../components/HomePage/Header";
+import ContentItem from "../components/HomePage/ContentItem";
 import Footer from "../components/Footer";
 
 const Container = styled.div`
