@@ -24,7 +24,7 @@ const Price = styled.span``;
 
 const ItemActions = styled.div`
   ${StyledIconBase} {
-    color: #f2d5e8;
+    color: #ffbac9;
   }
   display: flex;
   justify-content: space-around;
