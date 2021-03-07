@@ -23,7 +23,7 @@ const Paragraph = styled.p`
 
 const ButtonWrapper = styled.div`
   ${StyledIconBase} {
-    color: #6648cd;
+    color: #f2d5e8;
   }
   height: auto;
   padding: 20px;

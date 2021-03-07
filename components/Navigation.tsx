@@ -1,13 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import Layout from "../components/Layout";
 import { Shop, Cart } from "@styled-icons/bootstrap";
+import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
+import { StyledIconBase } from "@styled-icons/styled-icon";
 
 const NavWrapper = styled.div`
   text-align: center;
   padding: 15px 0;
-  background-color: #6648cd;
+  background-color: #f2d5e8;
+  ${StyledIconBase} {
+    color: #ffffff;
+  }
+`;
+const Container = styled.div`
+  max-width: 1200px;
+  text-align: center;
+  margin: auto;
+  display: flex;
 `;
 
 const LeftSide = styled.div`
@@ -30,11 +40,26 @@ const StyledLink = styled.div`
   margin: 0 15px;
   padding: 20px;
 `;
+const RightSide = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const SearchInput = styled.input`
+  padding: 10px 5px;
+  min-width: 200px;
+  width: 50%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  outline: none;
+`;
 
 const Navigation = () => {
   return (
     <NavWrapper>
-      <Layout>
+      <Container>
         <LeftSide>
           <Link href="/">
             <Image
@@ -64,7 +89,12 @@ const Navigation = () => {
             </StyledLink>
           </Links>
         </LeftSide>
-      </Layout>
+        <RightSide>
+          <MagnifyingGlass size={35} />
+          &nbsp;&nbsp;&nbsp;
+          <SearchInput type="text" placeholder="Search" />
+        </RightSide>
+      </Container>
     </NavWrapper>
   );
 };
