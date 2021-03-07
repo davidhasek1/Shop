@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import Layout from '../components/Layout'
+import Layout from "../components/Layout";
+import { Shop, Cart } from "@styled-icons/bootstrap";
 
 const NavWrapper = styled.div`
   text-align: center;
   padding: 15px 0;
-  background-color: #6648cd; 
+  background-color: #6648cd;
 `;
 
 const LeftSide = styled.div`
@@ -46,10 +47,20 @@ const Navigation = () => {
 
           <Links>
             <StyledLink>
-              <Link href="/shop">Shop</Link>
+              <Link href="/shop">
+                <a>
+                  <Shop size={30} />
+                  &nbsp;&nbsp;&nbsp;Shop
+                </a>
+              </Link>
             </StyledLink>
             <StyledLink>
-              <Link href="/cart">Cart</Link>
+              <Link href="/cart">
+                <a>
+                  <Cart size={30} />
+                  &nbsp;&nbsp;&nbsp;Cart
+                </a>
+              </Link>
             </StyledLink>
           </Links>
         </LeftSide>
