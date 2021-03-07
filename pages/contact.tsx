@@ -18,7 +18,7 @@ const FormWrapper = styled.div`
 `;
 const Map = styled.iframe`
   width: 50%;
-  height: 80vh;
+  height: 90vh;
   border: none;
   filter: grayscale(100%);
 `;
@@ -29,6 +29,8 @@ const Content = styled.div`
 
 const Title = styled.h1`
   margin-top: 0;
+  font-size: 35px;
+  font-weight: 400;
 `;
 const Form = styled.form`
   padding-top: 10px;
