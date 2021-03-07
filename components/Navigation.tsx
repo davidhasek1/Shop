@@ -8,7 +8,7 @@ import { StyledIconBase } from "@styled-icons/styled-icon";
 const NavWrapper = styled.div`
   text-align: center;
   padding: 15px 0;
-  background-color: #f2d5e8;
+  background-color: #ffbac9;
   ${StyledIconBase} {
     color: #ffffff;
   }
