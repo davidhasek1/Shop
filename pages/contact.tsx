@@ -5,6 +5,46 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { User, Message } from "@styled-icons/boxicons-regular";
 import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail";
+import MapCircle from "../components/MapCircle";
+
+const Contact: NextPage = () => {
+  return (
+    <div>
+      <Head>
+        <title>Conatct Page</title>
+      </Head>
+      <Navigation />
+      <Container>
+        <FormWrapper>
+          <Content>
+            <Title>
+              Send
+              <br />
+              Feedback
+            </Title>
+            <span>Your opinion is important for us!</span>
+            <Form>
+              <User size={25} /> <StyledInput type="text" placeholder="Name" />
+              <AlternateEmail size={25} />
+              <StyledInput type="email" placeholder="E-mail" />
+              <Message size={25} />
+              <StyledTextarea placeholder="Message"></StyledTextarea>
+              <FormButton type="submit">Send</FormButton>
+            </Form>
+          </Content>
+        </FormWrapper>
+        <MapWrapper>
+          <Map
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2551.616824924917!2d12.744766315723895!3d50.243062979447245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a0972740d67709%3A0xc8932e16a11d801f!2zUGF2bGEgRmFya2HFoW92w6EgU2NoYXVlcm92w6E!5e0!3m2!1scs!2scz!4v1615127734489!5m2!1scs!2scz"
+            loading="lazy"
+          />
+          <MapCircle />
+        </MapWrapper>
+      </Container>
+      <Footer />
+    </div>
+  );
+};
 
 const Container = styled.div`
   display: flex;
@@ -14,10 +54,14 @@ const FormWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items center;
-
+`;
+const MapWrapper = styled.div`
+  position: relative;
+  width: 50%;
 `;
 const Map = styled.iframe`
-  width: 50%;
+  display: block; /* iframe je defaultne inline !! */
+  width: 100%;
   height: 90vh;
   border: none;
   filter: grayscale(100%);
@@ -66,42 +110,5 @@ const FormButton = styled.button`
   font-size: 18px;
   color: #ffffff;
 `;
-
-const Contact: NextPage = () => {
-  return (
-    <div>
-      <Head>
-        <title>Conatct Page</title>
-      </Head>
-      <Navigation />
-      <Container>
-        <FormWrapper>
-          <Content>
-            <Title>
-              Send
-              <br />
-              Feedback
-            </Title>
-            <span>Your opinion is important for us!</span>
-            <Form>
-              <User size={25} /> <StyledInput type="text" placeholder="Name" />
-              <AlternateEmail size={25} />
-              <StyledInput type="email" placeholder="E-mail" />
-              <Message size={25} />
-              <StyledTextarea placeholder="Message"></StyledTextarea>
-              <FormButton type="submit">Send</FormButton>
-            </Form>
-          </Content>
-        </FormWrapper>
-
-        <Map
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2551.616824924917!2d12.744766315723895!3d50.243062979447245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a0972740d67709%3A0xc8932e16a11d801f!2zUGF2bGEgRmFya2HFoW92w6EgU2NoYXVlcm92w6E!5e0!3m2!1scs!2scz!4v1615127734489!5m2!1scs!2scz"
-          loading="lazy"
-        />
-      </Container>
-      <Footer />
-    </div>
-  );
-};
 
 export default Contact;
