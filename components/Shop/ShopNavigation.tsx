@@ -22,9 +22,18 @@ const StyledLink = styled.a`
   align-items: center;
 `;
 
-const PageNavigation = () => {
+const ShopNavigation = () => {
   return (
     <PageNavWrapper>
+      <Link href="/" passHref>
+        <StyledLink>All</StyledLink>
+      </Link>
+      <Link href="/" passHref>
+        <StyledLink>Favourites</StyledLink>
+      </Link>
+      <Link href="/" passHref>
+        <StyledLink>Sale</StyledLink>
+      </Link>
       <Link href="/" passHref>
         <StyledLink>All</StyledLink>
       </Link>
@@ -38,4 +47,4 @@ const PageNavigation = () => {
   );
 };
 
-export default PageNavigation;
+export default ShopNavigation;
