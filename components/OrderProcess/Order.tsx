@@ -30,7 +30,6 @@ const Order = () => {
 };
 
 const OrderContainer = styled.div`
-  position: relative;
   padding-top: 80px;
   display: flex;
 `;
