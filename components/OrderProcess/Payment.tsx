@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 
-const ShipmentDataContainer = styled.div`
+const PaymentContainer = styled.div`
   padding-top: 80px;
   display: flex;
 `;
@@ -44,11 +44,11 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Shipment = () => {
+const Payment = () => {
   return (
-    <ShipmentDataContainer>
+    <PaymentContainer>
       <Left>
-        <Title>Shipment</Title>
+        <Title>Payment</Title>
         <Price>1000,- Kč</Price>
       </Left>
       <Divider />
@@ -57,8 +57,8 @@ const Shipment = () => {
           <Button>Continue</Button>
         </ButtonWrapper>
       </Right>
-    </ShipmentDataContainer>
+    </PaymentContainer>
   );
 };
 
-export default Shipment;
+export default Payment;
