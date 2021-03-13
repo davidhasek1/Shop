@@ -34,7 +34,7 @@ const CloseCircleStyled = styled(CloseCircle)`
 `
 const Window = styled.div`
   position: absolute;
-  height: 70%;
+  height: auto;
   min-height: 500px;
   width: 70%;
   z-index: 2;

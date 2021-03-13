@@ -9,12 +9,7 @@ const ProductDetail = () => {
     <Modal closeModal={() => setIsDetailOpen(false)}>
       <ProductWrapper>
         <ImageContainer>
-          <Image
-            src="/images/product.jpg"
-            width={500}
-            height={500}
-            
-          />
+          <Image src="/images/product.jpg" width={500} height={500} />
         </ImageContainer>
         <DetailContent>
           <h1>Details</h1>
@@ -34,6 +29,7 @@ const ProductDetail = () => {
             Laboris duis nulla elit non aliqua. Non ad commodo incididunt
             consectetur esse nisi laboris.
           </p>
+          
         </DetailContent>
       </ProductWrapper>
     </Modal>
@@ -42,6 +38,9 @@ const ProductDetail = () => {
 
 const ProductWrapper = styled.div`
   display: flex;
+  height: 100%;
+  align-items: center;
+
 `
 const ImageContainer = styled.div`
   display: flex;
