@@ -15,10 +15,10 @@ const Shop: NextPage = () => {
       <Head>
         <title>SHOP: Main page</title>
       </Head>
+      <ProductDetail />
       <Navigation />
       <ShopNavigation />
 
-      <ProductDetail />
 
       <Layout>
         <Grid>

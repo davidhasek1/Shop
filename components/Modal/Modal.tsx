@@ -22,7 +22,7 @@ const Modal = ({ closeModal, children }: Props) => {
 }
 
 const Backdrop = styled.div`
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100vw;
   z-index: 1;
@@ -33,7 +33,7 @@ const CloseCircleStyled = styled(CloseCircle)`
   color: #ffbac9;
 `
 const Window = styled.div`
-  position: relative;
+  position: absolute;
   height: 70%;
   min-height: 500px;
   width: 70%;
@@ -42,7 +42,9 @@ const Window = styled.div`
   border-radius: 10px;
   border: 3px solid #ffbac9;
   overflow-x: hidden;
-  transform: translate(21.5%, 30%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 const CloseButton = styled.div`
   width: 25px;
