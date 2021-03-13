@@ -4,40 +4,6 @@ import { InfoCircle, ShoppingBag } from "@styled-icons/boxicons-regular";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Link from "next/link";
 
-const Item = styled.div`
-  max-width: 500px;
-  min-width: 300px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  margin: 30px 0;
-  overflow: hidden;
-`;
-const Title = styled.h3`
-  margin: 0;
-  text-align: left;
-  padding-left: 10px;
-`;
-const Content = styled.div`
-  padding: 30px 0;
-`;
-const Price = styled.span``;
-
-const ItemActions = styled.div`
-  ${StyledIconBase} {
-    color: #ffbac9;
-  }
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 70px;
-`;
-
-const ActionButton = styled.button`
-  background: transparent;
-  padding: 0;
-  outline: none;
-  border: none;
-`;
-
 const ShopItem = () => {
   return (
     <Item>
@@ -66,5 +32,38 @@ const ShopItem = () => {
     </Item>
   );
 };
+
+const Item = styled.div`
+  max-width: 500px;
+  min-width: 300px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+`
+const Title = styled.h3`
+  margin: 0;
+  text-align: left;
+  padding-left: 10px;
+`
+const Content = styled.div`
+  padding: 30px 0;
+`
+const Price = styled.span``
+
+const ItemActions = styled.div`
+  ${StyledIconBase} {
+    color: #ffbac9;
+  }
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 70px;
+`
+
+const ActionButton = styled.button`
+  background: transparent;
+  padding: 0;
+  outline: none;
+  border: none;
+`
 
 export default ShopItem;
