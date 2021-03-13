@@ -9,7 +9,6 @@ const Item = styled.div`
   min-width: 300px;
   background-color: #ffffff;
   border-radius: 15px;
-  margin: 30px 0;
   overflow: hidden;
 `;
 const Title = styled.h3`

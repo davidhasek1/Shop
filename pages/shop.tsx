@@ -6,7 +6,6 @@ import Layout from "../components/Layout"
 import Footer from "../components/Footer"
 import styled from "styled-components"
 import ShopItem from "../components/Shop/ShopItem"
-import ShopItemL from "../components/Shop/ShopItemL"
 import ProductDetail from "../components/Modal/ProductDetail"
 
 const Shop: NextPage = () => {
@@ -19,27 +18,16 @@ const Shop: NextPage = () => {
       <Navigation />
       <ShopNavigation />
 
-
       <Layout>
         <Grid>
-          <Col1>
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-          </Col1>
-          <Col1>
-            <ShopItemL />
-            <ShopItemL />
-            <ShopItemL />
-            <ShopItemL />
-          </Col1>
-          <Col1>
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-          </Col1>
+          <ShopItem />
+          <ShopItem />
+          <ShopItem />
+          <ShopItem />
+          <ShopItem />
+          <ShopItem />
+          <ShopItem />
+          <ShopItem />
         </Grid>
       </Layout>
       <Footer />
@@ -52,7 +40,7 @@ const Grid = styled.div`
   grid-template-columns: auto auto auto;
   justify-content: space-between;
   grid-gap: 30px;
+  margin: 50px 0;
 `
-const Col1 = styled.div``
 
 export default Shop
