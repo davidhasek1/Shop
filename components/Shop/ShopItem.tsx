@@ -35,7 +35,7 @@ const ShopItem = () => {
 
 const Item = styled.div`
   max-width: 500px;
-  min-width: 300px;
+  min-width: 250px;
   background-color: #ffffff;
   border-radius: 15px;
   overflow: hidden;

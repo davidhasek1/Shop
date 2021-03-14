@@ -7,6 +7,8 @@ import Footer from "../components/Footer"
 import styled from "styled-components"
 import ShopItem from "../components/Shop/ShopItem"
 import ProductDetail from "../components/Modal/ProductDetail"
+import { breakpoints } from "../utils/responsivity"
+//SHOP MAIN PAGE
 
 const Shop: NextPage = () => {
   return (
@@ -41,6 +43,8 @@ const Grid = styled.div`
   justify-content: space-between;
   grid-gap: 30px;
   margin: 50px 0;
+  ${breakpoints("grid-template-columns", "", [{800: 'auto auto'},{ 600: "auto" }])};
+  ${breakpoints('margin', '', [{800: '50px 10px'},{600: '50px 10px'}])}
 `
 
 export default Shop

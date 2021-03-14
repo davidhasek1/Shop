@@ -92,7 +92,7 @@ const Navigation = () => {
         <RightSide>
           <MagnifyingGlass size={35} />
           &nbsp;&nbsp;&nbsp;
-          <SearchInput type="text" placeholder="Search" />
+          {/* <SearchInput type="text" placeholder="Search" /> */}
         </RightSide>
       </Container>
     </NavWrapper>
