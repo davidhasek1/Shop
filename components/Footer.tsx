@@ -1,53 +1,85 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { breakpoints } from "../utils/responsivity";
+import Image from "next/image";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { FacebookCircle } from "@styled-icons/boxicons-logos/FacebookCircle";
 import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Instagram } from "@styled-icons/boxicons-logos/Instagram";
 
-const FooterContainer = styled.section`
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  background-color: #ffffff;
-`;
-const Links = styled.div`
-  width: 50%;
-  display flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 12px;
-  padding: 0 50px;
-`;
-const Socials = styled(Links)``;
-
-const IconStyleWrapper = styled.div`
-  ${StyledIconBase} {
-    color: #bfbfbf;
-  }
-  width: 30%;
-  display: flex;
-  justify-content: space-around;
-`;
-
 const Footer = () => {
   return (
     <FooterContainer>
-      <Links>
-        <Link href="/terms">Terms &amp; Conditions</Link>
-        <Link href="/privacy-policy">Privacy Policy</Link>
-        <Link href="/contact">Contact</Link>
-      </Links>
-      <Socials>
-        <IconStyleWrapper>
-          <FacebookCircle size={25} />
-          <Twitter size={25} />
-          <Instagram size={25} />
-        </IconStyleWrapper>
-        <span>&copy; 2021 All rights reserved</span>
-      </Socials>
+      <Content>
+        <ImageWrapper>
+          <Image src="/images/wellu.png" width={150} height={75} />
+        </ImageWrapper>
+        <Links>
+          <Link href="/terms">Terms &amp; Conditions</Link>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          <Link href="/contact">Contact</Link>
+        </Links>
+        <Socials>
+          <FacebookCircle size={30} />
+          <Twitter size={30} />
+          <Instagram size={30} />
+        </Socials>
+        <Copyright>
+          <span>&copy; 2021 All rights reserved</span>
+          <span>Handcraftet by David Hašek</span>
+        </Copyright>
+      </Content>
     </FooterContainer>
   );
 };
+
+const FooterContainer = styled.section`
+  padding: 30px 0;
+  background-color: #ffffff;
+`;
+const Content = styled.div`
+  max-width: 1200px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  ${breakpoints("padding", "", [{ 800: "0 20px" }])}
+  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
+`;
+const ImageWrapper = styled.div`
+  ${breakpoints("display", "", [{ 800: "none" }], "min-width")}
+  ${breakpoints("padding-bottom", "", [{ 800: "15px" }])}
+`;
+const Links = styled.div`
+  width: 100%;
+  display flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  ${breakpoints("order", "", [{ 800: 1 }])}
+  ${breakpoints("justify-content", "", [{ 800: "space-around" }])}
+  ${breakpoints("flex-direction", "", [{ 600: "column" }])}
+  ${breakpoints("padding", "", [{ 800: "20px 0" }])}
+`;
+const Socials = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  ${StyledIconBase} {
+    color: #bfbfbf;
+    margin: 0 15px;
+  }
+  ${breakpoints("padding", "", [{ 800: "20px 0" }])}
+`;
+const Copyright = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  ${breakpoints("order", "", [{ 800: 1 }])}
+  ${breakpoints("flex-direction", "", [{ 600: "column" }])}
+  ${breakpoints("padding", "", [{ 800: "20px 0" }])}
+`;
 
 export default Footer;
