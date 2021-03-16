@@ -1,9 +1,57 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
+import { breakpoints } from "../utils/responsivity";
 import { Shop, Cart } from "@styled-icons/bootstrap";
 import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { StyledIconBase } from "@styled-icons/styled-icon";
+import Burger from "./Burger";
+
+const Navigation = () => {
+  return (
+    <NavWrapper>
+      <Container>
+        <LeftSide>
+          <Link href="/">
+            <Image
+              src="/images/wellu.png"
+              width={100}
+              height={50}
+              alt="shop logo"
+            />
+          </Link>
+          {/* Display none pro mobily */}
+          <Links>
+            <StyledLink>
+              <Link href="/shop">
+                <a>
+                  <Shop size={30} />
+                  &nbsp;&nbsp;&nbsp;Shop
+                </a>
+              </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link href="/cart">
+                <a>
+                  <Cart size={30} />
+                  &nbsp;&nbsp;&nbsp;Cart
+                </a>
+              </Link>
+            </StyledLink>
+          </Links>
+        </LeftSide>
+        <RightSide>
+          <MagnifyingGlass size={35} />
+
+          <BurgerWrapper>
+            <Burger />
+          </BurgerWrapper>
+          {/* <SearchInput type="text" placeholder="Search" /> */}
+        </RightSide>
+      </Container>
+    </NavWrapper>
+  );
+};
 
 const NavWrapper = styled.div`
   text-align: center;
@@ -35,6 +83,7 @@ const Links = styled.div`
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 2px;
+  ${breakpoints("display", "", [{ 600: "none" }])}
 `;
 const StyledLink = styled.div`
   margin: 0 15px;
@@ -44,7 +93,14 @@ const RightSide = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  ${breakpoints("justify-content", "", [{ 600: "space-around" }])}
+`;
+const BurgerWrapper = styled.div`
+  margin-left: 10px;
+  ${breakpoints("display", "", [{ 800: "none" }], "min-width")}
+  ${breakpoints("margin-left", "", [{ 600: 0 }])}
 `;
 const SearchInput = styled.input`
   padding: 10px 5px;
@@ -55,48 +111,5 @@ const SearchInput = styled.input`
   border-bottom: 1px solid #ffffff;
   outline: none;
 `;
-
-const Navigation = () => {
-  return (
-    <NavWrapper>
-      <Container>
-        <LeftSide>
-          <Link href="/">
-            <Image
-              src="/images/wellu.png"
-              width={150}
-              height={75}
-              alt="shop logo"
-            />
-          </Link>
-
-          <Links>
-            <StyledLink>
-              <Link href="/shop">
-                <a>
-                  <Shop size={30} />
-                  &nbsp;&nbsp;&nbsp;Shop
-                </a>
-              </Link>
-            </StyledLink>
-            <StyledLink>
-              <Link href="/cart">
-                <a>
-                  <Cart size={30} />
-                  &nbsp;&nbsp;&nbsp;Cart
-                </a>
-              </Link>
-            </StyledLink>
-          </Links>
-        </LeftSide>
-        <RightSide>
-          <MagnifyingGlass size={35} />
-          &nbsp;&nbsp;&nbsp;
-          {/* <SearchInput type="text" placeholder="Search" /> */}
-        </RightSide>
-      </Container>
-    </NavWrapper>
-  );
-};
 
 export default Navigation;

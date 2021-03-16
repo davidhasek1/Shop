@@ -13,8 +13,6 @@ const ShopItem = () => {
         <p>
           oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw
           oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw
-          oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw
-          min-height: 500px;min-height: 500px;min-height: 500px;
         </p>
 
         <Price>
