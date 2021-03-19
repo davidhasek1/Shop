@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Burger = () => {
+const Burger = ({ onClick }) => {
   return (
-    <BurgerContainer>
+    <BurgerContainer onClick={onClick}>
       <BurgerLine />
       <BurgerLine />
       <BurgerLine />

@@ -40,7 +40,7 @@ const Shop: NextPage = () => {
 const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
-  justify-content: space-between;
+  justify-content: center;
   grid-gap: 30px;
   margin: 50px 0;
   ${breakpoints("grid-template-columns", "", [{800: 'auto auto'},{ 600: "auto" }])};

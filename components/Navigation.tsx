@@ -26,7 +26,7 @@ const Navigation = () => {
               <Link href="/shop">
                 <a>
                   <Shop size={30} />
-                  &nbsp;&nbsp;&nbsp;Shop
+                  Shop
                 </a>
               </Link>
             </StyledLink>
@@ -34,7 +34,7 @@ const Navigation = () => {
               <Link href="/cart">
                 <a>
                   <Cart size={30} />
-                  &nbsp;&nbsp;&nbsp;Cart
+                  Cart
                 </a>
               </Link>
             </StyledLink>
@@ -42,11 +42,11 @@ const Navigation = () => {
         </LeftSide>
         <RightSide>
           <MagnifyingGlass size={35} />
+          {/* <SearchInput type="text" placeholder="Search" /> */}
 
           <BurgerWrapper>
-            <Burger />
+            <Burger onClick={() => console.log("uffe")} />
           </BurgerWrapper>
-          {/* <SearchInput type="text" placeholder="Search" /> */}
         </RightSide>
       </Container>
     </NavWrapper>
@@ -72,7 +72,7 @@ const LeftSide = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 `;
 
 const Links = styled.div`
@@ -83,11 +83,11 @@ const Links = styled.div`
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 2px;
-  ${breakpoints("display", "", [{ 600: "none" }])}
+  ${breakpoints("display", "", [{ 800: "none" }])}
 `;
 const StyledLink = styled.div`
   margin: 0 15px;
-  padding: 20px;
+  padding: 10px;
 `;
 const RightSide = styled.div`
   width: 50%;
