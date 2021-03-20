@@ -6,6 +6,7 @@ import { Shop, Cart } from "@styled-icons/bootstrap";
 import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Burger from "./Burger";
+import DropdownMenu from "./DropdownMenu";
 
 const Navigation = () => {
   return (
@@ -42,12 +43,13 @@ const Navigation = () => {
           </Links>
         </LeftSide>
         <RightSide>
-          <MagnifyingGlass size={35} />
+          <MagnifyingGlassStyled size={35} />
           {/* <SearchInput type="text" placeholder="Search" /> */}
 
           <BurgerWrapper>
             <Burger onClick={() => console.log("uffe")} />
           </BurgerWrapper>
+          <DropdownMenu />
         </RightSide>
       </Container>
     </NavWrapper>
@@ -58,9 +60,6 @@ const NavWrapper = styled.div`
   text-align: center;
   padding: 15px 0;
   background-color: #ffbac9;
-  ${StyledIconBase} {
-    color: #ffffff;
-  }
 `;
 const Container = styled.div`
   max-width: 1200px;
@@ -99,11 +98,15 @@ const LinkText = styled.span`
   margin-left: 10px;
 `;
 const RightSide = styled.div`
+  position: relative;
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 15px;
+`;
+const MagnifyingGlassStyled = styled(MagnifyingGlass)`
+  color: #ffffff;
 `;
 const BurgerWrapper = styled.div`
   margin-left: 20px;
