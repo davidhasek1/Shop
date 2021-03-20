@@ -13,28 +13,29 @@ const Navigation = () => {
       <Container>
         <LeftSide>
           <Link href="/">
-            <Image
-              src="/images/wellu.png"
-              width={100}
-              height={50}
-              alt="shop logo"
-            />
+            <ImageLink>
+              <Image
+                src="/images/wellu.png"
+                width={100}
+                height={50}
+                alt="shop logo"
+              />
+            </ImageLink>
           </Link>
-          {/* Display none pro mobily */}
           <Links>
             <StyledLink>
               <Link href="/shop">
                 <a>
-                  <Shop size={30} />
-                  Shop
+                  <Shop size={25} />
+                  <LinkText>Shop</LinkText>
                 </a>
               </Link>
             </StyledLink>
             <StyledLink>
               <Link href="/cart">
                 <a>
-                  <Cart size={30} />
-                  Cart
+                  <Cart size={25} />
+                  <LinkText>Cart</LinkText>
                 </a>
               </Link>
             </StyledLink>
@@ -66,6 +67,7 @@ const Container = styled.div`
   text-align: center;
   margin: auto;
   display: flex;
+  ${breakpoints("padding", "", [{ 1200: "0 15px" }])}
 `;
 
 const LeftSide = styled.div`
@@ -74,7 +76,11 @@ const LeftSide = styled.div`
   align-items: center;
   justify-content: flex-start;
 `;
-
+const ImageLink = styled.a`
+  display: flex;
+  align-itmes: center;
+  cursor: pointer;
+`;
 const Links = styled.div`
   width: 100%;
   margin-left: 20px;
@@ -89,18 +95,20 @@ const StyledLink = styled.div`
   margin: 0 15px;
   padding: 10px;
 `;
+const LinkText = styled.span`
+  margin-left: 10px;
+`;
 const RightSide = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 15px;
-  ${breakpoints("justify-content", "", [{ 600: "space-around" }])}
 `;
 const BurgerWrapper = styled.div`
-  margin-left: 10px;
+  margin-left: 20px;
   ${breakpoints("display", "", [{ 800: "none" }], "min-width")}
-  ${breakpoints("margin-left", "", [{ 600: 0 }])}
+  ${breakpoints("margin-left", "", [{ 600: "15px" }])}
 `;
 const SearchInput = styled.input`
   padding: 10px 5px;

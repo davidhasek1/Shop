@@ -43,7 +43,7 @@ const Content = styled.div`
   margin: auto;
   display: flex;
   justify-content: space-between;
-  ${breakpoints("padding", "", [{ 800: "0 20px" }])}
+  ${breakpoints("padding", "", [{ 1200: "0 20px" }])}
   ${breakpoints("flex-direction", "", [{ 800: "column" }])}
 `;
 const ImageWrapper = styled.div`
