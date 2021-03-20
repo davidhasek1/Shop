@@ -12,7 +12,7 @@ const Footer = () => {
     <FooterContainer>
       <Content>
         <ImageWrapper>
-          <Image src="/images/wellu.png" width={150} height={75} />
+          <Image src="/images/wellu.png" width={100} height={50} />
         </ImageWrapper>
         <Links>
           <Link href="/terms">Terms &amp; Conditions</Link>

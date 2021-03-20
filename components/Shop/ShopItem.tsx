@@ -8,7 +8,7 @@ import Link from "next/link";
 const ShopItem = () => {
   return (
     <Item>
-      <Image src="/images/product.jpg" width={500} height={375} />
+      <Image src="/images/product.jpg" width={500} height={375} layout="responsive" />
       <Content>
         <Title>Title of section whe you can find top products</Title>
         <Text>
