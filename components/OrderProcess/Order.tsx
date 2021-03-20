@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../utils/responsivity";
 import CartItem from "../OrderProcess/CartItem";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
@@ -9,7 +10,7 @@ const Order = () => {
       <Left>
         <Title>
           <BagFill size={30} />
-          &nbsp; Order
+          &nbsp;Order
         </Title>
         <Price>1000,- Kč</Price>
       </Left>
@@ -32,9 +33,11 @@ const Order = () => {
 const OrderContainer = styled.div`
   padding-top: 80px;
   display: flex;
+  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
 `;
 const Left = styled.div`
   width: 30%;
+  ${breakpoints("width", "", [{ 800: "100%" }])}
 `;
 const Title = styled.h1`
   ${StyledIconBase} {
@@ -51,6 +54,7 @@ const Divider = styled.div`
 
 const Right = styled.div`
   width: 70%;
+  ${breakpoints("width", "", [{ 800: "100%" }])}
 `;
 const Items = styled.div``;
 const ButtonWrapper = styled.div`

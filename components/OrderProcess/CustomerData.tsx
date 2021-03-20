@@ -1,7 +1,8 @@
-import * as React from "react"
-import styled from "styled-components"
-import { StyledIconBase } from "@styled-icons/styled-icon"
-import { User } from "@styled-icons/boxicons-solid/User"
+import * as React from "react";
+import styled from "styled-components";
+import { breakpoints } from "../../utils/responsivity";
+import { StyledIconBase } from "@styled-icons/styled-icon";
+import { User } from "@styled-icons/boxicons-solid/User";
 
 const CustomerData = () => {
   return (
@@ -43,8 +44,8 @@ const CustomerData = () => {
         </Form>
       </Right>
     </CustomerDataContainer>
-  )
-}
+  );
+};
 
 const Form = styled.form`
   height: 100%;
@@ -54,13 +55,14 @@ const Form = styled.form`
   align-items: center;
   flex-direction: column;
   /*  background-color: #ffbac9; */
-`
+`;
 const FormData = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   width: 90%;
   margin: auto;
-`
+  ${breakpoints("width", "", [{ 600: "100%" }])}
+`;
 const Input = styled.input`
   width: 90%;
   padding: 15px;
@@ -68,7 +70,7 @@ const Input = styled.input`
   border: none;
   outline: none;
   border-radius: 5px;
-`
+`;
 const Select = styled.select`
   width: 90%;
   padding: 15px;
@@ -76,23 +78,26 @@ const Select = styled.select`
   border: none;
   outline: none;
   border-radius: 5px;
-`
+`;
 const Separator = styled.div`
   height: 1px;
   width: 80%;
   border-bottom: 1px solid #ffbac9;
-`
+`;
 const CustomerDataContainer = styled.div`
   padding-top: 80px;
   display: flex;
-`
+  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
+`;
 
 const Left = styled.div`
   width: 30%;
-`
+  ${breakpoints("width", "", [{ 800: "100%" }])}
+`;
 const Right = styled.div`
   width: 70%;
-`
+  ${breakpoints("width", "", [{ 800: "100%" }])}
+`;
 const Title = styled.h1`
   ${StyledIconBase} {
     color: #ffbac9;
@@ -100,19 +105,19 @@ const Title = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
-`
-const Price = styled.h3``
+`;
+const Price = styled.h3``;
 
 const Divider = styled.div`
   border-left: 1px solid #ccc;
-`
+`;
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: auto;
   padding: 10px 0;
-`
+`;
 const Button = styled.button`
   padding: 15px 20px;
   background-color: #ffbac9;
@@ -123,6 +128,6 @@ const Button = styled.button`
   color: #ffffff;
   font-weight: 600;
   cursor: pointer;
-`
+`;
 
-export default CustomerData
+export default CustomerData;

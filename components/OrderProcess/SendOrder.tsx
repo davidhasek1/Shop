@@ -1,6 +1,7 @@
-import styled from "styled-components"
-import { StyledIconBase } from "@styled-icons/styled-icon"
-import { CheckCircle } from "@styled-icons/boxicons-solid/CheckCircle"
+import styled from "styled-components";
+import { breakpoints } from "../../utils/responsivity";
+import { StyledIconBase } from "@styled-icons/styled-icon";
+import { CheckCircle } from "@styled-icons/boxicons-solid/CheckCircle";
 
 const SendOrder = () => {
   return (
@@ -90,12 +91,10 @@ const SendOrder = () => {
               </tr>
             </Head>
             <TableBody>
-              <tr>
-                <Data>E-mail:</Data>
-                <Data>David@Hašek.com</Data>
-                <Data>Telefon:</Data>
-                <Data>777 777 777</Data>
-              </tr>
+              <Row>
+                <Data>E-mail: David@Hašek.com</Data>
+                <Data>Telefon: 777 777 777</Data>
+              </Row>
             </TableBody>
           </ContactTable>
         </ContactData>
@@ -109,12 +108,10 @@ const SendOrder = () => {
               </tr>
             </Head>
             <TableBody>
-              <tr>
-                <Data>E-mail:</Data>
-                <Data>David@Hašek.com</Data>
-                <Data>Telefon:</Data>
-                <Data>777 777 777</Data>
-              </tr>
+              <Row>
+                <Data>Položka 1</Data>
+                <Data>Položka 2</Data>
+              </Row>
             </TableBody>
           </ContactTable>
         </ContactData>
@@ -140,19 +137,22 @@ const SendOrder = () => {
         </ButtonWrapper>
       </Right>
     </SendOrderContainer>
-  )
-}
+  );
+};
 
 const SendOrderContainer = styled.div`
   padding-top: 80px;
   display: flex;
-`
+  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
+`;
 const Left = styled.div`
   width: 30%;
-`
+  ${breakpoints("width", "", [{ 800: "100%" }])}
+`;
 const Right = styled.div`
   width: 70%;
-`
+  ${breakpoints("width", "", [{ 800: "100%" }])}
+`;
 const Title = styled.h1`
   ${StyledIconBase} {
     color: #ffbac9;
@@ -160,19 +160,19 @@ const Title = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
-`
-const Price = styled.h3``
+`;
+const Price = styled.h3``;
 
 const Divider = styled.div`
   border-left: 1px solid #ccc;
-`
+`;
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: auto;
   padding: 10px 0;
-`
+`;
 const Button = styled.button`
   padding: 15px 20px;
   background-color: #ffbac9;
@@ -183,26 +183,31 @@ const Button = styled.button`
   color: #ffffff;
   font-weight: 600;
   cursor: pointer;
-`
+`;
 const CustomerDataWrapper = styled.div`
   display: flex;
   width: 90%;
   margin: auto;
-`
+  ${breakpoints("flex-direction", "", [{ 600: "column" }])}
+`;
 const DeliveryTable = styled.table`
   width: 50%;
   margin-right: 5px;
   border-collapse: collapse;
   border-radius: 5px;
   overflow: hidden;
-`
+  ${breakpoints("width", "", [{ 800: "100%" }])}
+  ${breakpoints("margin", "", [{ 600: "15px 0" }])}
+`;
 const InvoiceTable = styled(DeliveryTable)`
   margin-left: 5px;
-`
+  margin-right: 0;
+  ${breakpoints("margin", "", [{ 600: "15px 0" }])}
+`;
 const ContactData = styled(CustomerDataWrapper)`
   width: 90%;
-`
-const ShipData = styled(ContactData)``
+`;
+const ShipData = styled(ContactData)``;
 
 const ContactTable = styled.table`
   width: 100%;
@@ -210,23 +215,27 @@ const ContactTable = styled.table`
   border-collapse: collapse;
   border-radius: 5px;
   overflow: hidden;
-`
+`;
 const ShippingTable = styled(ContactTable)`
   margin-bottom: 25px;
-`
+`;
 const TableBody = styled.tbody`
   text-align: left;
-`
-const Head = styled.thead``
+`;
+const Head = styled.thead``;
 const Data = styled.td`
-padding: 10px;
+  padding: 10px;
 
-background-color: #ffffff;
-`
+  background-color: #ffffff;
+`;
 const HeadData = styled(Data)`
   background-color: #ffbac9;
   color: #ffffff;
   text-transform: uppercase;
   font-weight: 500;
-`
-export default SendOrder
+`;
+const Row = styled.tr`
+  ${breakpoints("display", "", [{ 600: "flex" }])}
+  ${breakpoints("flex-direction", "", [{ 600: "column" }])}
+`;
+export default SendOrder;
