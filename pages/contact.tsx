@@ -6,7 +6,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { User, Message } from "@styled-icons/boxicons-regular";
 import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail";
-import MapCircle from "../components/MapCircle";
+import MapCircle from "../components/Contact/MapCircle";
 
 const Contact: NextPage = () => {
   return (
