@@ -1,13 +1,9 @@
-import { ReactChild, MouseEventHandler } from "react";
+import { ModalProps } from "../../types/types";
 import styled from "styled-components";
 import { CloseCircle } from "@styled-icons/ionicons-solid/CloseCircle";
 import { breakpoints } from "../../utils/responsivity";
-type Props = {
-  closeModal: MouseEventHandler;
-  children: ReactChild;
-};
 
-const Modal = ({ closeModal, children }: Props) => {
+const Modal = ({ closeModal, children }: ModalProps) => {
   return (
     <>
       <Backdrop onClick={closeModal} />
