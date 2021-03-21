@@ -1,14 +1,18 @@
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import { breakpoints } from "../utils/responsivity";
 import { Shop, Cart } from "@styled-icons/bootstrap";
+import { Close } from "@styled-icons/ionicons-solid/Close";
 import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Burger from "./Burger";
 import DropdownMenu from "./DropdownMenu";
 
 const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <NavWrapper>
       <Container>
@@ -43,13 +47,17 @@ const Navigation = () => {
           </Links>
         </LeftSide>
         <RightSide>
-          <MagnifyingGlassStyled size={35} />
+          <MagnifyingGlassStyled size={30} />
           {/* <SearchInput type="text" placeholder="Search" /> */}
 
           <BurgerWrapper>
-            <Burger onClick={() => console.log("uffe")} />
+            {isMenuOpen ? (
+              <CloseStyled onClick={() => setIsMenuOpen(false)} size={35} />
+            ) : (
+              <Burger onClick={() => setIsMenuOpen(true)} />
+            )}
           </BurgerWrapper>
-          <DropdownMenu />
+          {isMenuOpen ? <DropdownMenu /> : null}
         </RightSide>
       </Container>
     </NavWrapper>
@@ -112,6 +120,9 @@ const BurgerWrapper = styled.div`
   margin-left: 20px;
   ${breakpoints("display", "", [{ 800: "none" }], "min-width")}
   ${breakpoints("margin-left", "", [{ 600: "15px" }])}
+`;
+const CloseStyled = styled(Close)`
+  color: #ffffff;
 `;
 const SearchInput = styled.input`
   padding: 10px 5px;

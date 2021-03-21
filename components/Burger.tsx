@@ -4,8 +4,8 @@ const Burger = ({ onClick }) => {
   return (
     <BurgerContainer onClick={onClick}>
       <BurgerLine />
-      <BurgerLine />
-      <BurgerLine />
+      <BurgerLineShort />
+      <BurgerLineShort />
     </BurgerContainer>
   );
 };
@@ -18,7 +18,11 @@ const BurgerLine = styled.div`
   height: 3px;
   width: 30px;
   margin: 5px 0;
+  border-radius: 45px;
   background-color: #ffffff;
+`;
+const BurgerLineShort = styled(BurgerLine)`
+  width: 20px;
 `;
 
 export default Burger;
