@@ -42,6 +42,7 @@ const DropdownWrapper = styled.div`
     color: #ffbac9;
   }
   ${breakpoints("width", "", [{ 800: "100%" }, { 600: "200%" }])}
+  ${breakpoints("display", "", [{ 800: "none" }], 'min-width')}
 `;
 const Links = styled.div`
   text-align: left;
