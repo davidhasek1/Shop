@@ -3,7 +3,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import Navigation from "../components/Navigation";
-import CartNavigation from "../components/OrderProcess/CartNavigation";
+import PageNavigation from "../components/PageNavigation";
 import Order from "../components/OrderProcess/Order";
 import CustomerData from "../components/OrderProcess/CustomerData";
 import Shipment from "../components/OrderProcess/Shipment";
@@ -19,7 +19,7 @@ const Cart: NextPage = () => {
         <title>Cart</title>
       </Head>
       <Navigation />
-      <CartNavigation />
+      <PageNavigation />
       <Layout>
         <Order />
         <CustomerData />

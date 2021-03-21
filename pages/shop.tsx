@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import Head from "next/head"
 import Navigation from "../components/Navigation"
-import ShopNavigation from "../components/Shop/ShopNavigation"
+import PageNavigation from "../components/PageNavigation"
 import Layout from "../components/Layout"
 import Footer from "../components/Footer"
 import styled from "styled-components"
@@ -18,7 +18,7 @@ const Shop: NextPage = () => {
       </Head>
       <ProductDetail />
       <Navigation />
-      <ShopNavigation />
+      <PageNavigation />
 
       <Layout>
         <Grid>

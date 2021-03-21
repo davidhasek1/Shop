@@ -68,6 +68,9 @@ const Socials = styled.div`
   ${StyledIconBase} {
     color: #bfbfbf;
     margin: 0 15px;
+    &:hover {
+      color: #808080;
+    }
   }
   ${breakpoints("padding", "", [{ 800: "20px 0" }])}
 `;
