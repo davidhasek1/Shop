@@ -1,11 +1,12 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
+import { breakpoints } from "../utils/responsivity";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { User, Message } from "@styled-icons/boxicons-regular";
 import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail";
-import MapCircle from "../components/MapCircle";
+import MapCircle from "../components/Contact/MapCircle";
 
 const Contact: NextPage = () => {
   return (
@@ -18,17 +19,22 @@ const Contact: NextPage = () => {
         <FormWrapper>
           <Content>
             <Title>
-              Send
-              <br />
-              Feedback
+              Send<br />Feedback
             </Title>
             <span>Your opinion is important for us!</span>
             <Form>
-              <User size={25} /> <StyledInput type="text" placeholder="Name" />
-              <AlternateEmail size={25} />
-              <StyledInput type="email" placeholder="E-mail" />
-              <Message size={25} />
-              <StyledTextarea placeholder="Message"></StyledTextarea>
+              <InputWrapper>
+                <User size={25} />{" "}
+                <StyledInput type="text" placeholder="Name" />
+              </InputWrapper>
+              <InputWrapper>
+                <AlternateEmail size={25} />
+                <StyledInput type="email" placeholder="E-mail" />
+              </InputWrapper>
+              <InputWrapper>
+                <Message size={25} />
+                <StyledTextarea placeholder="Message"></StyledTextarea>
+              </InputWrapper>
               <FormButton type="submit">Send</FormButton>
             </Form>
           </Content>
@@ -48,16 +54,19 @@ const Contact: NextPage = () => {
 
 const Container = styled.div`
   display: flex;
+  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
 `;
 const FormWrapper = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
   align-items center;
+  ${breakpoints("width", "", [{ 800: "100%" }])}
 `;
 const MapWrapper = styled.div`
   position: relative;
   width: 50%;
+  ${breakpoints("width", "", [{ 800: "100%" }])}
 `;
 const Map = styled.iframe`
   display: block; /* iframe je defaultne inline !! */
@@ -65,10 +74,13 @@ const Map = styled.iframe`
   height: 90vh;
   border: none;
   filter: grayscale(100%);
+  ${breakpoints("height", "", [{ 800: "50vh" }])}
 `;
 const Content = styled.div`
   width: 60%;
   min-width: 200px;
+  ${breakpoints("width", "", [{ 600: "90%" }])}
+  ${breakpoints("margin", "", [{ 800: "25px 0" }])}
 `;
 
 const Title = styled.h1`
@@ -82,15 +94,26 @@ const Form = styled.form`
   flex-direction: column;
   box-sizing: border-box;
 `;
+const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-left: 5px;
+  border-radius: 5px;
+`;
 const StyledInput = styled.input`
-  margin: 10px 0;
-  padding: 15px 10px;
+  width: 100%;
+  padding: 10px;
+  margin-left: 5px;
   border-radius: 5px;
   border: none;
   outline: none;
 `;
 const StyledTextarea = styled.textarea`
-  margin: 10px 0;
+  width: 100%;
+  margin-left: 5px;
   padding-left: 10px;
   padding-top: 5px;
   height: 150px;

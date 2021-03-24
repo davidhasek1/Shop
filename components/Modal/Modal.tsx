@@ -1,13 +1,9 @@
-import { ReactChild, MouseEventHandler } from "react"
-import styled from "styled-components"
-import { CloseCircle } from "@styled-icons/ionicons-solid/CloseCircle"
+import { ModalProps } from "../../types/types";
+import styled from "styled-components";
+import { CloseCircle } from "@styled-icons/ionicons-solid/CloseCircle";
+import { breakpoints } from "../../utils/responsivity";
 
-type Props = {
-  closeModal: MouseEventHandler
-  children: ReactChild
-}
-
-const Modal = ({ closeModal, children }: Props) => {
+const Modal = ({ closeModal, children }: ModalProps) => {
   return (
     <>
       <Backdrop onClick={closeModal} />
@@ -18,8 +14,8 @@ const Modal = ({ closeModal, children }: Props) => {
         {children}
       </Window>
     </>
-  )
-}
+  );
+};
 
 const Backdrop = styled.div`
   position: fixed;
@@ -28,26 +24,30 @@ const Backdrop = styled.div`
   z-index: 1;
   background-color: #00000048;
   display: flex;
-`
-const CloseCircleStyled = styled(CloseCircle)`
-  color: #ffbac9;
-`
+`;
 const Window = styled.div`
   position: absolute;
-  height: auto;
-  min-height: 500px;
+  max-height: 80vh;
   width: 70%;
   z-index: 2;
   background-color: #ffffff;
   border-radius: 10px;
   border: 3px solid #ffbac9;
-  overflow-x: hidden;
+  overflow-y: scroll;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`
+  ${breakpoints("width", "", [{ 800: "90%" }, { 600: "100%" }])}
+`;
+const CloseCircleStyled = styled(CloseCircle)`
+  color: #ffbac9;
+`;
 const CloseButton = styled.div`
+  position: sticky;
+  top: 2px;
+  left: 2px;
   width: 25px;
   height: 25px;
-`
-export default Modal
+  cursor: pointer;
+`;
+export default Modal;
