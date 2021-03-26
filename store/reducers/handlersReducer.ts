@@ -1,6 +1,6 @@
 import * as types from "../types"
-
-const initialState = {
+import {handlers} from '../../types/types'
+const initialState: handlers = {
   isProductDetailOpen: true
 }
 export const handlersReducer = (state=initialState, action) => {
