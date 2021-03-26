@@ -4,11 +4,19 @@ import { breakpoints } from "../../utils/responsivity";
 import { InfoCircle, ShoppingBag } from "@styled-icons/boxicons-regular";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import {openProductDetail} from '../../store/actions/handlersActions'
 
 const ShopItem = () => {
+  const dispatch = useDispatch()
   return (
     <Item>
-      <Image src="/images/product.jpg" width={500} height={375} layout="responsive" />
+      <Image
+        src="/images/product.jpg"
+        width={500}
+        height={375}
+        layout="responsive"
+      />
       <Content>
         <Title>Title of section whe you can find top products</Title>
         <Text>
@@ -19,9 +27,10 @@ const ShopItem = () => {
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          <Link href="/">
+          <button onClick={()=>dispatch(openProductDetail(true))}>
+            
             <InfoCircle size={35} />
-          </Link>
+          </button>
           <ActionButton>
             <ShoppingBag size={35} />
           </ActionButton>
