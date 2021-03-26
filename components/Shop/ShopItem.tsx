@@ -27,10 +27,9 @@ const ShopItem = () => {
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          <button onClick={()=>dispatch(openProductDetail(true))}>
-            
+          <ActionButton onClick={() => dispatch(openProductDetail(true))}>
             <InfoCircle size={35} />
-          </button>
+          </ActionButton>
           <ActionButton>
             <ShoppingBag size={35} />
           </ActionButton>
@@ -48,6 +47,9 @@ const Item = styled.div`
   overflow: hidden;
   text-align: left;
   margin: 0 15px;
+  &:hover {
+    box-shadow: 0 0 8px #ffbac9;
+  }
 `;
 const Content = styled.div`
   padding: 10px;
@@ -81,6 +83,7 @@ const ActionButton = styled.button`
   padding: 0;
   outline: none;
   border: none;
+  cursor: pointer;
 `;
 
 export default ShopItem;
