@@ -1,13 +1,16 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { breakpoints } from "../../utils/responsivity";
 import Modal from "./Modal";
 import Image from "next/image";
+import {RootStateOrAny , useSelector, useDispatch } from "react-redux";
+import {openProductDetail} from '../../store/actions/handlersActions'
 
 const ProductDetail = () => {
-  const [isDetailOpen, setIsDetailOpen] = useState(true);
-  return isDetailOpen ? (
-    <Modal closeModal={() => setIsDetailOpen(false)}>
+  const dispatch = useDispatch();
+  const { isProductDetailOpen } = useSelector((state: RootStateOrAny) => state.handlers);
+
+  return isProductDetailOpen ? (
+    <Modal closeModal={() => dispatch(openProductDetail(false))}>
       <ProductWrapper>
         <ImageContainer>
           <Image src="/images/product.jpg" width={500} height={500} />
