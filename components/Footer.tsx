@@ -52,7 +52,7 @@ const ImageWrapper = styled.div`
 `;
 const Links = styled.div`
   width: 100%;
-  display flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
@@ -70,8 +70,8 @@ const Socials = styled.div`
     margin: 0 15px;
     &:hover {
       color: #808080;
-    }
-  }
+    };
+  };
   ${breakpoints("padding", "", [{ 800: "20px 0" }])}
 `;
 const Copyright = styled.div`
