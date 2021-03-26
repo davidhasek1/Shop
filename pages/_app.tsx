@@ -12,7 +12,7 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <GlobalStyles />
-        <Component {...pageProps}></Component>;
+        <Component {...pageProps}></Component>
       </Provider>
     );
   }
