@@ -4,6 +4,7 @@ import { Provider, RootStateOrAny, connect } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
 import store from "../store/store";
 import GlobalStyles from "../styles/globalStyles";
+import TermsDialog from '../components/Modal/Terms'
 
 class MyApp extends App {
   render() {
@@ -12,7 +13,10 @@ class MyApp extends App {
 
     return (
       <Provider store={store}>
-        <GlobalStyles modalOpened={handlers.isProductDetailOpen} />
+        <GlobalStyles
+          modalOpened={handlers?.isProductDetailOpen || handlers?.isTermsOpen}  //pridat privacy !!!!
+        />
+        <TermsDialog />
         <Component {...pageProps}></Component>
       </Provider>
     );

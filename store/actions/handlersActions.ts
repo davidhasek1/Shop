@@ -7,3 +7,10 @@ export const openProductDetail = (isOpen: boolean) => async dispatch => {
    payload: isOpen
  })
 }
+
+export const openTermsDialog = (isOpen: boolean) => async dispatch => {
+  dispatch({
+    type: types.OEPN_TERMS,
+    payload: isOpen
+  })
+}

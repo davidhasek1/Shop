@@ -55,6 +55,20 @@ export default wrapper.withRedux(MyApp) //takto vyexportovat - withRedux HOC je 
 
 ```
 
+## Actions - rozdíl oproti vanilla Reactu
+
+- Actions functions se volají jako middleware s `async dispatch` !!!
+- místo `return` se v těle funkce volá `dispatch({<Object>})` s type a payload
+
+```
+export const openTermsDialog = (isOpen: boolean) => async dispatch => {
+  dispatch({
+    type: types.OEPN_TERMS,
+    payload: isOpen
+  })
+}
+```
+
 "next-redux-wrapper": "^6.0.2",
 "react-redux": "^7.2.3",
 "redux": "^4.0.5",

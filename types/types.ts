@@ -5,6 +5,7 @@ export type ModalProps = {
   children: ReactChild;
 };
 
-export type Handlers = {
+export type Handlers = {
   isProductDetailOpen: boolean,
-}
+  isTermsOpen: boolean
+};

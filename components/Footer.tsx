@@ -6,8 +6,11 @@ import { StyledIconBase } from "@styled-icons/styled-icon";
 import { FacebookCircle } from "@styled-icons/boxicons-logos/FacebookCircle";
 import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Instagram } from "@styled-icons/boxicons-logos/Instagram";
+import { useDispatch } from "react-redux";
+import { openTermsDialog } from "../store/actions/handlersActions";
 
 const Footer = () => {
+  const dispatch = useDispatch()
   return (
     <FooterContainer>
       <Content>
@@ -15,7 +18,10 @@ const Footer = () => {
           <Image src="/images/wellu.png" width={100} height={50} />
         </ImageWrapper>
         <Links>
-          <Link href="/terms">Terms &amp; Conditions</Link>
+          <button onClick={() => dispatch(openTermsDialog(true))}>
+            Terms &amp; Conditions
+          </button>
+          {/* <Link href="/terms">Terms &amp; Conditions</Link> */}
           <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/contact">Contact</Link>
         </Links>
@@ -70,8 +76,8 @@ const Socials = styled.div`
     margin: 0 15px;
     &:hover {
       color: #808080;
-    };
-  };
+    }
+  }
   ${breakpoints("padding", "", [{ 800: "20px 0" }])}
 `;
 const Copyright = styled.div`
