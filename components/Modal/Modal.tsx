@@ -26,7 +26,7 @@ const Backdrop = styled.div`
   display: flex;
 `;
 const Window = styled.div`
-  position: absolute;
+  position: fixed;
   max-height: 80vh;
   width: 70%;
   z-index: 2;
