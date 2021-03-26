@@ -1,17 +1,18 @@
 import App from "next/app";
 import React from "react";
-import { Provider } from "react-redux";
+import { Provider, RootStateOrAny, connect } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
 import store from "../store/store";
-
 import GlobalStyles from "../styles/globalStyles";
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps } = this.props;
+    //@ts-ignore
+    const { Component, pageProps, handlers } = this.props;
+
     return (
       <Provider store={store}>
-        <GlobalStyles />
+        <GlobalStyles modalOpened={handlers.isProductDetailOpen} />
         <Component {...pageProps}></Component>
       </Provider>
     );
@@ -19,7 +20,11 @@ class MyApp extends App {
 }
 
 const makeStore = () => store;
-const wrapper = createWrapper(makeStore)
+const wrapper = createWrapper(makeStore);
 
-export default wrapper.withRedux(MyApp)
+function mapStateToProps(state: RootStateOrAny) {
+  const { handlers } = state;
+  return { handlers: handlers };
+}
 
+export default wrapper.withRedux(connect(mapStateToProps)(MyApp));
