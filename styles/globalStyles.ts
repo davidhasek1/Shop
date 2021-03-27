@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle<Scrollable>`
   a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
 
   * {

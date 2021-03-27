@@ -7,10 +7,13 @@ import { FacebookCircle } from "@styled-icons/boxicons-logos/FacebookCircle";
 import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Instagram } from "@styled-icons/boxicons-logos/Instagram";
 import { useDispatch } from "react-redux";
-import { openTermsDialog, openPrivacyDialog } from "../store/actions/handlersActions";
+import {
+  openTermsDialog,
+  openPrivacyDialog,
+} from "../store/actions/handlersActions";
 
 const Footer = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
     <FooterContainer>
       <Content>
@@ -18,14 +21,13 @@ const Footer = () => {
           <Image src="/images/wellu.png" width={100} height={50} />
         </ImageWrapper>
         <Links>
-          <button onClick={() => dispatch(openTermsDialog(true))}>
+          <a onClick={() => dispatch(openTermsDialog(true))}>
             Terms &amp; Conditions
-          </button>
-          {/* <Link href="/terms">Terms &amp; Conditions</Link> */}
-          <button onClick={() => dispatch(openPrivacyDialog(true))}>
-            Terms &amp; Conditions
-          </button>
-          <Link href="/privacy-policy">Privacy Policy</Link>
+          </a>
+          <a onClick={() => dispatch(openPrivacyDialog(true))}>
+            Privacy Policy
+          </a>
+
           <Link href="/contact">Contact</Link>
         </Links>
         <Socials>
