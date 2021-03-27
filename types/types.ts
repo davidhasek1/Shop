@@ -6,6 +6,7 @@ export type ModalProps = {
 };
 
 export type Handlers = {
-  isProductDetailOpen: boolean,
-  isTermsOpen: boolean
+  isProductDetailOpen: boolean;
+  isTermsOpen: boolean;
+  isPrivacyOpen: boolean;
 };

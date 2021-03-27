@@ -4,6 +4,7 @@ import { Handlers } from "../../types/types";
 const initialState: Handlers = {
   isProductDetailOpen: false,
   isTermsOpen: false,
+  isPrivacyOpen: false,
 };
 
 export const handlersReducer = (state = initialState, action: any) => {
@@ -17,6 +18,11 @@ export const handlersReducer = (state = initialState, action: any) => {
       return {
         ...state,
         isTermsOpen: action.payload,
+      };
+    case types.OPEN_PRIVACY:
+      return {
+        ...state,
+        isPrivacyOpen: action.payload,
       };
     default:
       return state;
