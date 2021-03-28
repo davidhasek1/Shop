@@ -29,7 +29,7 @@ const Navigation = () => {
           </Link>
           <Links>
             <StyledLink>
-              <Link href="/shop/all">
+              <Link href="/shop/1">
                 <a>
                   <Shop size={25} />
                   <LinkText>Shop</LinkText>

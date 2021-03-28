@@ -6,18 +6,18 @@ import { useRouter } from "next/router";
 const ShopNavigation = () => {
   const router = useRouter();
   const query = router.query.categoryID;
-
+  console.log(query);
   return (
     <PageNavWrapper>
       <Container>
-        <Link href="/shop/all" passHref>
-          <StyledLink active={query === 'all'}>All</StyledLink>
+        <Link href="/shop/1" passHref>
+          <StyledLink active={query === "1"}>All</StyledLink>
         </Link>
-        <Link href="/shop/favourites" passHref>
-          <StyledLink active={query === "favourites"}>Favourites</StyledLink>
+        <Link href="/shop/2" passHref>
+          <StyledLink active={query === "2"}>Favourites</StyledLink>
         </Link>
-        <Link href="/shop/sale" passHref>
-          <StyledLink active={query === "sale"}>Sale</StyledLink>
+        <Link href="/shop/3" passHref>
+          <StyledLink active={query === "3"}>Sale</StyledLink>
         </Link>
       </Container>
     </PageNavWrapper>

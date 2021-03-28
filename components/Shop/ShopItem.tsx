@@ -7,8 +7,8 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import {openProductDetail} from '../../store/actions/handlersActions'
 
-const ShopItem = () => {
-  const dispatch = useDispatch()
+const ShopItem = ({ title, description }) => {
+  const dispatch = useDispatch();
   return (
     <Item>
       <Image
@@ -18,10 +18,8 @@ const ShopItem = () => {
         layout="responsive"
       />
       <Content>
-        <Title>Title of section whe you can find top products</Title>
-        <Text>
-          oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw
-        </Text>
+        <Title>{title}</Title>
+        <Text>{description}</Text>
 
         <Price>
           <BoldPrice>1000 Kč</BoldPrice>
