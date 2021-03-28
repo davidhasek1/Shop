@@ -6,30 +6,22 @@ import Layout from "../../../components/Layout";
 import Footer from "../../../components/Footer";
 import styled from "styled-components";
 import { breakpoints } from "../../../utils/responsivity";
-import ShopItem from "../../../components/Shop/ShopItem";
-import path from "path";
-import fs from "fs";
-import { ReactNode } from "react";
+import ShopItem from "../../../components/Shop/ShopItem"
 
-const Shop: NextPage = ({ page }) => {
+const Shop = (props) => {
   return (
     <div>
       <Head>
-        <title>{page.title}</title>
+        <title>{props.page.title}</title>
       </Head>
       <Navigation />
       <ShopNavigation />
 
       <Layout>
         <Grid>
-          <ShopItem />
-          <ShopItem />
-          <ShopItem />
-          <ShopItem />
-          <ShopItem />
-          <ShopItem />
-          <ShopItem />
-          <ShopItem />
+          {props.page.map((item) => (
+            <ShopItem title={item.title} description={item.body} />
+          ))}
         </Grid>
       </Layout>
       <Footer />
@@ -44,7 +36,7 @@ export const getStaticPaths = async () => {
 
   const ids = data.map((page): any => {
     return {
-      params: { categoryID: page.id.toString()},
+      params: { categoryID: page.id.toString() },
     };
   });
   console.log(ids);
@@ -56,16 +48,16 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   //params určují stránku - params pošlu do url endpointu - vrátím data pro tu page
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.categoryID}`
+    `https://jsonplaceholder.typicode.com/posts/${params.categoryID}` //toto je spis detail produktu
   );
   const data = await res.json();
 
-  console.log(data)
+  console.log(data);
 
   return {
     props: {
-      page: data,
-    },
+      page: [data]
+    }
   };
 };
 const Grid = styled.div`
