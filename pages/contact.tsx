@@ -60,7 +60,7 @@ const FormWrapper = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items center;
+  align-items: center;
   ${breakpoints("width", "", [{ 800: "100%" }])}
 `;
 const MapWrapper = styled.div`

@@ -29,7 +29,7 @@ const Navigation = () => {
           </Link>
           <Links>
             <StyledLink>
-              <Link href="/shop">
+              <Link href="/shop/all">
                 <a>
                   <Shop size={25} />
                   <LinkText>Shop</LinkText>
@@ -85,7 +85,7 @@ const LeftSide = styled.div`
 `;
 const ImageLink = styled.a`
   display: flex;
-  align-itmes: center;
+  align-items: center;
   cursor: pointer;
 `;
 const Links = styled.div`

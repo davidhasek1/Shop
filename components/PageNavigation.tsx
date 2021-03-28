@@ -10,8 +10,8 @@ const ShopNavigation = () => {
   return (
     <PageNavWrapper>
       <Container>
-        <Link href="/shop" passHref>
-          <StyledLink active={query === undefined}>All</StyledLink>
+        <Link href="/shop/all" passHref>
+          <StyledLink active={query === 'all'}>All</StyledLink>
         </Link>
         <Link href="/shop/favourites" passHref>
           <StyledLink active={query === "favourites"}>Favourites</StyledLink>
