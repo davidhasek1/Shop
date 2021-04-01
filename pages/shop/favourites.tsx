@@ -16,20 +16,15 @@ const ShopCategoryPage: NextPage = (props) => {
       <Head>
         <title>Dynamic page </title>
       </Head>
-      <Navigation />
-      <ShopNavigation />
 
-      <Layout>
-        <Grid>
-          {favourites.map((favouriteProduct) => (
-            <ShopItem
-              title={favouriteProduct.title}
-              description={favouriteProduct.description}
-            />
-          ))}
-        </Grid>
-      </Layout>
-      <Footer />
+      <Grid>
+        {favourites.map((favouriteProduct) => (
+          <ShopItem
+            title={favouriteProduct.title}
+            description={favouriteProduct.description}
+          />
+        ))}
+      </Grid>
     </div>
   );
 };

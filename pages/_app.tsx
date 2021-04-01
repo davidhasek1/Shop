@@ -4,8 +4,7 @@ import { Provider, RootStateOrAny, connect } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
 import store from "../store/store";
 import GlobalStyles from "../styles/globalStyles";
-import TermsDialog from "../components/Modal/Terms";
-import PrivacyDialog from "../components/Modal/Privacy";
+import Layout from "../components/Layout";
 
 class MyApp extends App {
   render() {
@@ -14,16 +13,10 @@ class MyApp extends App {
 
     return (
       <Provider store={store}>
-        <GlobalStyles
-          modalOpened={
-            handlers?.isProductDetailOpen ||
-            handlers?.isTermsOpen ||
-            handlers?.isPrivacyOpen
-          }
-        />
-        <TermsDialog />
-        <PrivacyDialog />
-        <Component {...pageProps}></Component>
+        <GlobalStyles />
+        <Layout>
+          <Component {...pageProps}></Component>
+        </Layout>
       </Provider>
     );
   }

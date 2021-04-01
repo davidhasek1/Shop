@@ -14,7 +14,6 @@ const Contact: NextPage = () => {
       <Head>
         <title>Conatct Page</title>
       </Head>
-      <Navigation />
       <Container>
         <FormWrapper>
           <Content>
@@ -47,7 +46,6 @@ const Contact: NextPage = () => {
           <MapCircle />
         </MapWrapper>
       </Container>
-      <Footer />
     </div>
   );
 };
@@ -61,6 +59,7 @@ const FormWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: left;
   ${breakpoints("width", "", [{ 800: "100%" }])}
 `;
 const MapWrapper = styled.div`

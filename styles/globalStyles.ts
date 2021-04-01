@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
-type Scrollable = {
+/* type Scrollable = {
   modalOpened: boolean;
-};
+}; */
 
-const GlobalStyles = createGlobalStyle<Scrollable>`
+const GlobalStyles = createGlobalStyle`
   html,
   body {
     padding: 0;
@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle<Scrollable>`
     font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     background-color: #EEEEF2;
-    overflow: ${(props) => (props.modalOpened ? "hidden" : "")}
+    
   }
 
   a {

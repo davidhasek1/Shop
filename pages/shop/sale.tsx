@@ -16,20 +16,15 @@ const ShopCategoryPage: NextPage = (props) => {
       <Head>
         <title>Dynamic page </title>
       </Head>
-      <Navigation />
-      <ShopNavigation />
 
-      <Layout>
-        <Grid>
-          {saleProducts.map((saleProduct) => (
-            <ShopItem
-              title={saleProduct.title}
-              description={saleProduct.description}
-            />
-          ))}
-        </Grid>
-      </Layout>
-      <Footer />
+      <Grid>
+        {saleProducts.map((saleProduct) => (
+          <ShopItem
+            title={saleProduct.title}
+            description={saleProduct.description}
+          />
+        ))}
+      </Grid>
     </div>
   );
 };

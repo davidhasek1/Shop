@@ -10,27 +10,20 @@ import ShopItem from "../../components/Shop/ShopItem";
 //tayd fetchuj všechny produkty
 
 const ShopMainPage = (props) => {
-  const {products} = props
+  const { products } = props;
   return (
     <div>
       <Head>
         <title>Main shop page</title>
       </Head>
-      <Navigation />
-      <ShopNavigation />
-      <Layout>
-        <Grid>
-          {products.map((product) => {
-            return (
-              <ShopItem
-                title={product.title}
-                description={product.description}
-              />
-            );
-          })}
-        </Grid>
-      </Layout>
-      <Footer />
+
+      <Grid>
+        {products.map((product) => {
+          return (
+            <ShopItem title={product.title} description={product.description} />
+          );
+        })}
+      </Grid>
     </div>
   );
 };
@@ -43,10 +36,9 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       products: data,
-    }
-  }
+    },
+  };
 };
-
 
 const Grid = styled.div`
   display: grid;
