@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../utils/responsivity";
 import Head from "next/head";
-import Layout from "../../components/Layout";
-import Navigation from "../../components/Navigation";
-import ShopNavigation from "../../components/PageNavigation";
-import Footer from "../../components/Footer";
 import ShopItem from "../../components/Shop/ShopItem";
 
 //tayd fetchuj všechny produkty
@@ -16,11 +12,14 @@ const ShopMainPage = (props) => {
       <Head>
         <title>Main shop page</title>
       </Head>
-
       <Grid>
         {products.map((product) => {
           return (
-            <ShopItem title={product.title} description={product.description} />
+            <ShopItem
+              detailID={product._id}
+              title={product.title}
+              description={product.description}
+            />
           );
         })}
       </Grid>
