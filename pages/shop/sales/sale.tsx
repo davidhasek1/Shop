@@ -1,12 +1,8 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import Navigation from "../../components/Navigation";
-import ShopNavigation from "../../components/PageNavigation";
-import Layout from "../../components/Layout";
-import Footer from "../../components/Footer";
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
-import ShopItem from "../../components/Shop/ShopItem";
+import { breakpoints } from "../../../utils/responsivity";
+import ShopItem from "../../../components/Shop/ShopItem";
 
 const ShopCategoryPage: NextPage = (props) => {
   const { saleProducts } = props;
@@ -20,6 +16,7 @@ const ShopCategoryPage: NextPage = (props) => {
       <Grid>
         {saleProducts.map((saleProduct) => (
           <ShopItem
+            detailID={"placeholderID"}
             title={saleProduct.title}
             description={saleProduct.description}
           />

@@ -1,5 +1,5 @@
 import { connect } from "../../../utils/db";
-
+//MAIN shop page - all products page
 const getAllProducts = async (req, res) => {
   const { db } = await connect();
   try {
