@@ -15,7 +15,7 @@ const ShopMainPage = (props) => {
       <Grid>
         {products.map((product) => {
           return (
-            <ShopItem
+            <ShopItem key={product._id}
               detailID={product._id}
               title={product.title}
               description={product.description}
@@ -29,7 +29,7 @@ const ShopMainPage = (props) => {
 //budu chtít vypsat všechny produkty na stránce /shop
 
 export const getStaticProps = async (context) => {
-  const res = await fetch("http://localhost:3000/api/shop/all-products");
+  const res = await fetch("http://localhost:3000/api/shop");
   const data = await res.json();
 
   return {

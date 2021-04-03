@@ -25,7 +25,7 @@ const ShopItem = ({ title, description, detailID }) => {
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          <ActionButton onClick={() => router.push(`/shop/${detailID}`)}>
+          <ActionButton onClick={() => router.push(`${router.route}/${detailID}`)}>
             <InfoCircle size={35} />
           </ActionButton>
           <ActionButton>

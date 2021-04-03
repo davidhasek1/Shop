@@ -8,6 +8,7 @@ const getSingleProduct = async (req, res) => {
     const productById = await db
       .collection("products")
       .findOne({ _id: new mongodb.ObjectId(productID) });
+      
     res.json([productById]);
   } catch (error) {
     console.error(error);

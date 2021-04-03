@@ -16,14 +16,14 @@ const productDetail = (props) => {
 };
 
 export const getStaticPaths = async (context) => {
-  const res = await fetch(`http://localhost:3000/api/shop/`);
+  const res = await fetch(`http://localhost:3000/api/shop/favourites/`);
   const ids = await res.json(); //pole
   const arrayIDs = [];
 
   for (let key in ids) {
     let stringid = ids[key]._id.toString();
     arrayIDs.push({
-      params: { productID: stringid },
+      params: { favProductID: stringid },
     });
   }
   return {
@@ -35,11 +35,14 @@ export const getStaticPaths = async (context) => {
 export const getStaticProps = async (context) => {
   const { params } = context;
 
-  const res = await fetch(`http://localhost:3000/api/shop/${params.productID}/`); //data pro jeden product
-  const product = await res.json();
+  const res = await fetch(
+    `http://localhost:3000/api/shop/favourites/${params.favProductID}/`
+  ); //data pro jeden product
+  const favProduct = await res.json();
+  console.log(favProduct);
   return {
     props: {
-      data: product,
+      data: favProduct,
     },
   };
 };

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const ShopNavigation = () => {
   const router = useRouter();
   const activePath = router.pathname
-  console.log(router);
+  console.log(router.route);
   return (
     <PageNavWrapper>
       <Container>
