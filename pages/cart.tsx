@@ -8,7 +8,7 @@ import Order from "../components/OrderProcess/Order";
 import CustomerData from "../components/OrderProcess/CustomerData";
 import Shipment from "../components/OrderProcess/Shipment";
 import SendOrder from "../components/OrderProcess/SendOrder";
-import Thankyou from "../components/OrderProcess/Thankyou"
+import Thankyou from "../components/OrderProcess/Thankyou";
 
 import Footer from "../components/Footer";
 
@@ -18,16 +18,12 @@ const Cart: NextPage = () => {
       <Head>
         <title>Cart</title>
       </Head>
-      <Navigation />
-      <PageNavigation />
-      <Layout>
-        <Order />
-        <CustomerData />
-        <Shipment />
-        <SendOrder />
-        <Thankyou />
-      </Layout>
-      <Footer />
+
+      <Order />
+      <CustomerData />
+      <Shipment />
+      <SendOrder />
+      <Thankyou />
     </div>
   );
 };

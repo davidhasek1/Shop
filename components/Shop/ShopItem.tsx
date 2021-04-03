@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { breakpoints } from "../../utils/responsivity";
 import { InfoCircle, ShoppingBag } from "@styled-icons/boxicons-regular";
 import { StyledIconBase } from "@styled-icons/styled-icon";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import {openProductDetail} from '../../store/actions/handlersActions'
+import { openProductDetail } from "../../store/actions/handlersActions";
 
-const ShopItem = () => {
-  const dispatch = useDispatch()
+const ShopItem = ({ title, description, detailID }) => {
+  const router = useRouter();
   return (
     <Item>
       <Image
@@ -18,16 +18,14 @@ const ShopItem = () => {
         layout="responsive"
       />
       <Content>
-        <Title>Title of section whe you can find top products</Title>
-        <Text>
-          oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw oufn íwfjf wífjw
-        </Text>
+        <Title>{title}</Title>
+        <Text>{description}</Text>
 
         <Price>
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          <ActionButton onClick={() => dispatch(openProductDetail(true))}>
+          <ActionButton onClick={() => router.push(`${router.route}/${detailID}`)}>
             <InfoCircle size={35} />
           </ActionButton>
           <ActionButton>

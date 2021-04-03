@@ -3,7 +3,6 @@ import { breakpoints } from "../../utils/responsivity";
 import Modal from "./Modal";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { openPrivacyDialog } from "../../store/actions/handlersActions";
-import mock from "../../mock/terms.json";
 
 const Privacy = () => {
   const dispatch = useDispatch();
@@ -18,14 +17,7 @@ const Privacy = () => {
     >
       <PrivacyWrapper>
         <Title>Privacy Policy</Title>
-        {mock.map((item) => {
-          return (
-            <div key={item.id}>
-              <h1>{item.title}</h1>
-              <p>{item.text}</p>
-            </div>
-          );
-        })}
+      
       </PrivacyWrapper>
     </Modal>
   ) : null;

@@ -85,7 +85,7 @@ const LeftSide = styled.div`
 `;
 const ImageLink = styled.a`
   display: flex;
-  align-itmes: center;
+  align-items: center;
   cursor: pointer;
 `;
 const Links = styled.div`

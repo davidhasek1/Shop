@@ -15,16 +15,12 @@ const Home: NextPage = () => {
         <title>Buckova: Home Page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navigation />
-      <Layout>
         <Header />
         <ItemsWrapper>
           <ContentItem />
           <ContentItem />
           <ContentItem />
         </ItemsWrapper>
-      </Layout>
-      <Footer />
     </div>
   );
 };
