@@ -152,6 +152,7 @@ const ContentWrapper = styled.div`
   ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}
   background-color: #ffffff;
   padding: 15px 0;
+  height: fit-content;
 `;
 const DescriptionText = styled.p`
   text-align: left;
