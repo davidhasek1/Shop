@@ -12,10 +12,13 @@ const productDetail = (props) => {
       <Title>{data.title}</Title>
       <Main>
         <RightContainer>
-          <Image src="/images/product.jpg" width={300} height={300} />
+          <Slider>
+            <Image src="/images/product.jpg" width={300} height={300} />
+          </Slider>
           <Actions>
             <ActionsWrap>
               <Actions>
+                <Hole />
                 <InputWrap>
                   <StyledInput type="number" />
                   ks
@@ -82,8 +85,6 @@ export const getStaticProps = async (context) => {
 
 const DetailPageWrapper = styled.div`
   padding: 50px 0;
-  position: relative;
-  ${breakpoints("height", "", [{ 600: "100vh" }], "min-width")}
 `;
 const Main = styled.div`
   ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
@@ -96,21 +97,34 @@ const Title = styled.h1`
 const RightContainer = styled.div`
   ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}
 `;
+const Slider = styled.div`
+  //TODO - slider fotek
+  display: flex;
+  justify-content: center;
+`;
 const Actions = styled.div`
   ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
   ${breakpoints("justify-content", "", [{ 600: "center" }], "min-width")}
   ${breakpoints("align-items", "", [{ 600: "center" }], "min-width")}
   ${breakpoints("display", "", [{ 600: "none" }])}
-   padding: 30px;
+  padding: 30px;
+  margin: 30px 0;
+`;
+const Hole = styled.div`
+  margin-right: 20px;
+  height: 15px;
+  width: 15px;
+  background-color: #eeeeee;
+  border-radius: 100%;
 `;
 const ActionsWrap = styled.div`
   ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
-  background: #ffbac9;
-  color: #ffffff;
+  background: #fff;
+  color: #000;
   border-radius: 10px;
-  box-shadow: 0px 0px 15px 0px #cccccc;
+  box-shadow: 0px 0px 15px 0px #ffbac9;
   ${StyledIconBase} {
-    color: #ffffff;
+    color: #ffbac9;
   }
 `;
 const InputWrap = styled.div`
@@ -121,9 +135,8 @@ const StyledInput = styled.input`
   background: none;
   border: none;
   outline: none;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #eee;
   text-align: center;
-  color: #ffffff;
 `;
 const StyledButton = styled.button`
   background: none;
@@ -133,10 +146,12 @@ const StyledButton = styled.button`
 `;
 const Line = styled.div`
   border: none;
-  border-right: 4px dotted #fff;
+  border-right: 4px dotted #eee;
 `;
 const ContentWrapper = styled.div`
   ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}
+  background-color: #ffffff;
+  padding: 15px 0;
 `;
 const DescriptionText = styled.p`
   text-align: left;
@@ -168,7 +183,10 @@ const MobileAddButton = styled.div`
 `;
 const PriceTag = styled.h3`
   text-shadow: 1px 0px 5px #999999;
+  font-weight: 400;
   margin: 0;
+  display: flex;
+  align-items: center;
   ${breakpoints("margin", "", [{ 600: "10px 0" }], "min-width")}
   ${breakpoints("padding", "", [{ 600: "30px 10px" }], "min-width")}
 `;
