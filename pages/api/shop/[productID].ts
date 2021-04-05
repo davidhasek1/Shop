@@ -9,7 +9,7 @@ const getSingleProduct = async (req, res) => {
       .collection("products")
       .findOne({ _id: new mongodb.ObjectId(productID) });
       
-    res.json([productById]);
+    res.json(productById);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
