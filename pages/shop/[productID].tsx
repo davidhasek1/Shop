@@ -29,7 +29,7 @@ const productDetail = (props) => {
               </Actions>
 
               <Line />
-              <PriceTag>1000 Kč</PriceTag>
+              <PriceTag>{data.price} Kč</PriceTag>
             </ActionsWrap>
           </Actions>
         </RightContainer>
