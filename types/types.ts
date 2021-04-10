@@ -9,4 +9,5 @@ export type Handlers = {
   isProductDetailOpen: boolean;
   isTermsOpen: boolean;
   isPrivacyOpen: boolean;
+  isMobileMenuOpen: boolean;
 };
