@@ -5,10 +5,16 @@ const initialState: Handlers = {
   isProductDetailOpen: false,
   isTermsOpen: false,
   isPrivacyOpen: false,
+  isMobileMenuOpen: false,
 };
 
 export const handlersReducer = (state = initialState, action: any) => {
   switch (action.type) {
+    case types.OPEN_MOBILE_MENU:
+      return {
+        ...state,
+        isMobileMenuOpen: action.payload
+      };
     case types.OPEN_PROD_DETAIL:
       return {
         ...state,

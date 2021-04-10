@@ -9,9 +9,13 @@ import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Burger from "./Burger";
 import DropdownMenu from "./DropdownMenu";
+import ItemsCounter from '../components/CartItemsCounter'
+import {useSelector, useDispatch, RootStateOrAny} from 'react-redux'
+import {openMobileMenu} from '../store/actions/handlersActions'
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dispatch = useDispatch()
+  const { isMobileMenuOpen }  = useSelector((state: RootStateOrAny) => state.handlers)
 
   return (
     <NavWrapper>
@@ -38,10 +42,11 @@ const Navigation = () => {
             </StyledLink>
             <StyledLink>
               <Link href="/cart">
-                <a>
+                <CartLink>
                   <Cart size={25} />
                   <LinkText>Cart</LinkText>
-                </a>
+                  <ItemsCounter count={"3"} />
+                </CartLink>
               </Link>
             </StyledLink>
           </Links>
@@ -51,13 +56,16 @@ const Navigation = () => {
           {/* <SearchInput type="text" placeholder="Search" /> */}
 
           <BurgerWrapper>
-            {isMenuOpen ? (
-              <CloseStyled onClick={() => setIsMenuOpen(false)} size={35} />
+            {isMobileMenuOpen ? (
+              <CloseStyled
+                onClick={() => dispatch(openMobileMenu(false))}
+                size={35}
+              />
             ) : (
-              <Burger onClick={() => setIsMenuOpen(true)} />
+              <Burger onClick={() => dispatch(openMobileMenu(true))} />
             )}
           </BurgerWrapper>
-          {isMenuOpen ? <DropdownMenu /> : null}
+          {isMobileMenuOpen ? <DropdownMenu /> : null}
         </RightSide>
       </Container>
     </NavWrapper>
@@ -105,6 +113,9 @@ const StyledLink = styled.div`
 const LinkText = styled.span`
   margin-left: 10px;
 `;
+const CartLink = styled.a`
+  position: relative;
+`
 const RightSide = styled.div`
   position: relative;
   width: 50%;

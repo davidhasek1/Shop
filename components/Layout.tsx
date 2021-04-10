@@ -3,8 +3,9 @@ import Navigation from "../components/Navigation";
 import ShopNavigation from "../components/PageNavigation";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
+import { ReactChild } from "react";
 
-const Layout = ({ children }) => {
+const Layout = ({ children }): ReactChild => {
   const router = useRouter();
   const isShop = router.pathname === "/shop";
   const isFav = router.pathname === "/shop/sale";

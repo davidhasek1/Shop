@@ -1,5 +1,12 @@
 import * as types from "../types";
 
+export const openMobileMenu = (isOpen: boolean) => async (dispatch) => {
+  dispatch({
+    type: types.OPEN_MOBILE_MENU,
+    payload: isOpen
+  })
+}
+
 export const openProductDetail = (isOpen: boolean) => async (dispatch) => {
   dispatch({
     type: types.OPEN_PROD_DETAIL,
