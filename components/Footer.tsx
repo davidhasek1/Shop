@@ -37,7 +37,7 @@ const Footer = () => {
         </Socials>
         <Copyright>
           <span>&copy; 2021 All rights reserved</span>
-          <span>Handcraftet by David Hašek</span>
+          <span>Made with &hearts; by Hasan</span>
         </Copyright>
       </Content>
     </FooterContainer>
