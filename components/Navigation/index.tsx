@@ -74,7 +74,7 @@ const Navigation = () => {
 const NavWrapper = styled.div`
   text-align: center;
   padding: 15px 0;
-  background-color: #ffbac9;
+  background-color: ${(props) => props.theme.pink};
 `;
 const Container = styled.div`
   max-width: 1200px;

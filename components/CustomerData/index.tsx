@@ -54,7 +54,6 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /*  background-color: #ffbac9; */
 `;
 const FormData = styled.div`
   display: grid;
@@ -82,7 +81,7 @@ const Select = styled.select`
 const Separator = styled.div`
   height: 1px;
   width: 80%;
-  border-bottom: 1px solid #ffbac9;
+  border-bottom: 1px solid ${(props) => props.theme.pink};
 `;
 const CustomerDataContainer = styled.div`
   padding-top: 80px;
@@ -100,7 +99,7 @@ const Right = styled.div`
 `;
 const Title = styled.h1`
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   display: flex;
   align-items: center;
@@ -120,12 +119,12 @@ const ButtonWrapper = styled.div`
 `;
 const Button = styled.button`
   padding: 15px 20px;
-  background-color: #ffbac9;
+  background-color: ${(props) => props.theme.pink};
   outline: none;
   border: none;
   border-radius: 25px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: ${(props) => props.theme.white};
   font-weight: 600;
   cursor: pointer;
 `;

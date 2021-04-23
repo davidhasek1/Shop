@@ -38,7 +38,7 @@ const Title = styled.h3`
 
 const ButtonWrapper = styled.div`
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   display: flex;
   justify-content: flex-end;

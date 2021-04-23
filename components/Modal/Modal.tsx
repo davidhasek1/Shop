@@ -30,9 +30,9 @@ const Window = styled.div`
   max-height: 80vh;
   width: 70%;
   z-index: 2;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 10px;
-  border: 3px solid #ffbac9;
+  border: 3px solid ${(props) => props.theme.pink};
   overflow-y: scroll;
   top: 50%;
   left: 50%;
@@ -40,7 +40,7 @@ const Window = styled.div`
   ${breakpoints("width", "", [{ 800: "90%" }, { 600: "100%" }])}
 `;
 const CloseCircleStyled = styled(CloseCircle)`
-  color: #ffbac9;
+  color: ${(props) => props.theme.pink};
 `;
 const CloseButton = styled.div`
   position: sticky;

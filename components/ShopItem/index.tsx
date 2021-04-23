@@ -54,7 +54,7 @@ const Item = styled.div`
   text-align: left;
   margin: 0 15px;
   &:hover {
-    box-shadow: 0 0 8px #ffbac9;
+    box-shadow: 0 0 8px ${(props) => props.theme.pink};
   }
 `;
 const Content = styled.div`
@@ -77,7 +77,7 @@ const BoldPrice = styled.strong`
 
 const ItemActions = styled.div`
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   display: flex;
   justify-content: space-evenly;

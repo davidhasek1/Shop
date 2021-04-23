@@ -56,7 +56,7 @@ const Paragraph = styled.p`
 
 const ButtonWrapper = styled.div`
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   height: auto;
   padding: 20px;

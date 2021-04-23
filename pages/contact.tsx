@@ -123,14 +123,14 @@ const StyledTextarea = styled.textarea`
   font-family: Popins, sans-serif;
 `;
 const FormButton = styled.button`
-  background-color: #ffbac9;
+  background-color: ${(props) => props.theme.pink};
   padding: 15px 0;
   margin: 5px 0;
   border: none;
   border-radius: 5px;
   outline: none;
   font-size: 18px;
-  color: #ffffff;
+  color: ${(props) => props.theme.white};
 `;
 
 export default Contact;

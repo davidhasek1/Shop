@@ -66,7 +66,7 @@ const FormContent = styled.div`
 const Input = styled.input``;
 const Title = styled.h1`
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   display: flex;
   align-items: center;
@@ -86,12 +86,12 @@ const ButtonWrapper = styled.div`
 `;
 const Button = styled.button`
   padding: 15px 20px;
-  background-color: #ffbac9;
+  background-color: ${(props) => props.theme.pink};
   outline: none;
   border: none;
   border-radius: 25px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: ${(props) => props.theme.white};
   font-weight: 600;
   cursor: pointer;
 `;

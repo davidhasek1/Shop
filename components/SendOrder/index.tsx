@@ -155,7 +155,7 @@ const Right = styled.div`
 `;
 const Title = styled.h1`
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   display: flex;
   align-items: center;
@@ -175,12 +175,12 @@ const ButtonWrapper = styled.div`
 `;
 const Button = styled.button`
   padding: 15px 20px;
-  background-color: #ffbac9;
+  background-color: ${(props) => props.theme.pink};
   outline: none;
   border: none;
   border-radius: 25px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: ${(props) => props.theme.white};
   font-weight: 600;
   cursor: pointer;
 `;
@@ -226,11 +226,11 @@ const Head = styled.thead``;
 const Data = styled.td`
   padding: 10px;
 
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
 `;
 const HeadData = styled(Data)`
-  background-color: #ffbac9;
-  color: #ffffff;
+  background-color: ${(props) => props.theme.pink};
+  color: ${(props) => props.theme.white};
   text-transform: uppercase;
   font-weight: 500;
 `;

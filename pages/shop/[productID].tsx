@@ -121,17 +121,17 @@ const Hole = styled.div`
   margin-right: 20px;
   height: 15px;
   width: 15px;
-  background-color: #eeeeee;
+  background-color: ${props => props.theme.lightGray};
   border-radius: 100%;
 `;
 const ActionsWrap = styled.div`
   ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
-  background: #fff;
+  background: ${(props) => props.theme.white};
   color: #000;
   border-radius: 10px;
-  box-shadow: 0px 0px 15px 0px #ffbac9;
+  box-shadow: 0px 0px 15px 0px ${(props) => props.theme.pink};
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
 `;
 const InputWrap = styled.div`
@@ -142,7 +142,7 @@ const StyledInput = styled.input`
   background: none;
   border: none;
   outline: none;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid ${(props) => props.theme.lightGray};
   text-align: center;
 `;
 const StyledButton = styled.button`
@@ -153,11 +153,11 @@ const StyledButton = styled.button`
 `;
 const Line = styled.div`
   border: none;
-  border-right: 4px dotted #eee;
+  border-right: 4px dotted ${(props) => props.theme.lightGray};
 `;
 const ContentWrapper = styled.div`
   ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   padding: 15px 0;
   height: fit-content;
 `;
@@ -181,12 +181,12 @@ const MobileAddButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 186, 201, 0.8);
-  border: 1px solid #ffbac9;
+  background-color: ${(props) => props.theme.pink};
+  border: 1px solid ${(props) => props.theme.pink};
   border-radius: 50%;
   cursor: pointer;
   ${StyledIconBase} {
-    color: #ffffff;
+    color: ${(props) => props.theme.white};
   }
 `;
 const PriceTag = styled.h3`

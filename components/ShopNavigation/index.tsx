@@ -51,9 +51,10 @@ const Container = styled.div`
 const StyledLink = styled.a<LinkProps>`
   padding: 15px;
   text-shadow: 1px 0px 5px #cecece;
-  border-bottom: ${(props) => (props.active ? "3px solid #ffbac9" : null)};
+  border-bottom: ${(props) =>
+    props.active ? `3px solid ${(props) => props.theme.pink};` : null};
   &:hover {
-    border-bottom: 3px solid #ffbac9;
+    border-bottom: 3px solid ${(props) => props.theme.pink};
   }
 `;
 

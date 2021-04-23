@@ -2,9 +2,11 @@ import App from "next/app";
 import React from "react";
 import { Provider, RootStateOrAny, connect } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
+import {ThemeProvider} from 'styled-components'
 import store from "../store/store";
 import GlobalStyles from "../styles/globalStyles";
 import Layout from "../components/Layout";
+import theme from '../utils/theme'
 
 class MyApp extends App {
   render() {
@@ -12,12 +14,14 @@ class MyApp extends App {
     const { Component, pageProps, handlers } = this.props;
 
     return (
-      <Provider store={store}>
-        <GlobalStyles />
-        <Layout>
-          <Component {...pageProps}></Component>
-        </Layout>
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <GlobalStyles />
+          <Layout>
+            <Component {...pageProps}></Component>
+          </Layout>
+        </Provider>
+      </ThemeProvider>
     );
   }
 }

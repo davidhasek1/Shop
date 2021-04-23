@@ -39,10 +39,10 @@ const DropdownWrapper = styled.div`
   box-shadow: 0px 3px 11px 0px #777777;
   z-index: 2;
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   ${breakpoints("width", "", [{ 800: "100%" }, { 600: "200%" }])}
-  ${breakpoints("display", "", [{ 800: "none" }], 'min-width')}
+  ${breakpoints("display", "", [{ 800: "none" }], "min-width")}
 `;
 const Links = styled.div`
   text-align: left;
