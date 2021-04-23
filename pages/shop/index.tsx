@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { breakpoints } from "../../utils/responsivity";
 import Head from "next/head";
-import ShopItem from "../../components/Shop/ShopItem";
+import ShopItem from "../../components/ShopItem";
 
 //tayd fetchuj všechny produkty
 

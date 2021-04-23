@@ -3,10 +3,10 @@ import Head from "next/head";
 import styled from "styled-components";
 import { breakpoints } from "../utils/responsivity";
 import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import { User, Message } from "@styled-icons/boxicons-regular";
 import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail";
-import MapCircle from "../components/Contact/MapCircle";
+import MapCircle from "../components/MapPin";
 
 const Contact: NextPage = () => {
   return (

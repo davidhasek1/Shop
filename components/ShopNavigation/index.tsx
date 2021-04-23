@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { breakpoints } from "../utils/responsivity";
+import { breakpoints } from "../../utils/responsivity";
 import { useRouter } from "next/router";
 
 const ShopNavigation = () => {

@@ -1,22 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import { breakpoints } from "../utils/responsivity";
+import { breakpoints } from "../../utils/responsivity";
 import { Shop, Cart } from "@styled-icons/bootstrap";
 import { Close } from "@styled-icons/ionicons-solid/Close";
 import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { StyledIconBase } from "@styled-icons/styled-icon";
-import Burger from "./Burger";
-import DropdownMenu from "./DropdownMenu";
-import ItemsCounter from "../components/CartItemsCounter";
+import Burger from "../Burger";
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import ItemsCounter from "../ItemsCounter";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
-import { openMobileMenu } from "../store/actions/handlersActions";
+import { openMobileMenu } from "../../store/actions/handlersActions";
 
 const Navigation = () => {
   const dispatch = useDispatch();
   const { isMobileMenuOpen } = useSelector((state: RootStateOrAny) => state.handlers);
   const itemsCount = useSelector((state: RootStateOrAny) => state.userCart.cartItems);
-  console.log(itemsCount.length);
   return (
     <NavWrapper>
       <Container>

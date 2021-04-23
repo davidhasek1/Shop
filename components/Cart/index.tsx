@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { breakpoints } from "../../utils/responsivity";
-import CartItem from "../OrderProcess/CartItem";
+import CartItem from "../CartItem";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
 
-const Order = () => {
+const Cart = () => {
   return (
     <OrderContainer>
       <Left>
@@ -76,4 +76,4 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default Order;
+export default Cart;
