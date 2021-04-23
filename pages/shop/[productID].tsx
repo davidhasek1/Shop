@@ -3,10 +3,15 @@ import { breakpoints } from "../../utils/responsivity";
 import Image from "next/image";
 import { AddShoppingCart } from "@styled-icons/material-twotone/AddShoppingCart";
 import { StyledIconBase } from "@styled-icons/styled-icon";
+import { useDispatch } from "react-redux";
+import { AddToCartState } from "../../store/actions/userCartActions";
 
 const productDetail = (props) => {
+  const dispatch = useDispatch();
   const { data } = props;
+  const productID = data._id;
   console.log(data);
+
   return (
     <DetailPageWrapper>
       <Title>{data.title}</Title>
@@ -23,7 +28,9 @@ const productDetail = (props) => {
                   <StyledInput type="number" />
                   ks
                 </InputWrap>
-                <StyledButton>
+                <StyledButton
+                  onClick={() => dispatch(AddToCartState(productID))}
+                >
                   <AddShoppingCart size={35} />
                 </StyledButton>
               </Actions>

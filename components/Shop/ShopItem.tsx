@@ -6,9 +6,12 @@ import { StyledIconBase } from "@styled-icons/styled-icon";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { openProductDetail } from "../../store/actions/handlersActions";
+import { AddToCartState } from "../../store/actions/userCartActions";
 
 const ShopItem = ({ title, description, detailID }) => {
+  const dispatch = useDispatch();
   const router = useRouter();
+
   return (
     <Item>
       <Image
@@ -25,11 +28,16 @@ const ShopItem = ({ title, description, detailID }) => {
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          <ActionButton onClick={() => router.push(`${router.route}/${detailID}`)}>
+          <ActionButton
+            onClick={() => router.push(`${router.route}/${detailID}`)}
+          >
             <InfoCircle size={35} />
           </ActionButton>
           <ActionButton>
-            <ShoppingBag size={35} />
+            <ShoppingBag
+              onClick={() => dispatch(AddToCartState(detailID))}
+              size={35}
+            />
           </ActionButton>
         </ItemActions>
       </Content>
