@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
@@ -9,14 +8,15 @@ import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Burger from "./Burger";
 import DropdownMenu from "./DropdownMenu";
-import ItemsCounter from '../components/CartItemsCounter'
-import {useSelector, useDispatch, RootStateOrAny} from 'react-redux'
-import {openMobileMenu} from '../store/actions/handlersActions'
+import ItemsCounter from "../components/CartItemsCounter";
+import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
+import { openMobileMenu } from "../store/actions/handlersActions";
 
 const Navigation = () => {
-  const dispatch = useDispatch()
-  const { isMobileMenuOpen }  = useSelector((state: RootStateOrAny) => state.handlers)
-
+  const dispatch = useDispatch();
+  const { isMobileMenuOpen } = useSelector((state: RootStateOrAny) => state.handlers);
+  const itemsCount = useSelector((state: RootStateOrAny) => state.userCart.cartItems);
+  console.log(itemsCount.length);
   return (
     <NavWrapper>
       <Container>
@@ -45,7 +45,7 @@ const Navigation = () => {
                 <CartLink>
                   <Cart size={25} />
                   <LinkText>Cart</LinkText>
-                  <ItemsCounter count={"3"} />
+                  <ItemsCounter count={itemsCount.length} />
                 </CartLink>
               </Link>
             </StyledLink>
@@ -115,7 +115,7 @@ const LinkText = styled.span`
 `;
 const CartLink = styled.a`
   position: relative;
-`
+`;
 const RightSide = styled.div`
   position: relative;
   width: 50%;
