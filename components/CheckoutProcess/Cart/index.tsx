@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
-import CartItem from "../CartItem";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   return (
