@@ -1,12 +1,12 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import { InfoCircle, ShoppingBag } from "@styled-icons/boxicons-regular";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import { openProductDetail } from "../../store/actions/handlersActions";
-import { AddToCartState } from "../../store/actions/userCartActions";
+import { openProductDetail } from "store/actions/handlersActions";
+import { AddToCartState } from "store/actions/userCartActions";
 
 const ShopItem = ({ title, description, detailID }) => {
   const dispatch = useDispatch();

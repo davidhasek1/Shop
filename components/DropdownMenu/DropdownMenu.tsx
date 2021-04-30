@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Shop, Cart } from "@styled-icons/bootstrap";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Link from "next/link";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 
 const DropdownMenu = () => {
   return (

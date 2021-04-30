@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import { useRouter } from "next/router";
 
 const ShopNavigation = () => {
@@ -51,8 +51,7 @@ const Container = styled.div`
 const StyledLink = styled.a<LinkProps>`
   padding: 15px;
   text-shadow: 1px 0px 5px #cecece;
-  border-bottom: ${(props) =>
-    props.active ? `3px solid ${(props) => props.theme.pink};` : null};
+  border-bottom: ${(props) => (props.active ? `3px solid #ffbac9;` : null)};
   &:hover {
     border-bottom: 3px solid ${(props) => props.theme.pink};
   }

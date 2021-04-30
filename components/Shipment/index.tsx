@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { Truck } from "@styled-icons/fa-solid/Truck";
 

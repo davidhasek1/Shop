@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import { Plus, Minus } from "@styled-icons/entypo";
 import { Trash } from "@styled-icons/bootstrap/Trash";
 

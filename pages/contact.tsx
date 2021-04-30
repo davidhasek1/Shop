@@ -1,12 +1,10 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
-import { breakpoints } from "../utils/responsivity";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer/Footer";
+import { breakpoints } from "utils/responsivity";
 import { User, Message } from "@styled-icons/boxicons-regular";
 import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail";
-import MapCircle from "../components/MapPin";
+import MapCircle from "components/MapPin";
 
 const Contact: NextPage = () => {
   return (

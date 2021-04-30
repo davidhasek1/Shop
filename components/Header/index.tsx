@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import { ArrowRightCircle } from "@styled-icons/bootstrap/ArrowRightCircle";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Link from "next/link";

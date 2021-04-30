@@ -1,7 +1,7 @@
-import { ModalProps } from "../../types/types";
+import { ModalProps } from "types/types";
 import styled from "styled-components";
 import { CloseCircle } from "@styled-icons/ionicons-solid/CloseCircle";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 
 const Modal = ({ closeModal, children }: ModalProps) => {
   return (

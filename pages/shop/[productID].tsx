@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import Image from "next/image";
 import { AddShoppingCart } from "@styled-icons/material-twotone/AddShoppingCart";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { useDispatch } from "react-redux";
-import { AddToCartState } from "../../store/actions/userCartActions";
+import { AddToCartState } from "store/actions/userCartActions";
 
 const productDetail = (props) => {
   const dispatch = useDispatch();

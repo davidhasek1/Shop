@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
 import Modal from "./Modal";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
-import { openPrivacyDialog } from "../../store/actions/handlersActions";
+import { openPrivacyDialog } from "store/actions/handlersActions";
 
 const Privacy = () => {
   const dispatch = useDispatch();

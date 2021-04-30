@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import Image from "next/image";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { FacebookCircle } from "@styled-icons/boxicons-logos/FacebookCircle";
@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import {
   openTermsDialog,
   openPrivacyDialog,
-} from "../../store/actions/handlersActions";
+} from "store/actions/handlersActions";
 
 const Footer = () => {
   const dispatch = useDispatch();
