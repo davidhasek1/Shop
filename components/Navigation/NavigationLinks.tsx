@@ -61,7 +61,7 @@ const Links = styled.div`
   margin-left: 20px;
   display: flex;
   justify-content: flex-start;
-  color: #ffffff;
+  color: ${(props) => props.theme.white};
   font-weight: 600;
   letter-spacing: 2px;
   ${breakpoints("display", "", [{ 800: "none" }])}
