@@ -1,9 +1,9 @@
+import { useRouter } from "next/router";
+import { ReactChild } from "react";
 import styled from "styled-components";
 import Navigation from "../Navigation";
 import ShopNavigation from "../ShopNavigation";
-import Footer from "../Footer/Footer";
-import { useRouter } from "next/router";
-import { ReactChild } from "react";
+import Footer from "../Footer";
 
 const Layout = ({ children }): ReactChild => {
   const router = useRouter();
