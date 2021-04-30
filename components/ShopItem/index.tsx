@@ -48,7 +48,7 @@ const ShopItem = ({ title, description, detailID }) => {
 const Item = styled.div`
   max-width: 300px;
   min-width: 250px;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 15px;
   overflow: hidden;
   text-align: left;

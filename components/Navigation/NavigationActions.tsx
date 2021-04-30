@@ -58,7 +58,7 @@ const SearchInput = styled.input`
   width: 50%;
   background: none;
   border: none;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid ${(props) => props.theme.white};
   outline: none;
 `;
 export default NavigationActions;

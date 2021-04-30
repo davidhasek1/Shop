@@ -19,7 +19,7 @@ const BurgerLine = styled.div`
   width: 30px;
   margin: 5px 0;
   border-radius: 45px;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
 `;
 const BurgerLineShort = styled(BurgerLine)`
   width: 20px;

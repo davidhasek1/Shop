@@ -31,7 +31,7 @@ type LinkProps = {
 };
 
 const PageNavWrapper = styled.div`
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
 `;
 const Container = styled.div`
   max-width: 1200px;
@@ -51,7 +51,7 @@ const Container = styled.div`
 const StyledLink = styled.a<LinkProps>`
   padding: 15px;
   text-shadow: 1px 0px 5px #cecece;
-  border-bottom: ${(props) => (props.active ? `3px solid #ffbac9;` : null)};
+  border-bottom: ${(props) => (props.active ? `3px solid #ffbac9;` : null)};  //is not possible to youse theme - then it is not working
   &:hover {
     border-bottom: 3px solid ${(props) => props.theme.pink};
   }

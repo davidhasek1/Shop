@@ -35,7 +35,7 @@ const DropdownWrapper = styled.div`
   right: 0;
   width: 50%;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   box-shadow: 0px 3px 11px 0px #777777;
   z-index: 2;
   ${StyledIconBase} {

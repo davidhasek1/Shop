@@ -47,7 +47,7 @@ const ItemContainer = styled.div`
   display: flex;
   width: 90%;
   margin: 15px auto;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 10px;
   overflow: hidden;
   ${breakpoints("flex-direction", "", [{ 600: "column" }])}

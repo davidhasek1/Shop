@@ -37,7 +37,7 @@ const HeaderContainer = styled.div`
   margin-top: 25px;
   display: flex;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 15px;
   overflow: hidden;
   ${breakpoints("flex-direction", "", [{ 600: "column" }])}

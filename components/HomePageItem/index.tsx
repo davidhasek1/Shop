@@ -21,10 +21,7 @@ const ContentItem = () => {
 const Item = styled.div`
   max-width: 500px;
   min-width: 250px;
-  margin: 15px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 15px;
   margin: 30px 0;
   overflow: hidden;

@@ -94,7 +94,7 @@ const Form = styled.form`
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   margin-bottom: 20px;
   padding: 10px;
   padding-left: 5px;

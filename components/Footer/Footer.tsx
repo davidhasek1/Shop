@@ -46,7 +46,7 @@ const Footer = () => {
 
 const FooterContainer = styled.section`
   padding: 30px 0;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
 `;
 const Content = styled.div`
   max-width: 1200px;

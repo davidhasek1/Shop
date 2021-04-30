@@ -1,9 +1,9 @@
 const theme = {
-  pink: '#ffbac9',
-  white: '#FFFFFF',
-  lightGray: '#eeeeee',
+  pink: "#ffbac9",
+  white: "#ffffff",
+  lightGray: "#eeeeee",
 
-  bgGray: '#EEEEF2'
-}
+  bgGray: "#eeeef2",
+};
 
-export default theme
+export default theme;
