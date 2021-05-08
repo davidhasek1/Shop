@@ -5,7 +5,7 @@ import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { breakpoints } from "utils/responsivity";
 import styled from "styled-components";
 import Burger from "../Burger";
-import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import DropdownMenu from "../DropdownMenu";
 
 const NavigationActions = () => {
   const dispatch = useDispatch();

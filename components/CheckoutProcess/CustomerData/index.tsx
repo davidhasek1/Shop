@@ -1,19 +1,17 @@
 import * as React from "react";
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
-import { StyledIconBase } from "@styled-icons/styled-icon";
 import { User } from "@styled-icons/boxicons-solid/User";
+import OrderSectionTitle from "../OrderSectionTitle";
 
 const CustomerData = () => {
   return (
     <CustomerDataContainer>
-      <Left>
-        <Title>
-          <User size={40} />
-          &nbsp;Customer data
-        </Title>
-        <Price>1000,- Kč</Price>
-      </Left>
+      <OrderSectionTitle
+        icon={ <User size={40} />}
+        title={"Customer data"}
+        price={"999"}
+      />
       <Divider />
       <Right>
         <Form>
@@ -88,25 +86,10 @@ const CustomerDataContainer = styled.div`
   display: flex;
   ${breakpoints("flex-direction", "", [{ 800: "column" }])}
 `;
-
-const Left = styled.div`
-  width: 30%;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
-`;
 const Right = styled.div`
   width: 70%;
   ${breakpoints("width", "", [{ 800: "100%" }])}
 `;
-const Title = styled.h1`
-  ${StyledIconBase} {
-    color: ${(props) => props.theme.pink};
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const Price = styled.h3``;
-
 const Divider = styled.div`
   border-left: 1px solid #ccc;
 `;

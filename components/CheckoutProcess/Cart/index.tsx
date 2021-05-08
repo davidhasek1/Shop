@@ -1,19 +1,17 @@
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
-import { StyledIconBase } from "@styled-icons/styled-icon";
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
 import CartItem from "./CartItem";
+import OrderSectionTitle from '../OrderSectionTitle'
 
 const Cart = () => {
   return (
     <OrderContainer>
-      <Left>
-        <Title>
-          <BagFill size={30} />
-          &nbsp;Order
-        </Title>
-        <Price>1000,- Kč</Price>
-      </Left>
+      <OrderSectionTitle
+        icon={<BagFill size={30} />}
+        title={"Order"}
+        price={"999"}
+      />
       <Divider />
       <Right>
         <Items>
@@ -35,19 +33,7 @@ const OrderContainer = styled.div`
   display: flex;
   ${breakpoints("flex-direction", "", [{ 800: "column" }])}
 `;
-const Left = styled.div`
-  width: 30%;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
-`;
-const Title = styled.h1`
-  ${StyledIconBase} {
-    color: ${props => props.theme.pink}
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const Price = styled.h3``;
+
 const Divider = styled.div`
   border-left: 1px solid #ccc;
 `;

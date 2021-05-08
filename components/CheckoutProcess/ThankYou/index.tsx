@@ -39,14 +39,6 @@ const Title = styled.h1`
   align-items: center;
   justify-content: center;
 `;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  margin: auto;
-  padding: 10px 0;
-`
 const Button = styled.button`
   padding: 15px 20px;
   background-color: ${(props) => props.theme.pink};

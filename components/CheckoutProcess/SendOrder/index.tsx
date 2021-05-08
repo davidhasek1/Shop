@@ -1,18 +1,16 @@
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
-import { StyledIconBase } from "@styled-icons/styled-icon";
 import { CheckCircle } from "@styled-icons/boxicons-solid/CheckCircle";
+import OrderSectionTitle from "../OrderSectionTitle";
 
 const SendOrder = () => {
   return (
     <SendOrderContainer>
-      <Left>
-        <Title>
-          <CheckCircle size={40} />
-          &nbsp;Summary
-        </Title>
-        <Price>1000,- Kč</Price>
-      </Left>
+      <OrderSectionTitle
+        icon={<CheckCircle size={40} />}
+        title={"Summary"}
+        price={"999"}
+      />
       <Divider />
       <Right>
         <CustomerDataWrapper>
@@ -145,24 +143,10 @@ const SendOrderContainer = styled.div`
   display: flex;
   ${breakpoints("flex-direction", "", [{ 800: "column" }])}
 `;
-const Left = styled.div`
-  width: 30%;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
-`;
 const Right = styled.div`
   width: 70%;
   ${breakpoints("width", "", [{ 800: "100%" }])}
 `;
-const Title = styled.h1`
-  ${StyledIconBase} {
-    color: ${(props) => props.theme.pink};
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const Price = styled.h3``;
-
 const Divider = styled.div`
   border-left: 1px solid #ccc;
 `;
