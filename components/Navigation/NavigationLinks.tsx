@@ -3,7 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
 import { Shop, Cart } from "@styled-icons/bootstrap";
-import ItemsCounter from "../ItemsCounter";
+import ItemsCounter from "../CartItemsCounter";
 import { useSelector, RootStateOrAny } from "react-redux";
 
 const NavigationLinks = () => {

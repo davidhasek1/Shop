@@ -3,38 +3,23 @@ import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
 import { User } from "@styled-icons/boxicons-solid/User";
 import OrderSectionTitle from "../OrderSectionTitle";
+import IndividualCustomerData from './IndividualCustomeData'
+import CompanyCustomerData from './CompanyCustomerData'
 
 const CustomerData = () => {
   return (
     <CustomerDataContainer>
       <OrderSectionTitle
-        icon={ <User size={40} />}
+        icon={<User size={40} />}
         title={"Customer data"}
         price={"999"}
       />
       <Divider />
       <Right>
         <Form>
-          <FormData>
-            <Input type="email" placeholder="E-mail"></Input>
-            <Input type="number" placeholder="Telefon"></Input>
-            <Input type="text" placeholder="Jméno"></Input>
-            <Input type="text" placeholder="Příjmení"></Input>
-            <Input type="text" placeholder="Ulice"></Input>
-            <Input type="number" placeholder="PSČ"></Input>
-            <Input type="text" placeholder="Město"></Input>
-            <Select>
-              <option>Země</option>
-              <option>CZ</option>
-              <option>SK</option>
-            </Select>
-          </FormData>
+          <IndividualCustomerData />
           <Separator />
-          <FormData>
-            <Input type="text" placeholder="Společnost"></Input>
-            <Input type="number" placeholder="IČO"></Input>
-            <Input type="number" placeholder="DIČ"></Input>
-          </FormData>
+         <CompanyCustomerData />
           <ButtonWrapper>
             <Button>Back</Button>
             <Button>Continue</Button>
