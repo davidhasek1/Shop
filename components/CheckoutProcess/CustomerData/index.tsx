@@ -5,6 +5,7 @@ import { User } from "@styled-icons/boxicons-solid/User";
 import OrderSectionTitle from "../OrderSectionTitle";
 import IndividualCustomerData from './IndividualCustomeData'
 import CompanyCustomerData from './CompanyCustomerData'
+import Button from 'components/UI/Button'
 
 const CustomerData = () => {
   return (
@@ -19,10 +20,14 @@ const CustomerData = () => {
         <Form>
           <IndividualCustomerData />
           <Separator />
-         <CompanyCustomerData />
+          <CompanyCustomerData />
           <ButtonWrapper>
-            <Button>Back</Button>
-            <Button>Continue</Button>
+            <Button onClick={() => console.log("Add handle function")}>
+              Back
+            </Button>
+            <Button onClick={() => console.log("Add handle function")}>
+              Continue
+            </Button>
           </ButtonWrapper>
         </Form>
       </Right>
@@ -37,29 +42,6 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`;
-const FormData = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  width: 90%;
-  margin: auto;
-  ${breakpoints("width", "", [{ 600: "100%" }])}
-`;
-const Input = styled.input`
-  width: 90%;
-  padding: 15px;
-  margin: 10px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-`;
-const Select = styled.select`
-  width: 90%;
-  padding: 15px;
-  margin: 10px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
 `;
 const Separator = styled.div`
   height: 1px;
@@ -84,17 +66,6 @@ const ButtonWrapper = styled.div`
   width: 90%;
   margin: auto;
   padding: 10px 0;
-`;
-const Button = styled.button`
-  padding: 15px 20px;
-  background-color: ${(props) => props.theme.pink};
-  outline: none;
-  border: none;
-  border-radius: 25px;
-  text-transform: uppercase;
-  color: ${(props) => props.theme.white};
-  font-weight: 600;
-  cursor: pointer;
 `;
 
 export default CustomerData;

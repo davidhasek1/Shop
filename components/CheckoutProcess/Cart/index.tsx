@@ -3,6 +3,7 @@ import { breakpoints } from "utils/responsivity";
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
 import CartItem from "./CartItem";
 import OrderSectionTitle from '../OrderSectionTitle'
+import Button from "components/UI/Button";
 
 const Cart = () => {
   return (
@@ -21,7 +22,7 @@ const Cart = () => {
           <CartItem />
         </Items>
         <ButtonWrapper>
-          <Button>Continue</Button>
+          <Button onClick={() => console.log('continue...')}>Continue</Button>
         </ButtonWrapper>
       </Right>
     </OrderContainer>
@@ -49,17 +50,6 @@ const ButtonWrapper = styled.div`
   width: 90%;
   margin: auto;
   padding: 10px 0;
-`;
-const Button = styled.button`
-  padding: 15px 20px;
-  background-color: ${(props) => props.theme.pink};
-  outline: none;
-  border: none;
-  border-radius: 25px;
-  text-transform: uppercase;
-  color: ${(props) => props.theme.white};
-  font-weight: 600;
-  cursor: pointer;
 `;
 
 export default Cart;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
 import { Truck } from "@styled-icons/fa-solid/Truck";
 import OrderSectionTitle from "../OrderSectionTitle";
+import Button from "components/UI/Button";
 
 const Shipment = () => {
   return (
@@ -67,17 +68,6 @@ const ButtonWrapper = styled.div`
   width: 90%;
   margin: auto;
   padding: 10px 0;
-`;
-const Button = styled.button`
-  padding: 15px 20px;
-  background-color: ${(props) => props.theme.pink};
-  outline: none;
-  border: none;
-  border-radius: 25px;
-  text-transform: uppercase;
-  color: ${(props) => props.theme.white};
-  font-weight: 600;
-  cursor: pointer;
 `;
 
 export default Shipment;

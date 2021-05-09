@@ -3,9 +3,11 @@ import Head from "next/head";
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
 import ShopItem from "components/ShopItem";
+import { ComponentProps } from "react";
+
 
 const ShopCategoryPage: NextPage = (props) => {
-  const { favourites } = props;
+  const { favourites }: any = props;
 
   return (
     <div>

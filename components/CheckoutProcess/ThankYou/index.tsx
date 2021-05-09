@@ -1,9 +1,11 @@
-import styled from "styled-components"
-import { StyledIconBase } from "@styled-icons/styled-icon"
-import { Heart } from "@styled-icons/fa-solid/Heart"
-import Link from 'next/link'
+import styled from "styled-components";
+import { StyledIconBase } from "@styled-icons/styled-icon";
+import { Heart } from "@styled-icons/fa-solid/Heart";
+import { useRouter } from "next/router";
+import Button from "components/UI/Button";
 
-const Shipment = () => {
+const ThankYouSection = () => {
+  const router = useRouter();
   return (
     <ShipmentDataContainer>
       <Wrapper>
@@ -12,25 +14,21 @@ const Shipment = () => {
           &nbsp;Thank you!&nbsp;
           <Heart size={40} />
         </Title>
-        <Button>
-          <Link href="/">
-            Back Home
-          </Link>
-        </Button>
+        <Button onClick={() => router.push("/")}>Back Home</Button>
       </Wrapper>
     </ShipmentDataContainer>
-  )
-}
+  );
+};
 
 const ShipmentDataContainer = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 const Wrapper = styled.div`
   width: 100%;
-`
+`;
 const Title = styled.h1`
   ${StyledIconBase} {
     color: ${(props) => props.theme.pink};
@@ -39,16 +37,5 @@ const Title = styled.h1`
   align-items: center;
   justify-content: center;
 `;
-const Button = styled.button`
-  padding: 15px 20px;
-  background-color: ${(props) => props.theme.pink};
-  outline: none;
-  border: none;
-  border-radius: 25px;
-  text-transform: uppercase;
-  color: ${(props) => props.theme.white};
-  font-weight: 600;
-  cursor: pointer;
-`;
 
-export default Shipment
+export default ThankYouSection;

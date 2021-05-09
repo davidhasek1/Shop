@@ -5,6 +5,7 @@ import { AddShoppingCart } from "@styled-icons/material-twotone/AddShoppingCart"
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import { useDispatch } from "react-redux";
 import { AddToCartState } from "store/actions/userCartActions";
+import Button from "components/UI/Button";
 
 const productDetail = (props) => {
   const dispatch = useDispatch();
@@ -28,13 +29,11 @@ const productDetail = (props) => {
                   <StyledInput type="number" />
                   ks
                 </InputWrap>
-                <StyledButton
+                <Button
+                  icon={<AddShoppingCart size={35} />}
                   onClick={() => dispatch(AddToCartState(productID))}
-                >
-                  <AddShoppingCart size={35} />
-                </StyledButton>
+                />
               </Actions>
-
               <Line />
               <PriceTag>{data.price} Kč</PriceTag>
             </ActionsWrap>
@@ -121,7 +120,7 @@ const Hole = styled.div`
   margin-right: 20px;
   height: 15px;
   width: 15px;
-  background-color: ${props => props.theme.lightGray};
+  background-color: ${(props) => props.theme.lightGray};
   border-radius: 100%;
 `;
 const ActionsWrap = styled.div`

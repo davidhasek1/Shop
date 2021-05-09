@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
 import { Plus, Minus } from "@styled-icons/entypo";
 import { Trash } from "@styled-icons/bootstrap/Trash";
+import Button from "components/UI/Button";
 
 const CartItem = () => {
   return (
@@ -27,17 +28,20 @@ const CartItem = () => {
       </Description>
       <ItemActions>
         <ChangeCount>
-          <Button>
-            <Plus size={20} />
-          </Button>
+          <Button
+            onClick={() => console.log("inc")}
+            icon={<Plus size={20} />}
+          />
           <Count>5</Count>
-          <Button>
-            <Minus size={20} />
-          </Button>
+          <Button
+            onClick={() => console.log("dec")}
+            icon={<Minus size={20} />}
+          />
         </ChangeCount>
-        <Delete>
-          <Trash size={20} />
-        </Delete>
+        <Delete
+          onClick={() => console.log("delete")}
+          icon={<Trash size={20} />}
+        />
       </ItemActions>
     </ItemContainer>
   );
@@ -88,16 +92,8 @@ const ChangeCount = styled.div`
   flex-direction: column;
   ${breakpoints("flex-direction", "", [{ 600: "row" }])}
 `;
-const Button = styled.button`
-  padding: 5px;
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-`;
 const Delete = styled(Button)`
-  padding: 0 5px;
-  margin-left: 5px;
+  padding: 25px;
 `;
 const Count = styled.span`
   padding: 8px;

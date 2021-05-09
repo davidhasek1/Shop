@@ -5,7 +5,7 @@ import { breakpoints } from "utils/responsivity";
 import ShopItem from "components/ShopItem";
 
 const ShopCategoryPage: NextPage = (props) => {
-  const { saleProducts } = props;
+  const { saleProducts }: any = props;
 
   return (
     <div>
