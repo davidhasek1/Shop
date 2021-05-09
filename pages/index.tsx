@@ -1,12 +1,9 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
-import { breakpoints } from "../utils/responsivity";
-import Navigation from "../components/Navigation";
-import Header from "../components/HomePage/Header";
-import ContentItem from "../components/HomePage/ContentItem";
-import Footer from "../components/Footer";
-import Layout from "../components/Layout";
+import { breakpoints } from "utils/responsivity";
+import Header from "components/Header";
+import ContentItem from "components/HomePageItem";
 
 const Home: NextPage = () => {
   return (

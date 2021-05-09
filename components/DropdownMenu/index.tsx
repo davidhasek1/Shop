@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Shop, Cart } from "@styled-icons/bootstrap";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Link from "next/link";
-import { breakpoints } from "../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 
 const DropdownMenu = () => {
   return (
@@ -35,14 +35,14 @@ const DropdownWrapper = styled.div`
   right: 0;
   width: 50%;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   box-shadow: 0px 3px 11px 0px #777777;
   z-index: 2;
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   ${breakpoints("width", "", [{ 800: "100%" }, { 600: "200%" }])}
-  ${breakpoints("display", "", [{ 800: "none" }], 'min-width')}
+  ${breakpoints("display", "", [{ 800: "none" }], "min-width")}
 `;
 const Links = styled.div`
   text-align: left;

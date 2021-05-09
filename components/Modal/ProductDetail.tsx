@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import Modal from "./Modal";
 import Image from "next/image";
 import {RootStateOrAny , useSelector, useDispatch } from "react-redux";
-import {openProductDetail} from '../../store/actions/handlersActions'
+import {openProductDetail} from 'store/actions/handlersActions'
 
 const ProductDetail = () => {
   const dispatch = useDispatch();

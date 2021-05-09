@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
+import { breakpoints } from "utils/responsivity";
 import { ArrowRightCircle } from "@styled-icons/bootstrap/ArrowRightCircle";
 import { StyledIconBase } from "@styled-icons/styled-icon";
 import Link from "next/link";
@@ -37,7 +37,7 @@ const HeaderContainer = styled.div`
   margin-top: 25px;
   display: flex;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 15px;
   overflow: hidden;
   ${breakpoints("flex-direction", "", [{ 600: "column" }])}
@@ -56,7 +56,7 @@ const Paragraph = styled.p`
 
 const ButtonWrapper = styled.div`
   ${StyledIconBase} {
-    color: #ffbac9;
+    color: ${(props) => props.theme.pink};
   }
   height: auto;
   padding: 20px;

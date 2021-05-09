@@ -1,11 +1,11 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
-import { breakpoints } from "../../../utils/responsivity";
-import ShopItem from "../../../components/Shop/ShopItem";
+import { breakpoints } from "utils/responsivity";
+import ShopItem from "components/ShopItem";
 
 const ShopCategoryPage: NextPage = (props) => {
-  const { saleProducts } = props;
+  const { saleProducts }: any = props;
 
   return (
     <div>

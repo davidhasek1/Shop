@@ -1,18 +1,17 @@
 import styled from "styled-components";
-import { breakpoints } from "../../utils/responsivity";
-import { StyledIconBase } from "@styled-icons/styled-icon";
+import { breakpoints } from "utils/responsivity";
 import { Truck } from "@styled-icons/fa-solid/Truck";
+import OrderSectionTitle from "../OrderSectionTitle";
+import Button from "components/UI/Button";
 
 const Shipment = () => {
   return (
     <ShipmentDataContainer>
-      <Left>
-        <Title>
-          <Truck size={40} />
-          &nbsp;Shipment
-        </Title>
-        <Price>1000,- Kč</Price>
-      </Left>
+      <OrderSectionTitle
+        icon={<Truck size={40} />}
+        title={"Shipment"}
+        price={"999"}
+      />
       <Divider />
       <Right>
         <Form>
@@ -43,10 +42,6 @@ const ShipmentDataContainer = styled.div`
   display: flex;
   ${breakpoints("flex-direction", "", [{ 800: "column" }])}
 `;
-const Left = styled.div`
-  width: 30%;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
-`;
 const Right = styled.div`
   width: 70%;
   ${breakpoints("width", "", [{ 800: "100%" }])}
@@ -64,16 +59,6 @@ const FormContent = styled.div`
   display: flex;
 `;
 const Input = styled.input``;
-const Title = styled.h1`
-  ${StyledIconBase} {
-    color: #ffbac9;
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const Price = styled.h3``;
-
 const Divider = styled.div`
   border-left: 1px solid #ccc;
 `;
@@ -83,17 +68,6 @@ const ButtonWrapper = styled.div`
   width: 90%;
   margin: auto;
   padding: 10px 0;
-`;
-const Button = styled.button`
-  padding: 15px 20px;
-  background-color: #ffbac9;
-  outline: none;
-  border: none;
-  border-radius: 25px;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-weight: 600;
-  cursor: pointer;
 `;
 
 export default Shipment;

@@ -1,12 +1,11 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
-import { breakpoints } from "../utils/responsivity";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import { breakpoints } from "utils/responsivity";
 import { User, Message } from "@styled-icons/boxicons-regular";
 import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail";
-import MapCircle from "../components/Contact/MapCircle";
+import MapCircle from "components/MapPin";
+import Button from "components/UI/Button";
 
 const Contact: NextPage = () => {
   return (
@@ -34,7 +33,7 @@ const Contact: NextPage = () => {
                 <Message size={25} />
                 <StyledTextarea placeholder="Message"></StyledTextarea>
               </InputWrapper>
-              <FormButton type="submit">Send</FormButton>
+              <Button onClick={() => console.log('submit action')}>Send</Button>
             </Form>
           </Content>
         </FormWrapper>
@@ -96,7 +95,7 @@ const Form = styled.form`
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.white};
   margin-bottom: 20px;
   padding: 10px;
   padding-left: 5px;
@@ -121,16 +120,6 @@ const StyledTextarea = styled.textarea`
   border: none;
   outline: none;
   font-family: Popins, sans-serif;
-`;
-const FormButton = styled.button`
-  background-color: #ffbac9;
-  padding: 15px 0;
-  margin: 5px 0;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  font-size: 18px;
-  color: #ffffff;
 `;
 
 export default Contact;
