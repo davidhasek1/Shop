@@ -2,8 +2,10 @@ import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
-import Header from "components/Header";
+
+//import Header from "components/Header";
 import ContentItem from "components/HomePageItem";
+import ImagesFrame from "components/HomeImagesFrame";
 
 const Home: NextPage = () => {
   return (
@@ -12,12 +14,12 @@ const Home: NextPage = () => {
         <title>Buckova: Home Page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <Header />
-        <ItemsWrapper>
-          <ContentItem />
-          <ContentItem />
-          <ContentItem />
-        </ItemsWrapper>
+      <ImagesFrame />
+      <ItemsWrapper>
+        <ContentItem />
+        <ContentItem />
+        <ContentItem />
+      </ItemsWrapper>
     </div>
   );
 };
