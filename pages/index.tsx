@@ -1,11 +1,11 @@
-import { NextPage } from "next";
-import Head from "next/head";
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
+import { NextPage } from "next"
+import Head from "next/head"
+import styled from "styled-components"
+import { breakpoints } from "utils/responsivity"
 
-import Header from "components/Header";
-import ContentItem from "components/HomePageItem";
-import Gallery from "components/Gallery";
+import Header from "components/Header"
+import ContentItem from "components/HomePageItem"
+import Gallery from "components/Gallery"
 
 const Home: NextPage = () => {
   return (
@@ -14,16 +14,18 @@ const Home: NextPage = () => {
         <title>Buckova: Home Page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Gallery />
       <Header />
+
       <ItemsWrapper>
         <ContentItem />
         <ContentItem />
         <ContentItem />
       </ItemsWrapper>
+
+      <Gallery />
     </div>
-  );
-};
+  )
+}
 
 const ItemsWrapper = styled.section`
   display: grid;
@@ -37,5 +39,5 @@ const ItemsWrapper = styled.section`
   ])}
   ${breakpoints("margin", "", [{ 800: "50px 20px" }])}
   ${breakpoints("justify-content", "", [{ 600: "center" }])}
-`;
-export default Home;
+`
+export default Home
