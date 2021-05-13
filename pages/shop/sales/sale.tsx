@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
-import ShopItem from "components/ShopItem";
+import ShopItem from "components/ProductItem";
 
 const ShopCategoryPage: NextPage = (props) => {
   const { saleProducts }: any = props;

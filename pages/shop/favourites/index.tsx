@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
-import ShopItem from "components/ShopItem";
+import ShopItem from "components/ProductItem";
 import { ComponentProps } from "react";
 
 
@@ -21,7 +21,7 @@ const ShopCategoryPage: NextPage = (props) => {
             key={favouriteProduct._id}
             detailID={favouriteProduct._id}
             title={favouriteProduct.title}
-            description={favouriteProduct.description}
+            shortDescription={favouriteProduct.description} //TODO: should by shortDescription
           />
         ))}
       </Grid>

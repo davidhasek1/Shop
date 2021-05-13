@@ -4,82 +4,88 @@ import Image from "next/image"
 
 const Gallery = () => {
   return (
-    <GalleryWrapper>
+    <SectionWrapper>
       <div>
         <h1>Gallery Section</h1>
       </div>
-      <Row>
-        <Column>
-          <ImageWrapper>
-            <ImageStyled
-              src={"/images/headerImg.jpg"}
-              width={850}
-              height={650}
-            />
-          </ImageWrapper>
-          <ImageWrapper>
-            <ImageStyled
-              src={"/images/testimgH.jpg"}
-              width={500}
-              height={700}
-            />
-          </ImageWrapper>
-        </Column>
-        <Column>
-          <ImageWrapper>
-            <ImageStyled
-              src={"/images/testimgH.jpg"}
-              width={500}
-              height={700}
-            />
-          </ImageWrapper>
-          <ImageWrapper>
-            <ImageStyled
-              src={"/images/testimgW.jpg"}
-              width={850}
-              height={650}
-            />
-          </ImageWrapper>
-        </Column>
-        <Column>
-          <ImageWrapper>
-            <ImageStyled
-              src={"/images/testimgW.jpg"}
-              width={850}
-              height={650}
-            />
-          </ImageWrapper>
-          <ImageWrapper>
-            <ImageStyled
-              src={"/images/testimgH.jpg"}
-              width={500}
-              height={700}
-            />
-          </ImageWrapper>
-        </Column>
-        <Column>
-          <ImageWrapper>
-            <ImageStyled
-              src={"/images/testimgH.jpg"}
-              width={500}
-              height={700}
-            />
-          </ImageWrapper>
-          <ImageWrapper>
-            <ImageStyled
-              src={"/images/testimgW.jpg"}
-              width={850}
-              height={650}
-            />
-          </ImageWrapper>
-        </Column>
-      </Row>
-    </GalleryWrapper>
+      <GalleryWrapper>
+        <Row>
+          <Column>
+            <ImageWrapper>
+              <ImageStyled
+                src={"/images/headerImg.jpg"}
+                width={850}
+                height={650}
+              />
+            </ImageWrapper>
+            <ImageWrapper>
+              <ImageStyled
+                src={"/images/testimgH.jpg"}
+                width={500}
+                height={700}
+              />
+            </ImageWrapper>
+          </Column>
+          <Column>
+            <ImageWrapper>
+              <ImageStyled
+                src={"/images/testimgH.jpg"}
+                width={500}
+                height={700}
+              />
+            </ImageWrapper>
+            <ImageWrapper>
+              <ImageStyled
+                src={"/images/testimgW.jpg"}
+                width={850}
+                height={650}
+              />
+            </ImageWrapper>
+          </Column>
+          <Column>
+            <ImageWrapper>
+              <ImageStyled
+                src={"/images/testimgW.jpg"}
+                width={850}
+                height={650}
+              />
+            </ImageWrapper>
+            <ImageWrapper>
+              <ImageStyled
+                src={"/images/testimgH.jpg"}
+                width={500}
+                height={700}
+              />
+            </ImageWrapper>
+          </Column>
+          <Column>
+            <ImageWrapper>
+              <ImageStyled
+                src={"/images/testimgH.jpg"}
+                width={500}
+                height={700}
+              />
+            </ImageWrapper>
+            <ImageWrapper>
+              <ImageStyled
+                src={"/images/testimgW.jpg"}
+                width={850}
+                height={650}
+              />
+            </ImageWrapper>
+          </Column>
+        </Row>
+      </GalleryWrapper>
+    </SectionWrapper>
   )
 }
 
-const GalleryWrapper = styled.div`
+const SectionWrapper = styled.div`
   margin: 25px 0;
+`
+const GalleryWrapper = styled.div`
+  border-radius: 10px;
+  overflow: hidden;
 `
 const Row = styled.div`
   display: flex;
@@ -96,10 +102,10 @@ const Column = styled.div`
   ${breakpoints("max-width", "", [{ 800: "50%" }, { 600: "100%" }])}
 `
 const ImageWrapper = styled.div`
+  transition: all 0.2s ease-in-out;
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.125);
     z-index: 50;
-    transition: 0.5s ease-in;
   }
 `
 const ImageStyled = styled(Image)`
