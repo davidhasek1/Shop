@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import Head from "next/head";
-import ShopItem from "components/ShopItem";
+import styled from "styled-components"
+import { breakpoints } from "utils/responsivity"
+import Head from "next/head"
+import ShopItem from "components/ProductItem"
 
 //tayd fetchuj všechny produkty
 
 const ShopMainPage = (props) => {
-  const { products } = props;
+  const { products } = props
   return (
     <div>
       <Head>
@@ -15,29 +15,30 @@ const ShopMainPage = (props) => {
       <Grid>
         {products.map((product) => {
           return (
-            <ShopItem key={product._id}
+            <ShopItem
+              key={product._id}
               detailID={product._id}
               title={product.title}
-              description={product.description}
+              shortDescription={product.shortDescription}
             />
-          );
+          )
         })}
       </Grid>
     </div>
-  );
-};
+  )
+}
 //budu chtít vypsat všechny produkty na stránce /shop
 
-export const getStaticProps = async (context) => {
-  const res = await fetch("http://localhost:3000/api/shop");
-  const data = await res.json();
-
+export const getStaticProps = async () => {
+  const res = await fetch("http://localhost:3000/api/shop")
+  const data = await res.json()
+  console.log(data)
   return {
     props: {
       products: data,
     },
-  };
-};
+  }
+}
 
 const Grid = styled.div`
   display: grid;
@@ -50,6 +51,6 @@ const Grid = styled.div`
     { 600: "auto" },
   ])};
   ${breakpoints("margin", "", [{ 800: "50px 10px" }, { 600: "50px 10px" }])}
-`;
+`
 
-export default ShopMainPage;
+export default ShopMainPage
