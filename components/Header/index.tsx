@@ -1,68 +1,46 @@
-import Image from "next/image";
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import { ArrowRightCircle } from "@styled-icons/bootstrap/ArrowRightCircle";
-import { StyledIconBase } from "@styled-icons/styled-icon";
-import Link from "next/link";
+import Image from "next/image"
+import styled from "styled-components"
+import { breakpoints } from "utils/responsivity"
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <Image src="/images/product.jpg" width={600} height={310} />
-
-      <HeaderContent>
-        <div>
-          <h1>Title of mew suprt product feffefe!</h1>
-          <Paragraph>
-            Aute id do consequat nulla exercitation do velit ipsum. Elit ex
-            nulla cupidatat dolore elit. Irure ipsum excepteur quis ad culpa qui
-            elit consectetur exercitation et non quis officia esse. Mollit
-            fugiat officia laborum minim eiusmod. Incididunt id ullamco aute
-            ullamco excepteur cillum laboris do officia nostrud sunt occaecat
-            veniam eiusmod. Proident ea ullamco adipisicing nostrud consequat
-            fugiat id ullamco.
-          </Paragraph>
-        </div>
-        <ButtonWrapper>
-          <Link href="/contact">
-            <ArrowRightCircle size={50} />
-          </Link>
-        </ButtonWrapper>
-      </HeaderContent>
+      <ImageWrapper>
+        <ImageStyled src="/images/headerImg.jpg" width={2500} height={1050} />
+        {/* width={3500} height={1550} */}
+        <TitleWrapper>
+          <Title>Martina Buckova e-shopík</Title>
+        </TitleWrapper>
+      </ImageWrapper>
     </HeaderContainer>
-  );
-};
+  )
+}
 
 const HeaderContainer = styled.div`
   margin-top: 25px;
-  display: flex;
-  justify-content: center;
+
   background-color: ${(props) => props.theme.white};
   border-radius: 15px;
   overflow: hidden;
   ${breakpoints("flex-direction", "", [{ 600: "column" }])}
-  ${breakpoints("margin", "", [{ 800: "0px 20px" }])}
-  ${breakpoints("margin-top", "", [{ 800: "80px" }])}
-`;
-const HeaderContent = styled.div`
-  width: 50%;
-  padding: 50px 20px;
-  text-align: left;
-  ${breakpoints("width", "", [{ 600: "100%" }])}
-`;
-const Paragraph = styled.p`
-  text-align: left;
-`;
-
-const ButtonWrapper = styled.div`
-  ${StyledIconBase} {
-    color: ${(props) => props.theme.pink};
-  }
-  height: auto;
-  padding: 20px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-
-export default Header;
+  ${breakpoints("margin", "", [{ 800: "20px" }])}
+`
+const ImageWrapper = styled.div`
+  position: relative;
+  font-size: 0;
+`
+const ImageStyled = styled(Image)`
+  object-fit: cover;
+  opacity: 0.7;
+`
+const TitleWrapper = styled.div`
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
+const Title = styled.h1`
+  text-shadow: 0px 0px 2px ${props => props.theme.black};
+`
+export default Header
