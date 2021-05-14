@@ -18,7 +18,7 @@ const ProductsSlider = () => {
   return (
     <ProductsSliderWrapper>
       <div>
-        <h1>Top Trending Products</h1>
+        <h1>Top Trending Products 🌟</h1>
       </div>
       <ItemsOuterWrapper>
         <ArrowWrapper>

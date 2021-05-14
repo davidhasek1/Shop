@@ -15,11 +15,10 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
   //rename this component
   return (
     <Item>
-      <Image
-        src="/images/product.jpg"
+      <ImageStyled
+        src="/images/testImgW.jpg"
         width={500}
         height={375}
-        layout="responsive"
       />
       <Content>
         <Title>{title}</Title>
@@ -57,6 +56,9 @@ const Item = styled.div`
 `
 const Content = styled.div`
   padding: 10px;
+`
+const ImageStyled = styled(Image)`
+  object-fit: cover;
 `
 const Title = styled.h3`
   margin: 0;
