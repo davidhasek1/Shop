@@ -17,6 +17,7 @@ const Footer = () => {
             imageHeight={100}
             scaleing={false}
             fitting={"contain"}
+            layout={"intrinsic"}
           />
         </ImageWrapper>
 

@@ -25,6 +25,7 @@ const productDetail = (props) => {
               imageHeight={500}
               scaleing={false}
               fitting={"cover"}
+              layout={"intrinsic"}
             />
           </Slider>
           <Actions>

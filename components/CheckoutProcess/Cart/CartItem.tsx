@@ -14,6 +14,7 @@ const CartItem = () => {
         imageHeight={150}
         scaleing={false}
         fitting={"cover"}
+        layout={"intrinsic"}
       />
       <Description>
         <Title>Item #n</Title>

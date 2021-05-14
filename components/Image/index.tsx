@@ -3,7 +3,7 @@ import { breakpoints } from "utils/responsivity"
 import Image from "next/image"
 
 const ImageComponent = (props) => {
-  const { imageSrc, imageWidth, imageHeight, scaleing, fitting } = props
+  const { imageSrc, imageWidth, imageHeight, scaleing, fitting, layout } = props
   return (
     //TODO:
     //@ts-ignore
@@ -14,6 +14,8 @@ const ImageComponent = (props) => {
         width={imageWidth}
         height={imageHeight}
         imagefit={fitting}
+        /* @ts-ignore */
+        layout={layout} //https://nextjs.org/docs/api-reference/next/image#layout
       />
     </ImageWrapper>
   )

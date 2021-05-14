@@ -11,6 +11,7 @@ const GalleryColumn = () => {
         imageHeight={650}
         scaleing={true}
         fitting={"cover"}
+        layout={"intrinsic"}
       />
       <StyledImage
         imageSrc={"/images/testimgH.jpg"}
@@ -18,6 +19,7 @@ const GalleryColumn = () => {
         imageHeight={700}
         scaleing={true}
         fitting={"cover"}
+        layout={"intrinsic"}
       />
     </Column>
   )

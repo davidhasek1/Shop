@@ -11,6 +11,7 @@ const MobileHeaderImage = () => {
         imageHeight={3500}
         scaleing={false}
         fitting={"cover"}
+        layout={"intrinsic"}
       />
     </MobileImage>
   )

@@ -11,6 +11,7 @@ const DesktopHeaderImage = () => {
         imageHeight={1050}
         scaleing={false}
         fitting={"cover"}
+        layout={"intrinsic"}
       />
     </DesktopImage>
   )

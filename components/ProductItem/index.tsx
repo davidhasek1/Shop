@@ -21,6 +21,7 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
         imageHeight={375}
         scaleing={false}
         fitting={"cover"}
+        layout={"intrinsic"}
       />
       <Content>
         <Title>{title}</Title>

@@ -21,6 +21,7 @@ const NavigationLinks = () => {
             imageHeight={50}
             scaleing={false}
             fitting={"contain"}
+            layout={"intrinsic"}
           />
         </ImageLink>
       </Link>
