@@ -1,18 +1,15 @@
 import styled from "styled-components"
 import { breakpoints } from "utils/responsivity"
-import StyledImage from "components/Image"
+import DesktopImage from "./DesktopHeaderImage"
+import MobileImage from "./MobileHeaderImage"
 
 const Header = () => {
   return (
     <HeaderContainer>
       <ImageWrapper>
-        <StyledImage
-          imageSrc={"/images/headerImg.jpg"}
-          imageWidth={2500}
-          imageHeight={1050}
-          scaleing={false}
-          fitting={"cover"}
-        />
+        <DesktopImage />
+        <MobileImage />
+
         <TitleWrapper>
           <Title>Martina Buckova e-shopík</Title>
         </TitleWrapper>
@@ -23,12 +20,12 @@ const Header = () => {
 
 const HeaderContainer = styled.div`
   margin-top: 25px;
-
   background-color: ${(props) => props.theme.white};
   border-radius: 15px;
   overflow: hidden;
   ${breakpoints("flex-direction", "", [{ 600: "column" }])}
-  ${breakpoints("margin", "", [{ 800: "20px" }])}
+  ${breakpoints("border-radius", "", [{ 600: 0 }])}
+  ${breakpoints("margin", "", [{ 800: "20px" }, { 600: 0 }])}
 `
 const ImageWrapper = styled.div`
   position: relative;
@@ -40,8 +37,10 @@ const TitleWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  ${breakpoints("width", "", [{ 800: "90%" }])}
 `
 const Title = styled.h1`
   text-shadow: 0px 0px 2px ${(props) => props.theme.black};
+  ${breakpoints("font-size", "", [{ 800: "40px" }, { 600: "25px" }])}
 `
 export default Header
