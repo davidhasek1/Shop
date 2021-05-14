@@ -12,7 +12,7 @@ import StyledImage from "components/Image"
 const ProductItem = ({ title, shortDescription, detailID }) => {
   const dispatch = useDispatch()
   const router = useRouter()
-  //rename this component
+  
   return (
     <Item>
       <StyledImage
@@ -20,6 +20,7 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
         imageWidth={500}
         imageHeight={375}
         scaleing={false}
+        fitting={"cover"}
       />
       <Content>
         <Title>{title}</Title>

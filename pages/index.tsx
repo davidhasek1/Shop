@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { breakpoints } from "utils/responsivity"
 
 import Header from "components/Header"
+import AboutSection from "components/AboutSection"
 import TopProductsSlider from "components/ProductsSlider"
 import Gallery from "components/Gallery"
 
@@ -15,6 +16,7 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <AboutSection />
       {/* TODO: fetch z databaze - udělat collection top selling products / componenta Products slider */}
       <TopProductsSlider />
 

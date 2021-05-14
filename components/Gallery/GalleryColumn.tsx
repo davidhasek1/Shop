@@ -1,21 +1,23 @@
 import styled from "styled-components"
 import { breakpoints } from "utils/responsivity"
-import GalleryImage from "../Image"
+import StyledImage from "../Image"
 
 const GalleryColumn = () => {
   return (
     <Column>
-      <GalleryImage
+      <StyledImage
         imageSrc={"/images/testimgW.jpg"}
         imageWidth={850} //W/H budoud dynamicky z cmss
         imageHeight={650}
         scaleing={true}
+        fitting={"cover"}
       />
-      <GalleryImage
+      <StyledImage
         imageSrc={"/images/testimgH.jpg"}
         imageWidth={500}
         imageHeight={700}
         scaleing={true}
+        fitting={"cover"}
       />
     </Column>
   )
