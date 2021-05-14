@@ -2,11 +2,11 @@ import styled from "styled-components"
 import { breakpoints } from "utils/responsivity"
 import Heading from "components/Heading"
 
-const AboutSection = ({ children }) => {
+const AboutSection = ({ aboutContent }) => {
   return (
     <AboutWrapper>
-      <Heading>About WellU 💁🏽‍♀️</Heading>
-      <ContentWrapper>{children}</ContentWrapper>
+      <Heading>About WellU (CMS) 💁🏽‍♀️</Heading>
+      <ContentWrapper>{aboutContent}</ContentWrapper>
     </AboutWrapper>
   )
 }
