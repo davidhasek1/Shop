@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { breakpoints } from "utils/responsivity"
-import GalleryImage from "./Image"
+import GalleryImage from "../Image"
 
 const GalleryColumn = () => {
   return (
@@ -9,11 +9,13 @@ const GalleryColumn = () => {
         imageSrc={"/images/testimgW.jpg"}
         imageWidth={850} //W/H budoud dynamicky z cmss
         imageHeight={650}
+        scaleing={true}
       />
       <GalleryImage
         imageSrc={"/images/testimgH.jpg"}
         imageWidth={500}
         imageHeight={700}
+        scaleing={true}
       />
     </Column>
   )

@@ -1,4 +1,3 @@
-import Image from "next/image"
 import styled from "styled-components"
 import { breakpoints } from "utils/responsivity"
 import { InfoCircle, ShoppingBag } from "@styled-icons/boxicons-regular"
@@ -8,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { openProductDetail } from "store/actions/handlersActions"
 import { AddToCartState } from "store/actions/userCartActions"
 import Button from "components/UI/Button"
+import StyledImage from "components/Image"
 
 const ProductItem = ({ title, shortDescription, detailID }) => {
   const dispatch = useDispatch()
@@ -15,10 +15,11 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
   //rename this component
   return (
     <Item>
-      <ImageStyled
-        src="/images/testImgW.jpg"
-        width={500}
-        height={375}
+      <StyledImage
+        imageSrc="/images/testImgW.jpg"
+        imageWidth={500}
+        imageHeight={375}
+        scaleing={false}
       />
       <Content>
         <Title>{title}</Title>
@@ -56,9 +57,6 @@ const Item = styled.div`
 `
 const Content = styled.div`
   padding: 10px;
-`
-const ImageStyled = styled(Image)`
-  object-fit: cover;
 `
 const Title = styled.h3`
   margin: 0;
