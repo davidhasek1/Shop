@@ -30,7 +30,7 @@ const ShopMainPage = (props) => {
 //budu chtít vypsat všechny produkty na stránce /shop
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/shop")
+  const res = await fetch("http://0.0.0.0:3000/api/shop")
   const data = await res.json()
   console.log(data)
   return {
