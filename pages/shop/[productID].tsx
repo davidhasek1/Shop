@@ -89,7 +89,8 @@ export const getStaticProps = async (context) => {
   console.log(product)
   return {
     props: {
-      data: product,
+      data: product ? product : [],
+      fallback: false,
     },
   }
 }

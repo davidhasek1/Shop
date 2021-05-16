@@ -15,7 +15,7 @@ const productDetail = (props) => {
   )
 }
 
-export const getStaticPaths = async (context) => {
+/* export const getStaticPaths = async (context) => {
   const res = await fetch(`http://localhost:3000/api/shop/favourites/`)
   const ids = await res.json() //pole
   const arrayIDs = []
@@ -42,9 +42,10 @@ export const getStaticProps = async (context) => {
   console.log(favProduct)
   return {
     props: {
-      data: favProduct,
+      data: favProduct ? favProduct : [],
+      fallback: false,
     },
   }
-}
+} */
 
 export default productDetail

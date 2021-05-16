@@ -35,7 +35,8 @@ export const getStaticProps = async () => {
   console.log(data)
   return {
     props: {
-      products: data,
+      products: data ? data : [],
+      fallback: false,
     },
   }
 }
