@@ -1,38 +1,25 @@
-import { NextPage } from "next";
-import Head from "next/head";
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import Header from "components/Header";
-import ContentItem from "components/HomePageItem";
+import { NextPage } from "next"
+import Head from "next/head"
+import Header from "components/Header"
+import About from "components/AboutSection"
+import Bestsellers from "components/Bestsellers"
+import Gallery from "components/Gallery"
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <div>
       <Head>
         <title>Buckova: Home Page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <Header />
-        <ItemsWrapper>
-          <ContentItem />
-          <ContentItem />
-          <ContentItem />
-        </ItemsWrapper>
-    </div>
-  );
-};
+      <Header />
+      <About aboutContent={"CONTENT FROM CMS"} />
 
-const ItemsWrapper = styled.section`
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: space-between;
-  grid-gap: 30px;
-  margin: auto;
-  ${breakpoints("grid-template-columns", "", [
-    { 800: "auto auto" },
-    { 600: "auto" },
-  ])}
-  ${breakpoints("margin", "", [{ 800: "50px 20px" }])}
-  ${breakpoints("justify-content", "", [{ 600: "center" }])}
-`;
-export default Home;
+      {/* TODO: fetch z databaze - udělat collection top selling products / componenta Products slider */}
+      <Bestsellers />
+      <Gallery />
+    </div>
+  )
+}
+
+export default HomePage

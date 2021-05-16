@@ -1,68 +1,46 @@
-import Image from "next/image";
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import { ArrowRightCircle } from "@styled-icons/bootstrap/ArrowRightCircle";
-import { StyledIconBase } from "@styled-icons/styled-icon";
-import Link from "next/link";
+import styled from "styled-components"
+import { breakpoints } from "utils/responsivity"
+import DesktopImage from "./DesktopHeaderImage"
+import MobileImage from "./MobileHeaderImage"
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <Image src="/images/product.jpg" width={600} height={310} />
+      <ImageWrapper>
+        <DesktopImage />
+        <MobileImage />
 
-      <HeaderContent>
-        <div>
-          <h1>Title of mew suprt product feffefe!</h1>
-          <Paragraph>
-            Aute id do consequat nulla exercitation do velit ipsum. Elit ex
-            nulla cupidatat dolore elit. Irure ipsum excepteur quis ad culpa qui
-            elit consectetur exercitation et non quis officia esse. Mollit
-            fugiat officia laborum minim eiusmod. Incididunt id ullamco aute
-            ullamco excepteur cillum laboris do officia nostrud sunt occaecat
-            veniam eiusmod. Proident ea ullamco adipisicing nostrud consequat
-            fugiat id ullamco.
-          </Paragraph>
-        </div>
-        <ButtonWrapper>
-          <Link href="/contact">
-            <ArrowRightCircle size={50} />
-          </Link>
-        </ButtonWrapper>
-      </HeaderContent>
+        <TitleWrapper>
+          <Title>Martina Buckova e-shopík</Title>
+        </TitleWrapper>
+      </ImageWrapper>
     </HeaderContainer>
-  );
-};
+  )
+}
 
 const HeaderContainer = styled.div`
   margin-top: 25px;
-  display: flex;
-  justify-content: center;
   background-color: ${(props) => props.theme.white};
   border-radius: 15px;
   overflow: hidden;
   ${breakpoints("flex-direction", "", [{ 600: "column" }])}
-  ${breakpoints("margin", "", [{ 800: "0px 20px" }])}
-  ${breakpoints("margin-top", "", [{ 800: "80px" }])}
-`;
-const HeaderContent = styled.div`
-  width: 50%;
-  padding: 50px 20px;
-  text-align: left;
-  ${breakpoints("width", "", [{ 600: "100%" }])}
-`;
-const Paragraph = styled.p`
-  text-align: left;
-`;
-
-const ButtonWrapper = styled.div`
-  ${StyledIconBase} {
-    color: ${(props) => props.theme.pink};
-  }
-  height: auto;
-  padding: 20px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-
-export default Header;
+  ${breakpoints("border-radius", "", [{ 600: 0 }])}
+  ${breakpoints("margin", "", [{ 800: "20px" }, { 600: 0 }])}
+`
+const ImageWrapper = styled.div`
+  position: relative;
+  font-size: 0;
+`
+const TitleWrapper = styled.div`
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  ${breakpoints("width", "", [{ 800: "90%" }])}
+`
+const Title = styled.h1`
+  text-shadow: 0px 0px 2px ${(props) => props.theme.black};
+  ${breakpoints("font-size", "", [{ 800: "40px" }, { 600: "25px" }])}
+`
+export default Header

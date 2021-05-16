@@ -27,6 +27,7 @@ const Socials = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   ${StyledIconBase} {
     color: #bfbfbf;
     margin: 0 15px;

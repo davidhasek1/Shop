@@ -1,13 +1,12 @@
-import { NextPage } from "next";
-import Head from "next/head";
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import ShopItem from "components/ShopItem";
-import { ComponentProps } from "react";
-
+import { NextPage } from "next"
+import Head from "next/head"
+import styled from "styled-components"
+import { breakpoints } from "utils/responsivity"
+import ShopItem from "components/ProductItem"
+import { ComponentProps } from "react"
 
 const ShopCategoryPage: NextPage = (props) => {
-  const { favourites }: any = props;
+  const { favourites }: any = props
 
   return (
     <div>
@@ -21,24 +20,25 @@ const ShopCategoryPage: NextPage = (props) => {
             key={favouriteProduct._id}
             detailID={favouriteProduct._id}
             title={favouriteProduct.title}
-            description={favouriteProduct.description}
+            shortDescription={favouriteProduct.description} //TODO: should by shortDescription
           />
         ))}
       </Grid>
     </div>
-  );
-};
-export const getStaticProps = async ({ params }) => {
-  const res = await fetch("http://localhost:3000/api/shop/favourites");
-  const data = await res.json();
+  )
+}
+/* export const getStaticProps = async () => {
+  const res = await fetch("http://localhost:3000/api/shop/favourites")
+  const data = await res.json()
 
   return {
     props: {
-      favourites: data,
+      favourites: data ? data : [],
+      fallback: false,
     },
-  };
-};
-
+  }
+}
+ */
 const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
@@ -50,6 +50,6 @@ const Grid = styled.div`
     { 600: "auto" },
   ])};
   ${breakpoints("margin", "", [{ 800: "50px 10px" }, { 600: "50px 10px" }])}
-`;
+`
 
-export default ShopCategoryPage;
+export default ShopCategoryPage
