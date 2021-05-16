@@ -1,11 +1,11 @@
-import { NextPage } from "next";
-import Head from "next/head";
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import { User, Message } from "@styled-icons/boxicons-regular";
-import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail";
-import MapCircle from "components/MapPin";
-import Button from "components/UI/Button";
+import { NextPage } from "next"
+import Head from "next/head"
+import styled from "styled-components"
+import { breakpoints } from "utils/responsivity"
+import { User, Message } from "@styled-icons/boxicons-regular"
+import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail"
+import MapCircle from "components/MapPin"
+import Button from "components/UI/Button"
 
 const Contact: NextPage = () => {
   return (
@@ -17,7 +17,9 @@ const Contact: NextPage = () => {
         <FormWrapper>
           <Content>
             <Title>
-              Send<br />Feedback
+              Send
+              <br />
+              Feedback
             </Title>
             <span>Your opinion is important for us!</span>
             <Form>
@@ -33,7 +35,7 @@ const Contact: NextPage = () => {
                 <Message size={25} />
                 <StyledTextarea placeholder="Message"></StyledTextarea>
               </InputWrapper>
-              <Button onClick={() => console.log('submit action')}>Send</Button>
+              <Button onClick={() => console.log("submit action")}>Send</Button>
             </Form>
           </Content>
         </FormWrapper>
@@ -46,13 +48,13 @@ const Contact: NextPage = () => {
         </MapWrapper>
       </Container>
     </div>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   display: flex;
   ${breakpoints("flex-direction", "", [{ 800: "column" }])}
-`;
+`
 const FormWrapper = styled.div`
   width: 50%;
   display: flex;
@@ -60,12 +62,12 @@ const FormWrapper = styled.div`
   align-items: center;
   text-align: left;
   ${breakpoints("width", "", [{ 800: "100%" }])}
-`;
+`
 const MapWrapper = styled.div`
   position: relative;
   width: 50%;
   ${breakpoints("width", "", [{ 800: "100%" }])}
-`;
+`
 const Map = styled.iframe`
   display: block; /* iframe je defaultne inline !! */
   width: 100%;
@@ -73,25 +75,25 @@ const Map = styled.iframe`
   border: none;
   filter: grayscale(100%);
   ${breakpoints("height", "", [{ 800: "50vh" }])}
-`;
+`
 const Content = styled.div`
   width: 60%;
   min-width: 200px;
   ${breakpoints("width", "", [{ 600: "90%" }])}
   ${breakpoints("margin", "", [{ 800: "25px 0" }])}
-`;
+`
 
 const Title = styled.h1`
   margin-top: 0;
   font-size: 35px;
   font-weight: 400;
-`;
+`
 const Form = styled.form`
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-`;
+`
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -100,7 +102,7 @@ const InputWrapper = styled.div`
   padding: 10px;
   padding-left: 5px;
   border-radius: 5px;
-`;
+`
 const StyledInput = styled.input`
   width: 100%;
   padding: 10px;
@@ -108,7 +110,7 @@ const StyledInput = styled.input`
   border-radius: 5px;
   border: none;
   outline: none;
-`;
+`
 const StyledTextarea = styled.textarea`
   width: 100%;
   margin-left: 5px;
@@ -120,6 +122,6 @@ const StyledTextarea = styled.textarea`
   border: none;
   outline: none;
   font-family: Popins, sans-serif;
-`;
+`
 
-export default Contact;
+export default Contact

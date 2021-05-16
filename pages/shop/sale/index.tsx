@@ -3,11 +3,11 @@ import { breakpoints } from "utils/responsivity"
 import Head from "next/head"
 import ShopItem from "components/ProductItem"
 
-const ShopMainPage = ({ products }) => {
+const saleProductsPage = ({ products }) => {
   return (
     <div>
       <Head>
-        <title>All Products</title>
+        <title>Sale products</title>
       </Head>
 
       <Grid>
@@ -27,7 +27,7 @@ const ShopMainPage = ({ products }) => {
 
 export const getStaticProps = async ({ params }) => {
   try {
-    const res = await fetch("http://0.0.0.0:3000/api/getAllProducts")
+    const res = await fetch("http://0.0.0.0:3000/api/getSaleProducts")
     const data = await res.json()
     console.log(data)
     return { props: { products: data, fallback: false } }
@@ -50,4 +50,4 @@ const Grid = styled.div`
   ${breakpoints("margin", "", [{ 800: "50px 10px" }, { 600: "50px 10px" }])}
 `
 
-export default ShopMainPage
+export default saleProductsPage
