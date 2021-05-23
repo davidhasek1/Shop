@@ -3,11 +3,11 @@ import { breakpoints } from "utils/responsivity"
 import Head from "next/head"
 import ShopItem from "components/ProductItem"
 
-const FavouriteProductsPage = ({ products }) => {
+const saleProductsPage = ({ products }) => {
   return (
     <div>
       <Head>
-        <title>Favourites products</title>
+        <title>Sale products</title>
       </Head>
 
       <Grid>
@@ -23,20 +23,17 @@ const FavouriteProductsPage = ({ products }) => {
     </div>
   )
 }
+//fetch detailu produktů dané page
 
 export const getStaticProps = async ({ params }) => {
   try {
-    const res = await fetch("http://0.0.0.0:3000/api/getFavouritesProducts")
+    const res = await fetch("http://0.0.0.0:3000/api/getSaleProducts")
     const data = await res.json()
     console.log(data)
-    return {
-      props: { products: data, fallback: false },
-    }
+    return { props: { products: data, fallback: false } }
   } catch (err) {
     console.log(err)
-    return {
-      props: { products: null, fallback: false },
-    }
+    return { props: { products: null, fallback: false } }
   }
 }
 
@@ -53,4 +50,4 @@ const Grid = styled.div`
   ${breakpoints("margin", "", [{ 800: "50px 10px" }, { 600: "50px 10px" }])}
 `
 
-export default FavouriteProductsPage
+export default saleProductsPage

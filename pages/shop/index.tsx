@@ -3,41 +3,37 @@ import { breakpoints } from "utils/responsivity"
 import Head from "next/head"
 import ShopItem from "components/ProductItem"
 
-//tayd fetchuj všechny produkty
-
-const ShopMainPage = (props) => {
-  const { products } = props
+const ShopMainPage = ({ products }) => {
   return (
     <div>
       <Head>
-        <title>Main shop page</title>
+        <title>All Products</title>
       </Head>
+
       <Grid>
-        {products.map((product) => {
-          return (
-            <ShopItem
-              key={product._id}
-              detailID={product._id}
-              title={product.title}
-              shortDescription={product.shortDescription}
-            />
-          )
-        })}
+        {products.map((product) => (
+          <ShopItem
+            key={product._id}
+            detailID={product._id}
+            title={product.title}
+            shortDescription={"description"}
+          />
+        ))}
       </Grid>
     </div>
   )
 }
-//budu chtít vypsat všechny produkty na stránce /shop
+//fetch detailu produktů dané page
 
-export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/shop")
-  const data = await res.json()
-  console.log(data)
-  return {
-    props: {
-      products: data ? data : [],
-      fallback: false,
-    },
+export const getStaticProps = async ({ params }) => {
+  try {
+    const res = await fetch("http://0.0.0.0:3000/api/getAllProducts")
+    const data = await res.json()
+    console.log(data)
+    return { props: { products: data, fallback: false } }
+  } catch (err) {
+    console.log(err)
+    return { props: { products: null, fallback: false } }
   }
 }
 
