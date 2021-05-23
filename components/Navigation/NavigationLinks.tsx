@@ -13,7 +13,7 @@ const NavigationLinks = () => {
   )
   return (
     <NavLinks>
-      <Link href="/">
+      <Link href="/" passHref>
         <ImageLink>
           <StyledImage
             imageSrc={"/images/wellu.png"}
@@ -35,7 +35,7 @@ const NavigationLinks = () => {
           </Link>
         </StyledLink>
         <StyledLink>
-          <Link href="/cart">
+          <Link href="/cart" passHref>
             <CartLink>
               <Cart size={25} />
               <LinkText>Cart</LinkText>

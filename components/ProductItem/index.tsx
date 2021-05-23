@@ -7,12 +7,13 @@ import { useDispatch } from "react-redux"
 import { openProductDetail } from "store/actions/handlersActions"
 import { AddToCartState } from "store/actions/userCartActions"
 import Button from "components/UI/Button"
+import Link from "next/link"
 import StyledImage from "components/Image"
 
 const ProductItem = ({ title, shortDescription, detailID }) => {
   const dispatch = useDispatch()
   const router = useRouter()
-  
+  console.log(router.route)
   return (
     <Item>
       <StyledImage
@@ -31,10 +32,13 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          <Button
+         {/*  <Button
             onClick={() => router.push(`${router.route}/${detailID}`)}
             icon={<InfoCircle size={35} />}
-          />
+          /> */}
+          <Link href={`${router.route}/${detailID}`} passHref>
+            <InfoCircle size={35} />
+          </Link>
           <Button
             onClick={() => dispatch(AddToCartState(detailID))}
             icon={<ShoppingBag size={35} />}

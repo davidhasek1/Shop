@@ -7,12 +7,12 @@ import { AddToCartState } from "store/actions/userCartActions"
 import Button from "components/UI/Button"
 import StyledImage from "components/Image"
 
-const productDetail = ({ favouriteProduct }) => {
+const productDetail = ({ saleProduct }) => {
   const dispatch = useDispatch()
 
   return (
     <DetailPageWrapper>
-      <Title>{favouriteProduct.title}</Title>
+      <Title>{saleProduct.title}</Title>
       <Main>
         <RightContainer>
           <Slider>
@@ -60,13 +60,13 @@ const productDetail = ({ favouriteProduct }) => {
 }
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://0.0.0.0:3000/api/getFavouritesProducts")
+  const res = await fetch("http://0.0.0.0:3000/api/getSaleProducts")
   const data = await res.json()
 
   const productIDs = []
   for (let key in data) {
     let stringData = data[key]._id.toString()
-    productIDs.push({ params: { favouriteID: stringData } })
+    productIDs.push({ params: { saleProdID: stringData } })
   }
   console.log(res)
   return {
@@ -77,13 +77,13 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   try {
     const res = await fetch(
-      `http://0.0.0.0:3000/api/getFavouritesProducts/${params.favouriteID}`
+      `http://0.0.0.0:3000/api/getSaleProducts/${params.saleProdID}`
     )
     const data = await res.json()
-    return { props: { favouriteProduct: data, fallback: false } }
+    return { props: { saleProduct: data, fallback: true } }
   } catch (err) {
     console.log(err)
-    return { props: { favouriteProduct: null, fallback: false } }
+    return { props: { saleProduct: null, fallback: true } }
   }
 }
 

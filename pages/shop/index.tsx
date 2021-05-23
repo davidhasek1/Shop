@@ -30,10 +30,10 @@ export const getStaticProps = async ({ params }) => {
     const res = await fetch("http://0.0.0.0:3000/api/getAllProducts")
     const data = await res.json()
     console.log(data)
-    return { props: { products: data, fallback: false } }
+    return { props: { products: data, fallback: true } }
   } catch (err) {
     console.log(err)
-    return { props: { products: null, fallback: false } }
+    return { props: { products: null, fallback: true } }
   }
 }
 

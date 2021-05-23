@@ -30,12 +30,12 @@ export const getStaticProps = async ({ params }) => {
     const data = await res.json()
     console.log(data)
     return {
-      props: { products: data, fallback: false },
+      props: { products: data, fallback: true },
     }
   } catch (err) {
     console.log(err)
     return {
-      props: { products: null, fallback: false },
+      props: { products: null, fallback: true },
     }
   }
 }
