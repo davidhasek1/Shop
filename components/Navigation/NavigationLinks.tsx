@@ -1,27 +1,32 @@
-import Link from "next/link"
+import Link from 'next/link'
 
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import { Shop, Cart } from "@styled-icons/bootstrap"
-import ItemsCounter from "../CartItemsCounter"
-import { useSelector, RootStateOrAny } from "react-redux"
-import StyledImage from "components/Image"
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
+import { Shop, Cart } from '@styled-icons/bootstrap'
+import ItemsCounter from '../CartItemsCounter'
+import { useSelector, RootStateOrAny } from 'react-redux'
+import StyledImage from 'components/Image'
 
 const NavigationLinks = () => {
   const itemsCount = useSelector(
+    (state: RootStateOrAny) => state.userCart.itemsCount
+  )
+  const cartItems = useSelector(
     (state: RootStateOrAny) => state.userCart.cartItems
   )
+  console.log('[COUNTER] ', itemsCount)
+  console.log('[CART ARRAY] ', cartItems)
   return (
     <NavLinks>
       <Link href="/" passHref>
         <ImageLink>
           <StyledImage
-            imageSrc={"/images/wellu.png"}
+            imageSrc={'/images/wellu.png'}
             imageWidth={100}
             imageHeight={50}
             scaleing={false}
-            fitting={"contain"}
-            layout={"intrinsic"}
+            fitting={'contain'}
+            layout={'intrinsic'}
           />
         </ImageLink>
       </Link>
@@ -39,7 +44,7 @@ const NavigationLinks = () => {
             <CartLink>
               <Cart size={25} />
               <LinkText>Cart</LinkText>
-              <ItemsCounter count={itemsCount.length} />
+              <ItemsCounter count={itemsCount} />
             </CartLink>
           </Link>
         </StyledLink>
@@ -67,7 +72,7 @@ const Links = styled.div`
   color: ${(props) => props.theme.white};
   font-weight: 600;
   letter-spacing: 2px;
-  ${breakpoints("display", "", [{ 800: "none" }])}
+  ${breakpoints('display', '', [{ 800: 'none' }])}
 `
 const StyledLink = styled.div`
   margin: 0 15px;

@@ -1,19 +1,28 @@
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import { InfoCircle, ShoppingBag } from "@styled-icons/boxicons-regular"
-import { StyledIconBase } from "@styled-icons/styled-icon"
-import { useRouter } from "next/router"
-import { useDispatch } from "react-redux"
-import { openProductDetail } from "store/actions/handlersActions"
-import { AddToCartState } from "store/actions/userCartActions"
-import Button from "components/UI/Button"
-import Link from "next/link"
-import StyledImage from "components/Image"
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
+import { InfoCircle, ShoppingBag } from '@styled-icons/boxicons-regular'
+import { StyledIconBase } from '@styled-icons/styled-icon'
+import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
+import { openProductDetail } from 'store/actions/handlersActions'
+import {
+  AddToCartState,
+  CartProductsCount,
+} from 'store/actions/userCartActions'
+import Button from 'components/UI/Button'
+import Link from 'next/link'
+import StyledImage from 'components/Image'
 
 const ProductItem = ({ title, shortDescription, detailID }) => {
   const dispatch = useDispatch()
   const router = useRouter()
   console.log(router.route)
+
+  const addToCartHandler = () => {
+    dispatch(AddToCartState(detailID))
+    dispatch(CartProductsCount())
+  }
+
   return (
     <Item>
       <StyledImage
@@ -21,8 +30,8 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
         imageWidth={500}
         imageHeight={375}
         scaleing={false}
-        fitting={"cover"}
-        layout={"intrinsic"}
+        fitting={'cover'}
+        layout={'intrinsic'}
       />
       <Content>
         <Title>{title}</Title>
@@ -32,7 +41,7 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-         {/*  <Button
+          {/*  <Button
             onClick={() => router.push(`${router.route}/${detailID}`)}
             icon={<InfoCircle size={35} />}
           /> */}
@@ -40,7 +49,7 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
             <InfoCircle size={35} />
           </Link>
           <Button
-            onClick={() => dispatch(AddToCartState(detailID))}
+            onClick={() => addToCartHandler()}
             icon={<ShoppingBag size={35} />}
           />
         </ItemActions>
