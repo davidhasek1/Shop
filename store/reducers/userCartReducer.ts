@@ -3,6 +3,10 @@ import * as types from '../types'
 const initialState = {
   cartItems: [],
   itemsCount: 0,
+  showCustomerData: false,
+  showShipment: false,
+  showSummary: false,
+  showThankYou: false,
 }
 
 export const userCartReducer = (state = initialState, action: any) => {
@@ -18,6 +22,26 @@ export const userCartReducer = (state = initialState, action: any) => {
       return {
         ...state,
         itemsCount: state.itemsCount + 1,
+      }
+    case types.CUSTOMER_DATA:
+      return {
+        ...state,
+        showCustomerData: true,
+      }
+    case types.SHIPMENT:
+      return {
+        ...state,
+        showShipment: true,
+      }
+    case types.SUMMARY:
+      return {
+        ...state,
+        showSummary: true,
+      }
+    case types.THANK_YOU:
+      return {
+        ...state,
+        showThankYou: true,
       }
 
     default:

@@ -1,34 +1,42 @@
-import styled from "styled-components";
-import { StyledIconBase } from "@styled-icons/styled-icon";
-import { Heart } from "@styled-icons/fa-solid/Heart";
-import { useRouter } from "next/router";
-import Button from "components/UI/Button";
+import styled from 'styled-components'
+import { StyledIconBase } from '@styled-icons/styled-icon'
+import { Heart } from '@styled-icons/fa-solid/Heart'
+import { useRouter } from 'next/router'
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
+import Button from 'components/UI/Button'
 
 const ThankYouSection = () => {
-  const router = useRouter();
+  const router = useRouter()
+  const dispatch = useDispatch()
+  const showNextSection = useSelector(
+    (state: RootStateOrAny) => state.userCart.showThankYou
+  )
   return (
-    <ShipmentDataContainer>
+    <ThankyouContainer showThankYou={showNextSection}>
       <Wrapper>
         <Title>
           <Heart size={40} />
           &nbsp;Thank you!&nbsp;
           <Heart size={40} />
         </Title>
-        <Button onClick={() => router.push("/")}>Back Home</Button>
+        <Button onClick={() => router.push('/')}>Back Home</Button>
       </Wrapper>
-    </ShipmentDataContainer>
-  );
-};
+    </ThankyouContainer>
+  )
+}
+type Props = {
+  showThankYou: boolean
+}
 
-const ShipmentDataContainer = styled.div`
+const ThankyouContainer = styled.div<Props>`
   height: 100vh;
-  display: flex;
+  display: ${({ showThankYou }) => (showThankYou ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
-`;
+`
 const Wrapper = styled.div`
   width: 100%;
-`;
+`
 const Title = styled.h1`
   ${StyledIconBase} {
     color: ${(props) => props.theme.pink};
@@ -36,6 +44,6 @@ const Title = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
-export default ThankYouSection;
+export default ThankYouSection

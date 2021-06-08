@@ -5,7 +5,7 @@ import { Trash } from "@styled-icons/bootstrap/Trash"
 import Button from "components/UI/Button"
 import StyledImage from "components/Image"
 
-const CartItem = () => {
+const CartItem = ({testProp}) => {
   return (
     <ItemContainer>
       <StyledImage
@@ -17,7 +17,7 @@ const CartItem = () => {
         layout={"intrinsic"}
       />
       <Description>
-        <Title>Item #n</Title>
+        <Title>{testProp}</Title>
         <Text>
           bkdwidnw u wiufw fj wfeefe fh f ef e=f efef f eíáf fíejf eíájf e=fe
           fíehf ehf eáf eáf íf eífjeíf fíeh j
