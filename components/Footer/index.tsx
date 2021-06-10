@@ -1,10 +1,10 @@
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import StyledImage from "components/Image"
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
+import StyledImage from 'components/Image'
 
-import FooterLinks from "./FooterLinks"
-import SocialLinks from "./SocialLinks"
-import Copyright from "./Copyright"
+import FooterLinks from './FooterLinks'
+import SocialLinks from './SocialLinks'
+import Copyright from './Copyright'
 
 const Footer = () => {
   return (
@@ -12,12 +12,12 @@ const Footer = () => {
       <Content>
         <ImageWrapper>
           <StyledImage
-            imageSrc={"/images/wellu.png"}
+            imageSrc={'/images/wellu.png'}
             imageWidth={200}
             imageHeight={100}
             scaleing={false}
-            fitting={"contain"}
-            layout={"intrinsic"}
+            fitting={'contain'}
+            layout={'intrinsic'}
           />
         </ImageWrapper>
 
@@ -30,8 +30,14 @@ const Footer = () => {
 }
 
 const FooterContainer = styled.section`
-  padding: 30px 0;
+  position: static;
+  bottom: 0;
+  width: 100%;
+  height: 80px; //IF changed also change padding in Layout to smae valuw
+  display: flex;
+
   background-color: ${(props) => props.theme.white};
+  ${breakpoints('height', '', [{ 800: '100%' }])}
 `
 const Content = styled.div`
   max-width: 1200px;
@@ -39,15 +45,15 @@ const Content = styled.div`
   margin: auto;
   display: flex;
   justify-content: space-between;
-  ${breakpoints("padding", "", [{ 1200: "0 20px" }])}
-  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
+  ${breakpoints('padding', '', [{ 1200: '0 20px' }])}
+  ${breakpoints('flex-direction', '', [{ 800: 'column' }])}
 `
 const ImageWrapper = styled.div`
   font-size: 0;
   margin-right: 5px;
-  ${(breakpoints("display", "", [{ 800: "none" }]), "min-width")}
-  ${breakpoints("padding-bottom", "", [{ 800: "15px" }])}
-  ${breakpoints(" margin-right", "", [{ 800: 0 }])}
+  ${(breakpoints('display', '', [{ 800: 'none' }]), 'min-width')}
+  ${breakpoints('padding-bottom', '', [{ 800: '15px' }])}
+  ${breakpoints(' margin-right', '', [{ 800: 0 }])}
 `
 
 export default Footer
