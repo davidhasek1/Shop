@@ -11,8 +11,11 @@ import Button from 'components/UI/Button'
 import { showCustomerData, showShipment } from 'store/actions/userCartActions'
 
 const CustomerData = () => {
-  const showNextSection = useSelector(
+  const showCustomerForm = useSelector(
     (state: RootStateOrAny) => state.userCart.showCustomerData
+  )
+  const showShipmentForm = useSelector(
+    (state: RootStateOrAny) => state.userCart.showShipment
   )
   const dispatch = useDispatch()
 
@@ -21,7 +24,7 @@ const CustomerData = () => {
     dispatch(showShipment(true))
   }
   return (
-    <CustomerDataContainer showNextSection={showNextSection}>
+    <CustomerDataContainer showShipmentForm showCustomerForm={showCustomerForm}>
       <OrderSectionTitle
         icon={<User size={40} />}
         title={'Customer data'}
@@ -33,10 +36,14 @@ const CustomerData = () => {
           <IndividualCustomerData />
           <Separator />
           <CompanyCustomerData />
-          <ButtonWrapper>
-            <Button buttonType="button" onClick={() => dispatch(showCustomerData(false))}>
+          <ButtonWrapper showShipmentForm={showShipmentForm} showCustomerForm>
+            <Button
+              buttonType="button"
+              onClick={() => dispatch(showCustomerData(false))}
+            >
               Back
             </Button>
+
             <Button>Continue</Button>
           </ButtonWrapper>
         </Form>
@@ -45,12 +52,13 @@ const CustomerData = () => {
   )
 }
 type CartProps = {
-  showNextSection: boolean
+  showCustomerForm: boolean
+  showShipmentForm: boolean
 }
 
 const CustomerDataContainer = styled.div<CartProps>`
   padding-top: 80px;
-  display: ${({ showNextSection }) => (showNextSection ? 'flex' : 'none')};
+  display: ${({ showCustomerForm }) => (showCustomerForm ? 'flex' : 'none')};
   ${breakpoints('flex-direction', '', [{ 800: 'column' }])};
 `
 const Form = styled.form`
@@ -73,8 +81,8 @@ const Right = styled.div`
 const Divider = styled.div`
   border-left: 1px solid #ccc;
 `
-const ButtonWrapper = styled.div`
-  display: flex;
+const ButtonWrapper = styled.div<CartProps>`
+  display: ${({ showShipmentForm }) => (showShipmentForm ? 'none' : 'flex')};
   justify-content: space-between;
   width: 90%;
   margin: auto;

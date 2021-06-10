@@ -9,15 +9,19 @@ import Button from 'components/UI/Button'
 
 const Shipment = () => {
   const dispatch = useDispatch()
-  const showNextSection = useSelector(
+  const showShipmentSection = useSelector(
     (state: RootStateOrAny) => state.userCart.showShipment
   )
+  const showSummary = useSelector(
+    (state: RootStateOrAny) => state.userCart.showSummary
+  )
+
   const shipmentFormHandler = (e) => {
     e.preventDefault()
     dispatch(showOrderSummary(true))
   }
   return (
-    <ShipmentDataContainer showShipment={showNextSection}>
+    <ShipmentDataContainer showShipment={showShipmentSection} showSummary>
       <OrderSectionTitle
         icon={<Truck size={40} />}
         title={'Shipment'}
@@ -38,7 +42,7 @@ const Shipment = () => {
             </div>
           </FormContent>
           CAll na API PPL Zasilkovny a pošty
-          <ButtonWrapper>
+          <ButtonWrapper showShipment showSummary={showSummary}>
             <Button
               buttonType="button"
               onClick={() => dispatch(showShipment(false))}
@@ -53,11 +57,12 @@ const Shipment = () => {
   )
 }
 
-type cartProps = {
+type CartProps = {
   showShipment: boolean
+  showSummary: boolean
 }
 
-const ShipmentDataContainer = styled.div<cartProps>`
+const ShipmentDataContainer = styled.div<CartProps>`
   padding-top: 80px;
   display: ${({ showShipment }) => (showShipment ? 'flex' : 'none')};
   ${breakpoints('flex-direction', '', [{ 800: 'column' }])}
@@ -82,8 +87,8 @@ const Input = styled.input``
 const Divider = styled.div`
   border-left: 1px solid #ccc;
 `
-const ButtonWrapper = styled.div`
-  display: flex;
+const ButtonWrapper = styled.div<CartProps>`
+  display: ${({ showSummary }) => (showSummary ? 'none' : 'flex')};
   justify-content: space-between;
   width: 90%;
   margin: auto;
