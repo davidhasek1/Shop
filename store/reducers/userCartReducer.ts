@@ -26,22 +26,22 @@ export const userCartReducer = (state = initialState, action: any) => {
     case types.CUSTOMER_DATA:
       return {
         ...state,
-        showCustomerData: true,
+        showCustomerData: action.customerDataOpened,
       }
     case types.SHIPMENT:
       return {
         ...state,
-        showShipment: true,
+        showShipment: action.shipmentOpened,
       }
     case types.SUMMARY:
       return {
         ...state,
-        showSummary: true,
+        showSummary: action.summaryOpened,
       }
     case types.THANK_YOU:
       return {
         ...state,
-        showThankYou: true,
+        showThankYou: action.thankYouOpened,
       }
 
     default:

@@ -8,7 +8,7 @@ import OrderSectionTitle from '../OrderSectionTitle'
 import IndividualCustomerData from './IndividualCustomeData'
 import CompanyCustomerData from './CompanyCustomerData'
 import Button from 'components/UI/Button'
-import { showShipment } from 'store/actions/userCartActions'
+import { showCustomerData, showShipment } from 'store/actions/userCartActions'
 
 const CustomerData = () => {
   const showNextSection = useSelector(
@@ -18,7 +18,7 @@ const CustomerData = () => {
 
   const formHandler = (event) => {
     event.preventDefault()
-    dispatch(showShipment())
+    dispatch(showShipment(true))
   }
   return (
     <CustomerDataContainer showNextSection={showNextSection}>
@@ -34,7 +34,7 @@ const CustomerData = () => {
           <Separator />
           <CompanyCustomerData />
           <ButtonWrapper>
-            <Button onClick={() => console.log('Add handle function')}>
+            <Button buttonType="button" onClick={() => dispatch(showCustomerData(false))}>
               Back
             </Button>
             <Button>Continue</Button>

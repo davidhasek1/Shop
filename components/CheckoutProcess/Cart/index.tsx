@@ -31,7 +31,7 @@ const Cart = () => {
           )}
         </Items>
         <ButtonWrapper>
-          <Button onClick={() => dispatch(showCustomerData())}>Continue</Button>
+          <Button onClick={() => dispatch(showCustomerData(true))}>Continue</Button>
         </ButtonWrapper>
       </Right>
     </OrderContainer>

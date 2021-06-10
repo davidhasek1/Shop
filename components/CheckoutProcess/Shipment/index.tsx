@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { breakpoints } from 'utils/responsivity'
 import { Truck } from '@styled-icons/fa-solid/Truck'
 import { RootStateOrAny, useSelector } from 'react-redux'
-import { showOrderSummary } from 'store/actions/userCartActions'
+import { showOrderSummary, showShipment } from 'store/actions/userCartActions'
 import OrderSectionTitle from '../OrderSectionTitle'
 import Button from 'components/UI/Button'
 
@@ -14,7 +14,7 @@ const Shipment = () => {
   )
   const shipmentFormHandler = (e) => {
     e.preventDefault()
-    dispatch(showOrderSummary())
+    dispatch(showOrderSummary(true))
   }
   return (
     <ShipmentDataContainer showShipment={showNextSection}>
@@ -39,10 +39,13 @@ const Shipment = () => {
           </FormContent>
           CAll na API PPL Zasilkovny a pošty
           <ButtonWrapper>
-            <Button>Back</Button>
-            <Button>
-              Continue
+            <Button
+              buttonType="button"
+              onClick={() => dispatch(showShipment(false))}
+            >
+              Back
             </Button>
+            <Button>Continue</Button>
           </ButtonWrapper>
         </Form>
       </Right>

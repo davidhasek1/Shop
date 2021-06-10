@@ -13,23 +13,27 @@ export const CartProductsCount = () => async (dispatch) => {
   })
 }
 
-export const showCustomerData = () => async (dispatch) => {
+export const showCustomerData = (isOpen: boolean) => async (dispatch) => {
   dispatch({
     type: types.CUSTOMER_DATA,
+    customerDataOpened: isOpen
   })
 }
-export const showShipment = () => async (dispatch) => {
+export const showShipment = (isOpen: boolean) => async (dispatch) => {
   dispatch({
     type: types.SHIPMENT,
+    shipmentOpened: isOpen
   })
 }
-export const showOrderSummary = () => async (dispatch) => {
+export const showOrderSummary = (isOpen: boolean) => async (dispatch) => {
   dispatch({
     type: types.SUMMARY,
+    summaryOpened: isOpen
   })
 }
-export const showThankYou = () => async (dispatch) => {
+export const showThankYou = (isOpen: boolean) => async (dispatch) => {
   dispatch({
     type: types.THANK_YOU,
+    thankYouOpened: isOpen
   })
 }

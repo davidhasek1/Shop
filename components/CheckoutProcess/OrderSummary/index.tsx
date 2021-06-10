@@ -4,7 +4,11 @@ import { CheckCircle } from '@styled-icons/boxicons-solid/CheckCircle'
 import OrderSectionTitle from '../OrderSectionTitle'
 import Button from 'components/UI/Button'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
-import { showThankYou } from 'store/actions/userCartActions'
+import {
+  showOrderSummary,
+  showShipment,
+  showThankYou,
+} from 'store/actions/userCartActions'
 
 const OrderSummary = () => {
   const dispatch = useDispatch()
@@ -137,8 +141,13 @@ const OrderSummary = () => {
           </ShippingTable>
         </ShipData>
         <ButtonWrapper>
-          <Button>Back</Button>
-          <Button onClick={() => dispatch(showThankYou())}>Finish</Button>
+          <Button
+            buttonType="button"
+            onClick={() => dispatch(showOrderSummary(false))}
+          >
+            Back
+          </Button>
+          <Button onClick={() => dispatch(showThankYou(true))}>Finish</Button>
         </ButtonWrapper>
       </Right>
     </SendOrderContainer>
