@@ -12,6 +12,9 @@ const Cart = () => {
   const cartItems = useSelector(
     (state: RootStateOrAny) => state.userCart.cartItems
   )
+  const customerForm = useSelector(
+    (state: RootStateOrAny) => state.userCart.showCustomerData
+  )
   const dispatch = useDispatch()
   console.log(cartItems)
   return (
@@ -30,12 +33,18 @@ const Cart = () => {
             <EmptyCart>No items in Cart</EmptyCart>
           )}
         </Items>
-        <ButtonWrapper>
-          <Button onClick={() => dispatch(showCustomerData(true))}>Continue</Button>
+        <ButtonWrapper showCustomerData={customerForm}>
+          <Button onClick={() => dispatch(showCustomerData(true))}>
+            Continue
+          </Button>
         </ButtonWrapper>
       </Right>
     </OrderContainer>
   )
+}
+
+type cartProps = {
+  showCustomerData: boolean
 }
 
 const OrderContainer = styled.div`
@@ -54,8 +63,8 @@ const Right = styled.div`
   ${breakpoints('width', '', [{ 800: '100%' }])}
 `
 const Items = styled.div``
-const ButtonWrapper = styled.div`
-  display: flex;
+const ButtonWrapper = styled.div<cartProps>`
+  display: ${({ showCustomerData }) => (showCustomerData ? 'none' : 'flex')};
   justify-content: flex-end;
   width: 90%;
   margin: auto;
