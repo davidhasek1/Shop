@@ -1,7 +1,8 @@
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import Head from "next/head"
-import ShopItem from "components/ProductItem"
+import styled from 'styled-components'
+import { url } from 'config/next.config'
+import { breakpoints } from 'utils/responsivity'
+import Head from 'next/head'
+import ShopItem from 'components/ProductItem'
 
 const ShopMainPage = ({ products }) => {
   return (
@@ -15,8 +16,8 @@ const ShopMainPage = ({ products }) => {
           <ShopItem
             key={product._id}
             detailID={product._id}
-            title={product.title}
-            shortDescription={"description"}
+            title={product.Title}
+            shortDescription={product.ShortDescription}
           />
         ))}
       </Grid>
@@ -27,7 +28,7 @@ const ShopMainPage = ({ products }) => {
 
 export const getStaticProps = async ({ params }) => {
   try {
-    const res = await fetch("http://0.0.0.0:3000/api/getAllProducts")
+    const res = await fetch(`${url}/products`)
     const data = await res.json()
     console.log(data)
     return { props: { products: data, fallback: true } }
@@ -43,11 +44,11 @@ const Grid = styled.div`
   justify-content: center;
   grid-gap: 30px;
   margin: 50px 0;
-  ${breakpoints("grid-template-columns", "", [
-    { 800: "auto auto" },
-    { 600: "auto" },
+  ${breakpoints('grid-template-columns', '', [
+    { 800: 'auto auto' },
+    { 600: 'auto' },
   ])};
-  ${breakpoints("margin", "", [{ 800: "50px 10px" }, { 600: "50px 10px" }])}
+  ${breakpoints('margin', '', [{ 800: '50px 10px' }, { 600: '50px 10px' }])}
 `
 
 export default ShopMainPage
