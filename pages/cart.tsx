@@ -3,7 +3,7 @@ import Head from "next/head";
 import Order from "../components/CheckoutProcess/Cart";
 import CustomerData from "../components/CheckoutProcess/CustomerData";
 import Shipment from "../components/CheckoutProcess/Shipment";
-import SendOrder from "../components/CheckoutProcess/SendOrder";
+import OrderSummary from '../components/CheckoutProcess/OrderSummary'
 import Thankyou from "../components/CheckoutProcess/ThankYou";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 
@@ -19,10 +19,10 @@ const Cart: NextPage = () => {
       <Order />
       <CustomerData />
       <Shipment />
-      <SendOrder />
+      <OrderSummary />
       <Thankyou />
     </div>
-  );
+  )
 };
 
 export default Cart;

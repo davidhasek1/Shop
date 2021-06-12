@@ -1,55 +1,74 @@
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import { BagFill } from "@styled-icons/bootstrap/BagFill";
-import CartItem from "./CartItem";
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
+import { BagFill } from '@styled-icons/bootstrap/BagFill'
+import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
+import { showCustomerData } from 'store/actions/userCartActions'
+
+import CartItem from './CartItem'
 import OrderSectionTitle from '../OrderSectionTitle'
-import Button from "components/UI/Button";
+import Button from 'components/UI/Button'
 
 const Cart = () => {
+  const cartItems = useSelector(
+    (state: RootStateOrAny) => state.userCart.cartItems
+  )
+  const customerForm = useSelector(
+    (state: RootStateOrAny) => state.userCart.showCustomerData
+  )
+  const dispatch = useDispatch()
+  console.log(cartItems)
   return (
     <OrderContainer>
       <OrderSectionTitle
         icon={<BagFill size={30} />}
-        title={"Order"}
-        price={"999"}
+        title={'Order'}
+        price={'999'}
       />
       <Divider />
       <Right>
         <Items>
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {cartItems.length > 0 ? (
+            cartItems.map((item) => <CartItem key={item} testProp={item} />)
+          ) : (
+            <EmptyCart>No items in Cart</EmptyCart>
+          )}
         </Items>
-        <ButtonWrapper>
-          <Button onClick={() => console.log('continue...')}>Continue</Button>
+        <ButtonWrapper showCustomerData={customerForm}>
+          <Button onClick={() => dispatch(showCustomerData(true))}>
+            Continue
+          </Button>
         </ButtonWrapper>
       </Right>
     </OrderContainer>
-  );
-};
+  )
+}
+
+type cartProps = {
+  showCustomerData: boolean
+}
 
 const OrderContainer = styled.div`
   padding-top: 80px;
   display: flex;
-  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
-`;
+  ${breakpoints('flex-direction', '', [{ 800: 'column' }])}
+`
+const EmptyCart = styled.h1``
 
 const Divider = styled.div`
   border-left: 1px solid #ccc;
-`;
+`
 
 const Right = styled.div`
   width: 70%;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
-`;
-const Items = styled.div``;
-const ButtonWrapper = styled.div`
-  display: flex;
+  ${breakpoints('width', '', [{ 800: '100%' }])}
+`
+const Items = styled.div``
+const ButtonWrapper = styled.div<cartProps>`
+  display: ${({ showCustomerData }) => (showCustomerData ? 'none' : 'flex')};
   justify-content: flex-end;
   width: 90%;
   margin: auto;
   padding: 10px 0;
-`;
+`
 
-export default Cart;
+export default Cart

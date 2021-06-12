@@ -1,16 +1,26 @@
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import { CheckCircle } from "@styled-icons/boxicons-solid/CheckCircle";
-import OrderSectionTitle from "../OrderSectionTitle";
-import Button from "components/UI/Button";
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
+import { CheckCircle } from '@styled-icons/boxicons-solid/CheckCircle'
+import OrderSectionTitle from '../OrderSectionTitle'
+import Button from 'components/UI/Button'
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
+import {
+  showOrderSummary,
+  showShipment,
+  showThankYou,
+} from 'store/actions/userCartActions'
 
-const SendOrder = () => {
+const OrderSummary = () => {
+  const dispatch = useDispatch()
+  const showNextSection = useSelector(
+    (state: RootStateOrAny) => state.userCart.showSummary
+  )
   return (
-    <SendOrderContainer>
+    <SendOrderContainer showSummary={showNextSection}>
       <OrderSectionTitle
         icon={<CheckCircle size={40} />}
-        title={"Summary"}
-        price={"999"}
+        title={'Summary'}
+        price={'999'}
       />
       <Divider />
       <Right>
@@ -131,57 +141,66 @@ const SendOrder = () => {
           </ShippingTable>
         </ShipData>
         <ButtonWrapper>
-          <Button>Back</Button>
-          <Button>Finish</Button>
+          <Button
+            buttonType="button"
+            onClick={() => dispatch(showOrderSummary(false))}
+          >
+            Back
+          </Button>
+          <Button onClick={() => dispatch(showThankYou(true))}>Finish</Button>
         </ButtonWrapper>
       </Right>
     </SendOrderContainer>
-  );
-};
+  )
+}
 
-const SendOrderContainer = styled.div`
+type Props = {
+  showSummary: boolean
+}
+
+const SendOrderContainer = styled.div<Props>`
   padding-top: 80px;
-  display: flex;
-  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
-`;
+  display: ${({ showSummary }) => (showSummary ? 'flex' : 'none')};
+  ${breakpoints('flex-direction', '', [{ 800: 'column' }])};
+`
 const Right = styled.div`
   width: 70%;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
-`;
+  ${breakpoints('width', '', [{ 800: '100%' }])}
+`
 const Divider = styled.div`
   border-left: 1px solid #ccc;
-`;
+`
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: auto;
   padding: 10px 0;
-`;
+`
 const CustomerDataWrapper = styled.div`
   display: flex;
   width: 90%;
   margin: auto;
-  ${breakpoints("flex-direction", "", [{ 600: "column" }])}
-`;
+  ${breakpoints('flex-direction', '', [{ 600: 'column' }])}
+`
 const DeliveryTable = styled.table`
   width: 50%;
   margin-right: 5px;
   border-collapse: collapse;
   border-radius: 5px;
   overflow: hidden;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
-  ${breakpoints("margin", "", [{ 600: "15px 0" }])}
-`;
+  ${breakpoints('width', '', [{ 800: '100%' }])}
+  ${breakpoints('margin', '', [{ 600: '15px 0' }])}
+`
 const InvoiceTable = styled(DeliveryTable)`
   margin-left: 5px;
   margin-right: 0;
-  ${breakpoints("margin", "", [{ 600: "15px 0" }])}
-`;
+  ${breakpoints('margin', '', [{ 600: '15px 0' }])}
+`
 const ContactData = styled(CustomerDataWrapper)`
   width: 90%;
-`;
-const ShipData = styled(ContactData)``;
+`
+const ShipData = styled(ContactData)``
 
 const ContactTable = styled.table`
   width: 100%;
@@ -189,27 +208,27 @@ const ContactTable = styled.table`
   border-collapse: collapse;
   border-radius: 5px;
   overflow: hidden;
-`;
+`
 const ShippingTable = styled(ContactTable)`
   margin-bottom: 25px;
-`;
+`
 const TableBody = styled.tbody`
   text-align: left;
-`;
-const Head = styled.thead``;
+`
+const Head = styled.thead``
 const Data = styled.td`
   padding: 10px;
 
   background-color: ${(props) => props.theme.white};
-`;
+`
 const HeadData = styled(Data)`
   background-color: ${(props) => props.theme.pink};
   color: ${(props) => props.theme.white};
   text-transform: uppercase;
   font-weight: 500;
-`;
+`
 const Row = styled.tr`
-  ${breakpoints("display", "", [{ 600: "flex" }])}
-  ${breakpoints("flex-direction", "", [{ 600: "column" }])}
-`;
-export default SendOrder;
+  ${breakpoints('display', '', [{ 600: 'flex' }])}
+  ${breakpoints('flex-direction', '', [{ 600: 'column' }])}
+`
+export default OrderSummary

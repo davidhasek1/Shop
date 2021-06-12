@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components";
 
 const ClassicButton = (props) => {
-  const { children, onClick, icon } = props;
+  const { children, onClick, icon, buttonType } = props
 
   return (
-    <Button isIcon={icon} onClick={onClick}>
+    <Button type={buttonType} isIcon={icon} onClick={onClick}>
       {icon}
       {children}
     </Button>
-  );
+  )
 };
 
 type IconProps = {
