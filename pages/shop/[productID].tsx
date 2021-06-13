@@ -11,7 +11,7 @@ import StyledImage from 'components/Image'
 
 const productDetail = ({ product }) => {
   const dispatch = useDispatch()
-
+  console.log(product.Images.url)
   return (
     <DetailPageWrapper>
       <Title>{product.Title}</Title>
@@ -19,7 +19,7 @@ const productDetail = ({ product }) => {
         <RightContainer>
           <Slider>
             <StyledImage
-              imageSrc={'/images/testimgW.jpg'}
+              imageSrc={`${url}${product.Images.url}`}  //TAKHLE jednoduše
               imageWidth={500}
               imageHeight={500}
               scaleing={false}

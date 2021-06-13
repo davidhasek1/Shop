@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['http://localhost:1337'],
+    domains: ['localhost'], //Dev env
   },
 }
