@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { url } from 'config/next.config'
+import { url } from 'config'
 import { breakpoints } from 'utils/responsivity'
 import { AddShoppingCart } from '@styled-icons/material-twotone/AddShoppingCart'
 import { StyledIconBase } from '@styled-icons/styled-icon'

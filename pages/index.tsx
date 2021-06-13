@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { url } from 'config/next.config'
+import { url } from 'config'
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import Header from 'components/Header'
