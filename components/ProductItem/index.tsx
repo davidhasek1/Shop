@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 import { InfoCircle, ShoppingBag } from '@styled-icons/boxicons-regular'
 import { StyledIconBase } from '@styled-icons/styled-icon'
 import { useRouter } from 'next/router'
@@ -13,7 +12,7 @@ import Button from 'components/UI/Button'
 import Link from 'next/link'
 import StyledImage from 'components/Image'
 
-const ProductItem = ({ title, shortDescription, detailID }) => {
+const ProductItem = ({ imageSource, title, shortDescription, detailID }) => {
   const dispatch = useDispatch()
   const router = useRouter()
   console.log(router.route)
@@ -26,7 +25,7 @@ const ProductItem = ({ title, shortDescription, detailID }) => {
   return (
     <Item>
       <StyledImage
-        imageSrc="/images/testImgW.jpg"
+        imageSrc={imageSource}
         imageWidth={500}
         imageHeight={375}
         scaleing={false}

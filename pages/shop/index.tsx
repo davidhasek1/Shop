@@ -14,6 +14,7 @@ const ShopMainPage = ({ products }) => {
       <Grid>
         {products.map((product) => (
           <ShopItem
+            imageSource={`${url}${product.Images.url}`}
             key={product._id}
             detailID={product._id}
             title={product.Title}
@@ -24,7 +25,6 @@ const ShopMainPage = ({ products }) => {
     </div>
   )
 }
-//fetch detailu produktů dané page
 
 export const getStaticProps = async ({ params }) => {
   try {
