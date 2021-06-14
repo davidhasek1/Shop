@@ -30,7 +30,7 @@ const HomePage = ({ content }) => {
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async () => { //TODO trycatch block
   const data = await fetch(`${url}/homepage`)
   const content = await data.json()
   return {

@@ -3,7 +3,6 @@ import { breakpoints } from 'utils/responsivity'
 import { MagnifyingGlass } from '@styled-icons/entypo/MagnifyingGlass'
 import styled from 'styled-components'
 import TextInput from 'components/UI/TextInput'
-import { serachAll } from 'pages/api/Serachning/allProducts'
 
 const SearchBox = () => {
   const [typing, setTyping] = useState('')

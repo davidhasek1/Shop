@@ -13,10 +13,11 @@ const saleProductsPage = ({ products }) => {
       <Grid>
         {products.map((product) => (
           <ShopItem
+            imageSource={'/'}
             key={product._id}
             detailID={product._id}
             title={product.title}
-            shortDescription={"description"}
+            shortDescription={'description'}
           />
         ))}
       </Grid>
@@ -25,7 +26,7 @@ const saleProductsPage = ({ products }) => {
 }
 //fetch detailu produktů dané page
 
-export const getStaticProps = async ({ params }) => {
+/* export const getStaticProps = async ({ params }) => {
   try {
     const res = await fetch("http://0.0.0.0:3000/api/getSaleProducts")
     const data = await res.json()
@@ -35,7 +36,7 @@ export const getStaticProps = async ({ params }) => {
     console.log(err)
     return { props: { products: null, fallback: true } }
   }
-}
+} */
 
 const Grid = styled.div`
   display: grid;
