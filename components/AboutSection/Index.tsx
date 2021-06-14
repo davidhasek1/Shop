@@ -3,10 +3,10 @@ import { breakpoints } from 'utils/responsivity'
 import ReactMarkdown from 'react-markdown'
 import Heading from 'components/Heading'
 
-const AboutSection = ({ aboutContent }) => {
+const AboutSection = ({ aboutTitle, aboutContent }) => {
   return (
     <AboutWrapper>
-      <Heading>About WellU (CMS) 💁🏽‍♀️</Heading>
+      <Heading>{aboutTitle}</Heading>
       <ContentWrapper>
         <ReactMarkdown>{aboutContent}</ReactMarkdown>
       </ContentWrapper>

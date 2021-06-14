@@ -11,7 +11,7 @@ import StyledImage from 'components/Image'
 
 const productDetail = ({ product }) => {
   const dispatch = useDispatch()
-  console.log(product.Images.url)
+  console.log(product.Images.formats[0])
   return (
     <DetailPageWrapper>
       <Title>{product.Title}</Title>
@@ -19,7 +19,7 @@ const productDetail = ({ product }) => {
         <RightContainer>
           <Slider>
             <StyledImage
-              imageSrc={`${url}${product.Images.url}`}  //TAKHLE jednoduše
+              imageSrc={`${url}${product.Images.formats.large.url}`} //Přes formats použít menší velikost pro Shop Item ${url}${product.Images.formats.thumbnail.url}
               imageWidth={500}
               imageHeight={500}
               scaleing={false}

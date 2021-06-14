@@ -1,55 +1,38 @@
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import Column from "./GalleryColumn"
-import Slider from "components/Slider"
-import StyledImage from "../Image"
-import Heading from "components/Heading"
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
+import { url } from 'config'
+import Column from './GalleryColumn'
+import Slider from 'components/Slider'
+import StyledImage from '../Image'
+import Heading from 'components/Heading'
 
-const Gallery = () => {
+const Gallery = ({ title, images }) => {
+  console.log(images)
+  let ImagesArray = images.Images
+
   return (
     <SectionWrapper>
-      <Heading>Gallery Section 🌆</Heading>
+      <Heading>{title}</Heading>
       <GalleryWrapper>
-        <Row>
+        {/*  <Row>
           <Column />
           <Column />
           <Column />
           <Column />
-        </Row>
+        </Row> */}
         <SliderWrapper>
           <Slider>
-            <StyledImage
-              imageSrc={"/images/testimgW.jpg"}
-              imageWidth={300} //W/H budoud dynamicky z cmss
-              imageHeight={300}
-              scaleing={true}
-              fitting={"cover"}
-              layout={"fixed"}
-            />
-            <StyledImage
-              imageSrc={"/images/testimgH.jpg"}
-              imageWidth={300}
-              imageHeight={300}
-              scaleing={true}
-              fitting={"cover"}
-              layout={"fixed"}
-            />
-            <StyledImage
-              imageSrc={"/images/headerImg.jpg"}
-              imageWidth={300} //W/H budoud dynamicky z cmss
-              imageHeight={300}
-              scaleing={true}
-              fitting={"cover"}
-              layout={"fixed"}
-            />
-            <StyledImage
-              imageSrc={"/images/testimgW.jpg"}
-              imageWidth={300}
-              imageHeight={300}
-              scaleing={true}
-              fitting={"cover"}
-              layout={"fixed"}
-            />
+            {ImagesArray.map((image) => (
+              <StyledImage
+                key={image._id}
+                imageSrc={`${url}${image.formats.large.url}`}
+                imageWidth={images.width}
+                imageHeight={images.height}
+                scaleing={true} //TODO do cms
+                fitting={'cover'} //TODO do cms
+                layout={'fixed'} //TODO do cms
+              />
+            ))}
           </Slider>
         </SliderWrapper>
       </GalleryWrapper>
@@ -68,9 +51,8 @@ const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding-top: 0px;
-  ${breakpoints("display", "", [{ 1200: "none" }])}
+  ${breakpoints('display', '', [{ 1200: 'none' }])}
 `
-const SliderWrapper = styled.div`
-  ${breakpoints("display", "", [{ 1200: "none" }], "min-width")}
-`
+const SliderWrapper = styled.div``
+
 export default Gallery

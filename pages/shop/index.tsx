@@ -14,7 +14,7 @@ const ShopMainPage = ({ products }) => {
       <Grid>
         {products.map((product) => (
           <ShopItem
-            imageSource={`${url}${product.Images.url}`}
+            imageSource={`${url}${product.Images.formats.small.url}`}
             key={product._id}
             detailID={product._id}
             title={product.Title}
