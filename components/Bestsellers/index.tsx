@@ -1,6 +1,6 @@
-import Slider from "components/Slider"
-import TopSellingItem from "components/ProductItem"
-import Heading from "components/Heading"
+import Slider from 'components/Slider'
+import TopSellingItem from 'components/ProductItem'
+import Heading from 'components/Heading'
 
 const Bestsellers = () => {
   return (
@@ -9,24 +9,28 @@ const Bestsellers = () => {
       <Slider>
         {/* TODO: create section for bestsellers and embbed slider into  & Heading component use there*/}
         <TopSellingItem
-          detailID={"testid1"}
-          title={"Top selling product 1"}
-          shortDescription={"This is a short description about products"}
+          imageSource={'/'}
+          detailID={'testid1'}
+          title={'Top selling product 1'}
+          shortDescription={'This is a short description about products'}
         />
         <TopSellingItem
-          detailID={"testid2"}
-          title={"Top selling product 2"}
-          shortDescription={"This is a short description about products"}
+          imageSource={'/'}
+          detailID={'testid2'}
+          title={'Top selling product 2'}
+          shortDescription={'This is a short description about products'}
         />
         <TopSellingItem
-          detailID={"testid1"}
-          title={"Top selling product 1"}
-          shortDescription={"This is a short description about products"}
+          imageSource={'/'}
+          detailID={'testid1'}
+          title={'Top selling product 1'}
+          shortDescription={'This is a short description about products'}
         />
         <TopSellingItem
-          detailID={"testid2"}
-          title={"Top selling product 2"}
-          shortDescription={"This is a short description about products"}
+          imageSource={'/'}
+          detailID={'testid2'}
+          title={'Top selling product 2'}
+          shortDescription={'This is a short description about products'}
         />
       </Slider>
     </>

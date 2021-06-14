@@ -3,15 +3,15 @@ import { breakpoints } from "utils/responsivity"
 import DesktopImage from "./DesktopHeaderImage"
 import MobileImage from "./MobileHeaderImage"
 
-const Header = () => {
+const Header = ({headerTitle, headerImage}) => {
   return (
     <HeaderContainer>
       <ImageWrapper>
-        <DesktopImage />
-        <MobileImage />
+        <DesktopImage image={headerImage} />
+        <MobileImage image={headerImage} />
 
         <TitleWrapper>
-          <Title>Martina Buckova e-shopík</Title>
+          <Title>{headerTitle}</Title>
         </TitleWrapper>
       </ImageWrapper>
     </HeaderContainer>

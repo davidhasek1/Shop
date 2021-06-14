@@ -1,28 +1,30 @@
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import { AddShoppingCart } from "@styled-icons/material-twotone/AddShoppingCart"
-import { StyledIconBase } from "@styled-icons/styled-icon"
-import { useDispatch } from "react-redux"
-import { AddToCartState } from "store/actions/userCartActions"
-import Button from "components/UI/Button"
-import StyledImage from "components/Image"
+import styled from 'styled-components'
+import { url } from 'config'
+import { breakpoints } from 'utils/responsivity'
+import { AddShoppingCart } from '@styled-icons/material-twotone/AddShoppingCart'
+import { StyledIconBase } from '@styled-icons/styled-icon'
+import { useDispatch } from 'react-redux'
+import ReactMarkdown from 'react-markdown'
+import { AddToCartState } from 'store/actions/userCartActions'
+import Button from 'components/UI/Button'
+import StyledImage from 'components/Image'
 
 const productDetail = ({ product }) => {
   const dispatch = useDispatch()
-
+  console.log(product.Images.formats[0])
   return (
     <DetailPageWrapper>
-      <Title>{product.title}</Title>
+      <Title>{product.Title}</Title>
       <Main>
         <RightContainer>
           <Slider>
             <StyledImage
-              imageSrc={"/images/testimgW.jpg"}
+              imageSrc={`${url}${product.Images.formats.large.url}`} //Přes formats použít menší velikost pro Shop Item ${url}${product.Images.formats.thumbnail.url}
               imageWidth={500}
               imageHeight={500}
               scaleing={false}
-              fitting={"cover"}
-              layout={"intrinsic"}
+              fitting={'cover'}
+              layout={'intrinsic'}
             />
           </Slider>
           <Actions>
@@ -45,7 +47,9 @@ const productDetail = ({ product }) => {
         </RightContainer>
         <ContentWrapper>
           <Title>Description</Title>
-          <DescriptionText>efgegegčg</DescriptionText>
+          <DescriptionText>
+            <ReactMarkdown>{product.Description}</ReactMarkdown>
+          </DescriptionText>
         </ContentWrapper>
       </Main>
 
@@ -60,7 +64,7 @@ const productDetail = ({ product }) => {
 }
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://0.0.0.0:3000/api/getAllProducts")
+  const res = await fetch(`${url}/products`)
   const data = await res.json()
 
   const productIDs = []
@@ -76,9 +80,7 @@ export const getStaticPaths = async () => {
 }
 export const getStaticProps = async ({ params }) => {
   try {
-    const res = await fetch(
-      `http://0.0.0.0:3000/api/getAllProducts/${params.productID}`
-    )
+    const res = await fetch(`${url}/products/${params.productID}`)
     const data = await res.json()
     return { props: { product: data, fallback: true } }
   } catch (err) {
@@ -91,15 +93,15 @@ const DetailPageWrapper = styled.div`
   padding: 50px 0;
 `
 const Main = styled.div`
-  ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
-  ${breakpoints("flex-direction", "", [{ 600: "row-reverse" }], "min-width")}
+  ${breakpoints('display', '', [{ 600: 'flex' }], 'min-width')}
+  ${breakpoints('flex-direction', '', [{ 600: 'row-reverse' }], 'min-width')}
 `
 const Title = styled.h1`
   text-align: left;
   padding: 0 10px;
 `
 const RightContainer = styled.div`
-  ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}
+  ${breakpoints('width', '', [{ 600: '50%' }], 'min-width')}
 `
 const Slider = styled.div`
   //TODO - slider fotek
@@ -107,10 +109,10 @@ const Slider = styled.div`
   justify-content: center;
 `
 const Actions = styled.div`
-  ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
-  ${breakpoints("justify-content", "", [{ 600: "center" }], "min-width")}
-  ${breakpoints("align-items", "", [{ 600: "center" }], "min-width")}
-  ${breakpoints("display", "", [{ 600: "none" }])}
+  ${breakpoints('display', '', [{ 600: 'flex' }], 'min-width')}
+  ${breakpoints('justify-content', '', [{ 600: 'center' }], 'min-width')}
+  ${breakpoints('align-items', '', [{ 600: 'center' }], 'min-width')}
+  ${breakpoints('display', '', [{ 600: 'none' }])}
   padding: 30px;
   margin: 30px 0;
 `
@@ -122,7 +124,7 @@ const Hole = styled.div`
   border-radius: 100%;
 `
 const ActionsWrap = styled.div`
-  ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
+  ${breakpoints('display', '', [{ 600: 'flex' }], 'min-width')}
   background: ${(props) => props.theme.white};
   color: #000;
   border-radius: 10px;
@@ -142,23 +144,17 @@ const StyledInput = styled.input`
   border-bottom: 1px solid ${(props) => props.theme.lightGray};
   text-align: center;
 `
-const StyledButton = styled.button`
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-`
 const Line = styled.div`
   border: none;
   border-right: 4px dotted ${(props) => props.theme.lightGray};
 `
 const ContentWrapper = styled.div`
-  ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}
+  ${breakpoints('width', '', [{ 600: '50%' }], 'min-width')}
   background-color: ${(props) => props.theme.white};
   padding: 15px 0;
   height: fit-content;
 `
-const DescriptionText = styled.p`
+const DescriptionText = styled.div`
   text-align: left;
   padding: 0 10px;
 `
@@ -169,7 +165,7 @@ const MobileAddItemWrapper = styled.div`
   position: fixed;
   bottom: 10px;
   right: 10px;
-  ${breakpoints("display", "", [{ 600: "none" }], "min-width")}
+  ${breakpoints('display', '', [{ 600: 'none' }], 'min-width')}
 `
 const MobileAddButton = styled.div`
   width: 70px;
@@ -192,8 +188,8 @@ const PriceTag = styled.h3`
   margin: 0;
   display: flex;
   align-items: center;
-  ${breakpoints("margin", "", [{ 600: "10px 0" }], "min-width")}
-  ${breakpoints("padding", "", [{ 600: "30px 10px" }], "min-width")}
+  ${breakpoints('margin', '', [{ 600: '10px 0' }], 'min-width')}
+  ${breakpoints('padding', '', [{ 600: '30px 10px' }], 'min-width')}
 `
 
 export default productDetail

@@ -1,11 +1,11 @@
-import { useRef } from "react"
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
+import { useRef } from 'react'
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
 import {
   ArrowIosBackOutline,
   ArrowIosForwardOutline,
-} from "@styled-icons/evaicons-outline"
-import { StyledIconBase } from "@styled-icons/styled-icon"
+} from '@styled-icons/evaicons-outline'
+import { StyledIconBase } from '@styled-icons/styled-icon'
 
 const Slider = ({ children }) => {
   const scrollRef = useRef(null)
@@ -17,7 +17,7 @@ const Slider = ({ children }) => {
     <SliderWrapper>
       <ItemsOuterWrapper>
         <ArrowWrapper>
-          <ArrowIosBackOutline onClick={() => scrolling(-256)} size={50} />
+          <ArrowIosBackOutline onClick={() => scrolling(-256)} size={50} /> {/*TODO: U obrazku udělat scroll o width obrazku */}
         </ArrowWrapper>
 
         <ItemsInnerWrapper ref={scrollRef}>{children}</ItemsInnerWrapper>
@@ -35,7 +35,7 @@ const SliderWrapper = styled.div`
 `
 const ItemsOuterWrapper = styled.div`
   display: flex;
-  ${breakpoints("margin", "", [{ 800: "50px 0px" }])}
+  ${breakpoints('margin', '', [{ 800: '50px 0px' }])}
 `
 const ArrowWrapper = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ const ArrowWrapper = styled.div`
       transform: scale(1.2);
     }
   }
-  ${breakpoints("display", "", [{ 800: "none" }])}
+  ${breakpoints('display', '', [{ 800: 'none' }])}
 `
 const ItemsInnerWrapper = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ const ItemsInnerWrapper = styled.div`
   overflow-y: hidden;
   padding: 20px 0;
   scroll-behavior: smooth;
-  ${breakpoints("padding", "", [{ 800: "20px 15px" }])}
-  ${breakpoints("margin-right", "", [{ 800: "10px" }])}
+  ${breakpoints('padding', '', [{ 800: '20px 15px' }])}
+  ${breakpoints('margin-right', '', [{ 800: '10px' }])}
 `
 export default Slider
