@@ -23,14 +23,14 @@ const HomePage = ({ content }) => {
         aboutContent={content.About.Content}
       />
 
-      {/* TODO: fetch z databaze - udělat collection top selling products / componenta Products slider */}
       <Bestsellers />
       <Gallery title={content.Gallery.Title} images={content.Gallery} />
     </div>
   )
 }
 
-export const getStaticProps = async () => { //TODO trycatch block
+export const getStaticProps = async () => {
+  //TODO trycatch block
   const data = await fetch(`${url}/homepage`)
   const content = await data.json()
   return {
