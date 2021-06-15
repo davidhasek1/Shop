@@ -3,11 +3,17 @@ import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
 import ReactMarkdown from 'react-markdown'
 
+import Header from 'components/Header'
+
 const GDPR = ({ gdpr }) => {
   console.log(gdpr)
   return (
     <div>
-      <h1>{gdpr.Title}</h1>
+      <Header
+        ownHeight={gdpr.ImageHeight}
+        headerTitle={gdpr.Title}
+        headerImage={`${url}${gdpr.Image.url}`}
+      />
       <Wrapper>
         <ContentContainer>
           <ReactMarkdown>{gdpr.Content}</ReactMarkdown>
@@ -37,6 +43,7 @@ export const getStaticProps = async () => {
 }
 
 const Wrapper = styled.div`
+  margin: 25px 0;
   padding: 25px;
   text-align: left;
   border-radius: 10px;

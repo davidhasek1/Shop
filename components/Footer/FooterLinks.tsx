@@ -7,7 +7,7 @@ const FooterLinks = () => {
   return (
     <Links>
       <Link href="/gdpr">GDPR</Link>
-      <Link href="/privacy">Reklamační řád</Link>
+      <Link href="/complains">Reklamační řád</Link>
       <Link href="/contact">Contact</Link>
     </Links>
   )

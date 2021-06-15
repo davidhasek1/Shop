@@ -3,10 +3,20 @@ import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
 import ReactMarkdown from 'react-markdown'
 
-const Privacy = ({ complains }) => {
+import Header from 'components/Header'
+
+const Complains = ({ complains }) => {
+  console.log(complains)
+  console.log(`${url}${complains.Image.url}`)
+
   return (
     <div>
-      <h1>{complains.Title}</h1>
+      <Header
+        ownHeight={complains.ImageHeight}
+        headerTitle={complains.Title}
+        headerImage={`${url}${complains.Image.url}`}
+      />
+
       <Wrapper>
         <ContentContainer>
           <ReactMarkdown>{complains.Content}</ReactMarkdown>
@@ -36,6 +46,7 @@ export const getStaticProps = async () => {
 }
 
 const Wrapper = styled.div`
+  margin: 25px 0;
   padding: 25px;
   text-align: left;
   border-radius: 10px;
@@ -46,4 +57,4 @@ const ContentContainer = styled.div`
   margin: 0 15%;
   ${breakpoints('margin', '', [{ 600: 0 }])};
 `
-export default Privacy
+export default Complains
