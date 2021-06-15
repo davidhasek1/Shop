@@ -31,6 +31,7 @@ export const getStaticProps = async () => {
       props: {
         gdpr: data,
       },
+      revalidate: 10,
     }
   } catch (error) {
     console.log('[SSG ERROR]', error)
