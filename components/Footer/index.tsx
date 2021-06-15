@@ -1,18 +1,20 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import StyledImage from 'components/Image'
+import { url } from '../../config'
 
+import StyledImage from 'components/Image'
 import FooterLinks from './FooterLinks'
 import SocialLinks from './SocialLinks'
 import Copyright from './Copyright'
 
-const Footer = () => {
+const Footer = ({ footer }) => {
+  console.log(footer.SocialLinks)
   return (
     <FooterContainer>
       <Content>
         <ImageWrapper>
           <StyledImage
-            imageSrc={'/images/wellu.png'}
+            imageSrc={`${url}${footer.Logo.url}`}
             imageWidth={200}
             imageHeight={100}
             scaleing={false}
@@ -22,8 +24,8 @@ const Footer = () => {
         </ImageWrapper>
 
         <FooterLinks />
-        <SocialLinks />
-        <Copyright />
+        <SocialLinks links={footer.SocialLinks} />
+        <Copyright copyright={footer.Copyright} />
       </Content>
     </FooterContainer>
   )
