@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import { url } from '../../config'
+import { url } from 'config'
 
 import StyledImage from 'components/Image'
 import FooterLinks from './FooterLinks'
@@ -12,20 +12,24 @@ const Footer = ({ footer }) => {
   return (
     <FooterContainer>
       <Content>
-        <ImageWrapper>
-          <StyledImage
-            imageSrc={`${url}${footer.Logo.url}`}
-            imageWidth={200}
-            imageHeight={100}
-            scaleing={false}
-            fitting={'contain'}
-            layout={'intrinsic'}
-          />
-        </ImageWrapper>
+        <UpperSection>
+          <ImageWrapper>
+            <StyledImage
+              imageSrc={`${url}${footer.Logo.url}`}
+              imageWidth={100}
+              imageHeight={100}
+              scaleing={false}
+              fitting={'contain'}
+              layout={'intrinsic'}
+            />
+          </ImageWrapper>
 
-        <FooterLinks />
-        <SocialLinks links={footer.SocialLinks} />
-        <Copyright copyright={footer.Copyright} />
+          <SocialLinks links={footer.SocialLinks} />
+          <FooterLinks />
+        </UpperSection>
+        <LowerSection>
+          <Copyright copyright={footer.Copyright} />
+        </LowerSection>
       </Content>
     </FooterContainer>
   )
@@ -35,27 +39,32 @@ const FooterContainer = styled.section`
   position: static;
   bottom: 0;
   width: 100%;
-  height: 80px; //IF changed also change padding in Layout to smae valuw
   display: flex;
-
+  padding: 10px;
   background-color: ${(props) => props.theme.white};
-  ${breakpoints('height', '', [{ 800: '100%' }])}
+
+  ${breakpoints('height', '', [{ 600: '100%' }])}
 `
 const Content = styled.div`
-  max-width: 1200px;
-  text-align: center;
   margin: auto;
   display: flex;
-  justify-content: space-between;
-  ${breakpoints('padding', '', [{ 1200: '0 20px' }])}
-  ${breakpoints('flex-direction', '', [{ 800: 'column' }])}
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
 `
+const UpperSection = styled.div`
+  display: flex;
+  justify-content: space-around;
+
+  ${breakpoints('flex-direction', '', [{600: 'column'}])}
+`
+const LowerSection = styled.div``
 const ImageWrapper = styled.div`
   font-size: 0;
-  margin-right: 5px;
-  ${(breakpoints('display', '', [{ 800: 'none' }]), 'min-width')}
-  ${breakpoints('padding-bottom', '', [{ 800: '15px' }])}
-  ${breakpoints(' margin-right', '', [{ 800: 0 }])}
+  display: flex;
+  align-items: center;
+  
+  ${breakpoints('justify-content', '', [{ 600: 'center' }])}
 `
 
 export default Footer

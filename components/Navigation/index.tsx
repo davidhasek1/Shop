@@ -18,7 +18,8 @@ const NavWrapper = styled.div`
   text-align: center;
   padding: 15px 0;
   background-color: ${(props) => props.theme.pink};
-`;
+  box-shadow: 0px 4px 10px -6px ${(props) => props.theme.fade2};
+`
 const Container = styled.div`
   max-width: 1200px;
   text-align: center;
