@@ -8,7 +8,7 @@ import SocialLinks from './SocialLinks'
 import Copyright from './Copyright'
 
 const Footer = ({ footer }) => {
-  console.log(footer.SocialLinks)
+  console.log(footer.Links)
   return (
     <FooterContainer>
       <Content>
@@ -25,9 +25,9 @@ const Footer = ({ footer }) => {
           </ImageWrapper>
 
           <SocialLinks links={footer.SocialLinks} />
-          <FooterLinks />
+          <FooterLinks links={footer.Links} />
         </UpperSection>
-        
+
         <LowerSection>
           <Copyright copyright={footer.Copyright} />
         </LowerSection>
@@ -57,14 +57,14 @@ const UpperSection = styled.div`
   display: flex;
   justify-content: space-around;
 
-  ${breakpoints('flex-direction', '', [{600: 'column'}])}
+  ${breakpoints('flex-direction', '', [{ 600: 'column' }])}
 `
 const LowerSection = styled.div``
 const ImageWrapper = styled.div`
   font-size: 0;
   display: flex;
   align-items: center;
-  
+
   ${breakpoints('justify-content', '', [{ 600: 'center' }])}
 `
 

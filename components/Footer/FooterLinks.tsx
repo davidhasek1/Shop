@@ -3,18 +3,14 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 //TODO: Put links (href + title) into CMS and Iterate through
-const FooterLinks = () => {
+const FooterLinks = ({ links }) => {
   return (
     <Links>
-      <Item>
-        <Link href="/gdpr">GDPR</Link>
-      </Item>
-      <Item>
-        <Link href="/complains">Reklamační řád</Link>
-      </Item>
-      <Item>
-        <Link href="/contact">Contact</Link>
-      </Item>
+      {links.map((link) => (
+        <Item key={link._id}>
+          <Link href={link.Link}>{link.Title}</Link>
+        </Item>
+      ))}
     </Links>
   )
 }
