@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { breakpoints } from 'utils/responsivity'
 import { MagnifyingGlass } from '@styled-icons/entypo/MagnifyingGlass'
 import styled from 'styled-components'
+
 import TextInput from 'components/UI/TextInput'
 
 const SearchBox = () => {

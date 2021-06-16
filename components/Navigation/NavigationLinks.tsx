@@ -1,10 +1,10 @@
-import Link from 'next/link'
-
-import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { Shop, Cart } from '@styled-icons/bootstrap'
-import ItemsCounter from '../CartItemsCounter'
 import { useSelector, RootStateOrAny } from 'react-redux'
+import styled from 'styled-components'
+import Link from 'next/link'
+
+import ItemsCounter from 'components/CartItemsCounter'
 import StyledImage from 'components/Image'
 
 const NavigationLinks = () => {

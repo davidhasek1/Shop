@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
+
 import DesktopImage from './DesktopHeaderImage'
 import MobileImage from './MobileHeaderImage'
 
@@ -30,6 +31,7 @@ const HeaderContainer = styled.div<Props>`
   border-radius: 15px;
   overflow: hidden;
   height: ${({ setHeight }) => (setHeight ? `${setHeight}px` : '100%')};
+
   ${breakpoints('flex-direction', '', [{ 600: 'column' }])};
   ${breakpoints('border-radius', '', [{ 600: 0 }])};
   ${breakpoints('margin', '', [{ 800: '20px' }, { 600: 0 }])};
@@ -43,10 +45,12 @@ const TitleWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   ${breakpoints('width', '', [{ 800: '90%' }])}
 `
 const Title = styled.h1`
   text-shadow: 0px 0px 2px ${(props) => props.theme.black};
+
   ${breakpoints('font-size', '', [{ 800: '40px' }, { 600: '25px' }])}
 `
 export default Header

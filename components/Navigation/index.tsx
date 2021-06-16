@@ -1,7 +1,8 @@
-import { breakpoints } from "utils/responsivity";
-import styled from "styled-components";
-import NavigationLinks from "./NavigationLinks";
-import NavigationActions from "./NavigationActions";
+import { breakpoints } from 'utils/responsivity'
+import styled from 'styled-components'
+
+import NavigationLinks from './NavigationLinks'
+import NavigationActions from './NavigationActions'
 
 const Navigation = () => {
   return (
@@ -11,8 +12,8 @@ const Navigation = () => {
         <NavigationActions />
       </Container>
     </NavWrapper>
-  );
-};
+  )
+}
 
 const NavWrapper = styled.div`
   text-align: center;
@@ -25,7 +26,8 @@ const Container = styled.div`
   text-align: center;
   margin: auto;
   display: flex;
-  ${breakpoints("padding", "", [{ 1200: "0 15px" }])}
-`;
+  
+  ${breakpoints('padding', '', [{ 1200: '0 15px' }])}
+`
 
-export default Navigation;
+export default Navigation

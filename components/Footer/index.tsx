@@ -27,6 +27,7 @@ const Footer = ({ footer }) => {
           <SocialLinks links={footer.SocialLinks} />
           <FooterLinks />
         </UpperSection>
+        
         <LowerSection>
           <Copyright copyright={footer.Copyright} />
         </LowerSection>

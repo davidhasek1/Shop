@@ -19,6 +19,7 @@ const DesktopHeaderImage = ({ image }) => {
 
 const DesktopImage = styled.div`
   opacity: 0.7;
+  
   ${breakpoints('display', '', [{ 800: 'none' }])}
 `
 export default DesktopHeaderImage

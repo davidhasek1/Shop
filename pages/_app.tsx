@@ -1,13 +1,14 @@
-import App, { AppContext, AppInitialProps } from 'next/app'
 import React from 'react'
+import App, { AppContext, AppInitialProps } from 'next/app'
 import { Provider, RootStateOrAny, connect } from 'react-redux'
 import { createWrapper } from 'next-redux-wrapper'
 import { ThemeProvider } from 'styled-components'
+import { url } from '../config'
 import store from '../store/store'
 import GlobalStyles from '../styles/globalStyles'
-import Layout from '../components/Layout'
 import theme from '../utils/theme'
-import { url } from '../config'
+
+import Layout from '../components/Layout'
 
 class MyApp extends App<AppInitialProps> {
   public static getInitialProps = async ({ Component, ctx }: AppContext) => {
@@ -17,7 +18,7 @@ class MyApp extends App<AppInitialProps> {
       const api = await fetch(`${url}/footer`)
       footer = await api.json()
     } catch (error) {
-      console.log('[ERROR APP.tsx]', error)
+      console.log('[ERROR: APP.tsx]', error)
     }
     const pageProps = {
       ...(Component.getInitialProps
@@ -29,6 +30,7 @@ class MyApp extends App<AppInitialProps> {
       pageProps,
     }
   }
+
   public render() {
     const { Component, pageProps } = this.props
 

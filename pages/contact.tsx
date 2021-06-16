@@ -1,11 +1,10 @@
-import { NextPage } from "next"
-import Head from "next/head"
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import { User, Message } from "@styled-icons/boxicons-regular"
-import { AlternateEmail } from "@styled-icons/material-sharp/AlternateEmail"
-import MapCircle from "components/MapPin"
-import Button from "components/UI/Button"
+import { NextPage } from 'next'
+import { breakpoints } from 'utils/responsivity'
+import styled from 'styled-components'
+import Head from 'next/head'
+
+import ContactForm from 'components/ContactForm'
+import MapCircle from 'components/MapPin'
 
 const Contact: NextPage = () => {
   return (
@@ -15,29 +14,7 @@ const Contact: NextPage = () => {
       </Head>
       <Container>
         <FormWrapper>
-          <Content>
-            <Title>
-              Send
-              <br />
-              Feedback
-            </Title>
-            <span>Your opinion is important for us!</span>
-            <Form>
-              <InputWrapper>
-                <User size={25} />{" "}
-                <StyledInput type="text" placeholder="Name" />
-              </InputWrapper>
-              <InputWrapper>
-                <AlternateEmail size={25} />
-                <StyledInput type="email" placeholder="E-mail" />
-              </InputWrapper>
-              <InputWrapper>
-                <Message size={25} />
-                <StyledTextarea placeholder="Message"></StyledTextarea>
-              </InputWrapper>
-              <Button onClick={() => console.log("submit action")}>Send</Button>
-            </Form>
-          </Content>
+          <ContactForm />
         </FormWrapper>
         <MapWrapper>
           <Map
@@ -50,10 +27,11 @@ const Contact: NextPage = () => {
     </div>
   )
 }
+//TODO: create cms content + Fetch data
 
 const Container = styled.div`
   display: flex;
-  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
+  ${breakpoints('flex-direction', '', [{ 800: 'column' }])}
 `
 const FormWrapper = styled.div`
   width: 50%;
@@ -61,12 +39,12 @@ const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: left;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
+  ${breakpoints('width', '', [{ 800: '100%' }])}
 `
 const MapWrapper = styled.div`
   position: relative;
   width: 50%;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
+  ${breakpoints('width', '', [{ 800: '100%' }])}
 `
 const Map = styled.iframe`
   display: block; /* iframe je defaultne inline !! */
@@ -74,54 +52,7 @@ const Map = styled.iframe`
   height: 90vh;
   border: none;
   filter: grayscale(100%);
-  ${breakpoints("height", "", [{ 800: "50vh" }])}
-`
-const Content = styled.div`
-  width: 60%;
-  min-width: 200px;
-  ${breakpoints("width", "", [{ 600: "90%" }])}
-  ${breakpoints("margin", "", [{ 800: "25px 0" }])}
-`
-
-const Title = styled.h1`
-  margin-top: 0;
-  font-size: 35px;
-  font-weight: 400;
-`
-const Form = styled.form`
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-`
-const InputWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: ${(props) => props.theme.white};
-  margin-bottom: 20px;
-  padding: 10px;
-  padding-left: 5px;
-  border-radius: 5px;
-`
-const StyledInput = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin-left: 5px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-`
-const StyledTextarea = styled.textarea`
-  width: 100%;
-  margin-left: 5px;
-  padding-left: 10px;
-  padding-top: 5px;
-  height: 150px;
-  resize: vertical;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  font-family: Popins, sans-serif;
+  ${breakpoints('height', '', [{ 800: '50vh' }])}
 `
 
 export default Contact

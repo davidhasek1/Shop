@@ -1,11 +1,12 @@
-import { useSelector, useDispatch, RootStateOrAny } from "react-redux"
-import { openMobileMenu } from "../../store/actions/handlersActions"
-import { Close } from "@styled-icons/ionicons-solid/Close"
-import { breakpoints } from "utils/responsivity"
-import styled from "styled-components"
-import Burger from "../Burger"
-import DropdownMenu from "../DropdownMenu"
-import SearchBox from "components/SearchBox"
+import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
+import { openMobileMenu } from 'store/actions/handlersActions'
+import { Close } from '@styled-icons/ionicons-solid/Close'
+import { breakpoints } from 'utils/responsivity'
+import styled from 'styled-components'
+
+import Burger from 'components/Burger'
+import DropdownMenu from 'components/DropdownMenu'
+import SearchBox from 'components/SearchBox'
 
 const NavigationActions = () => {
   const dispatch = useDispatch()
@@ -15,7 +16,6 @@ const NavigationActions = () => {
 
   return (
     <Actions>
-    
       <SearchBox />
       <BurgerWrapper>
         {isMobileMenuOpen ? (
@@ -42,8 +42,8 @@ const Actions = styled.div`
 `
 const BurgerWrapper = styled.div`
   margin-left: 20px;
-  ${breakpoints("display", "", [{ 800: "none" }], "min-width")}
-  ${breakpoints("margin-left", "", [{ 600: "15px" }])}
+  ${breakpoints('display', '', [{ 800: 'none' }], 'min-width')}
+  ${breakpoints('margin-left', '', [{ 600: '15px' }])}
 `
 const CloseStyled = styled(Close)`
   color: ${(props) => props.theme.white};

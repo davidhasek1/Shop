@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { Shop, Cart } from "@styled-icons/bootstrap";
-import { StyledIconBase } from "@styled-icons/styled-icon";
-import Link from "next/link";
-import { breakpoints } from "utils/responsivity";
+import { breakpoints } from 'utils/responsivity'
+import { StyledIconBase } from '@styled-icons/styled-icon'
+import { Shop, Cart } from '@styled-icons/bootstrap'
+import styled from 'styled-components'
+import Link from 'next/link'
 
 const DropdownMenu = () => {
   return (
@@ -26,8 +26,8 @@ const DropdownMenu = () => {
         </Link>
       </Links>
     </DropdownWrapper>
-  );
-};
+  )
+}
 
 const DropdownWrapper = styled.div`
   position: absolute;
@@ -41,19 +41,19 @@ const DropdownWrapper = styled.div`
   ${StyledIconBase} {
     color: ${(props) => props.theme.pink};
   }
-  ${breakpoints("width", "", [{ 800: "100%" }, { 600: "200%" }])}
-  ${breakpoints("display", "", [{ 800: "none" }], "min-width")}
-`;
+  ${breakpoints('width', '', [{ 800: '100%' }, { 600: '200%' }])}
+  ${breakpoints('display', '', [{ 800: 'none' }], 'min-width')}
+`
 const Links = styled.div`
   text-align: left;
   cursor: pointer;
-`;
+`
 const StyledLink = styled.div`
   padding: 15px 10px;
-`;
-const LinkContainer = styled.a``;
+`
+const LinkContainer = styled.a``
 const LinkText = styled.span`
   margin-left: 10px;
-`;
+`
 
-export default DropdownMenu;
+export default DropdownMenu
