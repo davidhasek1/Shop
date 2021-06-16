@@ -118,7 +118,7 @@ const Hole = styled.div`
   margin-right: 20px;
   height: 15px;
   width: 15px;
-  background-color: ${(props) => props.theme.lightGray};
+  background-color: ${(props) => props.theme.fade1};
   border-radius: 100%;
 `
 const ActionsWrap = styled.div`
@@ -139,7 +139,7 @@ const StyledInput = styled.input`
   background: none;
   border: none;
   outline: none;
-  border-bottom: 1px solid ${(props) => props.theme.lightGray};
+  border-bottom: 1px solid ${(props) => props.theme.fade1};
   text-align: center;
 `
 const StyledButton = styled.button`
@@ -150,7 +150,7 @@ const StyledButton = styled.button`
 `
 const Line = styled.div`
   border: none;
-  border-right: 4px dotted ${(props) => props.theme.lightGray};
+  border-right: 4px dotted ${(props) => props.theme.fade1};
 `
 const ContentWrapper = styled.div`
   ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}

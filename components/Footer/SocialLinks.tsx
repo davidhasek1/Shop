@@ -24,7 +24,6 @@ const SocialLinks = ({ links }) => {
 }
 
 const Socials = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +34,7 @@ const Socials = styled.div`
       color: #808080;
     }
   }
-  ${breakpoints('padding', '', [{ 800: '20px 0' }])}
+  ${breakpoints('padding', '', [{ 600: '20px 0' }])}
 `
 
 export default SocialLinks

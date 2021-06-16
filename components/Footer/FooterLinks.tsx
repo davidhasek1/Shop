@@ -1,26 +1,35 @@
-import { useDispatch } from 'react-redux'
 import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
 
+//TODO: Put links (href + title) into CMS and Iterate through
 const FooterLinks = () => {
   return (
     <Links>
-      <Link href="/gdpr">GDPR</Link>
-      <Link href="/complains">Reklamační řád</Link>
-      <Link href="/contact">Contact</Link>
+      <Item>
+        <Link href="/gdpr">GDPR</Link>
+      </Item>
+      <Item>
+        <Link href="/complains">Reklamační řád</Link>
+      </Item>
+      <Item>
+        <Link href="/contact">Contact</Link>
+      </Item>
     </Links>
   )
 }
-const Links = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  ${breakpoints('order', '', [{ 800: 1 }])}
-  ${breakpoints('justify-content', '', [{ 800: 'space-around' }])}
-  ${breakpoints('flex-direction', '', [{ 600: 'column' }])}
-  ${breakpoints('padding', '', [{ 800: '20px 0' }])}
+const Links = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  color: #bfbfbf;
+  font-weight: 300;
+
+  ${breakpoints('margin', '', [{ 600: 'auto' }])};
+`
+const Item = styled.li`
+  padding: 5px;
+  &:hover {
+    color: #808080;
+  }
 `
 export default FooterLinks
