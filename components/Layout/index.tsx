@@ -4,7 +4,7 @@ import Navigation from '../Navigation'
 import ShopNavigation from '../ShopNavigation'
 import Footer from '../Footer'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, footerContent }) => {
   const router = useRouter()
   const isShop = router.pathname === '/shop'
   const isFav = router.pathname === '/shop/sale'
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
       <Navigation />
       {shopNav}
       <Container>{children}</Container>
-      <Footer />
+      <Footer footer={footerContent} />
     </>
   )
 }
@@ -26,6 +26,5 @@ const Container = styled.div`
   max-width: 1200px;
   text-align: center;
   margin: auto;
-  padding-bottom: 80px;
 `
 export default Layout

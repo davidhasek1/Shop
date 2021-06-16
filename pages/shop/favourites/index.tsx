@@ -13,10 +13,11 @@ const FavouriteProductsPage = ({ products }) => {
       <Grid>
         {products.map((product) => (
           <ShopItem
+            imageSource={'/'}
             key={product._id}
             detailID={product._id}
             title={product.title}
-            shortDescription={"description"}
+            shortDescription={'description'}
           />
         ))}
       </Grid>
@@ -24,7 +25,7 @@ const FavouriteProductsPage = ({ products }) => {
   )
 }
 
-export const getStaticProps = async ({ params }) => {
+/* export const getStaticProps = async ({ params }) => {
   try {
     const res = await fetch("http://0.0.0.0:3000/api/getFavouritesProducts")
     const data = await res.json()
@@ -38,7 +39,7 @@ export const getStaticProps = async ({ params }) => {
       props: { products: null, fallback: true },
     }
   }
-}
+} */
 
 const Grid = styled.div`
   display: grid;

@@ -59,7 +59,7 @@ const productDetail = ({ saleProduct }) => {
   )
 }
 
-export const getStaticPaths = async () => {
+/* export const getStaticPaths = async () => {
   const res = await fetch("http://0.0.0.0:3000/api/getSaleProducts")
   const data = await res.json()
 
@@ -85,7 +85,7 @@ export const getStaticProps = async ({ params }) => {
     console.log(err)
     return { props: { saleProduct: null, fallback: true } }
   }
-}
+} */
 
 const DetailPageWrapper = styled.div`
   padding: 50px 0;

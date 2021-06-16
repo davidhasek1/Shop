@@ -1,27 +1,27 @@
-import { StyledIconBase } from "@styled-icons/styled-icon";
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
+import { StyledIconBase } from '@styled-icons/styled-icon'
 import {
   FacebookCircle,
   Twitter,
   Instagram,
-} from "@styled-icons/boxicons-logos";
-import { breakpoints } from "utils/responsivity";
-import styled from "styled-components";
+} from '@styled-icons/boxicons-logos'
 
-const SocialLinks = () => {
+const SocialLinks = ({ links }) => {
   return (
     <Socials>
-      <a href="http://www.facebook.com/">
+      <a target="_blank" href={`http://${links.Facebook}/`}>
         <FacebookCircle size={30} />
       </a>
-      <a href="http://www.twitter.com/">
+      <a target="_blank" href={`http://${links.Twitter}/`}>
         <Twitter size={30} />
       </a>
-      <a href="http://www.instagram.com/">
+      <a target="_blank" href={`http://${links.Instagram}/`}>
         <Instagram size={30} />
       </a>
     </Socials>
-  );
-};
+  )
+}
 
 const Socials = styled.div`
   width: 100%;
@@ -35,7 +35,7 @@ const Socials = styled.div`
       color: #808080;
     }
   }
-  ${breakpoints("padding", "", [{ 800: "20px 0" }])}
-`;
+  ${breakpoints('padding', '', [{ 800: '20px 0' }])}
+`
 
-export default SocialLinks;
+export default SocialLinks
