@@ -32,7 +32,8 @@ type LinkProps = {
 
 const PageNavWrapper = styled.div`
   background-color: ${(props) => props.theme.white};
-`;
+  box-shadow: 0px 2px 10px -6px ${(props) => props.theme.fade2};
+`
 const Container = styled.div`
   max-width: 1200px;
   text-align: center;
