@@ -51,7 +51,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1350px;
 `
 const UpperSection = styled.div`
   display: flex;

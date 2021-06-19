@@ -25,7 +25,7 @@ const Layout = ({ children, footerContent }) => {
 }
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1350px;
   text-align: center;
   margin: auto;
 `

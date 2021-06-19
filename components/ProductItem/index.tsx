@@ -41,10 +41,6 @@ const ProductItem = ({ imageSource, title, shortDescription, detailID }) => {
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          {/*  <Button
-            onClick={() => router.push(`${router.route}/${detailID}`)}
-            icon={<InfoCircle size={35} />}
-          /> */}
           <Link href={`${router.route}/${detailID}`} passHref>
             <InfoCircle size={35} />
           </Link>
