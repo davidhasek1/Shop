@@ -20,9 +20,6 @@ const NavigationActions = () => {
   const itemsCount = useSelector(
     (state: RootStateOrAny) => state.userCart.itemsCount
   )
-  const cartItems = useSelector(
-    (state: RootStateOrAny) => state.userCart.cartItems
-  )
 
   return (
     <Actions>
