@@ -25,7 +25,6 @@ export const breakpoints = (
       executeBreakpoint(Object.keys(value)[0]),
       Object.values(value)[0],
     ]
-    console.log(value)
     return (mediaQueries += `
     @media screen and (${mediaQueryType}: ${screenBreakpoint}px) {
       ${cssProp}: ${cssPropBreakpoint}${cssPropUnits};
