@@ -161,11 +161,11 @@ type Props = {
 const SendOrderContainer = styled.div<Props>`
   padding-top: 80px;
   display: ${({ showSummary }) => (showSummary ? 'flex' : 'none')};
-  ${breakpoints('flex-direction', '', [{ 800: 'column' }])};
+  ${breakpoints('flex-direction', '', [{ L: 'column' }])};
 `
 const Right = styled.div`
   width: 70%;
-  ${breakpoints('width', '', [{ 800: '100%' }])}
+  ${breakpoints('width', '', [{ L: '100%' }])}
 `
 const Divider = styled.div`
   border-left: 1px solid #ccc;
@@ -181,7 +181,7 @@ const CustomerDataWrapper = styled.div`
   display: flex;
   width: 90%;
   margin: auto;
-  ${breakpoints('flex-direction', '', [{ 600: 'column' }])}
+  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
 `
 const DeliveryTable = styled.table`
   width: 50%;
@@ -189,13 +189,13 @@ const DeliveryTable = styled.table`
   border-collapse: collapse;
   border-radius: 5px;
   overflow: hidden;
-  ${breakpoints('width', '', [{ 800: '100%' }])}
-  ${breakpoints('margin', '', [{ 600: '15px 0' }])}
+  ${breakpoints('width', '', [{ L: '100%' }])}
+  ${breakpoints('margin', '', [{ M: '15px 0' }])}
 `
 const InvoiceTable = styled(DeliveryTable)`
   margin-left: 5px;
   margin-right: 0;
-  ${breakpoints('margin', '', [{ 600: '15px 0' }])}
+  ${breakpoints('margin', '', [{ M: '15px 0' }])}
 `
 const ContactData = styled(CustomerDataWrapper)`
   width: 90%;
@@ -228,7 +228,7 @@ const HeadData = styled(Data)`
   font-weight: 500;
 `
 const Row = styled.tr`
-  ${breakpoints('display', '', [{ 600: 'flex' }])}
-  ${breakpoints('flex-direction', '', [{ 600: 'column' }])}
+  ${breakpoints('display', '', [{ M: 'flex' }])}
+  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
 `
 export default OrderSummary

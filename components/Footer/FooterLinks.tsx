@@ -20,7 +20,7 @@ const Links = styled.ul`
   color: #bfbfbf;
   font-weight: 300;
 
-  ${breakpoints('margin', '', [{ 600: 'auto' }])};
+  ${breakpoints('margin', '', [{ M: 'auto' }])};
 `
 const Item = styled.li`
   padding: 5px;

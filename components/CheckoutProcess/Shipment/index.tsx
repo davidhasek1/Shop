@@ -65,11 +65,11 @@ type CartProps = {
 const ShipmentDataContainer = styled.div<CartProps>`
   padding-top: 80px;
   display: ${({ showShipment }) => (showShipment ? 'flex' : 'none')};
-  ${breakpoints('flex-direction', '', [{ 800: 'column' }])}
+  ${breakpoints('flex-direction', '', [{ L: 'column' }])}
 `
 const Right = styled.div`
   width: 70%;
-  ${breakpoints('width', '', [{ 800: '100%' }])}
+  ${breakpoints('width', '', [{ L: '100%' }])}
 `
 const Form = styled.form`
   height: 100%;

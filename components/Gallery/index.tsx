@@ -52,7 +52,7 @@ const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding-top: 0px;
-  ${breakpoints('display', '', [{ 1200: 'none' }])}
+  ${breakpoints('display', '', [{ XL: 'none' }])}
 `
 const SliderWrapper = styled.div``
 

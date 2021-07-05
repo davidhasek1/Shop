@@ -31,7 +31,7 @@ const Contact: NextPage = () => {
 
 const Container = styled.div`
   display: flex;
-  ${breakpoints('flex-direction', '', [{ 800: 'column' }])}
+  ${breakpoints('flex-direction', '', [{ L: 'column' }])}
 `
 const FormWrapper = styled.div`
   width: 50%;
@@ -39,12 +39,12 @@ const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: left;
-  ${breakpoints('width', '', [{ 800: '100%' }])}
+  ${breakpoints('width', '', [{ L: '100%' }])}
 `
 const MapWrapper = styled.div`
   position: relative;
   width: 50%;
-  ${breakpoints('width', '', [{ 800: '100%' }])}
+  ${breakpoints('width', '', [{ L: '100%' }])}
 `
 const Map = styled.iframe`
   display: block; /* iframe je defaultne inline !! */
@@ -52,7 +52,7 @@ const Map = styled.iframe`
   height: 90vh;
   border: none;
   filter: grayscale(100%);
-  ${breakpoints('height', '', [{ 800: '50vh' }])}
+  ${breakpoints('height', '', [{ L: '50vh' }])}
 `
 
 export default Contact

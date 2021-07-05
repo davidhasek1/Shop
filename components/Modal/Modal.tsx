@@ -37,7 +37,7 @@ const Window = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  ${breakpoints("width", "", [{ 800: "90%" }, { 600: "100%" }])}
+  ${breakpoints("width", "", [{ L: "90%" }, { M: "100%" }])}
 `;
 const CloseCircleStyled = styled(CloseCircle)`
   color: ${(props) => props.theme.pink};

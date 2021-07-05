@@ -60,6 +60,6 @@ const ContentContainer = styled.div`
   text-align: justify;
   margin: 0 15%;
 
-  ${breakpoints('margin', '', [{ 600: 0 }])};
+  ${breakpoints('margin', '', [{ M: 0 }])};
 `
 export default Complains

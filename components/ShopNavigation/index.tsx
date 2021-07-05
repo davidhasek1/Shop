@@ -48,7 +48,7 @@ const Container = styled.div`
   -ms-overflow-style: none;
   scrollbar-width: none;
 
-  ${breakpoints('padding', '', [{ 1200: '0 15px' }])}
+  ${breakpoints('padding', '', [{ XL: '0 15px' }])}
 `
 const StyledLink = styled.a<LinkProps>`
   padding: 15px;

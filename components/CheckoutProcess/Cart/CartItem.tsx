@@ -51,7 +51,7 @@ const ItemContainer = styled.div`
   background-color: ${(props) => props.theme.white};
   border-radius: 10px;
   overflow: hidden;
-  ${breakpoints("flex-direction", "", [{ 600: "column" }])}
+  ${breakpoints("flex-direction", "", [{ M: "column" }])}
 `
 const Description = styled.div`
   display: flex;
@@ -76,13 +76,13 @@ const ItemActions = styled.div`
   padding: 0 10px;
   align-items: center;
   justify-content: center;
-  ${breakpoints("flex-direction", "", [{ 600: "row" }])}
-  ${breakpoints("padding", "", [{ 600: "15px 0" }])}
+  ${breakpoints("flex-direction", "", [{ M: "row" }])}
+  ${breakpoints("padding", "", [{ M: "15px 0" }])}
 `
 const ChangeCount = styled.div`
   display: flex;
   flex-direction: column;
-  ${breakpoints("flex-direction", "", [{ 600: "row" }])}
+  ${breakpoints("flex-direction", "", [{ M: "row" }])}
 `
 const Delete = styled(Button)`
   padding: 25px;

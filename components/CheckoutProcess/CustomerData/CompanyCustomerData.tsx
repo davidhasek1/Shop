@@ -18,7 +18,7 @@ const FormData = styled.div`
   grid-template-columns: auto auto;
   width: 90%;
   margin: auto;
-  ${breakpoints("width", "", [{ 600: "100%" }])}
+  ${breakpoints("width", "", [{ M: "100%" }])}
 `;
 
 export default CompanyCustomerData;

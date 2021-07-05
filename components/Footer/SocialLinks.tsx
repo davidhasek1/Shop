@@ -34,7 +34,7 @@ const Socials = styled.div`
       color: #808080;
     }
   }
-  ${breakpoints('padding', '', [{ 600: '20px 0' }])}
+  ${breakpoints('padding', '', [{ M: '20px 0' }])}
 `
 
 export default SocialLinks

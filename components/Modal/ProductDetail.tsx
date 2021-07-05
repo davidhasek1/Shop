@@ -43,7 +43,7 @@ const ProductWrapper = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
-  ${breakpoints("flex-direction", "", [{ 800: "column" }])}
+  ${breakpoints("flex-direction", "", [{ L: "column" }])}
 `;
 const ImageContainer = styled.div`
   display: flex;
@@ -52,18 +52,18 @@ const ImageContainer = styled.div`
   width: 35%;
   margin: 20px;
   height: 100%;
-  ${breakpoints("width", "", [{ 800: "90%" }])}
+  ${breakpoints("width", "", [{ L: "90%" }])}
 `;
 const DetailContent = styled.div`
   width: 65%;
   margin: 20px;
-  ${breakpoints("width", "", [{ 800: "90%" }])}
+  ${breakpoints("width", "", [{ L: "90%" }])}
 `;
 const Title = styled.h1`
-  ${breakpoints("font-size", "", [{ 800: "20px" }])}
+  ${breakpoints("font-size", "", [{ L: "20px" }])}
 `;
 const Text = styled.p`
-  ${breakpoints("font-size", "", [{ 800: "14px" }])}
+  ${breakpoints("font-size", "", [{ L: "14px" }])}
 `;
 
 export default ProductDetail;

@@ -59,7 +59,7 @@ type CartProps = {
 const CustomerDataContainer = styled.div<CartProps>`
   padding-top: 80px;
   display: ${({ showCustomerForm }) => (showCustomerForm ? 'flex' : 'none')};
-  ${breakpoints('flex-direction', '', [{ 800: 'column' }])};
+  ${breakpoints('flex-direction', '', [{ L: 'column' }])};
 `
 const Form = styled.form`
   height: 100%;
@@ -76,7 +76,7 @@ const Separator = styled.div`
 `
 const Right = styled.div`
   width: 70%;
-  ${breakpoints('width', '', [{ 800: '100%' }])}
+  ${breakpoints('width', '', [{ L: '100%' }])}
 `
 const Divider = styled.div`
   border-left: 1px solid #ccc;

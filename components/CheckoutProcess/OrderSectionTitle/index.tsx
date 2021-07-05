@@ -18,7 +18,7 @@ const OrderSectionTitle = (props) => {
 
 const Left = styled.div`
   width: 30%;
-  ${breakpoints("width", "", [{ 800: "100%" }])}
+  ${breakpoints("width", "", [{ L: "100%" }])}
 `;
 const Title = styled.h1`
   ${StyledIconBase} {
