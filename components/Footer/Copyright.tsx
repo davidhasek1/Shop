@@ -11,12 +11,10 @@ const Copyright = ({ copyright }) => {
 }
 
 const CopyrightWrapper = styled.div`
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  max-width: 1200px;
   font-size: 12px;
   color: #808080;
   

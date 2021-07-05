@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import Navigation from '../Navigation'
-import ShopNavigation from '../ShopNavigation'
-import Footer from '../Footer'
 
+import Navigation from 'components/Navigation'
+import ShopNavigation from 'components/ShopNavigation'
+import Footer from 'components/Footer'
+
+//TODO: překopat udělat lépe
 const Layout = ({ children, footerContent }) => {
   const router = useRouter()
   const isShop = router.pathname === '/shop'
@@ -23,7 +25,7 @@ const Layout = ({ children, footerContent }) => {
 }
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1350px;
   text-align: center;
   margin: auto;
 `

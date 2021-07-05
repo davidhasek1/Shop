@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import Image from "next/image"
+import styled, { css } from 'styled-components'
+import Image from 'next/image'
 
 const ImageComponent = (props) => {
   const { imageSrc, imageWidth, imageHeight, scaleing, fitting, layout } = props
@@ -8,7 +7,6 @@ const ImageComponent = (props) => {
     //TODO:
     //@ts-ignore
     <ImageWrapper isScale={scaleing}>
-      {/* @ts-ignore */}
       <ImageStyled
         src={imageSrc}
         width={imageWidth}

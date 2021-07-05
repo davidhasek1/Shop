@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
+
 import Column from './GalleryColumn'
 import Slider from 'components/Slider'
 import StyledImage from '../Image'

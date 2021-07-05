@@ -1,6 +1,7 @@
-import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
+import styled from 'styled-components'
+import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 
 import Header from 'components/Header'
@@ -11,6 +12,9 @@ const Complains = ({ complains }) => {
 
   return (
     <div>
+      <Head>
+        <title>Reklamační řád</title>
+      </Head>
       <Header
         ownHeight={complains.ImageHeight}
         headerTitle={complains.Title}
@@ -36,10 +40,10 @@ export const getStaticProps = async () => {
       },
     }
   } catch (error) {
-    console.log('[SSG ERROR]', error)
+    console.log('[FETCH ERROR: Complains page]', error)
     return {
       props: {
-        complains: null,
+        complains: {},
       },
     }
   }
@@ -55,6 +59,7 @@ const Wrapper = styled.div`
 const ContentContainer = styled.div`
   text-align: justify;
   margin: 0 15%;
+
   ${breakpoints('margin', '', [{ 600: 0 }])};
 `
 export default Complains

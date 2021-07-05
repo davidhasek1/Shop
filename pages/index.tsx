@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import { url } from 'config'
 import Head from 'next/head'
 import Header from 'components/Header'
@@ -31,12 +30,18 @@ const HomePage = ({ content }) => {
 }
 
 export const getStaticProps = async () => {
-  //TODO trycatch block
-  const data = await fetch(`${url}/homepage`)
-  const content = await data.json()
-  return {
-    props: { content },
-    revalidate: 10,
+  try {
+    const data = await fetch(`${url}/homepage`)
+    const content = await data.json()
+    return {
+      props: { content },
+      revalidate: 10,
+    }
+  } catch (error) {
+    console.log('[FETCH ERROR: Homepage]', error)
+    return {
+      props: {},
+    }
   }
 }
 export default HomePage

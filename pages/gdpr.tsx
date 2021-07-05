@@ -1,6 +1,7 @@
-import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
+import styled from 'styled-components'
+import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 
 import Header from 'components/Header'
@@ -9,6 +10,10 @@ const GDPR = ({ gdpr }) => {
   console.log(gdpr)
   return (
     <div>
+      <Head>
+        <title>GDPR</title>
+      </Head>
+      
       <Header
         ownHeight={gdpr.ImageHeight}
         headerTitle={gdpr.Title}
@@ -34,10 +39,10 @@ export const getStaticProps = async () => {
       revalidate: 10,
     }
   } catch (error) {
-    console.log('[SSG ERROR]', error)
+    console.log('[FETCH ERROR: GDPR page]', error)
     return {
       props: {
-        gdpr: null,
+        gdpr: {},
       },
     }
   }

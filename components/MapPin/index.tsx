@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const MapCircle = () => {
   return (
@@ -7,8 +7,8 @@ const MapCircle = () => {
         <Dot />
       </InnerCircle>
     </OuterCircle>
-  );
-};
+  )
+}
 
 const OuterCircle = styled.div`
   position: absolute;
@@ -23,7 +23,7 @@ const OuterCircle = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`;
+`
 
 const InnerCircle = styled.div`
   width: 25px;
@@ -34,13 +34,13 @@ const InnerCircle = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-`;
+`
 
 const Dot = styled.div`
   width: 5px;
   height: 5px;
   background-color: ${(props) => props.theme.pink};
   border-radius: 50%;
-`;
+`
 
-export default MapCircle;
+export default MapCircle

@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import { InfoCircle, ShoppingBag } from '@styled-icons/boxicons-regular'
 import { StyledIconBase } from '@styled-icons/styled-icon'
 import { useRouter } from 'next/router'
@@ -8,8 +7,10 @@ import {
   AddToCartState,
   CartProductsCount,
 } from 'store/actions/userCartActions'
-import Button from 'components/UI/Button'
+import styled from 'styled-components'
 import Link from 'next/link'
+
+import Button from 'components/UI/Button'
 import StyledImage from 'components/Image'
 
 const ProductItem = ({ imageSource, title, shortDescription, detailID }) => {
@@ -40,10 +41,6 @@ const ProductItem = ({ imageSource, title, shortDescription, detailID }) => {
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          {/*  <Button
-            onClick={() => router.push(`${router.route}/${detailID}`)}
-            icon={<InfoCircle size={35} />}
-          /> */}
           <Link href={`${router.route}/${detailID}`} passHref>
             <InfoCircle size={35} />
           </Link>

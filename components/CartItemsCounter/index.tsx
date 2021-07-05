@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-const CartItemsCounter = ({count}) => {
+const CartItemsCounter = ({ count }) => {
   return (
     <CounterWrapper>
       <Inner>{count}</Inner>
     </CounterWrapper>
-  );
-};
+  )
+}
 const Inner = styled.div`
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@ const Inner = styled.div`
   top: 55%;
   right: 47%;
   transform: translate(50%, -50%);
-`;
+`
 const CounterWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -28,5 +28,5 @@ const CounterWrapper = styled.div`
   position: absolute;
   top: -10px;
   right: -10px;
-`;
-export default CartItemsCounter;
+`
+export default CartItemsCounter

@@ -19,6 +19,7 @@ const MobileHeaderImage = ({ image }) => {
 
 const MobileImage = styled.div`
   opacity: 0.7;
+  
   ${breakpoints('display', '', [{ 800: 'none' }], 'min-width')}
 `
 export default MobileHeaderImage

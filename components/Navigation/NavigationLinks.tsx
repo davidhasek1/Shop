@@ -1,85 +1,45 @@
+import { breakpoints } from 'utils/responsivity'
+import { StyledIconBase } from '@styled-icons/styled-icon'
+import { ShoppingBag } from '@styled-icons/boxicons-solid/ShoppingBag'
+import styled from 'styled-components'
 import Link from 'next/link'
 
-import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
-import { Shop, Cart } from '@styled-icons/bootstrap'
-import ItemsCounter from '../CartItemsCounter'
-import { useSelector, RootStateOrAny } from 'react-redux'
-import StyledImage from 'components/Image'
-
 const NavigationLinks = () => {
-  const itemsCount = useSelector(
-    (state: RootStateOrAny) => state.userCart.itemsCount
-  )
-  const cartItems = useSelector(
-    (state: RootStateOrAny) => state.userCart.cartItems
-  )
-  console.log('[COUNTER] ', itemsCount)
-  console.log('[CART ARRAY] ', cartItems)
   return (
     <NavLinks>
-      <Link href="/" passHref>
-        <ImageLink>
-          <StyledImage
-            imageSrc={'/images/wellu.png'}
-            imageWidth={100}
-            imageHeight={50}
-            scaleing={false}
-            fitting={'contain'}
-            layout={'intrinsic'}
-          />
-        </ImageLink>
-      </Link>
       <Links>
-        <StyledLink>
+        <LinkWrapper>
           <Link href="/shop">
-            <a>
-              <Shop size={25} />
-              <LinkText>Shop</LinkText>
-            </a>
-          </Link>
-        </StyledLink>
-        <StyledLink>
-          <Link href="/cart" passHref>
             <CartLink>
-              <Cart size={25} />
-              <LinkText>Cart</LinkText>
-              <ItemsCounter count={itemsCount} />
+              <ShoppingBag size={24} />
+              Shop
             </CartLink>
           </Link>
-        </StyledLink>
+        </LinkWrapper>
+        
       </Links>
     </NavLinks>
   )
 }
 
 const NavLinks = styled.div`
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-`
-const ImageLink = styled.a`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-`
-const Links = styled.div`
-  width: 100%;
-  margin-left: 20px;
-  display: flex;
-  justify-content: flex-start;
-  color: ${(props) => props.theme.white};
-  font-weight: 600;
-  letter-spacing: 2px;
+  width: 45%;
+  ${StyledIconBase} {
+    color: ${(props) => props.theme.white};
+  }
   ${breakpoints('display', '', [{ 800: 'none' }])}
 `
-const StyledLink = styled.div`
-  margin: 0 15px;
-  padding: 10px;
+const Links = styled.ul`
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  list-style-type: none;
 `
-const LinkText = styled.span`
-  margin-left: 10px;
+const LinkWrapper = styled.li`
+  margin: 5px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
 `
 const CartLink = styled.a`
   position: relative;
