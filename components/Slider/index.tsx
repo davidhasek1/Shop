@@ -36,7 +36,7 @@ const SliderWrapper = styled.div`
 `
 const ItemsOuterWrapper = styled.div`
   display: flex;
-
+  justify-content: center;
   ${breakpoints('margin', '', [{ 800: '50px 0px' }])}
 `
 const ArrowWrapper = styled.div`
