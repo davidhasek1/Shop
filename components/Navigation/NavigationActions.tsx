@@ -56,13 +56,13 @@ const Actions = styled.div`
   align-items: center;
   justify-content: flex-end;
 
-  ${breakpoints('width', '', [{ 800: '90%' }])}
+  ${breakpoints('width', '', [{ L: '90%' }])}
 `
 const BurgerWrapper = styled.div`
   margin-left: 20px;
 
-  ${breakpoints('display', '', [{ 800: 'none' }], 'min-width')}
-  ${breakpoints('margin-left', '', [{ 600: '15px' }])}
+  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
+  ${breakpoints('margin-left', '', [{ M: '15px' }])}
 `
 const CloseStyled = styled(Close)`
   color: ${(props) => props.theme.white};

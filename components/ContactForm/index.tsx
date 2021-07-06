@@ -37,8 +37,8 @@ const Content = styled.div`
   width: 60%;
   min-width: 200px;
 
-  ${breakpoints('width', '', [{ 600: '90%' }])}
-  ${breakpoints('margin', '', [{ 800: '25px 0' }])}
+  ${breakpoints('width', '', [{ M: '90%' }])}
+  ${breakpoints('margin', '', [{ L: '25px 0' }])}
 `
 const Form = styled.form`
   padding-top: 10px;

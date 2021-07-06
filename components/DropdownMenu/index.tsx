@@ -33,8 +33,8 @@ const DropdownWrapper = styled.div`
   ${StyledIconBase} {
     color: ${(props) => props.theme.pink};
   }
-  ${breakpoints('width', '', [{ 800: '50%' }, { 600: '90vw' }])}
-  ${breakpoints('display', '', [{ 800: 'none' }], 'min-width')}
+  ${breakpoints('width', '', [{ L: '50%' }, { 600: '90vw' }])}
+  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
 `
 const Links = styled.div`
   text-align: left;

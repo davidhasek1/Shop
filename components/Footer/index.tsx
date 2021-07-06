@@ -44,7 +44,7 @@ const FooterContainer = styled.section`
   padding: 10px;
   background-color: ${(props) => props.theme.white};
 
-  ${breakpoints('height', '', [{ 600: '100%' }])}
+  ${breakpoints('height', '', [{ M: '100%' }])}
 `
 const Content = styled.div`
   margin: auto;
@@ -57,7 +57,7 @@ const UpperSection = styled.div`
   display: flex;
   justify-content: space-around;
 
-  ${breakpoints('flex-direction', '', [{ 600: 'column' }])}
+  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
 `
 const LowerSection = styled.div``
 const ImageWrapper = styled.div`
@@ -65,7 +65,7 @@ const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  ${breakpoints('justify-content', '', [{ 600: 'center' }])}
+  ${breakpoints('justify-content', '', [{ M: 'center' }])}
 `
 
 export default Footer

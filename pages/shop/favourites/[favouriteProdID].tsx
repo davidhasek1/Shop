@@ -91,15 +91,15 @@ const DetailPageWrapper = styled.div`
   padding: 50px 0;
 `
 const Main = styled.div`
-  ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
-  ${breakpoints("flex-direction", "", [{ 600: "row-reverse" }], "min-width")}
+  ${breakpoints("display", "", [{ M: "flex" }], "min-width")}
+  ${breakpoints("flex-direction", "", [{ M: "row-reverse" }], "min-width")}
 `
 const Title = styled.h1`
   text-align: left;
   padding: 0 10px;
 `
 const RightContainer = styled.div`
-  ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}
+  ${breakpoints("width", "", [{ M: "50%" }], "min-width")}
 `
 const Slider = styled.div`
   //TODO - slider fotek
@@ -107,10 +107,10 @@ const Slider = styled.div`
   justify-content: center;
 `
 const Actions = styled.div`
-  ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
-  ${breakpoints("justify-content", "", [{ 600: "center" }], "min-width")}
-  ${breakpoints("align-items", "", [{ 600: "center" }], "min-width")}
-  ${breakpoints("display", "", [{ 600: "none" }])}
+  ${breakpoints("display", "", [{ M: "flex" }], "min-width")}
+  ${breakpoints("justify-content", "", [{ M: "center" }], "min-width")}
+  ${breakpoints("align-items", "", [{ M: "center" }], "min-width")}
+  ${breakpoints("display", "", [{ M: "none" }])}
   padding: 30px;
   margin: 30px 0;
 `
@@ -122,7 +122,7 @@ const Hole = styled.div`
   border-radius: 100%;
 `
 const ActionsWrap = styled.div`
-  ${breakpoints("display", "", [{ 600: "flex" }], "min-width")}
+  ${breakpoints("display", "", [{ M: "flex" }], "min-width")}
   background: ${(props) => props.theme.white};
   color: #000;
   border-radius: 10px;
@@ -153,7 +153,7 @@ const Line = styled.div`
   border-right: 4px dotted ${(props) => props.theme.fade1};
 `
 const ContentWrapper = styled.div`
-  ${breakpoints("width", "", [{ 600: "50%" }], "min-width")}
+  ${breakpoints("width", "", [{ M: "50%" }], "min-width")}
   background-color: ${(props) => props.theme.white};
   padding: 15px 0;
   height: fit-content;
@@ -169,7 +169,7 @@ const MobileAddItemWrapper = styled.div`
   position: fixed;
   bottom: 10px;
   right: 10px;
-  ${breakpoints("display", "", [{ 600: "none" }], "min-width")}
+  ${breakpoints("display", "", [{ M: "none" }], "min-width")}
 `
 const MobileAddButton = styled.div`
   width: 70px;
@@ -192,8 +192,8 @@ const PriceTag = styled.h3`
   margin: 0;
   display: flex;
   align-items: center;
-  ${breakpoints("margin", "", [{ 600: "10px 0" }], "min-width")}
-  ${breakpoints("padding", "", [{ 600: "30px 10px" }], "min-width")}
+  ${breakpoints("margin", "", [{ M: "10px 0" }], "min-width")}
+  ${breakpoints("padding", "", [{ M: "30px 10px" }], "min-width")}
 `
 
 export default productDetail

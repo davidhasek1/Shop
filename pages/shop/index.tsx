@@ -57,10 +57,10 @@ const Grid = styled.div`
   margin: 50px 0;
 
   ${breakpoints('grid-template-columns', '', [
-    { 800: 'auto auto' },
-    { 600: 'auto' },
+    { L: 'auto auto' },
+    { M: 'auto' },
   ])};
-  ${breakpoints('margin', '', [{ 800: '50px 10px' }, { 600: '50px 10px' }])}
+  ${breakpoints('margin', '', [{ L: '50px 10px' }, { M: '50px 10px' }])}
 `
 
 export default ShopMainPage

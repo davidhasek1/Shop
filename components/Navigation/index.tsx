@@ -40,7 +40,7 @@ const NavWrapper = styled.div`
     margin: 5px;
   }
 
-  ${breakpoints('padding', '', [{ 800: '15px 0' }])}
+  ${breakpoints('padding', '', [{ L: '15px 0' }])}
 `
 const Container = styled.div`
   max-width: 1350px;
@@ -48,7 +48,7 @@ const Container = styled.div`
   margin: auto;
   display: flex;
 
-  ${breakpoints('padding', '', [{ 1200: '0 15px' }])}
+  ${breakpoints('padding', '', [{ XL: '0 15px' }])}
 `
 const ImageLink = styled.a`
   font-size: 0;
@@ -57,6 +57,6 @@ const ImageLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${breakpoints('margin-left', '', [{ 1200: '0' }])}
+  ${breakpoints('margin-left', '', [{ XL: '0' }])}
 `
 export default Navigation

@@ -31,7 +31,7 @@ const Column = styled.div`
   display: inline-block;
   font-size: 0; // TO REMOVE INLIEN-BLOCK WHITESPACE which is caused by default
 
-  ${breakpoints('flex', '', [{ 800: '50%' }, { 600: '100%' }])}
-  ${breakpoints('max-width', '', [{ 800: '50%' }, { 600: '100%' }])}
+  ${breakpoints('flex', '', [{ L: '50%' }, { M: '100%' }])}
+  ${breakpoints('max-width', '', [{ L: '50%' }, { M: '100%' }])}
 `
 export default GalleryColumn

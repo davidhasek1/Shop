@@ -50,7 +50,7 @@ type cartProps = {
 const OrderContainer = styled.div`
   padding-top: 80px;
   display: flex;
-  ${breakpoints('flex-direction', '', [{ 800: 'column' }])}
+  ${breakpoints('flex-direction', '', [{ L: 'column' }])}
 `
 const EmptyCart = styled.h1``
 
@@ -60,7 +60,7 @@ const Divider = styled.div`
 
 const Right = styled.div`
   width: 70%;
-  ${breakpoints('width', '', [{ 800: '100%' }])}
+  ${breakpoints('width', '', [{ L: '100%' }])}
 `
 const Items = styled.div``
 const ButtonWrapper = styled.div<cartProps>`

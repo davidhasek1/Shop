@@ -37,7 +37,7 @@ const SliderWrapper = styled.div`
 const ItemsOuterWrapper = styled.div`
   display: flex;
   justify-content: center;
-  ${breakpoints('margin', '', [{ 800: '50px 0px' }])}
+  ${breakpoints('margin', '', [{ L: '50px 0px' }])}
 `
 const ArrowWrapper = styled.div`
   display: flex;
@@ -51,7 +51,7 @@ const ArrowWrapper = styled.div`
     }
   }
 
-  ${breakpoints('display', '', [{ 800: 'none' }])}
+  ${breakpoints('display', '', [{ L: 'none' }])}
 `
 const ItemsInnerWrapper = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ const ItemsInnerWrapper = styled.div`
   padding: 20px 0;
   scroll-behavior: smooth;
 
-  ${breakpoints('padding', '', [{ 800: '20px 15px' }])}
-  ${breakpoints('margin-right', '', [{ 800: '10px' }])}
+  ${breakpoints('padding', '', [{ L: '20px 15px' }])}
+  ${breakpoints('margin-right', '', [{ L: '10px' }])}
 `
 export default Slider

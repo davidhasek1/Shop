@@ -18,9 +18,9 @@ const CopyrightWrapper = styled.div`
   font-size: 12px;
   color: #808080;
   
-  ${breakpoints('order', '', [{ 800: 1 }])}
-  ${breakpoints('flex-direction', '', [{ 600: 'column' }])}
-  ${breakpoints('padding', '', [{ 800: '20px 0' }])}
+  ${breakpoints('order', '', [{ L: 1 }])}
+  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
+  ${breakpoints('padding', '', [{ L: '20px 0' }])}
 `
 const Item = styled.span`
   margin: 10px 0;

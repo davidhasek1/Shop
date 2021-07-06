@@ -27,7 +27,7 @@ const NavLinks = styled.div`
   ${StyledIconBase} {
     color: ${(props) => props.theme.white};
   }
-  ${breakpoints('display', '', [{ 800: 'none' }])}
+  ${breakpoints('display', '', [{ L: 'none' }])}
 `
 const Links = styled.ul`
   display: flex;
