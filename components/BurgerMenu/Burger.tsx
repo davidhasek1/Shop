@@ -24,5 +24,4 @@ const BurgerLine = styled.div`
 const BurgerLineShort = styled(BurgerLine)`
   width: 20px;
 `
-
 export default Burger
