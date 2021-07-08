@@ -15,11 +15,11 @@ const BurgerContainer = styled.div`
   width: 30px;
 `
 const BurgerLine = styled.div`
-  height: 3px;
+  height: 2.5px;
   width: 30px;
   margin: 5px 0;
   border-radius: 45px;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.black};
 `
 const BurgerLineShort = styled(BurgerLine)`
   width: 20px;
