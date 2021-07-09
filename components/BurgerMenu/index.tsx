@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
 import { openMobileMenu } from 'store/actions/handlersActions'
-import DropdownMenu from 'components/DropdownMenu'
-import { Close } from '@styled-icons/ionicons-solid/Close'
+import { Close } from '@styled-icons/evil/Close'
 import Burger from './Burger'
 
 const BurgerMenu = ({ flexPosition }) => {
@@ -21,7 +20,6 @@ const BurgerMenu = ({ flexPosition }) => {
       ) : (
         <Burger onClick={() => dispatch(openMobileMenu(true))} />
       )}
-      {isMobileMenuOpen ? <DropdownMenu /> : null}
     </BurgerWrapper>
   )
 }

@@ -1,7 +1,7 @@
 import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
-import { Cart } from '@styled-icons/ionicons-outline/Cart'
+import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
 import BurgerMenu from 'components/BurgerMenu'
 
 const NavigationLinks = ({ navlinks, flexPosition }) => {
@@ -72,7 +72,7 @@ const CartLink = styled.div<Props>`
 const CartText = styled.span`
   ${breakpoints('display', '', [{ L: 'none' }])}
 `
-const CartStyled = styled(Cart)`
+const CartStyled = styled(ShoppingCart)`
   ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
 `
 

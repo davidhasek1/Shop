@@ -1,16 +1,17 @@
 import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
 import NavigationLinks from './NavigationLinks'
-import NavigationActions from './NavigationActions'
 import StyledImage from 'components/Image'
+import DropdownMenu from 'components/DropdownMenu'
 
 export type NavLinksType = {
   href: string
   caption: string
   icon: any
 }
-type NavSection = {
+export type NavSection = {
   left: Array<NavLinksType>
   right: Array<NavLinksType>
 }
@@ -31,6 +32,9 @@ const navlinks: NavSection = [
 ]
 
 const Navigation = () => {
+  const { isMobileMenuOpen } = useSelector(
+    (state: RootStateOrAny) => state.handlers
+  )
   return (
     <NavWrapper>
       <Container>
@@ -48,8 +52,8 @@ const Navigation = () => {
           </ImageLink>
         </Link>
         <NavigationLinks navlinks={navlinks[1].right} flexPosition={'right'} />
-        {/* <NavigationActions /> */}
       </Container>
+      {isMobileMenuOpen ? <DropdownMenu links={navlinks} /> : null}
     </NavWrapper>
   )
 }
@@ -73,6 +77,5 @@ const ImageLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${breakpoints('margin-left', '', [{ XL: '0' }])}
 `
 export default Navigation

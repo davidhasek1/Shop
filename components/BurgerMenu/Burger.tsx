@@ -15,7 +15,7 @@ const BurgerContainer = styled.div`
   width: 30px;
 `
 const BurgerLine = styled.div`
-  height: 2.5px;
+  height: 1px;
   width: 30px;
   margin: 5px 0;
   border-radius: 45px;
