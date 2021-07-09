@@ -16,7 +16,7 @@ const HomePage = ({ content }) => {
       <Header
         ownHeight
         headerImage={`${url}${content.Header.Image.url}`}
-        headerTitle={content.Header.Title}
+        title={content.Header.Title}
       />
       <About
         aboutTitle={content.About.Title}

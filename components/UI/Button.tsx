@@ -1,19 +1,46 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 const ClassicButton = (props) => {
-  const { children, onClick, icon, buttonType } = props
+  const { styleType, children, onClick, icon, buttonType } = props
 
-  return (
-    <Button type={buttonType} isIcon={icon} onClick={onClick}>
-      {icon}
-      {children}
-    </Button>
-  )
-};
+  switch (styleType) {
+    case 'NORMAL':
+      return (
+        <Button type={buttonType} isIcon={icon} onClick={onClick}>
+          {icon}
+          {children}
+        </Button>
+      )
+    case 'INVERT':
+      return (
+        <InvertButton type={buttonType} onClick={onClick}>
+          {icon}
+          {children}
+        </InvertButton>
+      )
+    default:
+      return (
+        <Button type={buttonType} isIcon={icon} onClick={onClick}>
+          {icon}
+          {children}
+        </Button>
+      )
+  }
+}
 
 type IconProps = {
-  isIcon: boolean;
-};
+  isIcon: boolean
+}
+
+const InvertButton = styled.button`
+  padding: 15px 70px;
+
+  outline: none;
+  background-color: ${(props) => props.theme.white};
+  border: 1px solid ${(props) => props.theme.black};
+  text-transform: uppercase;
+  cursor: pointer;
+`
 
 const Button = styled.button<IconProps>`
   outline: none;
@@ -26,13 +53,18 @@ const Button = styled.button<IconProps>`
           padding: 0;
         `
       : css`
-          padding: 15px 20px;
-          background: ${(props) => props.theme.pink};
-          border-radius: 25px;
+          //TODO: opropsovat props a použít v konkretních casech
+          padding: 15px 70px;
+          background: ${(props) => props.theme.black};
           text-transform: uppercase;
           color: ${(props) => props.theme.white};
           font-weight: 600;
+          &:hover {
+            outline: 1px solid ${(props) => props.theme.black};
+            background: ${(props) => props.theme.white};
+            color: ${(props) => props.theme.black};
+          }
         `}
-`;
+`
 
-export default ClassicButton;
+export default ClassicButton

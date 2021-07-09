@@ -6,6 +6,7 @@ import NavigationLinks from './NavigationLinks'
 import StyledImage from 'components/Image'
 import DropdownMenu from 'components/DropdownMenu'
 
+export const NAVBAR_HEIGHT = '70px'
 export type NavLinksType = {
   href: string
   caption: string
@@ -43,11 +44,11 @@ const Navigation = () => {
           <ImageLink>
             <StyledImage
               imageSrc={'/images/wellu.png'}
-              imageWidth={200}
-              imageHeight={150}
+              imageWidth={100}
+              imageHeight={NAVBAR_HEIGHT}
               scaleing={false}
               fitting={'contain'}
-              layout={'intrinsic'}
+              layout={'fixed'}
             />
           </ImageLink>
         </Link>
@@ -59,6 +60,9 @@ const Navigation = () => {
 }
 
 const NavWrapper = styled.div`
+  position: fixed;
+  width: 100%;
+  z-index: 20;
   background-color: ${(props) => props.theme.white};
   box-shadow: 0px 4px 10px -6px ${(props) => props.theme.fade2};
   color: ${(props) => props.theme.text};
