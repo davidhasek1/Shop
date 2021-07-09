@@ -1,7 +1,7 @@
 import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
-import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
+import { useSelector, RootStateOrAny } from 'react-redux'
 import NavigationLinks from './NavigationLinks'
 import StyledImage from 'components/Image'
 import DropdownMenu from 'components/DropdownMenu'

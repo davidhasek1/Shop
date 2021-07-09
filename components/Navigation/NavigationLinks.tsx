@@ -2,10 +2,12 @@ import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
+import { RootStateOrAny, useSelector } from 'react-redux'
 import BurgerMenu from 'components/BurgerMenu'
+import PriceSummary from 'components/CartSummaryIndicator'
 
 const NavigationLinks = ({ navlinks, flexPosition }) => {
-  console.log(navlinks)
+  const cart = useSelector((state: RootStateOrAny) => state.userCart.cartItems)
   return (
     <NavLinks>
       <Links flexPosition={flexPosition}>
@@ -23,6 +25,7 @@ const NavigationLinks = ({ navlinks, flexPosition }) => {
           <Link href="/cart" passHref>
             <AnchorLink>
               <CartText>Cart</CartText>
+              {cart.length > 0 && <PriceSummary />}
               <CartStyled size={30} />
             </AnchorLink>
           </Link>
