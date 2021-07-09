@@ -7,7 +7,9 @@ import BurgerMenu from 'components/BurgerMenu'
 import PriceSummary from 'components/CartSummaryIndicator'
 
 const NavigationLinks = ({ navlinks, flexPosition }) => {
-  const cart = useSelector((state: RootStateOrAny) => state.userCart.cartItems)
+  const itemsCount = useSelector(
+    (state: RootStateOrAny) => state.userCart.itemsCount
+  )
   return (
     <NavLinks>
       <Links flexPosition={flexPosition}>
@@ -25,7 +27,7 @@ const NavigationLinks = ({ navlinks, flexPosition }) => {
           <Link href="/cart" passHref>
             <AnchorLink>
               <CartText>Cart</CartText>
-              {cart.length > 0 && <PriceSummary />}
+              {itemsCount > 0 && <PriceSummary />}
               <CartStyled size={30} />
             </AnchorLink>
           </Link>
