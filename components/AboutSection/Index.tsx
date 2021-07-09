@@ -19,7 +19,6 @@ const AboutWrapper = styled.div`
 `
 const ContentWrapper = styled.div`
   text-align: justify;
-  
   ${breakpoints('padding', '', [{ XL: '10px' }])}
 `
 export default AboutSection

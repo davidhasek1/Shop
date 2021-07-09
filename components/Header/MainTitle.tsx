@@ -3,17 +3,21 @@ import { breakpoints } from 'utils/responsivity'
 import Button from 'components/UI/Button'
 import Link from 'next/link'
 
-const MainTitle = ({ headerTitle }) => {
+const MainTitle = ({ headerTitle, isHomePage }) => {
   return (
     <TitleWrapper>
       <Title>{headerTitle}</Title>
-      <ButtonWrapper>
+      <ButtonWrapper isHomePage={isHomePage}>
         <Link href="/shop">
           <Button styleType={'NORMAL'}>Shop now</Button>
         </Link>
       </ButtonWrapper>
     </TitleWrapper>
   )
+}
+
+type Props = {
+  isHomePage: boolean
 }
 
 const TitleWrapper = styled.div`
@@ -30,6 +34,8 @@ const TitleWrapper = styled.div`
 const Title = styled.h1`
   ${breakpoints('font-size', '', [{ L: '40px' }, { M: '25px' }])}
 `
-const ButtonWrapper = styled.div``
+const ButtonWrapper = styled.div<Props>`
+  display: ${({ isHomePage }) => !isHomePage && 'none'};
+`
 
 export default MainTitle

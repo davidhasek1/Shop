@@ -14,6 +14,7 @@ const HomePage = ({ content }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header
+        isHomePage={true}
         ownHeight
         headerImage={`${url}${content.Header.Image.url}`}
         title={content.Header.Title}

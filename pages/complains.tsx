@@ -16,8 +16,9 @@ const Complains = ({ complains }) => {
         <title>Reklamační řád</title>
       </Head>
       <Header
+        isHomePage={false}
         ownHeight={complains.ImageHeight}
-        headerTitle={complains.Title}
+        title={complains.Title}
         headerImage={`${url}${complains.Image.url}`}
       />
 

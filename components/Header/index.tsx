@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { NAVBAR_HEIGHT } from 'components/Navigation'
-
 import DesktopImage from './DesktopHeaderImage'
 import MobileImage from './MobileHeaderImage'
 import MainTitle from './MainTitle'
-
-const Header = ({ title, headerImage, ownHeight }) => {
+const Header = ({ title, headerImage, ownHeight, isHomePage }) => {
   console.log(ownHeight)
   return (
     <HeaderContainer setHeight={ownHeight}>
       <ImageWrapper>
         <DesktopImage image={headerImage} />
         <MobileImage image={headerImage} />
-        <MainTitle headerTitle={title} />
+        <MainTitle isHomePage={isHomePage} headerTitle={title} />
       </ImageWrapper>
     </HeaderContainer>
   )
@@ -27,6 +25,7 @@ const HeaderContainer = styled.div<Props>`
   position: relative;
   top: ${NAVBAR_HEIGHT};
   background-color: ${(props) => props.theme.white};
+  overflow: hidden; // !!!
   height: ${({ setHeight }) => (setHeight ? `${setHeight}px` : '100%')};
 
   ${breakpoints('flex-direction', '', [{ M: 'column' }])};

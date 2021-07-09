@@ -13,10 +13,11 @@ const GDPR = ({ gdpr }) => {
       <Head>
         <title>GDPR</title>
       </Head>
-      
+
       <Header
+        isHomePage={false}
         ownHeight={gdpr.ImageHeight}
-        headerTitle={gdpr.Title}
+        title={gdpr.Title}
         headerImage={`${url}${gdpr.Image.url}`}
       />
       <Wrapper>
