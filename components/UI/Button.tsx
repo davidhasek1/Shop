@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
 
 const ClassicButton = (props) => {
   const { styleType, children, onClick, icon, buttonType } = props
@@ -64,6 +65,7 @@ const Button = styled.button<IconProps>`
             background: ${(props) => props.theme.white};
             color: ${(props) => props.theme.black};
           }
+          ${breakpoints('padding', '', [{ L: '10px 70px;' }])}
         `}
 `
 

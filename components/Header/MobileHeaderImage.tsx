@@ -8,7 +8,7 @@ const MobileHeaderImage = ({ image }) => {
       <StyledImage
         imageSrc={image}
         imageWidth={2500}
-        imageHeight={3500}
+        imageHeight={3000}
         scaleing={false}
         fitting={'cover'}
         layout={'intrinsic'}

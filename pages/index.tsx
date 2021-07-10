@@ -1,12 +1,11 @@
 import { url } from 'config'
 import Head from 'next/head'
 import Header from 'components/Header'
-import About from 'components/AboutSection'
-import Bestsellers from 'components/Bestsellers'
+import OurCollection from 'components/OurCollection'
 import Gallery from 'components/Gallery'
 
-const HomePage = ({ content }) => {
-  console.log(content)
+const HomePage = ({ content, products }) => {
+  console.log('PRODUCTS', products)
   return (
     <div>
       <Head>
@@ -19,12 +18,8 @@ const HomePage = ({ content }) => {
         headerImage={`${url}${content.Header.Image.url}`}
         title={content.Header.Title}
       />
-      <About
-        aboutTitle={content.About.Title}
-        aboutContent={content.About.Content}
-      />
 
-      <Bestsellers />
+      <OurCollection products={products} />
       <Gallery title={content.Gallery.Title} images={content.Gallery} />
     </div>
   )
@@ -32,10 +27,12 @@ const HomePage = ({ content }) => {
 
 export const getStaticProps = async () => {
   try {
-    const data = await fetch(`${url}/homepage`)
-    const content = await data.json()
+    const homepage = await fetch(`${url}/homepage`)
+    const productsApi = await fetch(`${url}/products`)
+    const content = await homepage.json()
+    const products = await productsApi.json()
     return {
-      props: { content },
+      props: { content, products },
       revalidate: 10,
     }
   } catch (error) {

@@ -13,7 +13,7 @@ import Link from 'next/link'
 import Button from 'components/UI/Button'
 import StyledImage from 'components/Image'
 
-const ProductItem = ({ imageSource, title, shortDescription, detailID }) => {
+const ProductItem = ({ imageSource, title, detailID }) => {
   const dispatch = useDispatch()
   const router = useRouter()
   console.log(router.route)
@@ -35,13 +35,11 @@ const ProductItem = ({ imageSource, title, shortDescription, detailID }) => {
       />
       <Content>
         <Title>{title}</Title>
-        <Text>{shortDescription}</Text>
-
         <Price>
           <BoldPrice>1000 Kč</BoldPrice>
         </Price>
         <ItemActions>
-          <Link href={`${router.route}/${detailID}`} passHref>
+          <Link href={`/shop/${detailID}`} passHref>
             <InfoCircle size={35} />
           </Link>
           <Button
@@ -72,10 +70,6 @@ const Content = styled.div`
 const Title = styled.h3`
   margin: 0;
   line-height: 24px;
-`
-const Text = styled.p`
-  margin: 10px 0;
-  font-size: 14px;
 `
 const Price = styled.div`
   text-align: center;

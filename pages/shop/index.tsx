@@ -19,7 +19,6 @@ const ShopMainPage = ({ products }) => {
             key={product._id}
             detailID={product._id}
             title={product.Title}
-            shortDescription={product.ShortDescription}
           />
         ))}
       </Grid>
