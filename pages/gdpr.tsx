@@ -50,7 +50,6 @@ export const getStaticProps = async () => {
 }
 
 const Wrapper = styled.div`
-  margin: 25px 0;
   padding: 25px;
   text-align: left;
   border-radius: 10px;
@@ -59,6 +58,7 @@ const Wrapper = styled.div`
 const ContentContainer = styled.div`
   text-align: justify;
   margin: 0 15%;
+
   ${breakpoints('margin', '', [{ M: 0 }])};
 `
 export default GDPR

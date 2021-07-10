@@ -23,13 +23,12 @@ type Props = {
 
 const HeaderContainer = styled.div<Props>`
   position: relative;
-  top: ${NAVBAR_HEIGHT};
+  padding-top: ${NAVBAR_HEIGHT};
   background-color: ${(props) => props.theme.white};
   overflow: hidden; // !!!
   height: ${({ setHeight }) => (setHeight ? `${setHeight}px` : '100%')};
 
   ${breakpoints('flex-direction', '', [{ M: 'column' }])};
-  ${breakpoints('border-radius', '', [{ M: 0 }])};
 `
 const ImageWrapper = styled.div`
   font-size: 0;
