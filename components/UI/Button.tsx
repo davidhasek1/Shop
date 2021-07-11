@@ -75,13 +75,15 @@ const Button = styled.button<Props>`
   color: ${(props) => props.theme.white};
   font-weight: 600;
   font-size: 14px;
-  
+
   padding: ${({ paddingValue }) => (paddingValue ? paddingValue : '5px 0')};
   width: ${({ width }) => (width ? width : 'auto')};
   height: ${({ height }) => (height ? height : 'auto')};
   white-space: nowrap;
 
-  ${({ width }) => (width ? breakpoints('width', '', [{ M: '100%' }]) : null)}
+  ${({ width }) => (width ? breakpoints('width', '', [{ M: '150px' }]) : null)}
+  ${breakpoints('font-size', '', [{ M: '12px' }])}
+  ${breakpoints('padding', '', [{ M: '8px' }])}
 `
 const NormalButton = styled(Button)`
   &:hover {

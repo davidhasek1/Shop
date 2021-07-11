@@ -9,7 +9,7 @@ const MainTitle = ({ headerTitle, isHomePage }) => {
       <Title>{headerTitle}</Title>
       <ButtonWrapper isHomePage={isHomePage}>
         <Link href="/shop">
-          <Button width={'300px'} height={'50px'} styleType={'NORMAL'}>
+          <Button width={'200px'} paddingValue={'10px'} styleType={'NORMAL'}>
             Shop now
           </Button>
         </Link>
