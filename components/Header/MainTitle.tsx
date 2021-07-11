@@ -9,7 +9,9 @@ const MainTitle = ({ headerTitle, isHomePage }) => {
       <Title>{headerTitle}</Title>
       <ButtonWrapper isHomePage={isHomePage}>
         <Link href="/shop">
-          <Button styleType={'NORMAL'}>Shop now</Button>
+          <Button width={'300px'} height={'50px'} styleType={'NORMAL'}>
+            Shop now
+          </Button>
         </Link>
       </ButtonWrapper>
     </TitleWrapper>

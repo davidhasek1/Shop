@@ -1,27 +1,57 @@
 import styled, { css } from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 
-const ClassicButton = (props) => {
-  const { styleType, children, onClick, icon, buttonType } = props
+const CustomButton = (props) => {
+  const {
+    styleType,
+    paddingValue,
+    children,
+    onClick,
+    icon,
+    buttonType,
+    width,
+    height,
+  } = props
 
   switch (styleType) {
     case 'NORMAL':
       return (
-        <NormalButton type={buttonType} isIcon={icon} onClick={onClick}>
+        <NormalButton
+          width={width}
+          height={height}
+          paddingValue={paddingValue}
+          type={buttonType}
+          isIcon={icon}
+          onClick={onClick}
+        >
           {icon}
           {children}
         </NormalButton>
       )
     case 'INVERT':
       return (
-        <InvertButton type={buttonType} isIcon={icon} onClick={onClick}>
+        <InvertButton
+          width={width}
+          height={height}
+          paddingValue={paddingValue}
+          type={buttonType}
+          isIcon={icon}
+          onClick={onClick}
+        >
           {icon}
           {children}
         </InvertButton>
       )
     default:
       return (
-        <Button type={buttonType} isIcon={icon} onClick={onClick}>
+        <Button
+          width={width}
+          height={height}
+          paddingValue={paddingValue}
+          type={buttonType}
+          isIcon={icon}
+          onClick={onClick}
+        >
           {icon}
           {children}
         </Button>
@@ -29,11 +59,14 @@ const ClassicButton = (props) => {
   }
 }
 
-type IconProps = {
+type Props = {
   isIcon: boolean
+  width: number
+  height: number
+  paddingValue: any
 }
 
-const Button = styled.button<IconProps>`
+const Button = styled.button<Props>`
   outline: none;
   border: none;
   cursor: pointer;
@@ -41,9 +74,13 @@ const Button = styled.button<IconProps>`
   background: ${(props) => props.theme.black};
   color: ${(props) => props.theme.white};
   font-weight: 600;
-  padding: 15px 70px;
+  padding: ${({ paddingValue }) => (paddingValue ? paddingValue : '5px 0')};
+  width: ${({ width }) => (width ? width : 'auto')};
+  height: ${({ height }) => (height ? height : 'auto')};
+  white-space: nowrap;
 
-  ${breakpoints('padding', '', [{ L: '10px 70px;' }])}
+  ${({ width }) => (width ? breakpoints('width', '', [{ M: '100%' }]) : null)}
+
 `
 const NormalButton = styled(Button)`
   &:hover {
@@ -63,4 +100,4 @@ const InvertButton = styled(Button)`
   }
 `
 
-export default ClassicButton
+export default CustomButton

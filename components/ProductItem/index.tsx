@@ -24,31 +24,34 @@ const ProductItem = ({ imageSource, title, detailID }) => {
   }
 
   return (
-    <Item>
-      <StyledImage
-        imageSrc={imageSource}
-        imageWidth={500}
-        imageHeight={375}
-        scaleing={false}
-        fitting={'cover'}
-        layout={'intrinsic'}
-      />
-      <Content>
-        <Title>{title}</Title>
-        <Price>
-          <BoldPrice>1000 Kč</BoldPrice>
-        </Price>
-        <ItemActions>
-          <Link href={`/shop/${detailID}`} passHref>
-            <InfoCircle size={35} />
-          </Link>
-          <Button
-            onClick={() => addToCartHandler()}
-            icon={<ShoppingBag size={35} />}
-          />
-        </ItemActions>
-      </Content>
-    </Item>
+    <Link href={`/shop/${detailID}`} passHref>
+      <Item>
+        <StyledImage
+          imageSrc={imageSource}
+          imageWidth={500}
+          imageHeight={375}
+          scaleing={false}
+          fitting={'cover'}
+          layout={'intrinsic'}
+        />
+        <Content>
+          <Title>{title}</Title>
+          <Price>
+            <BoldPrice>1000 Kč</BoldPrice>
+          </Price>
+          <AddToCart>
+            <Button
+              styleType={'INVERT'}
+              width={'100%'}
+              paddingValue={'7px 10px'}
+              onClick={() => addToCartHandler()}
+            >
+              Add to Cart
+            </Button>
+          </AddToCart>
+        </Content>
+      </Item>
+    </Link>
   )
 }
 
@@ -56,9 +59,7 @@ const Item = styled.div`
   max-width: 250px;
   min-width: 225px;
   background-color: ${(props) => props.theme.white};
-  border-radius: 5px;
-  overflow: hidden;
-  text-align: left;
+
   margin: 0 15px;
   &:hover {
     box-shadow: 0 0 8px ${(props) => props.theme.pink};
@@ -78,13 +79,6 @@ const BoldPrice = styled.strong`
   font-weight: 400;
 `
 
-const ItemActions = styled.div`
-  ${StyledIconBase} {
-    color: ${(props) => props.theme.pink};
-  }
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px 0;
-`
+const AddToCart = styled.div``
 
 export default ProductItem
