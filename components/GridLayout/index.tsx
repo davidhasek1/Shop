@@ -9,7 +9,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
   justify-content: space-around;
-
+  padding: 20px;
   max-width: 1200px;
   margin: 50px auto;
 

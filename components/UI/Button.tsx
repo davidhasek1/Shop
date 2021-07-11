@@ -74,13 +74,14 @@ const Button = styled.button<Props>`
   background: ${(props) => props.theme.black};
   color: ${(props) => props.theme.white};
   font-weight: 600;
+  font-size: 14px;
+  
   padding: ${({ paddingValue }) => (paddingValue ? paddingValue : '5px 0')};
   width: ${({ width }) => (width ? width : 'auto')};
   height: ${({ height }) => (height ? height : 'auto')};
   white-space: nowrap;
 
   ${({ width }) => (width ? breakpoints('width', '', [{ M: '100%' }]) : null)}
-
 `
 const NormalButton = styled(Button)`
   &:hover {
@@ -91,8 +92,8 @@ const NormalButton = styled(Button)`
 `
 const InvertButton = styled(Button)`
   color: ${(props) => props.theme.black};
-  background-color: ${(props) => props.theme.white};
-  border: 1px solid ${(props) => props.theme.black};
+  background-color: ${(props) => props.theme.bgGray};
+  border: 2px solid ${(props) => props.theme.black};
 
   &:hover {
     background: ${(props) => props.theme.black};
