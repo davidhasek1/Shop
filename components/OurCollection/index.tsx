@@ -5,7 +5,7 @@ import { url } from 'config'
 import Slider from 'components/Slider'
 import ProductItem from 'components/ProductItem'
 import Heading from 'components/Heading'
-import { useState } from 'react'
+import GridLyout from 'components/GridLayout'
 
 const OurCollection = ({ products }) => {
   const productsRender = products.map((product) => (
@@ -23,7 +23,7 @@ const OurCollection = ({ products }) => {
         <Slider>{productsRender}</Slider>
       </SliderWrapper>
       <ContentWrapper>
-        <Grid>{productsRender}</Grid>
+        <GridLyout content={productsRender} />
       </ContentWrapper>
     </Wrapper>
   )
@@ -34,19 +34,6 @@ const Wrapper = styled.div`
 `
 const SliderWrapper = styled.div`
   ${breakpoints('display', '', [{ L: 'none' }], 'min-width')};
-`
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: center;
-  grid-gap: 30px;
-  margin: 50px 0;
-
-  ${breakpoints('grid-template-columns', '', [
-    { L: 'auto auto' },
-    { M: 'auto' },
-  ])};
-  ${breakpoints('margin', '', [{ L: '50px 10px' }, { M: '50px 10px' }])}
 `
 
 const ContentWrapper = styled.div`

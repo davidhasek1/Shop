@@ -1,8 +1,5 @@
-import { InfoCircle, ShoppingBag } from '@styled-icons/boxicons-regular'
-import { StyledIconBase } from '@styled-icons/styled-icon'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { openProductDetail } from 'store/actions/handlersActions'
 import {
   AddToCartState,
   CartProductsCount,
@@ -14,66 +11,84 @@ import Button from 'components/UI/Button'
 import StyledImage from 'components/Image'
 
 const ProductItem = ({ imageSource, title, detailID }) => {
+  const [isHovered, setIsHovered] = useState(false)
   const dispatch = useDispatch()
-  const router = useRouter()
-  console.log(router.route)
 
   const addToCartHandler = () => {
     dispatch(AddToCartState(detailID))
     dispatch(CartProductsCount())
   }
+  const hoverHandler = () => {
+    setIsHovered(true)
+  }
+  const hoverOut = () => {
+    setIsHovered(false)
+  }
 
   return (
-    <Link href={`/shop/${detailID}`} passHref>
-      <Item>
-        <StyledImage
-          imageSrc={imageSource}
-          imageWidth={500}
-          imageHeight={375}
-          scaleing={false}
-          fitting={'cover'}
-          layout={'intrinsic'}
-        />
-        <Content>
-          <Title>{title}</Title>
-          <Price>
-            <BoldPrice>1000 Kč</BoldPrice>
-          </Price>
-          <AddToCart>
-            <Button
-              styleType={'INVERT'}
-              width={'100%'}
-              paddingValue={'7px 10px'}
-              onClick={() => addToCartHandler()}
-            >
-              Add to Cart
-            </Button>
-          </AddToCart>
-        </Content>
-      </Item>
-    </Link>
+    <Item onMouseEnter={hoverHandler} onMouseLeave={hoverOut}>
+      <Link href={`/shop/${detailID}`} passHref>
+        <OuterContent>
+          <StyledImage
+            imageSrc={imageSource}
+            imageWidth={300}
+            imageHeight={280}
+            scaleing={false}
+            fitting={'cover'}
+            layout={'intrinsic'}
+          />
+          <Content>
+            <TitleWrapper>
+              <Title>{title}</Title>
+            </TitleWrapper>
+
+            {isHovered && (
+              <HoverContent>
+                <Price>
+                  <BoldPrice>1000 Kč</BoldPrice>
+                </Price>
+              </HoverContent>
+            )}
+          </Content>
+        </OuterContent>
+      </Link>
+      {isHovered && (
+        <AddToCart>
+          <Button
+            styleType={'INVERT'}
+            width={'100%'}
+            paddingValue={'7px 10px'}
+            onClick={() => addToCartHandler()}
+          >
+            Add to Cart
+          </Button>
+        </AddToCart>
+      )}
+    </Item>
   )
 }
 
 const Item = styled.div`
   max-width: 250px;
   min-width: 225px;
-  background-color: ${(props) => props.theme.white};
+  height: 370px;
+  margin: 0 10px;
+  cursor: pointer;
+`
+const OuterContent = styled.div``
+const Content = styled.div``
+const TitleWrapper = styled.div`
+  margin: 10px 0;
+`
 
-  margin: 0 15px;
-  &:hover {
-    box-shadow: 0 0 8px ${(props) => props.theme.pink};
-  }
-`
-const Content = styled.div`
-  padding: 10px;
-`
-const Title = styled.h3`
+const Title = styled.strong`
   margin: 0;
-  line-height: 24px;
+  font-weight: 600;
 `
+const HoverContent = styled.div``
 const Price = styled.div`
   text-align: center;
+  margin: 10px 0;
 `
 const BoldPrice = styled.strong`
   font-weight: 400;
