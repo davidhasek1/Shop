@@ -7,14 +7,14 @@ const ClassicButton = (props) => {
   switch (styleType) {
     case 'NORMAL':
       return (
-        <Button type={buttonType} isIcon={icon} onClick={onClick}>
+        <NormalButton type={buttonType} isIcon={icon} onClick={onClick}>
           {icon}
           {children}
-        </Button>
+        </NormalButton>
       )
     case 'INVERT':
       return (
-        <InvertButton type={buttonType} onClick={onClick}>
+        <InvertButton type={buttonType} isIcon={icon} onClick={onClick}>
           {icon}
           {children}
         </InvertButton>
@@ -33,40 +33,34 @@ type IconProps = {
   isIcon: boolean
 }
 
-const InvertButton = styled.button`
-  padding: 15px 70px;
-
-  outline: none;
-  background-color: ${(props) => props.theme.white};
-  border: 1px solid ${(props) => props.theme.black};
-  text-transform: uppercase;
-  cursor: pointer;
-`
-
 const Button = styled.button<IconProps>`
   outline: none;
   border: none;
   cursor: pointer;
-  ${({ isIcon }) =>
-    isIcon
-      ? css`
-          background: transparent;
-          padding: 0;
-        `
-      : css`
-          //TODO: opropsovat props a použít v konkretních casech
-          padding: 15px 70px;
-          background: ${(props) => props.theme.black};
-          text-transform: uppercase;
-          color: ${(props) => props.theme.white};
-          font-weight: 600;
-          &:hover {
-            outline: 1px solid ${(props) => props.theme.black};
-            background: ${(props) => props.theme.white};
-            color: ${(props) => props.theme.black};
-          }
-          ${breakpoints('padding', '', [{ L: '10px 70px;' }])}
-        `}
+  text-transform: uppercase;
+  background: ${(props) => props.theme.black};
+  color: ${(props) => props.theme.white};
+  font-weight: 600;
+  padding: 15px 70px;
+
+  ${breakpoints('padding', '', [{ L: '10px 70px;' }])}
+`
+const NormalButton = styled(Button)`
+  &:hover {
+    outline: 1px solid ${(props) => props.theme.black};
+    background: ${(props) => props.theme.white};
+    color: ${(props) => props.theme.black};
+  }
+`
+const InvertButton = styled(Button)`
+  color: ${(props) => props.theme.black};
+  background-color: ${(props) => props.theme.white};
+  border: 1px solid ${(props) => props.theme.black};
+
+  &:hover {
+    background: ${(props) => props.theme.black};
+    color: ${(props) => props.theme.white};
+  }
 `
 
 export default ClassicButton
