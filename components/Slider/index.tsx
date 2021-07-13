@@ -31,9 +31,7 @@ const Slider = ({ children }) => {
   )
 }
 
-const SliderWrapper = styled.div`
-  padding-bottom: 50px;
-`
+const SliderWrapper = styled.div``
 const ItemsOuterWrapper = styled.div`
   display: flex;
   justify-content: center;

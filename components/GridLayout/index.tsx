@@ -8,10 +8,11 @@ const GridLayout = ({ content }) => {
 const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
+  grid-gap: 15px;
   justify-content: space-around;
   padding: 20px;
   max-width: 1200px;
-  margin: 50px auto;
+  margin: 50px auto 25px auto;
 
   ${breakpoints('grid-template-columns', '', [
     { L: 'auto auto' },

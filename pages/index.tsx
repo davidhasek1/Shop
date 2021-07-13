@@ -2,6 +2,7 @@ import { url } from 'config'
 import Head from 'next/head'
 import Header from 'components/Header'
 import OurCollection from 'components/OurCollection'
+import Quote from 'components/QuoteSection'
 import Gallery from 'components/Gallery'
 
 const HomePage = ({ content, products }) => {
@@ -20,6 +21,11 @@ const HomePage = ({ content, products }) => {
       />
 
       <OurCollection products={products} />
+      <Quote
+        title={
+          ' Natural, effective, sustainable—all in one. Why settle for anything less?'
+        }
+      />
       <Gallery title={content.Gallery.Title} images={content.Gallery} />
     </div>
   )

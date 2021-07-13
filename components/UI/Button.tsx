@@ -74,9 +74,9 @@ const Button = styled.button<Props>`
   background: ${(props) => props.theme.black};
   color: ${(props) => props.theme.white};
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
 
-  padding: ${({ paddingValue }) => (paddingValue ? paddingValue : '5px 0')};
+  padding: ${({ paddingValue }) => (paddingValue ? paddingValue : '10px 15px')};
   width: ${({ width }) => (width ? width : 'auto')};
   height: ${({ height }) => (height ? height : 'auto')};
   white-space: nowrap;

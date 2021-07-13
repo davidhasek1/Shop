@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
+import Link from 'next/link'
 
+import Button from 'components/UI/Button'
 import Slider from 'components/Slider'
 import ProductItem from 'components/ProductItem'
 import Heading from 'components/Heading'
@@ -25,12 +27,18 @@ const OurCollection = ({ products }) => {
       <ContentWrapper>
         <GridLyout content={productsRender} />
       </ContentWrapper>
+      <Link href={'/shop'}>
+        <Button styleType={'INVERT'} width={'20%'}>
+          View all
+        </Button>
+      </Link>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  padding: 75px 0;
+  margin: 100px auto;
+  max-width: 1100px;
 `
 const SliderWrapper = styled.div`
   ${breakpoints('display', '', [{ L: 'none' }], 'min-width')};

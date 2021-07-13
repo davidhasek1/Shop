@@ -71,7 +71,7 @@ const ProductItem = ({ imageSource, title, detailID }) => {
 const Item = styled.div`
   max-width: 250px;
   min-width: 225px;
-  height: 370px;
+  height: 330px;
   margin: 0 10px;
   cursor: pointer;
 `

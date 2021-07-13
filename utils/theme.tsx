@@ -1,7 +1,7 @@
 const theme = {
   text: '#000000',
   black: '#000000',
-  pink: '#ffbfbf', //#ffeeee
+  pink: '#eeadad', //#ffbfbf
   white: '#ffffff',
   fade1: '#eeeeee',
   fade2: '#bfbfbf',
