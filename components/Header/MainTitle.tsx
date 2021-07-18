@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import Button from 'components/UI/Button'
+//import Button from 'components/UI/Button' //TODO delete this file
 import Link from 'next/link'
 
 const MainTitle = ({ headerTitle, isHomePage }) => {
@@ -9,7 +9,7 @@ const MainTitle = ({ headerTitle, isHomePage }) => {
       <Title>{headerTitle}</Title>
       <ButtonWrapper isHomePage={isHomePage}>
         <Link href="/shop">
-          <Button width={'200px'} paddingValue={'10px'} styleType={'NORMAL'}>
+          <Button>
             Shop now
           </Button>
         </Link>
@@ -38,6 +38,10 @@ const Title = styled.h1`
 `
 const ButtonWrapper = styled.div<Props>`
   display: ${({ isHomePage }) => !isHomePage && 'none'};
+`
+const Button = styled.button`
+  padding: 20px 40px;
+  ${breakpoints('padding', '', [{ M: '10px 20px' }])}
 `
 
 export default MainTitle

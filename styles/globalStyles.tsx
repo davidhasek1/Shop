@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-
+import { createGlobalStyle } from 'styled-components'
+import { defaultButton } from './Button'
 /* type Scrollable = {
   modalOpened: boolean;
 }; */
@@ -25,6 +25,8 @@ const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  ${defaultButton}
 `
 
-export default GlobalStyles;
+export default GlobalStyles
