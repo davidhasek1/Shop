@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { NAVBAR_HEIGHT } from 'components/Navigation'
 import Navigation from 'components/Navigation'
 import ShopNavigation from 'components/ShopNavigation'
+import Newsletter from 'components/Newsletter'
 import Footer from 'components/Footer'
 
 //TODO: překopat udělat lépe
@@ -19,6 +20,7 @@ const Layout = ({ children, footerContent }) => {
       <Navigation />
       {shopNav}
       <Container>{children}</Container>
+      <Newsletter />
       <Footer footer={footerContent} />
     </>
   )

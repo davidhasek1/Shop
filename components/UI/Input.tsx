@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 //classic text field input
-const TextInput = (props) => {
+const Input = (props) => {
   const { inputType, placeholderValue, value, change } = props
   // TODO: add onclick handler and onChange and value props
   return (
-    <Input
+    <StyledInput
       type={inputType}
       placeholder={placeholderValue}
       value={value}
@@ -14,7 +14,7 @@ const TextInput = (props) => {
   )
 }
 
-const Input = styled.input`
+const StyledInput = styled.input`
   width: 90%;
   padding: 15px;
   margin: 10px;
@@ -23,4 +23,4 @@ const Input = styled.input`
   border-radius: 5px;
 `
 
-export default TextInput
+export default Input

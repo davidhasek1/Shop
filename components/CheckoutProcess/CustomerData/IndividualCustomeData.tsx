@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "utils/responsivity";
-import TextInput from "components/UI/TextInput";
+import TextInput from "components/UI/Input";
 
 const IndiviudalCustomerData = (props) => {
   return (
