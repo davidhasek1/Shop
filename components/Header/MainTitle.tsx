@@ -40,8 +40,8 @@ const ButtonWrapper = styled.div<Props>`
   display: ${({ isHomePage }) => !isHomePage && 'none'};
 `
 const Button = styled.button`
-  padding: 20px 40px;
-  ${breakpoints('padding', '', [{ M: '10px 20px' }])}
+  padding: 15px 60px;
+  ${breakpoints('padding', '', [{ M: '10px 40px' }])}
 `
 
 export default MainTitle

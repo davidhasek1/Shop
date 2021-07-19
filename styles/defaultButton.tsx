@@ -16,8 +16,8 @@ export const defaultButton = css`
       transition: all 0.2s ease;
       &:hover {
         filter: brightness(1.1);
-        outline: 1px solid ${(props) => props.theme.black};
-        background: ${(props) => props.theme.white};
+        outline: 2px solid ${(props) => props.theme.black};
+        background-color: ${(props) => props.theme.bgGray};
         color: ${(props) => props.theme.black};
       }
     }

@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
 
-import Column from './GalleryColumn'
 import Slider from 'components/Slider'
 import StyledImage from '../Image'
 import Heading from 'components/Heading'
@@ -15,12 +14,6 @@ const Gallery = ({ title, images }) => {
     <SectionWrapper>
       <Heading>{title}</Heading>
       <GalleryWrapper>
-        {/*  <Row>
-          <Column />
-          <Column />
-          <Column />
-          <Column />
-        </Row> */}
         <SliderWrapper>
           <Slider>
             {ImagesArray.map((image) => (

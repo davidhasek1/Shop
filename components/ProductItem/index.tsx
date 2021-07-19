@@ -7,7 +7,6 @@ import {
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import Button from 'components/UI/Button'
 import StyledImage from 'components/Image'
 
 const ProductItem = ({ imageSource, title, detailID }) => {
@@ -54,14 +53,7 @@ const ProductItem = ({ imageSource, title, detailID }) => {
       </Link>
       {isHovered && (
         <AddToCart>
-          <Button
-            styleType={'INVERT'}
-            width={'100%'}
-            paddingValue={'7px 10px'}
-            onClick={() => addToCartHandler()}
-          >
-            Add to Cart
-          </Button>
+          <Button onClick={() => addToCartHandler()} className={'inverted'}>Add to Cart</Button>
         </AddToCart>
       )}
     </Item>
@@ -95,5 +87,9 @@ const BoldPrice = styled.strong`
 `
 
 const AddToCart = styled.div``
+const Button = styled.button`
+  padding: 10px 0;
+  width: 100%;
+`
 
 export default ProductItem

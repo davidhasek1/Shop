@@ -2,7 +2,7 @@
 const Heading = ({ children }) => {
   return (
     <div>
-      <h1>{children}</h1>
+      <h2>{children}</h2>
     </div>
   )
 }
