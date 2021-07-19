@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-
+import { NAVBAR_HEIGHT } from 'components/Navigation'
 import Navigation from 'components/Navigation'
 import ShopNavigation from 'components/ShopNavigation'
 import Footer from 'components/Footer'
@@ -27,5 +27,6 @@ const Layout = ({ children, footerContent }) => {
 const Container = styled.div`
   text-align: center;
   margin: auto;
+  padding-top: ${NAVBAR_HEIGHT};
 `
 export default Layout

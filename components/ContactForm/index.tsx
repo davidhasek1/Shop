@@ -3,7 +3,6 @@ import { breakpoints } from 'utils/responsivity'
 import { User, Message } from '@styled-icons/boxicons-regular'
 import { AlternateEmail } from '@styled-icons/material-sharp/AlternateEmail'
 
-import Button from 'components/UI/Button'
 import Heading from 'components/Heading'
 
 const contactForm = () => {
@@ -75,5 +74,5 @@ const StyledTextarea = styled.textarea`
   outline: none;
   font-family: Popins, sans-serif;
 `
-
+const Button = styled.button``
 export default contactForm

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import { NAVBAR_HEIGHT } from 'components/Navigation'
 import DesktopImage from './DesktopHeaderImage'
 import MobileImage from './MobileHeaderImage'
 import MainTitle from './MainTitle'
+
 const Header = ({ title, headerImage, ownHeight, isHomePage }) => {
   console.log(ownHeight)
   return (
@@ -23,7 +23,6 @@ type Props = {
 
 const HeaderContainer = styled.div<Props>`
   position: relative;
-  padding-top: ${NAVBAR_HEIGHT};
   background-color: ${(props) => props.theme.white};
   overflow: hidden; // !!!
   height: ${({ setHeight }) => (setHeight ? `${setHeight}px` : '100%')};
