@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { CheckCircle } from '@styled-icons/boxicons-solid/CheckCircle'
 import OrderSectionTitle from '../OrderSectionTitle'
-import Button from 'components/UI/Button'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import {
   showOrderSummary,
@@ -141,10 +140,7 @@ const OrderSummary = () => {
           </ShippingTable>
         </ShipData>
         <ButtonWrapper>
-          <Button
-            buttonType="button"
-            onClick={() => dispatch(showOrderSummary(false))}
-          >
+          <Button onClick={() => dispatch(showOrderSummary(false))}>
             Back
           </Button>
           <Button onClick={() => dispatch(showThankYou(true))}>Finish</Button>
@@ -231,4 +227,6 @@ const Row = styled.tr`
   ${breakpoints('display', '', [{ M: 'flex' }])}
   ${breakpoints('flex-direction', '', [{ M: 'column' }])}
 `
+const Button = styled.button``
+
 export default OrderSummary

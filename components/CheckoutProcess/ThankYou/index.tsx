@@ -3,7 +3,6 @@ import { StyledIconBase } from '@styled-icons/styled-icon'
 import { Heart } from '@styled-icons/fa-solid/Heart'
 import { useRouter } from 'next/router'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
-import Button from 'components/UI/Button'
 
 const ThankYouSection = () => {
   const router = useRouter()
@@ -45,5 +44,5 @@ const Title = styled.h1`
   align-items: center;
   justify-content: center;
 `
-
+const Button = styled.button``
 export default ThankYouSection

@@ -5,7 +5,6 @@ import { Truck } from '@styled-icons/fa-solid/Truck'
 import { RootStateOrAny, useSelector } from 'react-redux'
 import { showOrderSummary, showShipment } from 'store/actions/userCartActions'
 import OrderSectionTitle from '../OrderSectionTitle'
-import Button from 'components/UI/Button'
 
 const Shipment = () => {
   const dispatch = useDispatch()
@@ -43,12 +42,7 @@ const Shipment = () => {
           </FormContent>
           CAll na API PPL Zasilkovny a pošty
           <ButtonWrapper showShipment showSummary={showSummary}>
-            <Button
-              buttonType="button"
-              onClick={() => dispatch(showShipment(false))}
-            >
-              Back
-            </Button>
+            <Button onClick={() => dispatch(showShipment(false))}>Back</Button>
             <Button>Continue</Button>
           </ButtonWrapper>
         </Form>
@@ -94,5 +88,6 @@ const ButtonWrapper = styled.div<CartProps>`
   margin: auto;
   padding: 10px 0;
 `
+const Button = styled.button``
 
 export default Shipment

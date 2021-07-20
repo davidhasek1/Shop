@@ -1,20 +1,19 @@
-import styled from "styled-components"
-import { breakpoints } from "utils/responsivity"
-import { Plus, Minus } from "@styled-icons/entypo"
-import { Trash } from "@styled-icons/bootstrap/Trash"
-import Button from "components/UI/Button"
-import StyledImage from "components/Image"
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
+import { Plus, Minus } from '@styled-icons/entypo'
+import { Trash } from '@styled-icons/bootstrap/Trash'
+import StyledImage from 'components/Image'
 
-const CartItem = ({testProp}) => {
+const CartItem = ({ testProp }) => {
   return (
     <ItemContainer>
       <StyledImage
-        imageSrc={"/images/testimgW.jpg"}
+        imageSrc={'/images/testimgW.jpg'}
         imageWidth={150}
         imageHeight={150}
         scaleing={false}
-        fitting={"cover"}
-        layout={"intrinsic"}
+        fitting={'cover'}
+        layout={'intrinsic'}
       />
       <Description>
         <Title>{testProp}</Title>
@@ -26,18 +25,18 @@ const CartItem = ({testProp}) => {
       <ItemActions>
         <ChangeCount>
           <Button
-            onClick={() => console.log("inc")}
-            icon={<Plus size={20} />}
+            onClick={() => console.log('inc')}
+           /*  icon={<Plus size={20} />} */
           />
           <Count>5</Count>
           <Button
-            onClick={() => console.log("dec")}
-            icon={<Minus size={20} />}
+            onClick={() => console.log('dec')}
+           /*  icon={<Minus size={20} />} */
           />
         </ChangeCount>
         <Delete
-          onClick={() => console.log("delete")}
-          icon={<Trash size={20} />}
+          onClick={() => console.log('delete')}
+          /* icon={<Trash size={20} />} */
         />
       </ItemActions>
     </ItemContainer>
@@ -51,7 +50,7 @@ const ItemContainer = styled.div`
   background-color: ${(props) => props.theme.white};
   border-radius: 10px;
   overflow: hidden;
-  ${breakpoints("flex-direction", "", [{ M: "column" }])}
+  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
 `
 const Description = styled.div`
   display: flex;
@@ -76,19 +75,20 @@ const ItemActions = styled.div`
   padding: 0 10px;
   align-items: center;
   justify-content: center;
-  ${breakpoints("flex-direction", "", [{ M: "row" }])}
-  ${breakpoints("padding", "", [{ M: "15px 0" }])}
+  ${breakpoints('flex-direction', '', [{ M: 'row' }])}
+  ${breakpoints('padding', '', [{ M: '15px 0' }])}
 `
 const ChangeCount = styled.div`
   display: flex;
   flex-direction: column;
-  ${breakpoints("flex-direction", "", [{ M: "row" }])}
+  ${breakpoints('flex-direction', '', [{ M: 'row' }])}
 `
-const Delete = styled(Button)`
+const Delete = styled.button`
   padding: 25px;
 `
 const Count = styled.span`
   padding: 8px;
 `
+const Button = styled.button``
 
 export default CartItem

@@ -6,7 +6,6 @@ import { StyledIconBase } from '@styled-icons/styled-icon'
 import { useDispatch } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import { AddToCartState } from 'store/actions/userCartActions'
-import Button from 'components/UI/Button'
 import StyledImage from 'components/Image'
 
 const productDetail = ({ product }) => {

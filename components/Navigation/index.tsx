@@ -17,6 +17,7 @@ export type NavSection = {
   right: Array<NavLinksType>
 }
 
+//@ts-ignore
 const navlinks: NavSection = [
   {
     left: [
