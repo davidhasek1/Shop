@@ -4,6 +4,7 @@ import Header from 'components/Header'
 import OurCollection from 'components/OurCollection'
 import Quote from 'components/QuoteSection'
 import Gallery from 'components/Gallery'
+import Banners from 'components/Banners'
 
 const HomePage = ({ content, products }) => {
   console.log('PRODUCTS', products)
@@ -26,6 +27,7 @@ const HomePage = ({ content, products }) => {
           ' Natural, effective, sustainable—all in one. Why settle for anything less?'
         }
       />
+      <Banners />
       <Gallery title={content.Gallery.Title} images={content.Gallery} />
     </div>
   )
