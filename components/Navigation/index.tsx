@@ -22,14 +22,14 @@ const navlinks: NavSection = [
   {
     left: [
       { href: '/shop', caption: 'Shop' },
-      { href: '/story', caption: 'Our Story' },
+      { href: '/our-story', caption: 'Our Story' },
       { href: '/blog', caption: 'Blog' },
-      { href: '/giftcard', caption: 'Gift Card' },
+      { href: '/gift-card', caption: 'Gift Card' },
     ],
   },
 
   {
-    right: [{ href: '/account', caption: 'Account' }],
+    right: [{ href: '/account/log-in', caption: 'Account' }],
   },
 ]
 
