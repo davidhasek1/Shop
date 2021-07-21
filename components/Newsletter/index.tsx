@@ -20,6 +20,7 @@ const Newsletter = () => {
 const Wrapper = styled.div`
   max-width: 1200px;
   margin: auto;
+  margin-top: 50px;
   text-align: center;
   padding: 50px 0;
   border-top: 2px solid ${(props) => props.theme.black};
