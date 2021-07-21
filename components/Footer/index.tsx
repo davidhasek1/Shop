@@ -43,7 +43,7 @@ const FooterContainer = styled.section`
   display: flex;
   padding: 10px;
   background-color: ${(props) => props.theme.white};
-
+  box-shadow: inset 0px 8px 10px -6px ${(props) => props.theme.fade1};
   ${breakpoints('height', '', [{ M: '100%' }])}
 `
 const Content = styled.div`
@@ -51,7 +51,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1350px;
+  max-width: 1300px;
 `
 const UpperSection = styled.div`
   display: flex;

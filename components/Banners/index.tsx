@@ -7,6 +7,12 @@ const Banners = () => {
   return (
     <Wrapper>
       <MainBanner />
+      <MainContentMobile>
+        <Content
+          title={'Main banner content'}
+          text={'This is content from Main image banner for mobile size'}
+        />
+      </MainContentMobile>
       <SmallBanners>
         <Content
           title={'Love the Wellu'}
@@ -54,6 +60,9 @@ const SmallBanners = styled.div`
 `
 const ImageWrapper = styled.div`
   ${breakpoints(' display', '', [{ M: 'none' }])}
+`
+const MainContentMobile = styled.div`
+  ${breakpoints(' display', '', [{ M: 'none' }], 'min-width')}
 `
 
 export default Banners

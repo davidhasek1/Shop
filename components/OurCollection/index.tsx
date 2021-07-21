@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Slider from 'components/Slider'
 import ProductItem from 'components/ProductItem'
 import Heading from 'components/Heading'
-import GridLyout from 'components/GridLayout'
+import GridLyout from 'components/Layout/GridLayout'
 
 const OurCollection = ({ products }) => {
   const productsRender = products.map((product) => (

@@ -53,7 +53,9 @@ const ProductItem = ({ imageSource, title, detailID }) => {
       </Link>
       {isHovered && (
         <AddToCart>
-          <Button onClick={() => addToCartHandler()} className={'inverted'}>Add to Cart</Button>
+          <Button onClick={() => addToCartHandler()} className={'inverted'}>
+            Add to Cart
+          </Button>
         </AddToCart>
       )}
     </Item>
@@ -63,7 +65,7 @@ const ProductItem = ({ imageSource, title, detailID }) => {
 const Item = styled.div`
   max-width: 250px;
   min-width: 225px;
-  height: 330px;
+  height: 340px;
   margin: 0 10px;
   cursor: pointer;
 `

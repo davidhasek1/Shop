@@ -5,6 +5,8 @@ import OurCollection from 'components/OurCollection'
 import Quote from 'components/QuoteSection'
 import Gallery from 'components/Gallery'
 import Banners from 'components/Banners'
+import Blog from 'components/BlogSection'
+import { mocked_blogposts } from 'MOCK'
 
 const HomePage = ({ content, products }) => {
   console.log('PRODUCTS', products)
@@ -28,7 +30,7 @@ const HomePage = ({ content, products }) => {
         }
       />
       <Banners />
-      <Gallery title={content.Gallery.Title} images={content.Gallery} />
+      <Blog blogContent={mocked_blogposts} />
     </div>
   )
 }

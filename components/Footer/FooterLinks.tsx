@@ -17,7 +17,7 @@ const FooterLinks = ({ links }) => {
 const Links = styled.ul`
   list-style-type: none;
   padding: 0;
-  color: #bfbfbf;
+  color: ${(props) => props.theme.fade3};
   font-weight: 300;
 
   ${breakpoints('margin', '', [{ M: 'auto' }])};
@@ -25,7 +25,7 @@ const Links = styled.ul`
 const Item = styled.li`
   padding: 5px;
   &:hover {
-    color: #808080;
+    color: ${props => props.theme.black};
   }
 `
 export default FooterLinks

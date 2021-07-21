@@ -28,10 +28,10 @@ const Socials = styled.div`
   justify-content: center;
   align-items: center;
   ${StyledIconBase} {
-    color: #bfbfbf;
+    color: ${(props) => props.theme.fade3};
     margin: 0 15px;
     &:hover {
-      color: #808080;
+      color: ${(props) => props.theme.black};
     }
   }
   ${breakpoints('padding', '', [{ M: '20px 0' }])}

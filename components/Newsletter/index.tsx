@@ -24,7 +24,9 @@ const Wrapper = styled.div`
   padding: 50px 0;
   border-top: 2px solid ${(props) => props.theme.black};
 `
-const Form = styled.form``
+const Form = styled.form`
+  padding-top: 25px;
+`
 const StyledInput = styled.input`
   min-width: 250px;
   border: none;

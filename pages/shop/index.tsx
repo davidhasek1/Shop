@@ -3,7 +3,7 @@ import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Head from 'next/head'
 
-import GridLyout from 'components/GridLayout'
+import GridLyout from 'components/Layout/GridLayout'
 import ShopItem from 'components/ProductItem'
 
 const ShopMainPage = ({ products }) => {
