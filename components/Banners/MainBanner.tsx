@@ -6,8 +6,14 @@ import Content from './Content'
 const MainBanner = () => {
   return (
     <Banner>
-      <Image imageSrc="/images/creme.jpg" imageWidth={800} imageHeight={800}>
+      <Image
+        imageSrc="/images/creme.jpg"
+        imageWidth={800}
+        imageHeight={800}
+        layout={'responsive'}
+      >
         <Content
+          isBanner={true}
           title={'Hello This is me Title'}
           text={'TExtimport Content from TExtimport Content from '}
         />

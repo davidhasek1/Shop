@@ -9,12 +9,14 @@ const Banners = () => {
       <MainBanner />
       <MainContentMobile>
         <Content
+          isBanner={true}
           title={'Main banner content'}
           text={'This is content from Main image banner for mobile size'}
         />
       </MainContentMobile>
       <SmallBanners>
         <Content
+          isBanner={true}
           title={'Love the Wellu'}
           text={
             'Text 1 Magna deserunt excepteur laboris aliqua eiusmod adipisicing sint laborum reprehenderit reprehenderit ex ut consequat. Aliquip'
@@ -25,6 +27,7 @@ const Banners = () => {
             imageSrc="/images/headerImg.jpg"
             imageWidth={400}
             imageHeight={400}
+            layout={'responsive'}
           />
         </ImageWrapper>
         <ImageWrapper>
@@ -32,9 +35,11 @@ const Banners = () => {
             imageSrc="/images/headerImg.jpg"
             imageWidth={400}
             imageHeight={400}
+            layout={'responsive'}
           />
         </ImageWrapper>
         <Content
+          isBanner={true}
           title={'Love the Hate'}
           text={
             'Text 1 Magna deserunt excepteur laboris aliqua eiusmod adipisicing sint laborum reprehenderit reprehenderit ex ut consequat. Aliquip'

@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 
-const BannerContent = (props: { title: string; text: string }) => {
+const BannerContent = (props: {
+  title: string
+  text?: string
+  isBanner?: boolean
+}) => {
   return (
-    <Content>
+    <Content isBanner={props.isBanner}>
       <Title>
         {props.title}
         <Line />
@@ -12,16 +16,17 @@ const BannerContent = (props: { title: string; text: string }) => {
     </Content>
   )
 }
-const Content = styled.div`
+
+const Content = styled.div<{ isBanner?: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 25px;
+  padding: ${({ isBanner }) => (isBanner ? '0 25px;' : 0)};
   text-align: left;
   font-size: 14px;
   line-height: 25px;
   font-weight: 300;
-  ${breakpoints(' margin', '', [{ M: '15px 0' }])}
+  ${breakpoints('margin', '', [{ M: '15px 0' }])}
 `
 
 const Title = styled.h3`

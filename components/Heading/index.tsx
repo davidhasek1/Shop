@@ -1,10 +1,15 @@
-//TODO: Upravit pokud bude třeba
+import { breakpoints } from 'utils/responsivity'
+import styled from 'styled-components'
+
 const Heading = ({ children }) => {
   return (
-    <div>
+    <Wrapper>
       <h2>{children}</h2>
-    </div>
+    </Wrapper>
   )
 }
 
+const Wrapper = styled.div`
+  padding-top: 20px;
+`
 export default Heading
