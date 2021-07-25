@@ -11,3 +11,6 @@ export type Handlers = {
   isPrivacyOpen: boolean;
   isMobileMenuOpen: boolean;
 };
+
+
+//TODO: Refactor it!!

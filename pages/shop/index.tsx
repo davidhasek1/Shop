@@ -5,6 +5,7 @@ import Head from 'next/head'
 
 import GridLyout from 'components/Layout/GridLayout'
 import ShopItem from 'components/ProductItem'
+import Heading from 'components/Heading'
 
 const ShopMainPage = ({ products }) => {
   const shopContent = products.map((product) => (
@@ -20,7 +21,7 @@ const ShopMainPage = ({ products }) => {
       <Head>
         <title>All Products</title>
       </Head>
-
+      <Heading>All Products</Heading>
       <GridLyout content={shopContent} />
     </div>
   )
@@ -47,6 +48,5 @@ export const getStaticProps = async ({ params }) => {
     }
   }
 }
-
 
 export default ShopMainPage
