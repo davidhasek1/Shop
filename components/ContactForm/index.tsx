@@ -3,7 +3,7 @@ import { breakpoints } from 'utils/responsivity'
 import { User, Message } from '@styled-icons/boxicons-regular'
 import { AlternateEmail } from '@styled-icons/material-sharp/AlternateEmail'
 
-import Heading from 'components/Heading'
+import Heading from 'components/General/Heading'
 
 const contactForm = () => {
   return (

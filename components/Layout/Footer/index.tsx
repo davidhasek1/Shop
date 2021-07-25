@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
 
-import StyledImage from 'components/Image'
+import StyledImage from 'components/General/Image'
 import FooterLinks from './FooterLinks'
 import SocialLinks from './SocialLinks'
 import Copyright from './Copyright'

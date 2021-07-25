@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { Plus, Minus } from '@styled-icons/entypo'
 import { Trash } from '@styled-icons/bootstrap/Trash'
-import StyledImage from 'components/Image'
+import StyledImage from 'components/General/Image'
 
 const CartItem = ({ testProp }) => {
   return (
@@ -34,7 +34,7 @@ const CartItem = ({ testProp }) => {
            /*  icon={<Minus size={20} />} */
           />
         </ChangeCount>
-        <Delete
+        <ontDelete
           onClick={() => console.log('delete')}
           /* icon={<Trash size={20} />} */
         />

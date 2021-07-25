@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import Image from 'next/image'
-import { breakpoints } from '../../utils/responsivity'
+import { breakpoints } from '../../../utils/responsivity'
 
 const ImageComponent = (props) => {
   const {

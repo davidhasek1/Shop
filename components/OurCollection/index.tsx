@@ -3,9 +3,9 @@ import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
 import Link from 'next/link'
 
-import Slider from 'components/Slider'
+import Slider from 'components/General/Slider'
 import ProductItem from 'components/ProductItem'
-import Heading from 'components/Heading'
+import Heading from 'components/General/Heading'
 import GridLyout from 'components/Layout/GridLayout'
 
 const OurCollection = ({ products }) => {

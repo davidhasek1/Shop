@@ -5,7 +5,7 @@ import Head from 'next/head'
 
 import GridLyout from 'components/Layout/GridLayout'
 import ShopItem from 'components/ProductItem'
-import Heading from 'components/Heading'
+import Heading from 'components/General/Heading'
 
 const ShopMainPage = ({ products }) => {
   const shopContent = products.map((product) => (

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import StyledImage from 'components/Image'
+import StyledImage from 'components/General/Image'
 
 const DesktopHeaderImage = ({ image }) => {
   return (

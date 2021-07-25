@@ -7,7 +7,7 @@ import {
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import StyledImage from 'components/Image'
+import StyledImage from 'components/General/Image'
 
 const ProductItem = ({ imageSource, title, detailID }) => {
   const [isHovered, setIsHovered] = useState(false)

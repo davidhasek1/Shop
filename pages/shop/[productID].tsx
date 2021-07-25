@@ -11,9 +11,9 @@ import {
   AddToCartState,
   CartProductsCount,
 } from 'store/actions/userCartActions'
-import StyledImage from 'components/Image'
+import StyledImage from 'components/General/Image'
 import Title from 'components/Banners/Content'
-import Actions from 'components/ProdctActions'
+import Actions from 'components/ProductDetail/ProdctActions'
 import Dropdown from 'components/ProductDetail/Dropdowns'
 import ShareProduct from 'components/ProductDetail/ShareLinks'
 

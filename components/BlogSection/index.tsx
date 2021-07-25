@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { BlogPost } from 'types'
-import Heading from 'components/Heading'
+import Heading from 'components/General/Heading'
 import Post from 'components/BlogPost'
 
 const BlogSection = (props: { blogContent }) => {

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { useSelector, RootStateOrAny } from 'react-redux'
 import NavigationLinks from './NavigationLinks'
-import StyledImage from 'components/Image'
-import DropdownMenu from 'components/DropdownMenu'
+import StyledImage from 'components/General/Image'
+import DropdownMenu from 'components/Layout/DropdownMenu'
 
 export const NAVBAR_HEIGHT = '60px'
 export type NavLinksType = {

@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import Image from "next/image";
 import {RootStateOrAny , useSelector, useDispatch } from "react-redux";
 import {openProductDetail} from 'store/actions/handlersActions'
-import StyledImage from 'components/Image'
+import StyledImage from 'components/General/Image'
 
 const ProductDetail = () => {
   const dispatch = useDispatch();

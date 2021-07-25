@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
 import { RootStateOrAny, useSelector } from 'react-redux'
-import BurgerMenu from 'components/BurgerMenu'
+import BurgerMenu from 'components/Layout/BurgerMenu'
 import PriceSummary from 'components/CartSummaryIndicator'
 
 const NavigationLinks = ({ navlinks, flexPosition }) => {

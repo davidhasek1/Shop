@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import Image from 'components/Image'
+import Image from 'components/General/Image'
 
 const BlogPost = (props: { imageSource; title }) => {
   return (

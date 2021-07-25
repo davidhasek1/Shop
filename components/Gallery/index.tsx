@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
 
-import Slider from 'components/Slider'
-import StyledImage from '../Image'
-import Heading from 'components/Heading'
+import Slider from 'components/General/Slider'
+import StyledImage from '../General/Image'
+import Heading from 'components/General/Heading'
 
 const Gallery = ({ title, images }) => {
   console.log(images)
