@@ -1,23 +1,29 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 
 const BannerContent = (props: {
-  title: string
+  title?: string
   text?: string
+  children?: any
   isBanner?: boolean
 }) => {
   return (
     <Content isBanner={props.isBanner}>
       <Title>
         {props.title}
-        <Line />
+        <Line isBanner={props.isBanner} />
       </Title>
       {props.text}
+      {props.children}
     </Content>
   )
 }
 
-const Content = styled.div<{ isBanner?: boolean }>`
+type Props = {
+  isBanner?: boolean
+}
+
+const Content = styled.div<Props>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,12 +36,16 @@ const Content = styled.div<{ isBanner?: boolean }>`
 `
 
 const Title = styled.h3`
-  padding: 10px 0;
+  //padding: 10px 0;
   margin: 0;
 `
-const Line = styled.div`
-  width: 50px;
-  margin-top: 10px;
-  border-bottom: 2px solid ${(props) => props.theme.black};
+const Line = styled.div<Props>`
+  ${({ isBanner }) =>
+    isBanner &&
+    css`
+      width: 50px;
+      margin-top: 10px;
+      border-bottom: 2px solid ${(props) => props.theme.black};
+    `}
 `
 export default BannerContent

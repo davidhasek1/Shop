@@ -34,7 +34,7 @@ const CartItem = ({ testProp }) => {
            /*  icon={<Minus size={20} />} */
           />
         </ChangeCount>
-        <ontDelete
+        <Delete
           onClick={() => console.log('delete')}
           /* icon={<Trash size={20} />} */
         />

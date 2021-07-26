@@ -4,14 +4,19 @@ import DesktopImage from './DesktopHeaderImage'
 import MobileImage from './MobileHeaderImage'
 import MainTitle from './MainTitle'
 
-const Header = ({ title, headerImage, ownHeight, isHomePage }) => {
-  console.log(ownHeight)
+const Header = (props: {
+  title?: string
+  headerImage: any
+  ownHeight?: number | string
+  isHomePage: boolean
+}) => {
+  console.log(props.ownHeight)
   return (
-    <HeaderContainer setHeight={ownHeight}>
+    <HeaderContainer setHeight={props.ownHeight}>
       <ImageWrapper>
-        <DesktopImage image={headerImage} />
-        <MobileImage image={headerImage} />
-        <MainTitle isHomePage={isHomePage} headerTitle={title} />
+        <DesktopImage image={props.headerImage} />
+        <MobileImage image={props.headerImage} />
+        <MainTitle isHomePage={props.isHomePage} headerTitle={props.title} />
       </ImageWrapper>
     </HeaderContainer>
   )
@@ -28,6 +33,7 @@ const HeaderContainer = styled.div<Props>`
   height: ${({ setHeight }) => (setHeight ? `${setHeight}px` : '100%')};
 
   ${breakpoints('flex-direction', '', [{ M: 'column' }])};
+  ${breakpoints('height', '', [{ XL: '100%' }])};
 `
 const ImageWrapper = styled.div`
   font-size: 0;
