@@ -30,7 +30,7 @@ const HomePage = ({ content, products }) => {
         }
       />
       <Banners />
-      <Blog blogContent={mocked_blogposts} />
+      <Blog isHomePage={true} blogContent={mocked_blogposts} />
     </div>
   )
 }

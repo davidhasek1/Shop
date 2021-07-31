@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import { BlogPost } from 'types'
+import { BlogPost, BlogPosts } from 'types'
 import Heading from 'components/General/Heading'
 import Post from 'components/BlogPost'
 
-const BlogSection = (props: { blogContent }) => {
+const BlogSection = (props: { blogContent: BlogPosts; isHomePage: boolean }) => {
   return (
     <Wrapper>
       <Heading>Our Blog</Heading>
@@ -13,7 +13,11 @@ const BlogSection = (props: { blogContent }) => {
           (item: BlogPost, idx: number) =>
             idx < 2 && (
               <PostWrapper>
-                <Post imageSource={item.imageUrl} title={item.title} />
+                <Post
+                  isHomePage={props.isHomePage}
+                  imageSource={item.imageUrl}
+                  title={item.title}
+                />
               </PostWrapper>
             )
         )}
