@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import PageHeader from 'components/Header/index'
+import PageHeader from 'components/Header'
 
 const OurStory: NextPage = () => {
   return (

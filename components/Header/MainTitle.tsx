@@ -3,15 +3,18 @@ import { breakpoints } from 'utils/responsivity'
 //import Button from 'components/UI/Button' //TODO delete this file
 import Link from 'next/link'
 
-const MainTitle = ({ headerTitle, isHomePage }) => {
+const MainTitle = (props: {
+  headerTitle: string
+  isHomePage: boolean
+  children?: any
+}) => {
   return (
     <TitleWrapper>
-      <Title>{headerTitle}</Title>
-      <ButtonWrapper isHomePage={isHomePage}>
+      <Title>{props.headerTitle}</Title>
+      {props.children}
+      <ButtonWrapper isHomePage={props.isHomePage}>
         <Link href="/shop">
-          <Button>
-            Shop now
-          </Button>
+          <Button>Shop now</Button>
         </Link>
       </ButtonWrapper>
     </TitleWrapper>

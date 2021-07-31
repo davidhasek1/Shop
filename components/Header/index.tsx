@@ -9,6 +9,7 @@ const Header = (props: {
   headerImage: any
   ownHeight?: number | boolean
   isHomePage: boolean
+  children?: any
 }) => {
   console.log(props.ownHeight)
   return (
@@ -16,7 +17,9 @@ const Header = (props: {
       <ImageWrapper>
         <DesktopImage image={props.headerImage} />
         <MobileImage image={props.headerImage} />
-        <MainTitle isHomePage={props.isHomePage} headerTitle={props.title} />
+        <MainTitle isHomePage={props.isHomePage} headerTitle={props.title}>
+          {props.children}
+        </MainTitle>
       </ImageWrapper>
     </HeaderContainer>
   )

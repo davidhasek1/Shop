@@ -1,9 +1,17 @@
-import { NextPage } from "next"
+import { NextPage } from 'next'
+import PageHeader from 'components/Header'
 
 const Blog: NextPage = () => {
   return (
     <div>
-      <h1>Blog page</h1>
+      <PageHeader
+        title={'This is Title'}
+        headerImage={'/images/creme.jpg'}
+        isHomePage={false}
+        ownHeight
+      >
+        Page header children content with <button>button</button>{' '}
+      </PageHeader>
     </div>
   )
 }
