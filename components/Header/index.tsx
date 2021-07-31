@@ -7,7 +7,7 @@ import MainTitle from './MainTitle'
 const Header = (props: {
   title?: string
   headerImage: any
-  ownHeight?: number | string
+  ownHeight?: number | boolean
   isHomePage: boolean
 }) => {
   console.log(props.ownHeight)
@@ -23,7 +23,7 @@ const Header = (props: {
 }
 
 type Props = {
-  setHeight: any
+  setHeight?: any
 }
 
 const HeaderContainer = styled.div<Props>`

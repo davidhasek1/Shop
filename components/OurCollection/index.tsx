@@ -27,7 +27,7 @@ const OurCollection = ({ products }) => {
         <GridLyout content={productsRender} />
       </ContentWrapper>
       <Link href={'/shop'}>
-        <Button>View all</Button>
+        <Button className={'inverted'}>View all</Button>
       </Link>
     </Wrapper>
   )

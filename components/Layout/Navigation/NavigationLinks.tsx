@@ -5,18 +5,21 @@ import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
 import { RootStateOrAny, useSelector } from 'react-redux'
 import BurgerMenu from 'components/Layout/BurgerMenu'
 import PriceSummary from 'components/CartSummaryIndicator'
+import { useRouter } from 'next/router'
 
 const NavigationLinks = ({ navlinks, flexPosition }) => {
   const itemsCount = useSelector(
     (state: RootStateOrAny) => state.userCart.itemsCount
   )
+  const router = useRouter()
+
   return (
     <NavLinks>
       <Links flexPosition={flexPosition}>
         {navlinks.map((link, idx) => (
           <LinkWrapper key={idx}>
             <Link href={link.href}>
-              <AnchorLink>
+              <AnchorLink isActive={link.href === router.pathname}>
                 {link.caption}
                 {link.icon}
               </AnchorLink>
@@ -25,7 +28,7 @@ const NavigationLinks = ({ navlinks, flexPosition }) => {
         ))}
         <CartLink flexPosition={flexPosition}>
           <Link href="/cart" passHref>
-            <AnchorLink>
+            <AnchorLink isActive={router.pathname === '/cart'}>
               <CartText>Cart</CartText>
               {itemsCount > 0 && <PriceSummary />}
               <CartStyled size={30} />
@@ -40,7 +43,8 @@ const NavigationLinks = ({ navlinks, flexPosition }) => {
 }
 
 type Props = {
-  flexPosition: 'left' | 'right'
+  flexPosition?: 'left' | 'right'
+  isActive?: boolean
 }
 
 const NavLinks = styled.div`
@@ -62,13 +66,18 @@ const LinkWrapper = styled.li`
   display: flex;
   ${breakpoints('display', '', [{ L: 'none' }])}
 `
-const AnchorLink = styled.a`
+const AnchorLink = styled.a<Props>`
   position: relative;
   height: 100%;
   padding: 0 20px;
   display: flex;
   align-items: center;
-  ${breakpoints('padding', '', [{ L: '0' }])}
+  font-weight: ${({ isActive }) => isActive && 500};
+  &:hover {
+    text-decoration: underline;
+  }
+
+  ${breakpoints('padding', '', [{ L: '0' }])};
 `
 const CartLink = styled.div<Props>`
   display: ${({ flexPosition }) =>
