@@ -5,11 +5,14 @@ import { mocked_blogposts } from '../../MOCK'
 import BlogPost from 'components/BlogPost'
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
+import { useRouter } from 'next/router'
 
 const Blog: NextPage = () => {
+  const router = useRouter()
   const blogPosts = mocked_blogposts.map((post, idx: number) => (
     <BlogPost
       key={idx}
+      postID={post.id}
       imageSource={post.imageUrl}
       title={post.title}
       isHomePage={false}
@@ -27,7 +30,11 @@ const Blog: NextPage = () => {
           TODO: Title and another content for top most post in the list + button
           (CMS)
           <MainPostButtonWrapper>
-            <MainPostButton>button</MainPostButton>
+            <MainPostButton
+              onClick={() => router.push(`/blog/${mocked_blogposts[0].id}`)}
+            >
+              read full post
+            </MainPostButton>
           </MainPostButtonWrapper>
         </MainPostContent>
       </PageHeader>

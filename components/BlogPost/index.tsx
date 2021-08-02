@@ -1,12 +1,16 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import Image from 'components/General/Image'
+import { useRouter } from 'next/router'
 
 const BlogPost = (props: {
+  postID: number
   imageSource: any
   title: string
   isHomePage: boolean
 }) => {
+  const router = useRouter()
+
   return (
     <Wrapper isHomePage={props.isHomePage}>
       <Image imageSrc={props.imageSource} imageWidth={400} imageHeight={300} />
@@ -15,7 +19,7 @@ const BlogPost = (props: {
       </div>
       <div>
         <button
-          onClick={() => console.log('TODO: redirect on concrete post')}
+          onClick={() => router.push(`/blog/${props.postID}`)}
           className={'inverted'}
         >
           Read full post
