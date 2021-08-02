@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 
-const GridLayout = ({ content }) => {
-  return <Grid>{content}</Grid>
+const GridLayout = (props: { content: any; isBlogGrid?: boolean }) => {
+  return <Grid blogGrid={props.isBlogGrid}>{props.content}</Grid>
 }
 
-const Grid = styled.div`
+export type GridProps = {
+  blogGrid?: boolean
+}
+const Grid = styled.div<GridProps>`
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: ${({ blogGrid }) =>
+    blogGrid ? 'auto auto auto' : 'auto auto auto auto'};
   grid-gap: 15px;
   justify-content: space-around;
   padding: 20px;

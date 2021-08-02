@@ -9,4 +9,12 @@ export const mocked_blogposts: BlogPosts = [
     imageUrl: '/images/testImgH.jpg',
     title: 'My title 2',
   },
+  {
+    imageUrl: '/images/testImgH.jpg',
+    title: 'My title 2',
+  },
+  {
+    imageUrl: '/images/testImgH.jpg',
+    title: 'My title 2',
+  },
 ]
