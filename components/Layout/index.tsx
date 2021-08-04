@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-
-import Navigation from 'components/Navigation'
+import { NAVBAR_HEIGHT } from 'components/Layout/Navigation'
+import Navigation from 'components/Layout/Navigation'
 import ShopNavigation from 'components/ShopNavigation'
-import Footer from 'components/Footer'
+import Newsletter from 'components/Layout/Newsletter'
+import Footer from 'components/Layout/Footer'
 
 //TODO: překopat udělat lépe
 const Layout = ({ children, footerContent }) => {
@@ -19,14 +20,15 @@ const Layout = ({ children, footerContent }) => {
       <Navigation />
       {shopNav}
       <Container>{children}</Container>
+      <Newsletter />
       <Footer footer={footerContent} />
     </>
   )
 }
 
 const Container = styled.div`
-  max-width: 1350px;
   text-align: center;
   margin: auto;
+  padding-top: ${NAVBAR_HEIGHT};
 `
 export default Layout

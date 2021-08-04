@@ -1,12 +1,15 @@
 import { url } from 'config'
 import Head from 'next/head'
 import Header from 'components/Header'
-import About from 'components/AboutSection'
-import Bestsellers from 'components/Bestsellers'
+import OurCollection from 'components/OurCollection'
+import Quote from 'components/QuoteSection'
 import Gallery from 'components/Gallery'
+import Banners from 'components/Banners'
+import Blog from 'components/BlogSection'
+import { mocked_blogposts } from 'MOCK'
 
-const HomePage = ({ content }) => {
-  console.log(content)
+const HomePage = ({ content, products }) => {
+  console.log('PRODUCTS', products)
   return (
     <div>
       <Head>
@@ -14,27 +17,32 @@ const HomePage = ({ content }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header
+        isHomePage={true}
         ownHeight
         headerImage={`${url}${content.Header.Image.url}`}
-        headerTitle={content.Header.Title}
-      />
-      <About
-        aboutTitle={content.About.Title}
-        aboutContent={content.About.Content}
+        title={content.Header.Title}
       />
 
-      <Bestsellers />
-      <Gallery title={content.Gallery.Title} images={content.Gallery} />
+      <OurCollection products={products} />
+      <Quote
+        title={
+          ' Natural, effective, sustainable—all in one. Why settle for anything less?'
+        }
+      />
+      <Banners />
+      <Blog isHomePage={true} blogContent={mocked_blogposts} />
     </div>
   )
 }
 
 export const getStaticProps = async () => {
   try {
-    const data = await fetch(`${url}/homepage`)
-    const content = await data.json()
+    const homepage = await fetch(`${url}/homepage`)
+    const productsApi = await fetch(`${url}/products`)
+    const content = await homepage.json()
+    const products = await productsApi.json()
     return {
-      props: { content },
+      props: { content, products },
       revalidate: 10,
     }
   } catch (error) {

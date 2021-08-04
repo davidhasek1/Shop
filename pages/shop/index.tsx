@@ -3,26 +3,26 @@ import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Head from 'next/head'
 
+import GridLyout from 'components/Layout/GridLayout'
 import ShopItem from 'components/ProductItem'
+import Heading from 'components/General/Heading'
 
 const ShopMainPage = ({ products }) => {
+  const shopContent = products.map((product) => (
+    <ShopItem
+      imageSource={`${url}${product.Images.formats.small.url}`}
+      key={product._id}
+      detailID={product._id}
+      title={product.Title}
+    />
+  ))
   return (
     <div>
       <Head>
         <title>All Products</title>
       </Head>
-
-      <Grid>
-        {products.map((product) => (
-          <ShopItem
-            imageSource={`${url}${product.Images.formats.small.url}`}
-            key={product._id}
-            detailID={product._id}
-            title={product.Title}
-            shortDescription={product.ShortDescription}
-          />
-        ))}
-      </Grid>
+      <Heading>All Products</Heading>
+      <GridLyout content={shopContent} />
     </div>
   )
 }
@@ -48,19 +48,5 @@ export const getStaticProps = async ({ params }) => {
     }
   }
 }
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: center;
-  grid-gap: 30px;
-  margin: 50px 0;
-
-  ${breakpoints('grid-template-columns', '', [
-    { L: 'auto auto' },
-    { M: 'auto' },
-  ])};
-  ${breakpoints('margin', '', [{ L: '50px 10px' }, { M: '50px 10px' }])}
-`
 
 export default ShopMainPage

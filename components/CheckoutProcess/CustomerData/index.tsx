@@ -7,7 +7,6 @@ import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
 import OrderSectionTitle from '../OrderSectionTitle'
 import IndividualCustomerData from './IndividualCustomeData'
 import CompanyCustomerData from './CompanyCustomerData'
-import Button from 'components/UI/Button'
 import { showCustomerData, showShipment } from 'store/actions/userCartActions'
 
 const CustomerData = () => {
@@ -37,10 +36,7 @@ const CustomerData = () => {
           <Separator />
           <CompanyCustomerData />
           <ButtonWrapper showShipmentForm={showShipmentForm} showCustomerForm>
-            <Button
-              buttonType="button"
-              onClick={() => dispatch(showCustomerData(false))}
-            >
+            <Button onClick={() => dispatch(showCustomerData(false))}>
               Back
             </Button>
 
@@ -88,5 +84,6 @@ const ButtonWrapper = styled.div<CartProps>`
   margin: auto;
   padding: 10px 0;
 `
+const Button = styled.button``
 
 export default CustomerData

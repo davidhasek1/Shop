@@ -6,7 +6,6 @@ import { showCustomerData } from 'store/actions/userCartActions'
 
 import CartItem from './CartItem'
 import OrderSectionTitle from '../OrderSectionTitle'
-import Button from 'components/UI/Button'
 
 const Cart = () => {
   const cartItems = useSelector(
@@ -70,5 +69,6 @@ const ButtonWrapper = styled.div<cartProps>`
   margin: auto;
   padding: 10px 0;
 `
+const Button = styled.button``
 
 export default Cart

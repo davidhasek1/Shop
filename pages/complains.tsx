@@ -16,8 +16,9 @@ const Complains = ({ complains }) => {
         <title>Reklamační řád</title>
       </Head>
       <Header
+        isHomePage={false}
         ownHeight={complains.ImageHeight}
-        headerTitle={complains.Title}
+        title={complains.Title}
         headerImage={`${url}${complains.Image.url}`}
       />
 
@@ -50,7 +51,6 @@ export const getStaticProps = async () => {
 }
 
 const Wrapper = styled.div`
-  margin: 25px 0;
   padding: 25px;
   text-align: left;
   border-radius: 10px;

@@ -14,8 +14,8 @@ const OuterCircle = styled.div`
   position: absolute;
   width: 100px;
   height: 100px;
-  border: 1px solid ${(props) => props.theme.pink};
-  background-color: #ffbac93d;
+  border: 1px solid ${(props) => props.theme.black};
+  background-color: ${(props) => `${props.theme.black}40`};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,8 +28,8 @@ const OuterCircle = styled.div`
 const InnerCircle = styled.div`
   width: 25px;
   height: 25px;
-  border: 1px solid ${(props) => props.theme.pink};
-  background-color: #ffbac983;
+  border: 1px solid ${(props) => props.theme.black};
+  background-color: ${(props) => `${props.theme.black}50`};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +39,7 @@ const InnerCircle = styled.div`
 const Dot = styled.div`
   width: 5px;
   height: 5px;
-  background-color: ${(props) => props.theme.pink};
+  background-color: ${(props) => props.theme.black};
   border-radius: 50%;
 `
 

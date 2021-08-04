@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import StyledImage from 'components/Image'
+import StyledImage from 'components/General/Image'
 
 const MobileHeaderImage = ({ image }) => {
   return (
@@ -8,7 +8,7 @@ const MobileHeaderImage = ({ image }) => {
       <StyledImage
         imageSrc={image}
         imageWidth={2500}
-        imageHeight={3500}
+        imageHeight={3000}
         scaleing={false}
         fitting={'cover'}
         layout={'intrinsic'}

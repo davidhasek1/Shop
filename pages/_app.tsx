@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components'
 import { url } from '../config'
 import store from '../store/store'
 import GlobalStyles from '../styles/globalStyles'
-import theme from '../utils/theme'
+import theme from 'styles/theme'
 
 import Layout from '../components/Layout'
 
