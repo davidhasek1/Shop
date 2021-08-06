@@ -10,20 +10,17 @@ import CompanyCustomerData from './CompanyCustomerData'
 import { showCustomerData, showShipment } from 'store/actions/userCartActions'
 
 const CustomerData = () => {
-  const showCustomerForm = useSelector(
-    (state: RootStateOrAny) => state.userCart.showCustomerData
-  )
-  const showShipmentForm = useSelector(
-    (state: RootStateOrAny) => state.userCart.showShipment
-  )
+  
+  
   const dispatch = useDispatch()
 
   const formHandler = (event) => {
     event.preventDefault()
     dispatch(showShipment(true))
   }
+  {/* TODO: refactor checkout porcess + saga */}
   return (
-    <CustomerDataContainer showShipmentForm showCustomerForm={showCustomerForm}>
+    <CustomerDataContainer showShipmentForm showCustomerForm={true}>
       <OrderSectionTitle
         icon={<User size={40} />}
         title={'Customer data'}
@@ -35,8 +32,9 @@ const CustomerData = () => {
           <IndividualCustomerData />
           <Separator />
           <CompanyCustomerData />
-          <ButtonWrapper showShipmentForm={showShipmentForm} showCustomerForm>
-            <Button onClick={() => dispatch(showCustomerData(false))}>
+          {/* TODO: refactor checkout porcess + saga */}
+          <ButtonWrapper showShipmentForm={true} showCustomerForm>
+            <Button onClick={() => {}}>
               Back
             </Button>
 

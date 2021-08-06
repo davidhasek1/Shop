@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {
-  AddToCartState,
-  CartProductsCount,
-} from 'store/actions/userCartActions'
+  setAddToCart,
+  setCartItemsCount
+} from 'sagaStore/actions'
 import styled from 'styled-components'
 import Link from 'next/link'
 
@@ -14,8 +14,8 @@ const ProductItem = ({ imageSource, title, detailID }) => {
   const dispatch = useDispatch()
 
   const addToCartHandler = () => {
-    dispatch(AddToCartState(detailID))
-    dispatch(CartProductsCount())
+    dispatch(setAddToCart(detailID))
+    dispatch(setCartItemsCount())
   }
   const hoverHandler = () => {
     setIsHovered(true)

@@ -4,21 +4,21 @@ import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
 import { openMobileMenu } from 'store/actions/handlersActions'
 import { Close } from '@styled-icons/evil/Close'
 import Burger from './Burger'
+import { getOpenMobileMenu } from 'sagaStore/selectors'
+import {setOpenMobileMenuAction} from 'sagaStore/actions'
 
 const BurgerMenu = ({ flexPosition }) => {
   const dispatch = useDispatch()
-  const { isMobileMenuOpen } = useSelector(
-    (state: RootStateOrAny) => state.handlers
-  )
+  const isMobileMenuOpen = useSelector(getOpenMobileMenu)
   return (
     <BurgerWrapper flexPosition={flexPosition}>
       {isMobileMenuOpen ? (
         <CloseStyled
-          onClick={() => dispatch(openMobileMenu(false))}
+          onClick={() => dispatch(setOpenMobileMenuAction(false))}
           size={35}
         />
       ) : (
-        <Burger onClick={() => dispatch(openMobileMenu(true))} />
+        <Burger onClick={() => dispatch(setOpenMobileMenuAction(true))} />
       )}
     </BurgerWrapper>
   )

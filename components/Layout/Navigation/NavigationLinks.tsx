@@ -2,15 +2,14 @@ import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
-import { RootStateOrAny, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { getCartItemsCount } from 'sagaStore/selectors'
 import BurgerMenu from 'components/Layout/BurgerMenu'
 import PriceSummary from 'components/CartSummaryIndicator'
 import { useRouter } from 'next/router'
 
 const NavigationLinks = ({ navlinks, flexPosition }) => {
-  const itemsCount = useSelector(
-    (state: RootStateOrAny) => state.userCart.itemsCount
-  )
+  const itemsCount = useSelector(getCartItemsCount)
   const router = useRouter()
 
   return (

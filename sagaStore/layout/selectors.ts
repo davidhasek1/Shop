@@ -1,0 +1,1 @@
+export const getOpenMobileMenu = (state) => state.layout.isMobileMenuOpen

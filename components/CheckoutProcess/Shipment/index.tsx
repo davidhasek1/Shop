@@ -8,19 +8,24 @@ import OrderSectionTitle from '../OrderSectionTitle'
 
 const Shipment = () => {
   const dispatch = useDispatch()
-  const showShipmentSection = useSelector(
+  {
+    /* TODO: refactor checkout porcess + saga */
+  }
+  /* const showShipmentSection = useSelector(
     (state: RootStateOrAny) => state.userCart.showShipment
   )
   const showSummary = useSelector(
     (state: RootStateOrAny) => state.userCart.showSummary
-  )
+  ) */
 
   const shipmentFormHandler = (e) => {
     e.preventDefault()
     dispatch(showOrderSummary(true))
   }
+
+  /* TODO: refactor checkout porcess + saga */
   return (
-    <ShipmentDataContainer showShipment={showShipmentSection} showSummary>
+    <ShipmentDataContainer showShipment={true} showSummary>
       <OrderSectionTitle
         icon={<Truck size={40} />}
         title={'Shipment'}
@@ -41,7 +46,8 @@ const Shipment = () => {
             </div>
           </FormContent>
           CAll na API PPL Zasilkovny a pošty
-          <ButtonWrapper showShipment showSummary={showSummary}>
+          {/* TODO: refactor checkout porcess + saga */}
+          <ButtonWrapper showShipment showSummary={true}>
             <Button onClick={() => dispatch(showShipment(false))}>Back</Button>
             <Button>Continue</Button>
           </ButtonWrapper>

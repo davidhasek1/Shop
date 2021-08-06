@@ -3,17 +3,14 @@ import { breakpoints } from 'utils/responsivity'
 import { BagFill } from '@styled-icons/bootstrap/BagFill'
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
 import { showCustomerData } from 'store/actions/userCartActions'
+import { getCartItems } from 'sagaStore/selectors'
 
 import CartItem from './CartItem'
 import OrderSectionTitle from '../OrderSectionTitle'
 
 const Cart = () => {
-  const cartItems = useSelector(
-    (state: RootStateOrAny) => state.userCart.cartItems
-  )
-  const customerForm = useSelector(
-    (state: RootStateOrAny) => state.userCart.showCustomerData
-  )
+  const cartItems = useSelector(getCartItems)
+ 
   const dispatch = useDispatch()
   console.log(cartItems)
   return (
@@ -32,8 +29,8 @@ const Cart = () => {
             <EmptyCart>No items in Cart</EmptyCart>
           )}
         </Items>
-        <ButtonWrapper showCustomerData={customerForm}>
-          <Button onClick={() => dispatch(showCustomerData(true))}>
+        <ButtonWrapper showCustomerData={true}> {/* TODO: refactor checkout porcess + saga */}
+          <Button onClick={() => {}}>
             Continue
           </Button>
         </ButtonWrapper>

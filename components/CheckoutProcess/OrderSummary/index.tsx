@@ -11,11 +11,14 @@ import {
 
 const OrderSummary = () => {
   const dispatch = useDispatch()
-  const showNextSection = useSelector(
+
+  /* TODO: refactor checkout porcess + saga */
+
+  /*   const showNextSection = useSelector(
     (state: RootStateOrAny) => state.userCart.showSummary
-  )
+  ) */
   return (
-    <SendOrderContainer showSummary={showNextSection}>
+    <SendOrderContainer showSummary={true}>
       <OrderSectionTitle
         icon={<CheckCircle size={40} />}
         title={'Summary'}
@@ -140,10 +143,9 @@ const OrderSummary = () => {
           </ShippingTable>
         </ShipData>
         <ButtonWrapper>
-          <Button onClick={() => dispatch(showOrderSummary(false))}>
-            Back
-          </Button>
-          <Button onClick={() => dispatch(showThankYou(true))}>Finish</Button>
+          {/* TODO: refactor checkout porcess + saga */}
+          <Button onClick={() => {}}>Back</Button>
+          <Button onClick={() => {}}>Finish</Button>
         </ButtonWrapper>
       </Right>
     </SendOrderContainer>

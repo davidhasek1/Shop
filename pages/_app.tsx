@@ -37,7 +37,7 @@ class MyApp extends App<AppInitialProps> {
 
     return (
       <ThemeProvider theme={theme}>
-        <Provider store={store}>
+        <Provider store={sagaStore}>
           <GlobalStyles />
           <Layout footerContent={pageProps.footer}>
             <Component {...pageProps}></Component>
