@@ -5,6 +5,7 @@ import { createWrapper } from 'next-redux-wrapper'
 import { ThemeProvider } from 'styled-components'
 import { url } from '../config'
 import store from '../store/store'
+import sagaStore from 'sagaStore'
 import GlobalStyles from '../styles/globalStyles'
 import theme from 'styles/theme'
 
@@ -36,7 +37,7 @@ class MyApp extends App<AppInitialProps> {
 
     return (
       <ThemeProvider theme={theme}>
-        <Provider store={store}>
+        <Provider store={sagaStore}>
           <GlobalStyles />
           <Layout footerContent={pageProps.footer}>
             <Component {...pageProps}></Component>

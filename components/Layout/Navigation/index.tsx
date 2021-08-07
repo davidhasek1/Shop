@@ -5,6 +5,7 @@ import { useSelector, RootStateOrAny } from 'react-redux'
 import NavigationLinks from './NavigationLinks'
 import StyledImage from 'components/General/Image'
 import DropdownMenu from 'components/Layout/DropdownMenu'
+import { getOpenMobileMenu } from 'sagaStore/selectors'
 
 export const NAVBAR_HEIGHT = '60px'
 export type NavLinksType = {
@@ -34,9 +35,8 @@ const navlinks: NavSection = [
 ]
 
 const Navigation = () => {
-  const { isMobileMenuOpen } = useSelector(
-    (state: RootStateOrAny) => state.handlers
-  )
+  const isMobileMenuOpen = useSelector(getOpenMobileMenu)
+
   return (
     <NavWrapper>
       <Container>

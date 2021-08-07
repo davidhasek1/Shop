@@ -7,11 +7,14 @@ import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 const ThankYouSection = () => {
   const router = useRouter()
   const dispatch = useDispatch()
-  const showNextSection = useSelector(
+
+  /* TODO: refactor checkout porcess + saga */
+
+  /* const showNextSection = useSelector(
     (state: RootStateOrAny) => state.userCart.showThankYou
-  )
+  ) */
   return (
-    <ThankyouContainer showThankYou={showNextSection}>
+    <ThankyouContainer showThankYou={true}>
       <Wrapper>
         <Title>
           <Heart size={40} />
