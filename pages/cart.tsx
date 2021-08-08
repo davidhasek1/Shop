@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
 import Head from 'next/head'
 
-import Order from 'components/CheckoutProcess/Cart'
+import OrderDetail from 'components/CheckoutProcess/Cart'
 import CustomerData from 'components/CheckoutProcess/CustomerData'
 import Shipment from 'components/CheckoutProcess/Shipment'
 import OrderSummary from 'components/CheckoutProcess/OrderSummary'
@@ -16,12 +16,13 @@ const Cart: NextPage = () => {
       <Head>
         <title>Cart</title>
       </Head>
-
-      <Order />
-      <CustomerData />
+      <div style={{ padding: '50px 0' }}>
+        <OrderDetail />
+      </div>
+      {/*     <CustomerData />
       <Shipment />
       <OrderSummary />
-      <Thankyou />
+      <Thankyou /> */}
     </div>
   )
 }

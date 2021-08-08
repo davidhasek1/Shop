@@ -1,29 +1,28 @@
 import styled, { css } from 'styled-components'
 import Image from 'next/image'
-import { breakpoints } from '../../../utils/responsivity'
+import { breakpoints } from 'utils/responsivity'
 
-const ImageComponent = (props) => {
-  const {
-    imageSrc,
-    imageWidth,
-    imageHeight,
-    scaleing,
-    fitting,
-    layout,
-    children,
-  } = props
+const ImageComponent = (props: {
+  imageSrc: string
+  imageWidth: number | string
+  imageHeight: number | string
+  scaleing?: number
+  fitting?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
+  layout?: 'fixed' | 'intrinsic' | 'responsive' | 'fill'
+  children?: any
+}) => {
   return (
     //TODO:
     //@ts-ignore
-    <ImageWrapper isScale={scaleing}>
-      <Content>{children}</Content>
+    <ImageWrapper isScale={props.scaleing}>
+      <Content>{props.children}</Content>
       <ImageStyled
-        src={imageSrc}
-        width={imageWidth}
-        height={imageHeight}
-        imagefit={fitting}
+        src={props.imageSrc}
+        width={props.imageWidth}
+        height={props.imageHeight}
+        imagefit={props.fitting}
         /* @ts-ignore */
-        layout={layout} //https://nextjs.org/docs/api-reference/next/image#layout
+        layout={props.layout} //https://nextjs.org/docs/api-reference/next/image#layout
       />
     </ImageWrapper>
   )
