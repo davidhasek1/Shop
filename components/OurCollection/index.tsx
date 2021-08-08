@@ -11,6 +11,7 @@ import GridLyout from 'components/Layout/GridLayout'
 const OurCollection = ({ products }) => {
   const productsRender = products.map((product) => (
     <ProductItem
+      key={product.id}
       imageSource={`${url}${product.Images.formats.small.url}`}
       detailID={product.id}
       title={product.Title}
