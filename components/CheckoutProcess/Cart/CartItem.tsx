@@ -1,94 +1,98 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import { Plus, Minus } from '@styled-icons/entypo'
-import { Trash } from '@styled-icons/bootstrap/Trash'
-import StyledImage from 'components/General/Image'
+import Link from 'next/link'
 
-const CartItem = ({ testProp }) => {
+import CustomImage from 'components/General/Image'
+import QuantityHandler from './QuantityHandler'
+
+const CartItem = (props: {
+  productId: string
+  imgUrl: string
+  title: string
+  price: number
+}) => {
   return (
-    <ItemContainer>
-      <StyledImage
-        imageSrc={'/images/testimgW.jpg'}
-        imageWidth={150}
-        imageHeight={150}
-        scaleing={false}
-        fitting={'cover'}
-        layout={'intrinsic'}
-      />
-      <Description>
-        <Title>{testProp}</Title>
-        <Text>
-          bkdwidnw u wiufw fj wfeefe fh f ef e=f efef f eíáf fíejf eíájf e=fe
-          fíehf ehf eáf eáf íf eífjeíf fíeh j
-        </Text>
-      </Description>
-      <ItemActions>
-        <ChangeCount>
-          <Button
-            onClick={() => console.log('inc')}
-           /*  icon={<Plus size={20} />} */
+    <CartContent>
+      <ItemDescription>
+        <CartImage>
+          <CustomImage
+            imageSrc={props.imgUrl}
+            imageWidth={150}
+            imageHeight={150}
           />
-          <Count>5</Count>
-          <Button
-            onClick={() => console.log('dec')}
-           /*  icon={<Minus size={20} />} */
-          />
-        </ChangeCount>
-        <Delete
-          onClick={() => console.log('delete')}
-          /* icon={<Trash size={20} />} */
-        />
-      </ItemActions>
-    </ItemContainer>
+        </CartImage>
+
+        <TitleWrapper>
+          <Link href={`/shop/${props.productId}`}>
+            <Title style={{ margin: 0 }}>{props.title}</Title>
+          </Link>
+          <RemoveButton onClick={() => console.log('TODO: Remove from cart')}>
+            REMOVE
+          </RemoveButton>
+        </TitleWrapper>
+      </ItemDescription>
+      <PriceDescription>
+        <UnitPrice>{props.price} Kč</UnitPrice>
+        <ItemQuantity>
+          <QuantityHandler />
+        </ItemQuantity>{' '}
+        {/* TODO: Do I need props? */}
+        <ItemTotalPrice>2000 Kč</ItemTotalPrice>{' '}
+        {/* TODO: Do I need props for total price? */}
+      </PriceDescription>
+    </CartContent>
   )
 }
 
-const ItemContainer = styled.div`
+const CartContent = styled.div`
   display: flex;
-  width: 90%;
-  margin: 15px auto;
-  background-color: ${(props) => props.theme.white};
-  border-radius: 10px;
-  overflow: hidden;
-  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
+  border-top: 1px solid ${(props) => props.theme.fade2};
+  //border-bottom: 1px solid ${(props) => props.theme.fade2};
+  padding: 30px 0;
 `
-const Description = styled.div`
+const ItemDescription = styled.div`
+  display: flex;
+  width: 50%;
+`
+const CartImage = styled.div`
+  margin-right: 15%;
+`
+const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 15px;
-`
-const Title = styled.h2`
-  margin: 0;
-  text-align: left;
-  padding-left: 10px;
-  font-size: 20px;
-`
-const Text = styled.p`
-  margin: 0;
-  text-align: left;
-  padding-left: 10px;
-  font-size: 14px;
-`
-const ItemActions = styled.div`
-  display: flex;
-  padding: 0 10px;
-  align-items: center;
   justify-content: center;
-  ${breakpoints('flex-direction', '', [{ M: 'row' }])}
-  ${breakpoints('padding', '', [{ M: '15px 0' }])}
+  align-items: flex-start;
+  width: 100%;
 `
-const ChangeCount = styled.div`
+const Title = styled.h3`
+  cursor: pointer;
+`
+const RemoveButton = styled.div`
+  font-size: 12px;
+  color: #aaaaaa;
+  cursor: pointer;
+  &:hover {
+    color: #ff0000;
+  }
+`
+/************************* */
+const PriceDescription = styled.div`
   display: flex;
-  flex-direction: column;
-  ${breakpoints('flex-direction', '', [{ M: 'row' }])}
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
 `
-const Delete = styled.button`
-  padding: 25px;
+const UnitPrice = styled.div`
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
 `
-const Count = styled.span`
-  padding: 8px;
+const ItemQuantity = styled.div`
+  width: 100%;
 `
-const Button = styled.button``
-
+const ItemTotalPrice = styled.div`
+  width: 100%;
+  text-align: right;
+  font-weight: 600;
+`
 export default CartItem
