@@ -52,7 +52,7 @@ const CheckoutButton = styled.button`
   padding: 12px 40px;
   background-color: ${(props) => props.theme.pink};
   &:hover {
-    outline: 2px solid #da9aa2;
+    outline: none;
     background-color: ${(props) => `${props.theme.pink}`};
     color: ${(props) => props.theme.white};
   }

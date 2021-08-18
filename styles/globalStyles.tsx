@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { defaultButton } from './defaultButton'
 import { defaultHeadings } from './defaultHeadings'
+import { defaultInput } from './defaultInput'
 /* type Scrollable = {
   modalOpened: boolean;
 }; */
@@ -29,6 +30,7 @@ const GlobalStyles = createGlobalStyle`
 
   ${defaultHeadings}
   ${defaultButton}
+  ${defaultInput}
 
 `
 

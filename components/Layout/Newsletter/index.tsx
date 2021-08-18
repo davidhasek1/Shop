@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 
-import Input from 'components/UI/Input'
-
 const Newsletter = () => {
   return (
     <Wrapper>
