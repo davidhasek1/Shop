@@ -1,6 +1,8 @@
 import { NextPage } from 'next'
-import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Head from 'next/head'
+
+import { getCartItems } from 'sagaStore/cart/selectors'
 
 import OrderDetail from 'components/CheckoutProcess/Cart'
 import CustomerData from 'components/CheckoutProcess/CustomerData'
@@ -9,7 +11,7 @@ import OrderSummary from 'components/CheckoutProcess/OrderSummary'
 import Thankyou from 'components/CheckoutProcess/ThankYou'
 
 const Cart: NextPage = () => {
-  const cartItems = useSelector((state: RootStateOrAny) => state.userCart)
+  const cartItems = useSelector(getCartItems)
   console.log('[CART_ITEMS] ', cartItems)
   return (
     <div>
@@ -17,7 +19,7 @@ const Cart: NextPage = () => {
         <title>Cart</title>
       </Head>
       <div style={{ padding: '50px 0' }}>
-        <OrderDetail />
+        <OrderDetail items={cartItems} />
       </div>
       {/*     <CustomerData />
       <Shipment />

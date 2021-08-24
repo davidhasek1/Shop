@@ -1,41 +1,14 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import { useSelector, useDispatch } from 'react-redux'
-import { getCartItems } from 'sagaStore/selectors'
+import { url } from 'config'
+
+import { CartItemType } from 'types'
 
 import CartItem from './CartItem'
 import CartSummary from './CartSummary'
 
-export type CartType = {
-  productID: string //maybe ANY
-  imageUrl: string
-  title: string
-  unitPrice: number
-  inStockCount: number
-}
-
-const Cart = () => {
-  const cartItems = useSelector(getCartItems)
-  const dispatch = useDispatch()
-
-  //TODO: set state on cart items array and render into cart component
-
-  const mockCartItems: CartType[] = [
-    {
-      productID: '101',
-      imageUrl: '/images/testimgH.jpg',
-      title: 'Product in cart',
-      unitPrice: 1000,
-      inStockCount: 10, //Z BE příjde množství produktu na skladě
-    },
-    {
-      productID: '102',
-      imageUrl: '/images/testimgH.jpg',
-      title: 'Product in cart 2',
-      unitPrice: 500,
-      inStockCount: 10,
-    },
-  ]
+const Cart = (props: { items: CartItemType[] }) => {
+  console.log('CART ITEMS', props.items)
 
   return (
     <Wrapper>
@@ -47,13 +20,13 @@ const Cart = () => {
           <div>Total</div>
         </Labels>
       </CartLabelsWrapper>
-      {mockCartItems.map((item, idx) => (
+      {props.items.map((item: CartItemType, idx: number) => (
         <CartItem
           key={item.productID}
           productId={item.productID}
-          imgUrl={item.imageUrl}
+          imgUrl={`${url}${item.imageUrl}`}
           title={item.title}
-          price={item.unitPrice}
+          price={item.price}
         />
       ))}
       <CartSummary />

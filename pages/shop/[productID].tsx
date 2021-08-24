@@ -1,28 +1,30 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 import { url } from 'config'
 import { breakpoints } from 'utils/responsivity'
 import { Facebook, Twitter } from '@styled-icons/boxicons-logos'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
-import { DropdownsType, ShareLinksType } from 'types'
 import ReactMarkdown from 'react-markdown'
-import {
-  AddToCartState,
-  CartProductsCount,
-} from 'store/actions/userCartActions'
+import { fetchCart } from 'services'
+
+import { CartPayload, DropdownsType, ShareLinksType } from 'types'
+import { setAddToCart, setCartItemsCount } from 'sagaStore/cart/actions'
+
 import StyledImage from 'components/General/Image'
 import Title from 'components/Banners/Content'
 import Actions from 'components/ProductDetail/ProdctActions'
 import Dropdown from 'components/ProductDetail/Dropdowns'
 import ShareProduct from 'components/ProductDetail/ShareLinks'
 
-const productDetail = ({ product }) => {
+const productDetail = (props: { product: CartPayload }) => {
   const dispatch = useDispatch()
-  console.log(product.Images.formats.large.url)
-  const addToCartHandler = () => {
-    dispatch(AddToCartState('mockID'))
-    dispatch(CartProductsCount())
+  const productID = props.product?._id
+
+  const addToCartHandler = async () => {
+    const productToCart = await fetchCart(productID)
+    console.log('[ADDING to cart]', productToCart)
+    dispatch(setAddToCart(productToCart))
+    dispatch(setCartItemsCount())
   }
   const router = useRouter()
   const relativePath = router.asPath
@@ -60,7 +62,7 @@ const productDetail = ({ product }) => {
     <Container>
       <ImageWrapper>
         <StyledImage
-          imageSrc={`${url}${product.Images.url}`}
+          imageSrc={`${url}${props.product.Images.url}`}
           imageWidth={710}
           imageHeight={600}
         />

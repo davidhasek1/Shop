@@ -5,6 +5,7 @@ import {
   ADD_TO_CART_FAILED,
   CartActionsTypes,
 } from 'sagaStore/actions'
+import { CartItemType } from 'types'
 
 const initialState = {
   cartItemsCount: 0,
@@ -14,8 +15,17 @@ const initialState = {
 const cartReducer = (state = initialState, action: CartActionsTypes) => {
   switch (action.type) {
     case ADD_TO_CART_SUCCEEDED:
-      const updatedItems = state.cartItems
-      updatedItems.push(action.payload)
+      const newCartItem = action.payload
+
+      const cartItem: CartItemType = {
+        productID: newCartItem._id,
+        imageUrl: newCartItem.Images.formats.small.url,
+        title: newCartItem.Title,
+        price: newCartItem.Price,
+        //TODO: quantity
+      }
+      const updatedItems = [cartItem, ...state.cartItems]
+
       return {
         ...state,
         cartItems: updatedItems,
