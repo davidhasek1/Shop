@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
 import { fetchCart } from 'services'
+import { useState } from 'react'
 
 import { CartPayload, DropdownsType, ShareLinksType } from 'types'
 import { setAddToCart, setCartItemsCount } from 'sagaStore/cart/actions'
@@ -20,10 +21,13 @@ const productDetail = (props: { product: CartPayload }) => {
   const dispatch = useDispatch()
   const productID = props.product?._id
 
+  const [quantity, setQuantity] = useState(0)
+
   const addToCartHandler = async () => {
     const productToCart = await fetchCart(productID)
     console.log('[ADDING to cart]', productToCart)
-    dispatch(setAddToCart(productToCart))
+
+    dispatch(setAddToCart(productToCart, quantity))
     dispatch(setCartItemsCount())
   }
   const router = useRouter()
@@ -83,6 +87,8 @@ const productDetail = (props: { product: CartPayload }) => {
           onAddToCart={() => addToCartHandler()}
           title={'Quantity'}
           buttonTitle={'Add to cart'}
+          quantity={quantity}
+          setQuantity={setQuantity}
         />
 
         {mock_dropdowns.map((dropdown, i) => (

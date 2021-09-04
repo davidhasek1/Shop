@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import Link from 'next/link'
+import { useState } from 'react'
 
 import CustomImage from 'components/General/Image'
 import QuantityHandler from './QuantityHandler'
@@ -10,7 +11,9 @@ const CartItem = (props: {
   imgUrl: string
   title: string
   price: number
+  quantity: number
 }) => {
+  const [quantity, setQuantity] = useState(props.quantity)
   return (
     <CartContent>
       <ItemDescription>
@@ -34,7 +37,7 @@ const CartItem = (props: {
       <PriceDescription>
         <UnitPrice>{props.price} Kč</UnitPrice>
         <ItemQuantity>
-          <QuantityHandler />
+          <QuantityHandler quantity={quantity} setQuantity={setQuantity} />
         </ItemQuantity>{' '}
         {/* TODO: Do I need props? */}
         <ItemTotalPrice>2000 Kč</ItemTotalPrice>{' '}

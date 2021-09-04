@@ -27,6 +27,7 @@ const Cart = (props: { items: CartItemType[] }) => {
           imgUrl={`${url}${item.imageUrl}`}
           title={item.title}
           price={item.price}
+          quantity={item.quantity}
         />
       ))}
       <CartSummary />

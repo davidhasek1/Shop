@@ -19,7 +19,7 @@ function* updateCartItemsCount() {
 
 function* updateCartItems(action) {
   try {
-    yield put(setAddToCartSucceeded(action.payload))
+    yield put(setAddToCartSucceeded(action.payload, action.payloadQTY))
   } catch (error) {
     console.log('[CART ITEMS ERROR]', error)
     yield put(setAddToCartFailed(action.payload))

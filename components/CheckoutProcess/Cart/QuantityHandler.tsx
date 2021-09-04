@@ -1,22 +1,15 @@
-//
-//  TODO: Použít i pro Product detail
-//
-
 import styled from 'styled-components'
-import { useState } from 'react'
 
-const QuantityHandler = () => {
-  //
-  //TODO: add state to redux -> we gonna use it in cart and product detail
-  //
-  const [quantity, setQuantity] = useState(0)
-  console.log(quantity)
 
+const QuantityHandler = (props: {
+  quantity: number | string
+  setQuantity: React.Dispatch<React.SetStateAction<number>>
+}) => {
   const addOne = () => {
-    setQuantity((prevState) => prevState + 1)
+    props.setQuantity((prevState) => prevState + 1)
   }
   const substractOne = () => {
-    setQuantity((prevState) => (quantity > 0 ? prevState - 1 : 0))
+    props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 0))
   }
 
   return (
@@ -26,8 +19,8 @@ const QuantityHandler = () => {
         <InputStyled
           className={'numberInput'}
           type="number"
-          value={quantity}
-          onChange={(e) => setQuantity(parseInt(e.target.value))}
+          value={props.quantity}
+          onChange={(e) => props.setQuantity(parseInt(e.target.value))}
         />
         <CountButton onClick={substractOne}>-</CountButton>
       </Container>

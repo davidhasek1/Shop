@@ -22,7 +22,7 @@ const cartReducer = (state = initialState, action: CartActionsTypes) => {
         imageUrl: newCartItem.Images.formats.small.url,
         title: newCartItem.Title,
         price: newCartItem.Price,
-        //TODO: quantity
+        quantity: action.payloadQTY,
       }
       const updatedItems = [cartItem, ...state.cartItems]
 

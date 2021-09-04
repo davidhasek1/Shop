@@ -19,7 +19,7 @@ const ProductItem = (props: {
   const addToCartHandler = async () => {
     const productToCart = await fetchCart(props.detailID)
     console.log('[ADDING to cart]', productToCart)
-    dispatch(setAddToCart(productToCart))
+    dispatch(setAddToCart(productToCart, 1))  //add quantity 1 to cart
     dispatch(setCartItemsCount())
   }
   const hoverHandler = () => {

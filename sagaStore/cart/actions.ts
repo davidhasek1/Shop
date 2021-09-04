@@ -36,23 +36,28 @@ export const ADD_TO_CART_FAILED = 'ADD_TO_CART_FAILED'
 type AddToCartActionType = {
   type: typeof ADD_TO_CART_REQUEST
   payload: CartPayload
+  payloadQTY?: number
 }
 
-export const setAddToCart = (cartItem): AddToCartActionType => ({
+export const setAddToCart = (cartItem, quantity): AddToCartActionType => ({
   type: ADD_TO_CART_REQUEST,
   payload: cartItem,
+  payloadQTY: quantity,
 })
 
 type AddToCartActionSucceededType = {
   type: typeof ADD_TO_CART_SUCCEEDED
   payload: CartPayload
+  payloadQTY?: number
 }
 
 export const setAddToCartSucceeded = (
-  productID //TODO nemá tady být cart item objekt a ne ID??
+  productID,
+  quantity
 ): AddToCartActionSucceededType => ({
   type: ADD_TO_CART_SUCCEEDED,
   payload: productID,
+  payloadQTY: quantity,
 })
 
 type AddToCartActionFailed = {

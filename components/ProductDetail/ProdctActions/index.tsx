@@ -6,12 +6,17 @@ const ProductActions = (props: {
   title: string
   buttonTitle: string
   onAddToCart: () => void
+  quantity: number
+  setQuantity: React.Dispatch<React.SetStateAction<number>>
 }) => {
   return (
     <Actions>
       <InputWrapper>
         {props.title}
-        <QuantitiyHandler />
+        <QuantitiyHandler
+          quantity={props.quantity}
+          setQuantity={props.setQuantity}
+        />
       </InputWrapper>
       <button onClick={props.onAddToCart} className={'inverted'}>
         {props.buttonTitle}
