@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import QuantitiyHandler from 'components/CheckoutProcess/Cart/QuantityHandler'
+import QuantitiyHandler from 'components/QuantityHandler'
 
 const ProductActions = (props: {
   title: string

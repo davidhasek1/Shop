@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 const QuantityHandler = (props: {
   quantity: number | string
   setQuantity: React.Dispatch<React.SetStateAction<number>>

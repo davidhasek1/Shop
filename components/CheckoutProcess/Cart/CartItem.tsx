@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 import CustomImage from 'components/General/Image'
-import QuantityHandler from './QuantityHandler'
+import QuantityHandler from 'components/QuantityHandler'
 
 const CartItem = (props: {
   productId: string
@@ -29,11 +29,13 @@ const CartItem = (props: {
           <Link href={`/shop/${props.productId}`}>
             <Title style={{ margin: 0 }}>{props.title}</Title>
           </Link>
+
           <RemoveButton onClick={() => console.log('TODO: Remove from cart')}>
             REMOVE
           </RemoveButton>
         </TitleWrapper>
       </ItemDescription>
+
       <PriceDescription>
         <UnitPrice>{props.price} Kč</UnitPrice>
         <ItemQuantity>

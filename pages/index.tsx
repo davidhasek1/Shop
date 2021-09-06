@@ -1,15 +1,16 @@
+import styled from 'styled-components'
+import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
 import Head from 'next/head'
-import Header from 'components/Header'
-import OurCollection from 'components/OurCollection'
-import Quote from 'components/QuoteSection'
-import Gallery from 'components/Gallery'
-import Banners from 'components/Banners'
-import Blog from 'components/BlogSection'
+
 import { mocked_blogposts } from 'MOCK'
 
+import Header from 'components/Header'
+import OurCollection from 'components/OurCollection'
+import Banners from 'components/Banners'
+import Blog from 'components/BlogSection'
+
 const HomePage = ({ content, products }) => {
-  console.log('PRODUCTS', products)
   return (
     <div>
       <Head>
@@ -24,11 +25,13 @@ const HomePage = ({ content, products }) => {
       />
 
       <OurCollection products={products} />
-      <Quote
-        title={
-          ' Natural, effective, sustainable—all in one. Why settle for anything less?'
-        }
-      />
+
+      <Wrapper>
+        <Title>
+          Natural, effective, sustainable—all in one. Why settle for anything
+          less?
+        </Title>
+      </Wrapper>
       <Banners />
       <Blog isHomePage={true} blogContent={mocked_blogposts} />
     </div>
@@ -52,4 +55,14 @@ export const getStaticProps = async () => {
     }
   }
 }
+
+const Wrapper = styled.div`
+  padding: 100px 150px;
+  ${breakpoints('padding', '', [{ L: '100px' }, { M: '0 15px' }])}
+`
+const Title = styled.h1`
+  color: ${(props) => props.theme.pink};
+  ${breakpoints('font-weight', '', [{ L: 500 }])}
+  ${breakpoints('color', '', [{ L: '#000' }])}
+`
 export default HomePage
