@@ -9,7 +9,7 @@ import { fetchCart } from 'services'
 import { useState } from 'react'
 
 import { CartPayload, DropdownsType, ShareLinksType } from 'types'
-import { setAddToCart, setCartItemsCount } from 'sagaStore/cart/actions'
+import { setAddToCart, setCartItemsCount, setUpdateCart } from 'sagaStore/cart/actions'
 
 import StyledImage from 'components/General/Image'
 import Title from 'components/Banners/Content'
@@ -28,6 +28,7 @@ const productDetail = (props: { product: CartPayload }) => {
     console.log('[ADDING to cart]', productToCart)
 
     dispatch(setAddToCart(productToCart, quantity))
+    dispatch(setUpdateCart(productID, quantity))
     dispatch(setCartItemsCount())
   }
   const router = useRouter()

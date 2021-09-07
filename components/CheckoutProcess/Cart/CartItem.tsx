@@ -13,7 +13,8 @@ const CartItem = (props: {
   price: number
   quantity: number
 }) => {
-  const [quantity, setQuantity] = useState(props.quantity)
+  const [quantity, setQuantity] = useState(props.quantity) //redxu quantity
+
   return (
     <CartContent>
       <ItemDescription>
@@ -39,7 +40,11 @@ const CartItem = (props: {
       <PriceDescription>
         <UnitPrice>{props.price} Kč</UnitPrice>
         <ItemQuantity>
-          <QuantityHandler quantity={quantity} setQuantity={setQuantity} />
+          <QuantityHandler
+            productID={props.productId}
+            quantity={quantity}
+            setQuantity={setQuantity}
+          />
         </ItemQuantity>{' '}
         {/* TODO: Do I need props? */}
         <ItemTotalPrice>2000 Kč</ItemTotalPrice>{' '}

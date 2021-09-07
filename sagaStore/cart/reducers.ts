@@ -3,6 +3,8 @@ import {
   CART_ITEMS_COUNT_FAILED,
   ADD_TO_CART_SUCCEEDED,
   ADD_TO_CART_FAILED,
+  UPDATE_CART_SUCCEESS,
+  UPDATE_CART_FAILED,
   CartActionsTypes,
 } from 'sagaStore/actions'
 import { CartItemType } from 'types'
@@ -14,6 +16,27 @@ const initialState = {
 
 const cartReducer = (state = initialState, action: CartActionsTypes) => {
   switch (action.type) {
+    case UPDATE_CART_SUCCEESS:
+      const foundItemToUpdate = state.cartItems.find(
+        (item) => item.productID === action.productID
+      )
+      const indexToUpdate = state.cartItems.findIndex(
+        (item) => item.productID === action.productID
+      )
+
+      if (foundItemToUpdate) {
+        const items = state.cartItems
+        items[indexToUpdate].quantity = action.quantity
+        return {
+          ...state,
+          cartItems: items,
+        }
+      }
+
+    case UPDATE_CART_FAILED:
+      return {
+        ...state,
+      }
     case ADD_TO_CART_SUCCEEDED:
       const newCartItem = action.payload
 
@@ -42,7 +65,6 @@ const cartReducer = (state = initialState, action: CartActionsTypes) => {
     case CART_ITEMS_COUNT_FAILED:
       return {
         ...state,
-        cartItemsCount: 0, //Když se něco podělá vrať prázdný košík
       }
     default:
       return state

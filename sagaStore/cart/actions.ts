@@ -70,6 +70,39 @@ export const setAddToCartFailed = (payload): AddToCartActionFailed => ({
   payload,
 })
 
+export const UPDATE_CART_REQUEST = 'UPDATE_CART_REQUEST'
+export const UPDATE_CART_SUCCEESS = 'UPDATE_CART_SUCCEESS'
+export const UPDATE_CART_FAILED = 'UPDATE_CART_FAILED'
+
+type setUpdateCartType = {
+  type: typeof UPDATE_CART_REQUEST
+  productID: string
+  quantity: number
+}
+export const setUpdateCart = (productID, quantity) => ({
+  type: UPDATE_CART_REQUEST,
+  productID,
+  quantity,
+})
+
+type setUpdateCartSuccessType = {
+  type: typeof UPDATE_CART_SUCCEESS
+  productID: string
+  quantity: number
+}
+export const setUpdateCartSuccessed = (productID, quantity) => ({
+  type: UPDATE_CART_SUCCEESS,
+  productID,
+  quantity,
+})
+
+type setUpdateCartFailedType = {
+  type: typeof UPDATE_CART_FAILED
+}
+export const setUpdateCartFailed = () => ({
+  type: UPDATE_CART_FAILED,
+})
+
 export type CartActionsTypes =
   | CartItemsCountActionType
   | CartItemsCountActionSucceededType
@@ -77,3 +110,6 @@ export type CartActionsTypes =
   | AddToCartActionType
   | AddToCartActionSucceededType
   | AddToCartActionFailed
+  | setUpdateCartType
+  | setUpdateCartSuccessType
+  | setUpdateCartFailedType

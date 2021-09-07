@@ -1,14 +1,21 @@
 import styled from 'styled-components'
+import { setUpdateCart } from '../../sagaStore/actions'
+import { useDispatch } from 'react-redux'
 
 const QuantityHandler = (props: {
-  quantity: number | string
+  quantity: any
   setQuantity: React.Dispatch<React.SetStateAction<number>>
+  productID: string
 }) => {
+  const dispatch = useDispatch()
   const addOne = () => {
     props.setQuantity((prevState) => prevState + 1)
+    console.log(props.productID)
+    dispatch(setUpdateCart(props.productID, props.quantity + 1))
   }
   const substractOne = () => {
     props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 0))
+    dispatch(setUpdateCart(props.productID, props.quantity - 1))
   }
 
   return (
