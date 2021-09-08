@@ -11,26 +11,23 @@ import { CartItemType } from 'types'
 
 const initialState = {
   cartItemsCount: 0,
-  cartItems: [],
+  cartItems: [] as CartItemType[],
 }
 
 const cartReducer = (state = initialState, action: CartActionsTypes) => {
   switch (action.type) {
     case UPDATE_CART_SUCCEESS:
-      const foundItemToUpdate = state.cartItems.find(
-        (item) => item.productID === action.productID
-      )
-      const indexToUpdate = state.cartItems.findIndex(
-        (item) => item.productID === action.productID
-      )
-
-      if (foundItemToUpdate) {
-        const items = state.cartItems
-        items[indexToUpdate].quantity = action.quantity
-        return {
-          ...state,
-          cartItems: items,
-        }
+      return {
+        ...state,
+        cartItems: state.cartItems.map((item) =>
+          item.productID === action.productID
+            ? {
+                ...item,
+                quantity: action.quantity,
+                itemTotal: action.quantity * item.price,
+              }
+            : item
+        ),
       }
 
     case UPDATE_CART_FAILED:
@@ -46,7 +43,9 @@ const cartReducer = (state = initialState, action: CartActionsTypes) => {
         title: newCartItem.Title,
         price: newCartItem.Price,
         quantity: action.payloadQTY,
+        itemTotal: newCartItem.Price * action.payloadQTY,
       }
+
       const updatedItems = [cartItem, ...state.cartItems]
 
       return {

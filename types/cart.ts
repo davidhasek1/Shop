@@ -17,4 +17,5 @@ export type CartItemType = {
   title: string
   price: number
   quantity: number
+  itemTotal: number
 }
