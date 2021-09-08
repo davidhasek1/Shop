@@ -28,12 +28,12 @@ const Cart: NextPage = () => {
       <Head>
         <title>Cart</title>
       </Head>
-      {cartItems ? (
+      {cartItems && cartItems.length > 0 ? (
         <CartTitle>Your Cart</CartTitle>
       ) : (
-        <CartTitle>Your Cart is Empty</CartTitle>
+        <CartTitleEmpty>Your Cart is Empty</CartTitleEmpty>
       )}
-      {cartItems && (
+      {cartItems && cartItems.length > 0 && (
         <>
           <CartLabelsWrapper>
             <Labels>
@@ -69,6 +69,10 @@ const Wrapper = styled.div`
 const CartTitle = styled.h1`
   text-align: left;
 `
+const CartTitleEmpty = styled.h1`
+  text-align: center;
+`
+
 const CartLabelsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
