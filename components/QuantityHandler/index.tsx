@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { setUpdateCart } from '../../sagaStore/actions'
+import { setCartTotal, setUpdateCart } from '../../sagaStore/actions'
 import { useDispatch } from 'react-redux'
 
 const QuantityHandler = (props: {
@@ -10,12 +10,13 @@ const QuantityHandler = (props: {
   const dispatch = useDispatch()
   const addOne = () => {
     props.setQuantity((prevState) => prevState + 1)
-    console.log(props.productID)
     dispatch(setUpdateCart(props.productID, props.quantity + 1))
+    dispatch(setCartTotal())
   }
   const substractOne = () => {
     props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 0))
     dispatch(setUpdateCart(props.productID, props.quantity - 1))
+    dispatch(setCartTotal())
   }
 
   return (

@@ -1,6 +1,6 @@
 import { CartPayload } from 'types'
 export const CART_ITEMS_COUNT_REQUEST = 'CART_ITEMS_COUNT_REQUEST'
-export const CART_ITEMS_COUNT_SUCCEEDED = 'CART_ITEMS_COUNT_SUCCEEDED'
+export const CART_ITEMS_COUNT_SUCCEED = 'CART_ITEMS_COUNT_SUCCEED'
 export const CART_ITEMS_COUNT_FAILED = 'CART_ITEMS_COUNT_FAILED'
 
 type CartItemsCountActionType = {
@@ -11,14 +11,13 @@ export const setCartItemsCount = (): CartItemsCountActionType => ({
   type: CART_ITEMS_COUNT_REQUEST,
 })
 
-type CartItemsCountActionSucceededType = {
-  type: typeof CART_ITEMS_COUNT_SUCCEEDED
+type CartItemsCountActionSucceedType = {
+  type: typeof CART_ITEMS_COUNT_SUCCEED
 }
 
-export const setCartItemsCountActionSucceeded =
-  (): CartItemsCountActionSucceededType => ({
-    type: CART_ITEMS_COUNT_SUCCEEDED,
-  })
+export const setCartItemsCountActionSucceed = (): CartItemsCountActionSucceedType => ({
+  type: CART_ITEMS_COUNT_SUCCEED,
+})
 
 type CartItemsCountActionFailedType = {
   type: typeof CART_ITEMS_COUNT_FAILED
@@ -30,7 +29,7 @@ export const setCartItemsCountActionFailed =
   })
 
 export const ADD_TO_CART_REQUEST = 'ADD_TO_CART_REQUEST'
-export const ADD_TO_CART_SUCCEEDED = 'ADD_TO_CART_SUCCEEDED'
+export const ADD_TO_CART_SUCCEED = 'ADD_TO_CART_SUCCEED'
 export const ADD_TO_CART_FAILED = 'ADD_TO_CART_FAILED'
 
 type AddToCartActionType = {
@@ -39,25 +38,21 @@ type AddToCartActionType = {
   payloadQTY?: number
 }
 
-export const setAddToCart = (cartItem, quantity): AddToCartActionType => ({
+export const setAddToCart = (cartItem): AddToCartActionType => ({
   type: ADD_TO_CART_REQUEST,
   payload: cartItem,
-  payloadQTY: quantity,
 })
 
-type AddToCartActionSucceededType = {
-  type: typeof ADD_TO_CART_SUCCEEDED
+type AddToCartActionSucceedType = {
+  type: typeof ADD_TO_CART_SUCCEED
   payload: CartPayload
-  payloadQTY?: number
 }
 
-export const setAddToCartSucceeded = (
-  productID,
-  quantity
-): AddToCartActionSucceededType => ({
-  type: ADD_TO_CART_SUCCEEDED,
+export const setAddToCartSucceed = (
+  productID
+): AddToCartActionSucceedType => ({
+  type: ADD_TO_CART_SUCCEED,
   payload: productID,
-  payloadQTY: quantity,
 })
 
 type AddToCartActionFailed = {
@@ -71,7 +66,7 @@ export const setAddToCartFailed = (payload): AddToCartActionFailed => ({
 })
 
 export const UPDATE_CART_REQUEST = 'UPDATE_CART_REQUEST'
-export const UPDATE_CART_SUCCEESS = 'UPDATE_CART_SUCCEESS'
+export const UPDATE_CART_SUCCEED = 'UPDATE_CART_SUCCEED'
 export const UPDATE_CART_FAILED = 'UPDATE_CART_FAILED'
 
 type setUpdateCartType = {
@@ -86,12 +81,12 @@ export const setUpdateCart = (productID, quantity) => ({
 })
 
 type setUpdateCartSuccessType = {
-  type: typeof UPDATE_CART_SUCCEESS
+  type: typeof UPDATE_CART_SUCCEED
   productID: string
   quantity: number
 }
 export const setUpdateCartSuccessed = (productID, quantity) => ({
-  type: UPDATE_CART_SUCCEESS,
+  type: UPDATE_CART_SUCCEED,
   productID,
   quantity,
 })
@@ -103,13 +98,43 @@ export const setUpdateCartFailed = () => ({
   type: UPDATE_CART_FAILED,
 })
 
+export const CART_TOTAL_REQUEST = 'CART_TOTAL_REQUEST'
+export const CART_TOTAL_SUCCEED = 'CART_TOTAL_SUCCEED'
+export const CART_TOTAL_FAILED = 'CART_TOTAL_FAILED'
+
+type setCartTotalType = {
+  type: typeof CART_TOTAL_REQUEST
+}
+
+export const setCartTotal = (): setCartTotalType => ({
+  type: CART_TOTAL_REQUEST,
+})
+type setCartTotalSucceedType = {
+  type: typeof CART_TOTAL_SUCCEED
+}
+
+export const setCartTotalSucceed = (): setCartTotalSucceedType => ({
+  type: CART_TOTAL_SUCCEED,
+})
+
+type setCartTotalFailedType = {
+  type: typeof CART_TOTAL_FAILED
+}
+
+export const setCartTotalFailed = (): setCartTotalFailedType => ({
+  type: CART_TOTAL_FAILED,
+})
+
 export type CartActionsTypes =
   | CartItemsCountActionType
-  | CartItemsCountActionSucceededType
+  | CartItemsCountActionSucceedType
   | CartItemsCountActionFailedType
   | AddToCartActionType
-  | AddToCartActionSucceededType
+  | AddToCartActionSucceedType
   | AddToCartActionFailed
   | setUpdateCartType
   | setUpdateCartSuccessType
   | setUpdateCartFailedType
+  | setCartTotalType
+  | setCartTotalSucceedType
+  | setCartTotalFailedType

@@ -9,7 +9,12 @@ import { fetchCart } from 'services'
 import { useState } from 'react'
 
 import { CartPayload, DropdownsType, ShareLinksType } from 'types'
-import { setAddToCart, setCartItemsCount, setUpdateCart } from 'sagaStore/cart/actions'
+import {
+  setAddToCart,
+  setCartItemsCount,
+  setCartTotal,
+  setUpdateCart,
+} from 'sagaStore/cart/actions'
 
 import StyledImage from 'components/General/Image'
 import Title from 'components/Banners/Content'
@@ -25,15 +30,13 @@ const productDetail = (props: { product: CartPayload }) => {
 
   const addToCartHandler = async () => {
     const productToCart = await fetchCart(productID)
-    console.log('[ADDING to cart]', productToCart)
-
-    dispatch(setAddToCart(productToCart, quantity))
+    dispatch(setAddToCart(productToCart))
     dispatch(setUpdateCart(productID, quantity))
     dispatch(setCartItemsCount())
+    dispatch(setCartTotal())
   }
   const router = useRouter()
   const relativePath = router.asPath
-  console.log('PARH', relativePath)
 
   const PRODUCT_URL = `${url}${relativePath}`
   const FB = `http://www.facebook.com/share.php?u=${PRODUCT_URL}`

@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
+import { getCartTotal } from 'sagaStore/selectors'
+import { useSelector } from 'react-redux'
 
 const CartSummary = () => {
+  const totalPrice = useSelector(getCartTotal)
   return (
     <Summary>
       <TotalPriceWrapper>
         <SubTotalLabel>subtotal</SubTotalLabel>
-        <SubTotalValue>1000 Kč</SubTotalValue>{' '}
+        <SubTotalValue>{totalPrice} Kč</SubTotalValue>{' '}
         {/* TODO: Sečíst položky košíku POZOR může jich být více pro jeden produkt => 1. vynásobit cenu počtem a pak provést spučrt */}
       </TotalPriceWrapper>
       <div>Shipping & taxes calculated at checkout</div>

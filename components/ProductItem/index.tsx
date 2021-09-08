@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { setAddToCart, setCartItemsCount, setUpdateCart } from 'sagaStore/actions'
+import {
+  setAddToCart,
+  setCartItemsCount,
+  setUpdateCart,
+  setCartTotal,
+} from 'sagaStore/actions'
 import styled from 'styled-components'
 import Link from 'next/link'
 
@@ -18,10 +23,10 @@ const ProductItem = (props: {
 
   const addToCartHandler = async () => {
     const productToCart = await fetchCart(props.detailID)
-    console.log('[ADDING to cart]', productToCart)
-    dispatch(setAddToCart(productToCart, 1)) //add quantity 1 to cart
-    dispatch(setUpdateCart(props.detailID, 1))
+    dispatch(setAddToCart(productToCart))
+    dispatch(setUpdateCart(props.detailID, 1)) //add quantity 1 to cart
     dispatch(setCartItemsCount())
+    dispatch(setCartTotal())
   }
   const hoverHandler = () => {
     setIsHovered(true)
