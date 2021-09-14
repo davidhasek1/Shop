@@ -30,7 +30,7 @@ const QuantityHandler = (props: {
     dispatch(setCartTotal())
   }
   const substractOne = () => {
-    props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 1))
+    props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 0))
     dispatch(setUpdateCart(props.productID, props.quantity - 1))
     dispatch(setCartTotal())
   }
