@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
+import { getCartTotal } from 'sagaStore/selectors'
+import { useSelector } from 'react-redux'
+
 const CartSummaryIndicator = ({}) => {
+  const cartTotalPrice = useSelector(getCartTotal)
   return (
     <Wrapper>
-      <PriceSummary>(300 Kč)</PriceSummary>
+      <PriceSummary>({cartTotalPrice} Kč)</PriceSummary>
       <Dot />
     </Wrapper>
   )

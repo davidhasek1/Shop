@@ -20,7 +20,7 @@ const CartItem = (props: {
 
   const dispatch = useDispatch()
 
-  const remoevItemHandler = () => {
+  const removeItemHandler = () => {
     dispatch(setCartRemove(props.productId))
     dispatch(setCartTotal())
   }
@@ -41,7 +41,7 @@ const CartItem = (props: {
             <Title style={{ margin: 0 }}>{props.title}</Title>
           </Link>
 
-          <RemoveButton onClick={() => remoevItemHandler()}>
+          <RemoveButton onClick={() => removeItemHandler()}>
             REMOVE
           </RemoveButton>
         </TitleWrapper>

@@ -51,17 +51,19 @@ const cartReducer = (state = initialState, action: CartActionsTypes) => {
       }
     case UPDATE_CART_SUCCEED:
       return {
-        //Co se stane v returnu tak se vrátí na FE a updateuje ho! Statej měnít v returnu a utility funkce atp dělat mimo
+        //Co se stane v returnu tak se vrátí na FE a updateuje ho! State měnit v returnu a utility funkce atp dělat mimo
         ...state,
-        cartItems: state.cartItems.map((item) =>
-          item.productID === action.productID
+        cartItems: state.cartItems.map((item) => {
+          const checkedQuantity = action.quantity >= 0 ? action.quantity : 0
+
+          return item.productID === action.productID
             ? {
                 ...item,
-                quantity: action.quantity,
-                itemTotal: action.quantity * item.price,
+                quantity: checkedQuantity,
+                itemTotal: checkedQuantity * item.price,
               }
             : item
-        ),
+        }),
       }
 
     case UPDATE_CART_FAILED:
@@ -77,13 +79,19 @@ const cartReducer = (state = initialState, action: CartActionsTypes) => {
         title: newCartItem.Title,
         price: newCartItem.Price,
       }
-
-      const updatedItems = [cartItem, ...state.cartItems]
-
-      return {
-        ...state,
-        cartItems: updatedItems,
+      const isExists = state.cartItems.find(
+        (item) => item.productID === cartItem.productID
+      )
+      let updatedItems = []
+      if (!isExists) {
+        updatedItems = [cartItem, ...state.cartItems]
+        return {
+          ...state,
+          cartItems: updatedItems,
+        }
       }
+      return { ...state }
+
     case ADD_TO_CART_FAILED:
       return {
         ...state, //Když se něco nepovede tak nepřidávej nový produkt do pole produktů
