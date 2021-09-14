@@ -15,9 +15,10 @@ type CartItemsCountActionSucceedType = {
   type: typeof CART_ITEMS_COUNT_SUCCEED
 }
 
-export const setCartItemsCountActionSucceed = (): CartItemsCountActionSucceedType => ({
-  type: CART_ITEMS_COUNT_SUCCEED,
-})
+export const setCartItemsCountActionSucceed =
+  (): CartItemsCountActionSucceedType => ({
+    type: CART_ITEMS_COUNT_SUCCEED,
+  })
 
 type CartItemsCountActionFailedType = {
   type: typeof CART_ITEMS_COUNT_FAILED
@@ -48,9 +49,7 @@ type AddToCartActionSucceedType = {
   payload: CartPayload
 }
 
-export const setAddToCartSucceed = (
-  productID
-): AddToCartActionSucceedType => ({
+export const setAddToCartSucceed = (productID): AddToCartActionSucceedType => ({
   type: ADD_TO_CART_SUCCEED,
   payload: productID,
 })
@@ -125,6 +124,39 @@ export const setCartTotalFailed = (): setCartTotalFailedType => ({
   type: CART_TOTAL_FAILED,
 })
 
+export const CART_REMOVE_ITEM_REQUEST = 'CART_REMOVE_ITEM_REQUEST'
+export const CART_REMOVE_ITEM_SUCCEED = 'CART_REMOVE_ITEM_SUCCEED'
+export const CART_REMOVE_ITEM_FAILED = 'CART_REMOVE_ITEM_FAILED'
+
+type setCartRemove = {
+  type: typeof CART_REMOVE_ITEM_REQUEST
+  payload: string
+}
+
+export const setCartRemove = (productID): setCartRemove => ({
+  type: CART_REMOVE_ITEM_REQUEST,
+  payload: productID,
+})
+
+type setCartRemoveSucceed = {
+  type: typeof CART_REMOVE_ITEM_SUCCEED
+  payload: string
+}
+
+export const setCartRemoveSucceed = (
+  productID: string
+): setCartRemoveSucceed => ({
+  type: CART_REMOVE_ITEM_SUCCEED,
+  payload: productID,
+})
+type setCartRemoveFailed = {
+  type: typeof CART_REMOVE_ITEM_FAILED
+}
+
+export const setCartRemoveFailed = (): setCartRemoveFailed => ({
+  type: CART_REMOVE_ITEM_FAILED,
+})
+
 export type CartActionsTypes =
   | CartItemsCountActionType
   | CartItemsCountActionSucceedType
@@ -138,3 +170,6 @@ export type CartActionsTypes =
   | setCartTotalType
   | setCartTotalSucceedType
   | setCartTotalFailedType
+  | setCartRemove
+  | setCartRemoveSucceed
+  | setCartRemoveFailed

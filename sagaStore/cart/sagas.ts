@@ -1,3 +1,4 @@
+import { Pura } from '@styled-icons/crypto'
 import { put, takeEvery } from 'redux-saga/effects'
 import {
   CART_ITEMS_COUNT_REQUEST,
@@ -12,7 +13,12 @@ import {
   CART_TOTAL_REQUEST,
   setCartTotalSucceed,
   setCartTotalFailed,
+  CART_REMOVE_ITEM_REQUEST,
+  setCartRemoveSucceed,
+  setCartRemoveFailed,
 } from 'sagaStore/actions'
+
+//TODO: fetch dat o productu nefetchovat v extra funci ale použít call() metodu
 
 function* cartTotal() {
   try {
@@ -49,11 +55,20 @@ function* updateCartItems(action) {
   }
 }
 
+function* removeItemFormCart(action) {
+  try {
+    yield put(setCartRemoveSucceed(action.payload))
+  } catch (error) {
+    yield put(setCartRemoveFailed())
+  }
+}
+
 const cartSaga = [
   takeEvery(CART_ITEMS_COUNT_REQUEST, updateCartItemsCount),
   takeEvery(ADD_TO_CART_REQUEST, updateCartItems),
   takeEvery(UPDATE_CART_REQUEST, updateCartQuantity),
   takeEvery(CART_TOTAL_REQUEST, cartTotal),
+  takeEvery(CART_REMOVE_ITEM_REQUEST, removeItemFormCart)
 ]
 
 export default cartSaga

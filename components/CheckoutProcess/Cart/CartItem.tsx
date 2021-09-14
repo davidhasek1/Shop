@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setCartRemove, setCartTotal } from 'sagaStore/actions'
 
 import CustomImage from 'components/General/Image'
 import QuantityHandler from 'components/QuantityHandler'
@@ -15,6 +17,13 @@ const CartItem = (props: {
   itemTotal: number
 }) => {
   const [quantity, setQuantity] = useState(props.quantity) //redxu quantity
+
+  const dispatch = useDispatch()
+
+  const remoevItemHandler = () => {
+    dispatch(setCartRemove(props.productId))
+    dispatch(setCartTotal())
+  }
 
   return (
     <CartContent>
@@ -32,7 +41,7 @@ const CartItem = (props: {
             <Title style={{ margin: 0 }}>{props.title}</Title>
           </Link>
 
-          <RemoveButton onClick={() => console.log('TODO: Remove from cart')}>
+          <RemoveButton onClick={() => remoevItemHandler()}>
             REMOVE
           </RemoveButton>
         </TitleWrapper>

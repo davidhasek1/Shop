@@ -7,6 +7,8 @@ import {
   UPDATE_CART_FAILED,
   CART_TOTAL_SUCCEED,
   CART_TOTAL_FAILED,
+  CART_REMOVE_ITEM_SUCCEED,
+  CART_REMOVE_ITEM_FAILED,
   CartActionsTypes,
 } from 'sagaStore/actions'
 import { CartItemType } from 'types'
@@ -25,6 +27,17 @@ const initialState: initialStateType = {
 
 const cartReducer = (state = initialState, action: CartActionsTypes) => {
   switch (action.type) {
+    case CART_REMOVE_ITEM_SUCCEED:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (product) => product.productID !== action.payload //payload == ID
+        ),
+      }
+    case CART_REMOVE_ITEM_FAILED:
+      return {
+        ...state,
+      }
     case CART_TOTAL_SUCCEED:
       let total = 0
       state.cartItems.forEach((item) => (total += item.itemTotal))
