@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-import { setCartTotal, setUpdateCart } from '../../sagaStore/actions'
+import {
+  setCartTotal,
+  setUpdateCart,
+  setCartRemove,
+} from '../../sagaStore/actions'
 import { useDispatch } from 'react-redux'
 
 const QuantityHandler = (props: {
@@ -8,14 +12,35 @@ const QuantityHandler = (props: {
   productID: string
 }) => {
   const dispatch = useDispatch()
+
+  //TODO cart 0 quantity => remove form cart
+  /*   const checkZeroQuantity = () => {
+    if (props.quantity <= 1) {
+      const toRemoveItem = confirm(
+        'Do you really want to delete this item from a cart?'
+      )
+      return toRemoveItem && dispatch(setCartRemove(props.productID))
+    }
+    return
+  }
+ */
   const addOne = () => {
     props.setQuantity((prevState) => prevState + 1)
     dispatch(setUpdateCart(props.productID, props.quantity + 1))
     dispatch(setCartTotal())
   }
   const substractOne = () => {
-    props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 0))
+    props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 1))
     dispatch(setUpdateCart(props.productID, props.quantity - 1))
+    dispatch(setCartTotal())
+  }
+
+  const updateInputQuantity = (e) => {
+    const newValue = e.target.value
+    const inputValue = newValue ? parseInt(e.target.value) : ''
+    //@ts-ignore
+    props.setQuantity(inputValue)
+    dispatch(setUpdateCart(props.productID, inputValue))
     dispatch(setCartTotal())
   }
 
@@ -27,7 +52,7 @@ const QuantityHandler = (props: {
           className={'numberInput'}
           type="number"
           value={props.quantity}
-          onChange={(e) => props.setQuantity(parseInt(e.target.value))}
+          onChange={updateInputQuantity}
         />
         <CountButton onClick={substractOne}>-</CountButton>
       </Container>
