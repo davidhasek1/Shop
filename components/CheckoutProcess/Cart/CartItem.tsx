@@ -46,7 +46,11 @@ const CartItem = (props: {
           </RemoveButton>
         </TitleWrapper>
       </ItemDescription>
-
+      <Labels>
+        <div>Price</div>
+        <div>Quantity</div>
+        <div>Total</div>
+      </Labels>
       <PriceDescription>
         <UnitPrice>{props.price} Kč</UnitPrice>
         <ItemQuantity>
@@ -68,13 +72,21 @@ const CartContent = styled.div`
   border-top: 1px solid ${(props) => props.theme.fade2};
   //border-bottom: 1px solid ${(props) => props.theme.fade2};
   padding: 30px 0;
+  margin: 15px;
+  ${breakpoints('flex-direction', '', [{ L: 'column' }])}
+  ${breakpoints('align-items', '', [{ L: 'center' }])}
 `
 const ItemDescription = styled.div`
   display: flex;
   width: 50%;
+  ${breakpoints('width', '', [{ L: '100%' }])}
+  ${breakpoints('margin', '', [{ L: '10px 0' }])}
 `
 const CartImage = styled.div`
   margin-right: 15%;
+  ${breakpoints('margin-right', '', [{ L: '10px' }])}
+  ${breakpoints('display', '', [{ L: 'flex' }])}
+  ${breakpoints('justify-content', '', [{ L: 'center' }])}
 `
 const TitleWrapper = styled.div`
   display: flex;
@@ -82,9 +94,20 @@ const TitleWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+
+  ${breakpoints('align-items', '', [{ L: 'flex-start' }])}
+  ${breakpoints('text-align', '', [{ L: 'left' }])}
+`
+const Labels = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 20px 0;
+  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
 `
 const Title = styled.h3`
   cursor: pointer;
+  ${breakpoints('width', '', [{ L: '100%' }])}
 `
 const RemoveButton = styled.div`
   font-size: 12px;
@@ -93,6 +116,7 @@ const RemoveButton = styled.div`
   &:hover {
     color: #ff0000;
   }
+  ${breakpoints('padding', '', [{ L: '10px 0' }])}
 `
 /************************* */
 const PriceDescription = styled.div`
@@ -100,6 +124,7 @@ const PriceDescription = styled.div`
   width: 50%;
   justify-content: space-between;
   align-items: center;
+  ${breakpoints('width', '', [{ L: '100%' }])}
 `
 const UnitPrice = styled.div`
   width: 100%;

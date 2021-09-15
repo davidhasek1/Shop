@@ -68,6 +68,7 @@ const Wrapper = styled.div`
 `
 const CartTitle = styled.h1`
   text-align: left;
+  ${breakpoints('text-align', '', [{ L: 'center' }])}
 `
 const CartTitleEmpty = styled.h1`
   text-align: center;
@@ -77,11 +78,16 @@ const CartLabelsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
+  ${breakpoints('justify-content', '', [{ L: 'center' }])}
 `
 const Labels = styled.div`
   display: flex;
   width: 50%;
   justify-content: space-between;
+  margin: 15px;
+  ${breakpoints('display', '', [{ L: 'none' }])}
+  ${breakpoints('width', '', [{ L: '100%' }])}
+  ${breakpoints('margin', '', [{ L: '0 25px' }])}
 `
 
 export default Cart
