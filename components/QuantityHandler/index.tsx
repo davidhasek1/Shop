@@ -1,47 +1,55 @@
 import styled from 'styled-components'
-import {
-  setCartTotal,
-  setUpdateCart,
-  setCartRemove,
-} from '../../sagaStore/actions'
+import { setCartTotal, setUpdateCart, setCartRemove } from 'sagaStore/actions'
 import { useDispatch } from 'react-redux'
 
 const QuantityHandler = (props: {
   quantity: any
   setQuantity: React.Dispatch<React.SetStateAction<number>>
   productID: string
+  isCart: boolean
 }) => {
   const dispatch = useDispatch()
 
-  //TODO cart 0 quantity => remove form cart
-  /*   const checkZeroQuantity = () => {
-    if (props.quantity <= 1) {
-      const toRemoveItem = confirm(
-        'Do you really want to delete this item from a cart?'
-      )
-      return toRemoveItem && dispatch(setCartRemove(props.productID))
+  const checkZeroQuantity = () => {
+    const toRemoveItem = confirm(
+      'Do you really want to delete this item from a cart?'
+    )
+    if (toRemoveItem) {
+      dispatch(setCartRemove(props.productID))
+    } else {
+      props.setQuantity(1)
+      dispatch(setUpdateCart(props.productID, 1))
     }
-    return
+    dispatch(setCartTotal())
   }
- */
+
   const addOne = () => {
     props.setQuantity((prevState) => prevState + 1)
     dispatch(setUpdateCart(props.productID, props.quantity + 1))
     dispatch(setCartTotal())
   }
   const substractOne = () => {
-    props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 0))
-    dispatch(setUpdateCart(props.productID, props.quantity - 1))
-    dispatch(setCartTotal())
+    if (props.quantity > 1) {
+      props.setQuantity((prevState) => (props.quantity > 0 ? prevState - 1 : 0))
+      dispatch(setUpdateCart(props.productID, props.quantity - 1))
+      dispatch(setCartTotal())
+    } else {
+      props.isCart && checkZeroQuantity()
+    }
   }
 
   const updateInputQuantity = (e) => {
     const newValue = e.target.value
-    const inputValue = newValue ? parseInt(e.target.value) : ''
+    const inputValue = newValue ? parseInt(newValue) : ''
     //@ts-ignore
     props.setQuantity(inputValue)
-    dispatch(setUpdateCart(props.productID, inputValue))
-    dispatch(setCartTotal())
+
+    if (inputValue > 1) {
+      dispatch(setUpdateCart(props.productID, inputValue))
+      dispatch(setCartTotal())
+    } else if (inputValue === 0) {
+      props.isCart && checkZeroQuantity()
+    }
   }
 
   return (

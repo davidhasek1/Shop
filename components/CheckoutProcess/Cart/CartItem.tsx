@@ -54,10 +54,10 @@ const CartItem = (props: {
             productID={props.productId}
             quantity={quantity}
             setQuantity={setQuantity}
+            isCart={true}
           />
         </ItemQuantity>{' '}
         <ItemTotalPrice>{props.itemTotal} Kč</ItemTotalPrice>{' '}
-        {/* TODO: Do I need props for total price? */}
       </PriceDescription>
     </CartContent>
   )

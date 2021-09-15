@@ -93,6 +93,7 @@ const productDetail = (props: { product: CartPayload }) => {
           buttonTitle={'Add to cart'}
           quantity={quantity}
           setQuantity={setQuantity}
+          productID={productID}
         />
 
         {mock_dropdowns.map((dropdown, i) => (

@@ -8,14 +8,17 @@ const ProductActions = (props: {
   onAddToCart: () => void
   quantity: number
   setQuantity: React.Dispatch<React.SetStateAction<number>>
+  productID: string
 }) => {
   return (
     <Actions>
       <InputWrapper>
         {props.title}
         <QuantitiyHandler
+          productID={props.productID}
           quantity={props.quantity}
           setQuantity={props.setQuantity}
+          isCart={false}
         />
       </InputWrapper>
       <button onClick={props.onAddToCart} className={'inverted'}>
