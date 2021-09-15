@@ -47,7 +47,8 @@ const QuantityHandler = (props: {
     if (inputValue > 1) {
       dispatch(setUpdateCart(props.productID, inputValue))
       dispatch(setCartTotal())
-    } else if (inputValue === 0) {
+    } else if (inputValue === 0 || inputValue < 0) {
+      // <= sign didn't work
       props.isCart && checkZeroQuantity()
     }
   }
