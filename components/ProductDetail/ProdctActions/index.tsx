@@ -1,23 +1,25 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
+import QuantitiyHandler from 'components/QuantityHandler'
 
 const ProductActions = (props: {
   title: string
   buttonTitle: string
   onAddToCart: () => void
+  quantity: number
+  setQuantity: React.Dispatch<React.SetStateAction<number>>
+  productID: string
 }) => {
   return (
     <Actions>
       <InputWrapper>
         {props.title}
-        <Select>  {/* TODO: design + functionality */}
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </Select>
+        <QuantitiyHandler
+          productID={props.productID}
+          quantity={props.quantity}
+          setQuantity={props.setQuantity}
+          isCart={false}
+        />
       </InputWrapper>
       <button onClick={props.onAddToCart} className={'inverted'}>
         {props.buttonTitle}
@@ -35,6 +37,7 @@ const Actions = styled.div`
 const InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 20px 0;
 `
 const Select = styled.select`

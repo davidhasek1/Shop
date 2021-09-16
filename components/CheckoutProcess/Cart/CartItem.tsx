@@ -1,94 +1,142 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import { Plus, Minus } from '@styled-icons/entypo'
-import { Trash } from '@styled-icons/bootstrap/Trash'
-import StyledImage from 'components/General/Image'
+import Link from 'next/link'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setCartRemove, setCartTotal } from 'sagaStore/actions'
 
-const CartItem = ({ testProp }) => {
+import CustomImage from 'components/General/Image'
+import QuantityHandler from 'components/QuantityHandler'
+
+const CartItem = (props: {
+  productId: string
+  imgUrl: string
+  title: string
+  price: number
+  quantity: number
+  itemTotal: number
+}) => {
+  const [quantity, setQuantity] = useState(props.quantity) //redxu quantity
+
+  const dispatch = useDispatch()
+
+  const removeItemHandler = () => {
+    dispatch(setCartRemove(props.productId))
+    dispatch(setCartTotal())
+  }
+
   return (
-    <ItemContainer>
-      <StyledImage
-        imageSrc={'/images/testimgW.jpg'}
-        imageWidth={150}
-        imageHeight={150}
-        scaleing={false}
-        fitting={'cover'}
-        layout={'intrinsic'}
-      />
-      <Description>
-        <Title>{testProp}</Title>
-        <Text>
-          bkdwidnw u wiufw fj wfeefe fh f ef e=f efef f eíáf fíejf eíájf e=fe
-          fíehf ehf eáf eáf íf eífjeíf fíeh j
-        </Text>
-      </Description>
-      <ItemActions>
-        <ChangeCount>
-          <Button
-            onClick={() => console.log('inc')}
-           /*  icon={<Plus size={20} />} */
+    <CartContent>
+      <ItemDescription>
+        <CartImage>
+          <CustomImage
+            imageSrc={props.imgUrl}
+            imageWidth={150}
+            imageHeight={150}
           />
-          <Count>5</Count>
-          <Button
-            onClick={() => console.log('dec')}
-           /*  icon={<Minus size={20} />} */
+        </CartImage>
+
+        <TitleWrapper>
+          <Link href={`/shop/${props.productId}`}>
+            <Title style={{ margin: 0 }}>{props.title}</Title>
+          </Link>
+
+          <RemoveButton onClick={() => removeItemHandler()}>
+            REMOVE
+          </RemoveButton>
+        </TitleWrapper>
+      </ItemDescription>
+      <Labels>
+        <div>Price</div>
+        <div>Quantity</div>
+        <div>Total</div>
+      </Labels>
+      <PriceDescription>
+        <UnitPrice>{props.price} Kč</UnitPrice>
+        <ItemQuantity>
+          <QuantityHandler
+            productID={props.productId}
+            quantity={quantity}
+            setQuantity={setQuantity}
+            isCart={true}
           />
-        </ChangeCount>
-        <Delete
-          onClick={() => console.log('delete')}
-          /* icon={<Trash size={20} />} */
-        />
-      </ItemActions>
-    </ItemContainer>
+        </ItemQuantity>{' '}
+        <ItemTotalPrice>{props.itemTotal} Kč</ItemTotalPrice>{' '}
+      </PriceDescription>
+    </CartContent>
   )
 }
 
-const ItemContainer = styled.div`
+const CartContent = styled.div`
   display: flex;
-  width: 90%;
-  margin: 15px auto;
-  background-color: ${(props) => props.theme.white};
-  border-radius: 10px;
-  overflow: hidden;
-  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
+  border-top: 1px solid ${(props) => props.theme.fade2};
+  //border-bottom: 1px solid ${(props) => props.theme.fade2};
+  padding: 30px 0;
+  margin: 0 15px;
+  ${breakpoints('flex-direction', '', [{ L: 'column' }])}
+  ${breakpoints('align-items', '', [{ L: 'center' }])}
 `
-const Description = styled.div`
+const ItemDescription = styled.div`
+  display: flex;
+  width: 50%;
+  ${breakpoints('width', '', [{ L: '100%' }])}
+  ${breakpoints('margin', '', [{ L: '10px 0' }])}
+`
+const CartImage = styled.div`
+  margin-right: 15%;
+  ${breakpoints('margin-right', '', [{ L: '10px' }])}
+  ${breakpoints('display', '', [{ L: 'flex' }])}
+  ${breakpoints('justify-content', '', [{ L: 'center' }])}
+`
+const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 15px;
-`
-const Title = styled.h2`
-  margin: 0;
-  text-align: left;
-  padding-left: 10px;
-  font-size: 20px;
-`
-const Text = styled.p`
-  margin: 0;
-  text-align: left;
-  padding-left: 10px;
-  font-size: 14px;
-`
-const ItemActions = styled.div`
-  display: flex;
-  padding: 0 10px;
-  align-items: center;
   justify-content: center;
-  ${breakpoints('flex-direction', '', [{ M: 'row' }])}
-  ${breakpoints('padding', '', [{ M: '15px 0' }])}
-`
-const ChangeCount = styled.div`
-  display: flex;
-  flex-direction: column;
-  ${breakpoints('flex-direction', '', [{ M: 'row' }])}
-`
-const Delete = styled.button`
-  padding: 25px;
-`
-const Count = styled.span`
-  padding: 8px;
-`
-const Button = styled.button``
+  align-items: flex-start;
+  width: 100%;
 
+  ${breakpoints('align-items', '', [{ L: 'flex-start' }])}
+  ${breakpoints('text-align', '', [{ L: 'left' }])}
+`
+const Labels = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 20px 0;
+  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
+`
+const Title = styled.h3`
+  cursor: pointer;
+  ${breakpoints('width', '', [{ L: '100%' }])}
+`
+const RemoveButton = styled.div`
+  font-size: 12px;
+  color: #aaaaaa;
+  cursor: pointer;
+  &:hover {
+    color: #ff0000;
+  }
+  ${breakpoints('padding', '', [{ L: '10px 0' }])}
+`
+/************************* */
+const PriceDescription = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  ${breakpoints('width', '', [{ L: '100%' }])}
+`
+const UnitPrice = styled.div`
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+`
+const ItemQuantity = styled.div`
+  width: 100%;
+`
+const ItemTotalPrice = styled.div`
+  width: 100%;
+  text-align: right;
+  font-weight: 600;
+`
 export default CartItem

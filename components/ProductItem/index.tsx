@@ -2,20 +2,31 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {
   setAddToCart,
-  setCartItemsCount
+  setCartItemsCount,
+  setUpdateCart,
+  setCartTotal,
 } from 'sagaStore/actions'
 import styled from 'styled-components'
 import Link from 'next/link'
 
 import StyledImage from 'components/General/Image'
+import { fetchDataById } from 'services/fetchDataById'
 
-const ProductItem = ({ imageSource, title, detailID }) => {
+const ProductItem = (props: {
+  detailID: string
+  imageSource: string
+  title: string
+  price: number
+}) => {
   const [isHovered, setIsHovered] = useState(false)
   const dispatch = useDispatch()
 
-  const addToCartHandler = () => {
-    dispatch(setAddToCart(detailID))
+  const addToCartHandler = async () => {
+    const productToCart = await fetchDataById(props.detailID, 'products')
+    dispatch(setAddToCart(productToCart))
+    dispatch(setUpdateCart(props.detailID, 1)) //add quantity 1 to cart
     dispatch(setCartItemsCount())
+    dispatch(setCartTotal())
   }
   const hoverHandler = () => {
     setIsHovered(true)
@@ -26,25 +37,24 @@ const ProductItem = ({ imageSource, title, detailID }) => {
 
   return (
     <Item onMouseEnter={hoverHandler} onMouseLeave={hoverOut}>
-      <Link href={`/shop/${detailID}`} passHref>
+      <Link href={`/shop/${props.detailID}`} passHref>
         <OuterContent>
           <StyledImage
-            imageSrc={imageSource}
+            imageSrc={props.imageSource}
             imageWidth={300}
             imageHeight={280}
-            scaleing={false}
             fitting={'cover'}
             layout={'intrinsic'}
           />
           <Content>
             <TitleWrapper>
-              <Title>{title}</Title>
+              <Title>{props.title}</Title>
             </TitleWrapper>
 
             {isHovered && (
               <HoverContent>
                 <Price>
-                  <BoldPrice>1000 Kč</BoldPrice>
+                  <BoldPrice>{props.price} Kč</BoldPrice>
                 </Price>
               </HoverContent>
             )}

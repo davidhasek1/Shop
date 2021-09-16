@@ -1,32 +1,42 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 import { url } from 'config'
 import { breakpoints } from 'utils/responsivity'
 import { Facebook, Twitter } from '@styled-icons/boxicons-logos'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
-import { DropdownsType, ShareLinksType } from 'types'
 import ReactMarkdown from 'react-markdown'
+import { fetchDataById } from 'services'
+import { useState } from 'react'
+
+import { CartPayload, DropdownsType, ShareLinksType } from 'types'
 import {
-  AddToCartState,
-  CartProductsCount,
-} from 'store/actions/userCartActions'
+  setAddToCart,
+  setCartItemsCount,
+  setCartTotal,
+  setUpdateCart,
+} from 'sagaStore/cart/actions'
+
 import StyledImage from 'components/General/Image'
 import Title from 'components/Banners/Content'
 import Actions from 'components/ProductDetail/ProdctActions'
 import Dropdown from 'components/ProductDetail/Dropdowns'
 import ShareProduct from 'components/ProductDetail/ShareLinks'
 
-const productDetail = ({ product }) => {
+const productDetail = (props: { product: CartPayload }) => {
   const dispatch = useDispatch()
-  console.log(product.Images.formats.large.url)
-  const addToCartHandler = () => {
-    dispatch(AddToCartState('mockID'))
-    dispatch(CartProductsCount())
+  const productID = props.product?._id
+
+  const [quantity, setQuantity] = useState(0)
+
+  const addToCartHandler = async () => {
+    const productToCart = await fetchDataById(productID, 'products')
+    dispatch(setAddToCart(productToCart))
+    dispatch(setUpdateCart(productID, quantity))
+    dispatch(setCartItemsCount())
+    dispatch(setCartTotal())
   }
   const router = useRouter()
   const relativePath = router.asPath
-  console.log('PARH', relativePath)
 
   const PRODUCT_URL = `${url}${relativePath}`
   const FB = `http://www.facebook.com/share.php?u=${PRODUCT_URL}`
@@ -60,7 +70,7 @@ const productDetail = ({ product }) => {
     <Container>
       <ImageWrapper>
         <StyledImage
-          imageSrc={`${url}${product.Images.url}`}
+          imageSrc={`${url}${props.product.Images.url}`}
           imageWidth={710}
           imageHeight={600}
         />
@@ -81,6 +91,9 @@ const productDetail = ({ product }) => {
           onAddToCart={() => addToCartHandler()}
           title={'Quantity'}
           buttonTitle={'Add to cart'}
+          quantity={quantity}
+          setQuantity={setQuantity}
+          productID={productID}
         />
 
         {mock_dropdowns.map((dropdown, i) => (

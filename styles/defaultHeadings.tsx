@@ -12,7 +12,6 @@ export const defaultHeadings = css`
   }
   h3 {
     font-size: 20px;
-    font-weight: 400;
-    text-transform: uppercase;
+    font-weight: 600;
   }
 `

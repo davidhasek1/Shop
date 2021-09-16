@@ -4,7 +4,10 @@ import { BlogPost, BlogPosts } from 'types'
 import Heading from 'components/General/Heading'
 import Post from 'components/BlogPost'
 
-const BlogSection = (props: { blogContent: BlogPosts; isHomePage: boolean }) => {
+const BlogSection = (props: {
+  blogContent: BlogPosts
+  isHomePage: boolean
+}) => {
   return (
     <Wrapper>
       <Heading>Our Blog</Heading>
@@ -12,8 +15,9 @@ const BlogSection = (props: { blogContent: BlogPosts; isHomePage: boolean }) => 
         {props.blogContent.map(
           (item: BlogPost, idx: number) =>
             idx < 2 && (
-              <PostWrapper>
+              <PostWrapper key={idx}>
                 <Post
+                  postID={idx}  //TODO: mocked ID
                   isHomePage={props.isHomePage}
                   imageSource={item.imageUrl}
                   title={item.title}

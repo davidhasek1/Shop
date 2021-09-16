@@ -10,10 +10,11 @@ import Heading from 'components/General/Heading'
 const ShopMainPage = ({ products }) => {
   const shopContent = products.map((product) => (
     <ShopItem
-      imageSource={`${url}${product.Images.formats.small.url}`}
       key={product._id}
       detailID={product._id}
+      imageSource={`${url}${product.Images.formats.small.url}`}
       title={product.Title}
+      price={product.Price}
     />
   ))
   return (
