@@ -15,6 +15,7 @@ const OurCollection = ({ products }) => {
       imageSource={`${url}${product.Images.formats.small.url}`}
       detailID={product.id}
       title={product.Title}
+      price={product.Price}
     />
   ))
 

@@ -10,13 +10,12 @@ const CartSummary = () => {
       <TotalPriceWrapper>
         <SubTotalLabel>subtotal</SubTotalLabel>
         <SubTotalValue>{totalPrice} Kč</SubTotalValue>{' '}
-        {/* TODO: Sečíst položky košíku POZOR může jich být více pro jeden produkt => 1. vynásobit cenu počtem a pak provést spučrt */}
       </TotalPriceWrapper>
       <div>Shipping & taxes calculated at checkout</div>
 
       <CheckoutButtonWrapper>
         <CheckoutButton>Checkout</CheckoutButton>{' '}
-        {/* TODO: Po kliku ulož košík do statu + pushni usera na checkout page */}
+        {/* TODO:  pushni usera na checkout page */}
       </CheckoutButtonWrapper>
     </Summary>
   )
@@ -24,11 +23,14 @@ const CartSummary = () => {
 
 const Summary = styled.div`
   border-top: 1px solid ${(props) => props.theme.fade2};
-  padding: 20px 0;
+  padding: 20px;
+  margin: 0 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   font-size: 14px;
+  ${breakpoints('margin', '', [{ L: '15px' }])}
+  ${breakpoints('align-items', '', [{ L: 'center' }])}
 `
 
 const TotalPriceWrapper = styled.div`

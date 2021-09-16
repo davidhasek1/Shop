@@ -7,7 +7,7 @@ import Head from 'next/head'
 
 import { CartItemType } from 'types'
 
-import { getCartItems, getItemTotal } from 'sagaStore/cart/selectors'
+import { getCartItems } from 'sagaStore/cart/selectors'
 
 import CartItem from 'components/CheckoutProcess/Cart/CartItem'
 import CartSummary from 'components/CheckoutProcess/Cart/CartSummary'
@@ -19,9 +19,7 @@ import Thankyou from 'components/CheckoutProcess/ThankYou'
 
 const Cart: NextPage = () => {
   const cartItems = useSelector(getCartItems)
-  const cartItemTotal = useSelector(getItemTotal)
   console.log('CART ITEMS', cartItems)
-  console.log('cartItemTotal', cartItemTotal)
 
   return (
     <Wrapper>
@@ -42,7 +40,7 @@ const Cart: NextPage = () => {
               <div>Total</div>
             </Labels>
           </CartLabelsWrapper>
-          <div style={{ padding: '50px 0' }}>
+          <div>
             {cartItems.map((item: CartItemType, idx: number) => (
               <CartItem
                 key={item.productID}

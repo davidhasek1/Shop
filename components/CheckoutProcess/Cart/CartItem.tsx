@@ -72,7 +72,7 @@ const CartContent = styled.div`
   border-top: 1px solid ${(props) => props.theme.fade2};
   //border-bottom: 1px solid ${(props) => props.theme.fade2};
   padding: 30px 0;
-  margin: 15px;
+  margin: 0 15px;
   ${breakpoints('flex-direction', '', [{ L: 'column' }])}
   ${breakpoints('align-items', '', [{ L: 'center' }])}
 `
