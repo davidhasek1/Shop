@@ -5,7 +5,7 @@ import { Facebook, Twitter } from '@styled-icons/boxicons-logos'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
-import { fetchCart } from 'services'
+import { fetchDataById } from 'services'
 import { useState } from 'react'
 
 import { CartPayload, DropdownsType, ShareLinksType } from 'types'
@@ -29,7 +29,7 @@ const productDetail = (props: { product: CartPayload }) => {
   const [quantity, setQuantity] = useState(0)
 
   const addToCartHandler = async () => {
-    const productToCart = await fetchCart(productID)
+    const productToCart = await fetchDataById(productID, 'products')
     dispatch(setAddToCart(productToCart))
     dispatch(setUpdateCart(productID, quantity))
     dispatch(setCartItemsCount())

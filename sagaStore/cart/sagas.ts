@@ -1,5 +1,4 @@
-import { Pura } from '@styled-icons/crypto'
-import { put, takeEvery } from 'redux-saga/effects'
+import { put, call, takeEvery } from 'redux-saga/effects'
 import {
   CART_ITEMS_COUNT_REQUEST,
   setCartItemsCountActionSucceed,

@@ -1,2 +1,2 @@
 export * from './exampleService'
-export * from './fetchCart'
+export * from './fetchDataById'

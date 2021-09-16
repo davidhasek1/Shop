@@ -35,9 +35,8 @@ const cartReducer = (state = initialState, action: CartActionsTypes) => {
         ),
       }
     case CART_REMOVE_ITEM_FAILED:
-      return {
-        ...state,
-      }
+      return { ...state }
+
     case CART_TOTAL_SUCCEED:
       let total = 0
       state.cartItems.forEach((item) => (total += item.itemTotal))
@@ -46,16 +45,14 @@ const cartReducer = (state = initialState, action: CartActionsTypes) => {
         cartTotal: total,
       }
     case CART_TOTAL_FAILED:
-      return {
-        ...state,
-      }
+      return { ...state }
+
     case UPDATE_CART_SUCCEED:
       return {
         //Co se stane v returnu tak se vrátí na FE a updateuje ho! State měnit v returnu a utility funkce atp dělat mimo
         ...state,
         cartItems: state.cartItems.map((item) => {
           const checkedQuantity = action.quantity >= 0 ? action.quantity : 0
-
           return item.productID === action.productID
             ? {
                 ...item,
@@ -67,9 +64,8 @@ const cartReducer = (state = initialState, action: CartActionsTypes) => {
       }
 
     case UPDATE_CART_FAILED:
-      return {
-        ...state,
-      }
+      return { ...state }
+
     case ADD_TO_CART_SUCCEED:
       const newCartItem = action.payload
 

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { url } from 'config'
 import { breakpoints } from 'utils/responsivity'
@@ -5,24 +6,46 @@ import { Facebook, Twitter } from '@styled-icons/boxicons-logos'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import { DropdownsType, ShareLinksType } from 'types'
-import ReactMarkdown from 'react-markdown'
 import {
-  AddToCartState,
-  CartProductsCount,
-} from 'store/actions/userCartActions'
+  setAddToCart,
+  setCartItemsCount,
+  setCartTotal,
+  setUpdateCart,
+} from '../sagaStore/actions'
+import ReactMarkdown from 'react-markdown'
+
 import StyledImage from 'components/General/Image'
 import Title from 'components/Banners/Content'
 import Actions from 'components/ProductDetail/ProdctActions'
 import Dropdown from 'components/ProductDetail/Dropdowns'
 import ShareProduct from 'components/ProductDetail/ShareLinks'
+import { fetchDataById } from 'services'
 
-const productDetail = () => {
+const giftCardPage = (props: { giftCards }) => {
   const dispatch = useDispatch()
+  const [quantity, setQuantity] = useState(0)
+  const [giftID, setGiftID] = useState(props.giftCards[0].id || '')
+  const [giftCardData, setGiftCardData] = useState(props.giftCards[0])
 
-  const addToCartHandler = () => {
-    dispatch(AddToCartState('mockID'))
-    dispatch(CartProductsCount())
+  const addToCartHandler = async () => {
+    dispatch(setAddToCart(giftCardData)) //get ID from BE
+    dispatch(setUpdateCart(giftCardData.id, quantity)) //state quantity
+    dispatch(setCartItemsCount())
+    dispatch(setCartTotal())
   }
+  useEffect(() => {
+    const updatePage = async () => {
+      const updatePageData = await fetchDataById(giftID, 'gift-cards')
+      setGiftCardData(updatePageData)
+    }
+    updatePage()
+  }, [giftID])
+
+  console.log('[COntent update]', giftCardData)
+  const selectValueHandle = (e) => {
+    setGiftID(e.target.value)
+  }
+
   const router = useRouter()
   const relativePath = router.asPath
   console.log('PARH', relativePath)
@@ -59,30 +82,26 @@ const productDetail = () => {
     <Container>
       <ImageWrapper>
         <StyledImage
-          imageSrc={`/images/creme.jpg`}
+          imageSrc={`${url}${giftCardData.Images.url}`}
           imageWidth={710}
           imageHeight={600}
         />
       </ImageWrapper>
       <ProductContent>
-        <Title title={'Digital Gift Card'} />
-        <Price>1000,- Kč</Price>
+        <Title title={giftCardData.Title} />
+        <Price>{giftCardData.Price} Kč</Price>
         <Description>
-          Adipisicing eiusmod consectetur cupidatat officia minim anim Lorem.
-          Enim ipsum deserunt minim ipsum Lorem. Enim aliquip culpa aute aliqua
-          tempor excepteur.Voluptate id est excepteur irure amet ex anim eiusmod
-          tempor deserunt. Ullamco ea dolor mollit pariatur voluptate esse sunt
-          consectetur quis laborum excepteur velit officia. Anim sint elit Lorem
-          fugiat laborum incididunt magna minim.
+          <ReactMarkdown children={giftCardData.Description} />
         </Description>
 
         <GiftCardWrapper>
           <span>DENOMINATIONS</span>
-          <StyledSelect>
-            <option>500</option>
-            <option>1000</option>
-            <option>1500</option>
-            <option>2000</option>
+          <StyledSelect onChange={selectValueHandle}>
+            {props.giftCards.map((data) => (
+              <option key={data.id} value={data.id}>
+                {data.Price}
+              </option>
+            ))}
           </StyledSelect>
         </GiftCardWrapper>
 
@@ -90,6 +109,9 @@ const productDetail = () => {
           onAddToCart={() => addToCartHandler()}
           title={'Quantity'}
           buttonTitle={'Add to cart'}
+          quantity={quantity}
+          setQuantity={setQuantity}
+          productID={giftID}
         />
         {mock_dropdowns.map((dropdown, i) => (
           <Dropdown
@@ -105,9 +127,26 @@ const productDetail = () => {
   )
 }
 
-//
-// GET static props
-//
+export const getStaticProps = async () => {
+  try {
+    const api = await fetch(`${url}/gift-cards`)
+    const data = await api.json()
+
+    return {
+      props: {
+        giftCards: data,
+      },
+    }
+  } catch (error) {
+    console.log('[GIFT CRADS FETCH ERROR]', error)
+    return {
+      props: {
+        giftCards: {},
+        fallback: true,
+      },
+    }
+  }
+}
 
 const Container = styled.div`
   display: flex;
@@ -155,4 +194,4 @@ const StyledSelect = styled.select`
   outline: none;
 `
 
-export default productDetail
+export default giftCardPage

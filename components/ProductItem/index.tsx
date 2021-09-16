@@ -10,7 +10,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 import StyledImage from 'components/General/Image'
-import { fetchCart } from 'services/fetchCart'
+import { fetchDataById } from 'services/fetchDataById'
 
 const ProductItem = (props: {
   detailID: string
@@ -22,7 +22,7 @@ const ProductItem = (props: {
   const dispatch = useDispatch()
 
   const addToCartHandler = async () => {
-    const productToCart = await fetchCart(props.detailID)
+    const productToCart = await fetchDataById(props.detailID, 'products')
     dispatch(setAddToCart(productToCart))
     dispatch(setUpdateCart(props.detailID, 1)) //add quantity 1 to cart
     dispatch(setCartItemsCount())
