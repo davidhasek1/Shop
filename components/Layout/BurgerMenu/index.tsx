@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
-import { openMobileMenu } from 'store/actions/handlersActions'
 import { Close } from '@styled-icons/evil/Close'
 import Burger from './Burger'
 import { getOpenMobileMenu } from 'sagaStore/selectors'
-import {setOpenMobileMenuAction} from 'sagaStore/actions'
+import { setOpenMobileMenuAction } from 'sagaStore/actions'
 
 const BurgerMenu = ({ flexPosition }) => {
   const dispatch = useDispatch()

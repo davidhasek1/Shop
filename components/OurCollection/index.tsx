@@ -25,7 +25,7 @@ const OurCollection = ({ products }) => {
         <h2>Shop Our collection</h2>
       </WrapperTitle>
       <SliderWrapper>
-        <Slider slideDistatnce={0}>{productsRender}</Slider>
+        <Slider slideDistatnce={0}>{productsRender}</Slider>  {/* TODO: for now slider is not used. */}
       </SliderWrapper>
       <ContentWrapper>
         <GridLyout content={productsRender} />

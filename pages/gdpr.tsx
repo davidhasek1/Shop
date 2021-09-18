@@ -11,7 +11,7 @@ const GDPR = ({ gdpr }) => {
   return (
     <div>
       <Head>
-        <title>GDPR</title>
+        <title>{gdpr.Title}</title>
       </Head>
 
       <Header
