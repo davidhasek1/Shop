@@ -9,7 +9,6 @@ const MobileHeaderImage = ({ image }) => {
         imageSrc={image}
         imageWidth={2500}
         imageHeight={3000}
-        scaleing={false}
         fitting={'cover'}
         layout={'intrinsic'}
       />

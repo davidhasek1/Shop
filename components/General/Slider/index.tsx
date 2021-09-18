@@ -7,7 +7,7 @@ import {
 } from '@styled-icons/evaicons-outline'
 import { StyledIconBase } from '@styled-icons/styled-icon'
 
-const Slider = ({ children }) => {
+const Slider = (props: { children: any; slideDistatnce: number }) => {
   const scrollRef = useRef(null)
   const scrolling = (offset: number) => {
     scrollRef.current.scrollLeft += offset
@@ -17,14 +17,20 @@ const Slider = ({ children }) => {
     <SliderWrapper>
       <ItemsOuterWrapper>
         <ArrowWrapper>
-          <ArrowIosBackOutline onClick={() => scrolling(-256)} size={50} />{' '}
+          <ArrowIosBackOutline
+            onClick={() => scrolling(-1 * props.slideDistatnce)}
+            size={50}
+          />
           {/*TODO: U obrazku udělat scroll o width obrazku */}
         </ArrowWrapper>
 
-        <ItemsInnerWrapper ref={scrollRef}>{children}</ItemsInnerWrapper>
+        <ItemsInnerWrapper ref={scrollRef}>{props.children}</ItemsInnerWrapper>
 
         <ArrowWrapper>
-          <ArrowIosForwardOutline onClick={() => scrolling(256)} size={50} />
+          <ArrowIosForwardOutline
+            onClick={() => scrolling(props.slideDistatnce)}
+            size={50}
+          />
         </ArrowWrapper>
       </ItemsOuterWrapper>
     </SliderWrapper>

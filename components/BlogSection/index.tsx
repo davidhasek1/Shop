@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
 import { BlogPost, BlogPosts } from 'types'
-import Heading from 'components/General/Heading'
 import Post from 'components/BlogPost'
 
 const BlogSection = (props: {
@@ -10,14 +9,17 @@ const BlogSection = (props: {
 }) => {
   return (
     <Wrapper>
-      <Heading>Our Blog</Heading>
+      <WrapperTitle>
+        <h2>Our Blog</h2>
+      </WrapperTitle>
+
       <Cotainer>
         {props.blogContent.map(
           (item: BlogPost, idx: number) =>
             idx < 2 && (
               <PostWrapper key={idx}>
                 <Post
-                  postID={idx}  //TODO: mocked ID
+                  postID={idx} //TODO: mocked ID
                   isHomePage={props.isHomePage}
                   imageSource={item.imageUrl}
                   title={item.title}
@@ -33,6 +35,9 @@ const BlogSection = (props: {
 const Wrapper = styled.div`
   max-width: 1100px;
   margin: 100px auto;
+`
+const WrapperTitle = styled.div`
+  padding-top: 20px;
 `
 const Cotainer = styled.div`
   display: flex;
