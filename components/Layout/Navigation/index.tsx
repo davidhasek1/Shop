@@ -47,7 +47,6 @@ const Navigation = () => {
               imageSrc={'/images/wellu.png'}
               imageWidth={100}
               imageHeight={40}
-              scaleing={false}
               fitting={'contain'}
               layout={'fixed'}
             />

@@ -9,7 +9,6 @@ const DesktopHeaderImage = ({ image }) => {
         imageSrc={image}
         imageWidth={2500}
         imageHeight={1050}
-        scaleing={false}
         fitting={'cover'}
         layout={'intrinsic'}
       />

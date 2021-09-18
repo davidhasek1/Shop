@@ -5,10 +5,10 @@ import Link from 'next/link'
 
 import Slider from 'components/General/Slider'
 import ProductItem from 'components/ProductItem'
-import Heading from 'components/General/Heading'
 import GridLyout from 'components/Layout/GridLayout'
 
 const OurCollection = ({ products }) => {
+  console.log(products)
   const productsRender = products.map((product) => (
     <ProductItem
       key={product.id}
@@ -21,9 +21,11 @@ const OurCollection = ({ products }) => {
 
   return (
     <Wrapper>
-      <Heading>Shop Our collection</Heading>
+      <WrapperTitle>
+        <h2>Shop Our collection</h2>
+      </WrapperTitle>
       <SliderWrapper>
-        <Slider>{productsRender}</Slider>
+        <Slider slideDistatnce={0}>{productsRender}</Slider>  {/* TODO: for now slider is not used. */}
       </SliderWrapper>
       <ContentWrapper>
         <GridLyout content={productsRender} />
@@ -38,6 +40,9 @@ const OurCollection = ({ products }) => {
 const Wrapper = styled.div`
   margin: 75px auto;
   max-width: 1100px;
+`
+const WrapperTitle = styled.div`
+  padding-top: 20px;
 `
 const SliderWrapper = styled.div`
   ${breakpoints('display', '', [{ L: 'none' }], 'min-width')};

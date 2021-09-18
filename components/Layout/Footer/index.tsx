@@ -9,6 +9,7 @@ import Copyright from './Copyright'
 
 const Footer = ({ footer }) => {
   console.log(footer.Links)
+  console.log(footer.SocialLinks)
   return (
     <FooterContainer>
       <Content>
@@ -18,7 +19,6 @@ const Footer = ({ footer }) => {
               imageSrc={`${url}${footer.Logo.url}`}
               imageWidth={100}
               imageHeight={100}
-              scaleing={false}
               fitting={'contain'}
               layout={'intrinsic'}
             />
