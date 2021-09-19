@@ -9,13 +9,10 @@ import { CartItemType } from 'types'
 
 import { getCartItems } from 'sagaStore/cart/selectors'
 
-import CartItem from 'components/CheckoutProcess/Cart/CartItem'
-import CartSummary from 'components/CheckoutProcess/Cart/CartSummary'
+import CartItem from 'components/Cart/CartItem'
+import CartSummary from 'components/Cart/CartSummary'
 
-import CustomerData from 'components/CheckoutProcess/CustomerData'
-import Shipment from 'components/CheckoutProcess/Shipment'
-import OrderSummary from 'components/CheckoutProcess/OrderSummary'
-import Thankyou from 'components/CheckoutProcess/ThankYou'
+import CustomerData from 'components/CheckoutWizard/Informations'
 
 const Cart: NextPage = () => {
   const cartItems = useSelector(getCartItems)

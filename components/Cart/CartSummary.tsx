@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 import { breakpoints } from 'utils/responsivity'
-import { getCartTotal } from 'sagaStore/selectors'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
+
+import { getCartTotal } from 'sagaStore/selectors'
 
 const CartSummary = () => {
+  const router = useRouter()
   const totalPrice = useSelector(getCartTotal)
+
   return (
     <Summary>
       <TotalPriceWrapper>
@@ -14,7 +18,9 @@ const CartSummary = () => {
       <div>Shipping & taxes calculated at checkout</div>
 
       <CheckoutButtonWrapper>
-        <CheckoutButton>Checkout</CheckoutButton>{' '}
+        <CheckoutButton onClick={() => router.push('/checkout')}>
+          Checkout
+        </CheckoutButton>{' '}
         {/* TODO:  pushni usera na checkout page */}
       </CheckoutButtonWrapper>
     </Summary>
