@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 import DesktopImage from './DesktopHeaderImage'
 import MobileImage from './MobileHeaderImage'
 import MainTitle from './MainTitle'
@@ -34,9 +33,12 @@ const HeaderContainer = styled.div<Props>`
   background-color: ${(props) => props.theme.white};
   overflow: hidden; // !!!
   height: ${({ setHeight }) => (setHeight ? `${setHeight}px` : '100%')};
-
-  ${breakpoints('flex-direction', '', [{ M: 'column' }])};
-  ${breakpoints('height', '', [{ XL: '100%' }])};
+  ${(props) => props.theme.breakpoint.XL} {
+    height: 100%;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    flex-direction: column;
+  }
 `
 const ImageWrapper = styled.div`
   font-size: 0;

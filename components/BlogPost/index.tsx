@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 import Image from 'components/General/Image'
 import { useRouter } from 'next/router'
 

@@ -1,14 +1,15 @@
-import styled from "styled-components";
-import { breakpoints } from "utils/responsivity";
-import Modal from "./Modal";
-import Image from "next/image";
-import {RootStateOrAny , useSelector, useDispatch } from "react-redux";
-import {openProductDetail} from 'store/actions/handlersActions'
+import styled from 'styled-components'
+import Modal from './Modal'
+import Image from 'next/image'
+import { RootStateOrAny, useSelector, useDispatch } from 'react-redux'
+import { openProductDetail } from 'store/actions/handlersActions'
 import StyledImage from 'components/General/Image'
 
 const ProductDetail = () => {
-  const dispatch = useDispatch();
-  const { isProductDetailOpen } = useSelector((state: RootStateOrAny) => state.handlers);
+  const dispatch = useDispatch()
+  const { isProductDetailOpen } = useSelector(
+    (state: RootStateOrAny) => state.handlers
+  )
 
   return isProductDetailOpen ? (
     <Modal closeModal={() => dispatch(openProductDetail(false))}>
@@ -36,15 +37,14 @@ const ProductDetail = () => {
         </DetailContent>
       </ProductWrapper>
     </Modal>
-  ) : null;
-};
+  ) : null
+}
 
 const ProductWrapper = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
-  ${breakpoints("flex-direction", "", [{ L: "column" }])}
-`;
+`
 const ImageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,18 +52,12 @@ const ImageContainer = styled.div`
   width: 35%;
   margin: 20px;
   height: 100%;
-  ${breakpoints("width", "", [{ L: "90%" }])}
-`;
+`
 const DetailContent = styled.div`
   width: 65%;
   margin: 20px;
-  ${breakpoints("width", "", [{ L: "90%" }])}
-`;
-const Title = styled.h1`
-  ${breakpoints("font-size", "", [{ L: "20px" }])}
-`;
-const Text = styled.p`
-  ${breakpoints("font-size", "", [{ L: "14px" }])}
-`;
+`
+const Title = styled.h1``
+const Text = styled.p``
 
-export default ProductDetail;
+export default ProductDetail

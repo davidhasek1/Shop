@@ -18,7 +18,7 @@ const CustomerDataPage: NextPage = () => {
 }
 
 const Wrapper = styled.div`
-  //background-color: red;
+
 `
 
 export default CustomerDataPage

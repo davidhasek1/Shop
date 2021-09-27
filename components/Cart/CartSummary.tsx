@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 
@@ -35,8 +34,10 @@ const Summary = styled.div`
   flex-direction: column;
   align-items: flex-end;
   font-size: 14px;
-  ${breakpoints('margin', '', [{ L: '15px' }])}
-  ${breakpoints('align-items', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.L} {
+   margin: 15px;
+   align-items: center;
+  }
 `
 
 const TotalPriceWrapper = styled.div`

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 import Image from 'components/General/Image'
 import MainBanner from './MainBanner'
 import Content from './Content'
@@ -53,21 +52,37 @@ const Banners = () => {
 const Wrapper = styled.div`
   display: flex;
   padding: 50px 0;
-  ${breakpoints('flex-direction', '', [{ L: 'column' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    flex-direction: column;
+  }
 `
 
 const SmallBanners = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-  ${breakpoints('width', '', [{ L: '100%' }])}
-  ${breakpoints(' grid-template-columns', '', [{ M: 'auto' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    grid-template-columns: auto;
+  }
 `
 const ImageWrapper = styled.div`
-  ${breakpoints(' display', '', [{ M: 'none' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    display: none;
+  }
 `
 const MainContentMobile = styled.div`
-  ${breakpoints(' display', '', [{ M: 'none' }], 'min-width')}
+  ${(props) => props.theme.breakpoint.XL} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    display: block;
+  }
 `
 
 export default Banners

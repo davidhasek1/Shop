@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
-//import Button from 'components/UI/Button' //TODO delete this file
 import Link from 'next/link'
 
 const MainTitle = (props: {
@@ -33,18 +31,24 @@ const TitleWrapper = styled.div`
   transform: translate(-50%, -50%);
   width: 70%;
   text-align: left;
-  ${breakpoints('width', '', [{ L: '90%' }])}
-  ${breakpoints('text-align', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    width: 90%;
+    text-align: center;
+  }
 `
 const Title = styled.h1`
-  ${breakpoints('font-size', '', [{ L: '40px' }, { M: '25px' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    font-size: 40px;
+  }
 `
 const ButtonWrapper = styled.div<Props>`
   display: ${({ isHomePage }) => !isHomePage && 'none'};
 `
 const Button = styled.button`
   padding: 15px 60px;
-  ${breakpoints('padding', '', [{ M: '10px 40px' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    padding: 10px 40px;
+  }
 `
 
 export default MainTitle

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import { url } from 'config'
 import Link from 'next/link'
 
@@ -25,7 +25,8 @@ const OurCollection = ({ products }) => {
         <h2>Shop Our collection</h2>
       </WrapperTitle>
       <SliderWrapper>
-        <Slider slideDistatnce={0}>{productsRender}</Slider>  {/* TODO: for now slider is not used. */}
+        <Slider slideDistatnce={0}>{productsRender}</Slider>{' '}
+        {/* TODO: for now slider is not used. */}
       </SliderWrapper>
       <ContentWrapper>
         <GridLyout content={productsRender} />
@@ -45,10 +46,17 @@ const WrapperTitle = styled.div`
   padding-top: 20px;
 `
 const SliderWrapper = styled.div`
-  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')};
+  ${(props) => props.theme.breakpoint.XL} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.L} {
+    display: flex;
+  }
 `
 const ContentWrapper = styled.div`
-  ${breakpoints('display', '', [{ L: 'none' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+  }
 `
 const Button = styled.button`
   padding: 10px 60px;

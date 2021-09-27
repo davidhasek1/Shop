@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { breakpoints } from 'utils/responsivity'
+
 import styled from 'styled-components'
 import Head from 'next/head'
 
@@ -31,7 +31,9 @@ const Contact: NextPage = () => {
 
 const Container = styled.div`
   display: flex;
-  ${breakpoints('flex-direction', '', [{ L: 'column' }])}
+  ${(props) => props.theme.breakpoint.L} {
+flex-direction: column;
+  }
 `
 const FormWrapper = styled.div`
   width: 50%;
@@ -39,12 +41,16 @@ const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: left;
-  ${breakpoints('width', '', [{ L: '100%' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+}
 `
 const MapWrapper = styled.div`
   position: relative;
   width: 50%;
-  ${breakpoints('width', '', [{ L: '100%' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+  }
 `
 const Map = styled.iframe`
   display: block; /* iframe je defaultne inline !! */
@@ -52,7 +58,9 @@ const Map = styled.iframe`
   height: 90vh;
   border: none;
   filter: grayscale(100%);
-  ${breakpoints('height', '', [{ L: '50vh' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    height: 50vh;
+  }
 `
 
 export default Contact

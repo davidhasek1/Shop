@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 import QuantitiyHandler from 'components/QuantityHandler'
 
 const ProductActions = (props: {
@@ -39,11 +38,5 @@ const InputWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 20px 0;
-`
-const Select = styled.select`
-  background: none;
-  outline: none;
-  border: none;
-  width: 30px;
 `
 export default ProductActions

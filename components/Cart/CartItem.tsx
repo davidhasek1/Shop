@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -73,20 +72,26 @@ const CartContent = styled.div`
   //border-bottom: 1px solid ${(props) => props.theme.fade2};
   padding: 30px 0;
   margin: 0 15px;
-  ${breakpoints('flex-direction', '', [{ L: 'column' }])}
-  ${breakpoints('align-items', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 const ItemDescription = styled.div`
   display: flex;
   width: 50%;
-  ${breakpoints('width', '', [{ L: '100%' }])}
-  ${breakpoints('margin', '', [{ L: '10px 0' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+    margin: 10px 0;
+  }
 `
 const CartImage = styled.div`
   margin-right: 15%;
-  ${breakpoints('margin-right', '', [{ L: '10px' }])}
-  ${breakpoints('display', '', [{ L: 'flex' }])}
-  ${breakpoints('justify-content', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+  }
 `
 const TitleWrapper = styled.div`
   display: flex;
@@ -94,20 +99,31 @@ const TitleWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-
-  ${breakpoints('align-items', '', [{ L: 'flex-start' }])}
-  ${breakpoints('text-align', '', [{ L: 'left' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    align-items: flex-start;
+    text-align: left;
+  }
 `
 const Labels = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
   margin: 20px 0;
-  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
+  ${(props) => props.theme.breakpoint.XL} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    display: flex;
+  }
 `
 const Title = styled.h3`
   cursor: pointer;
-  ${breakpoints('width', '', [{ L: '100%' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+  }
 `
 const RemoveButton = styled.div`
   font-size: 12px;
@@ -116,7 +132,9 @@ const RemoveButton = styled.div`
   &:hover {
     color: #ff0000;
   }
-  ${breakpoints('padding', '', [{ L: '10px 0' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    padding: 10px 0;
+  }
 `
 /************************* */
 const PriceDescription = styled.div`
@@ -124,7 +142,9 @@ const PriceDescription = styled.div`
   width: 50%;
   justify-content: space-between;
   align-items: center;
-  ${breakpoints('width', '', [{ L: '100%' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+  }
 `
 const UnitPrice = styled.div`
   width: 100%;

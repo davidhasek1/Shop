@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 import CustomInput from 'components/General/CustomInput'
-import { breakpoints } from '../../../utils/responsivity'
 
 export type InputType = {
   type: string
@@ -222,13 +221,15 @@ const Informations = () => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 25px;
+  margin-top: 35px;
 `
 const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    flex-direction: column;
+  }
 `
 const CustomInputName = styled(CustomInput)``
 const CustomInputSurename = styled(CustomInput)``

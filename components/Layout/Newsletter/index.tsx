@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 
 const Newsletter = () => {
   return (
@@ -34,12 +33,16 @@ const StyledInput = styled.input`
   border-bottom: 2px solid ${(props) => props.theme.black};
   padding: 10px 5px;
   margin-right: 10px;
-  ${breakpoints('margin', '', [{ M: 0 }])}
+  ${(props) => props.theme.breakpoint.M} {
+    margin: 0;
+  }
 `
 const Button = styled.button`
   padding: 10px 60px;
-  ${breakpoints('margin-top', '', [{ M: '15px' }])}
-  ${breakpoints('width', '', [{ M: '250px' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    margin-top: 15px;
+    width: 250px;
+  }
 `
 
 export default Newsletter

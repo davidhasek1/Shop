@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { setCartTotal, setUpdateCart, setCartRemove } from 'sagaStore/actions'
 import { useDispatch } from 'react-redux'
-import { breakpoints } from '../../utils/responsivity'
 
 const QuantityHandler = (props: {
   quantity: any
@@ -73,7 +72,6 @@ const QuantityHandler = (props: {
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
- 
 `
 const Container = styled.div`
   display: flex;
@@ -91,14 +89,17 @@ const CountButton = styled.button`
     outline: none;
     background: none;
   }
-  ${breakpoints('padding', '', [{ S: '5px' }])}
+  ${(props) => props.theme.breakpoint.S} {
+    padding: 5px;
+  }
 `
 
 const InputStyled = styled.input`
   height: 100%;
   background: none;
-
-  ${breakpoints('width', '', [{ S: '1.5rem' }])}
+  ${(props) => props.theme.breakpoint.S} {
+    width: 1.5rem;
+  }
 `
 
 export default QuantityHandler

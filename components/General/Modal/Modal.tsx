@@ -1,9 +1,7 @@
-import { ModalProps } from "types/types";
-import styled from "styled-components";
-import { CloseCircle } from "@styled-icons/ionicons-solid/CloseCircle";
-import { breakpoints } from "utils/responsivity";
+import styled from 'styled-components'
+import { CloseCircle } from '@styled-icons/ionicons-solid/CloseCircle'
 
-const Modal = ({ closeModal, children }: ModalProps) => {
+const Modal = ({ closeModal, children }) => {
   return (
     <>
       <Backdrop onClick={closeModal} />
@@ -14,8 +12,8 @@ const Modal = ({ closeModal, children }: ModalProps) => {
         {children}
       </Window>
     </>
-  );
-};
+  )
+}
 
 const Backdrop = styled.div`
   position: fixed;
@@ -24,7 +22,7 @@ const Backdrop = styled.div`
   z-index: 1;
   background-color: #00000048;
   display: flex;
-`;
+`
 const Window = styled.div`
   position: fixed;
   max-height: 80vh;
@@ -37,11 +35,10 @@ const Window = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  ${breakpoints("width", "", [{ L: "90%" }, { M: "100%" }])}
-`;
+`
 const CloseCircleStyled = styled(CloseCircle)`
   color: ${(props) => props.theme.pink};
-`;
+`
 const CloseButton = styled.div`
   position: sticky;
   top: 2px;
@@ -49,5 +46,5 @@ const CloseButton = styled.div`
   width: 25px;
   height: 25px;
   cursor: pointer;
-`;
-export default Modal;
+`
+export default Modal

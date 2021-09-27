@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 import { getCartTotal } from 'sagaStore/selectors'
 import { useSelector } from 'react-redux'
 
@@ -24,12 +23,22 @@ const Dot = styled.div`
   height: 8px;
   border-radius: 50%;
   background-color: ${(props) => props.theme.black};
-  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')};
+  ${(props) => props.theme.breakpoint.XL} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    display: flex; //TODO: Check is it displays correctly
+  }
 `
 
 const PriceSummary = styled.div`
   margin-left: 5px;
-  ${breakpoints('display', '', [{ L: 'none' }])};
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+  }
 `
 
 export default CartSummaryIndicator

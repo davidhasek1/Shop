@@ -1,4 +1,3 @@
-import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 
 const Copyright = ({ copyright }) => {
@@ -17,10 +16,14 @@ const CopyrightWrapper = styled.div`
   padding: 10px;
   font-size: 12px;
   color: #808080;
-  
-  ${breakpoints('order', '', [{ L: 1 }])}
-  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
-  ${breakpoints('padding', '', [{ L: '20px 0' }])}
+
+  ${(props) => props.theme.breakpoint.L} {
+    order: 1;
+    padding: 20px 0;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    flex-direction: column;
+  }
 `
 const Item = styled.span`
   margin: 10px 0;

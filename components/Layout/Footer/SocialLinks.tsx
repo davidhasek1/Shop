@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import { StyledIconBase } from '@styled-icons/styled-icon'
 import {
   FacebookCircle,
@@ -34,7 +34,9 @@ const Socials = styled.div`
       color: ${(props) => props.theme.black};
     }
   }
-  ${breakpoints('padding', '', [{ M: '20px 0' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    padding: 20px 0;
+  }
 `
 
 export default SocialLinks

@@ -4,7 +4,7 @@ import BlogGrid from 'components/Layout/GridLayout'
 import { mocked_blogposts } from '../../MOCK'
 import BlogPost from 'components/BlogPost'
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import { useRouter } from 'next/router'
 
 const Blog: NextPage = () => {
@@ -44,11 +44,15 @@ const Blog: NextPage = () => {
 }
 
 const MainPostContent = styled.div`
-  ${breakpoints('text-align', '', [{ L: 'left' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    text-align: left;
+  }
 `
 const MainPostButtonWrapper = styled.div`
   margin-top: 15px;
-  ${breakpoints('text-align', '', [{ L: 'center' }, { M: 'right' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    text-align: center;
+  }
 `
 const MainPostButton = styled.button`
   border: 2px solid ${(props) => props.theme.black};

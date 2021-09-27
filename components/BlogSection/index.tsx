@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import { BlogPost, BlogPosts } from 'types'
 import Post from 'components/BlogPost'
 
@@ -42,8 +42,10 @@ const WrapperTitle = styled.div`
 const Cotainer = styled.div`
   display: flex;
   justify-content: center;
-  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
-  ${breakpoints('align-items', '', [{ M: 'center' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 const PostWrapper = styled.div``
 

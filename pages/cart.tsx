@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import { useSelector } from 'react-redux'
 import { url } from 'config'
 import Head from 'next/head'
@@ -63,7 +63,9 @@ const Wrapper = styled.div`
 `
 const CartTitle = styled.h1`
   text-align: left;
-  ${breakpoints('text-align', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    text-align: center;
+  }
 `
 const CartTitleEmpty = styled.h1`
   text-align: center;
@@ -73,16 +75,20 @@ const CartLabelsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-  ${breakpoints('justify-content', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    justify-content: center;
+  }
 `
 const Labels = styled.div`
   display: flex;
   width: 50%;
   justify-content: space-between;
   margin: 15px;
-  ${breakpoints('display', '', [{ L: 'none' }])}
-  ${breakpoints('width', '', [{ L: '100%' }])}
-  ${breakpoints('margin', '', [{ L: '0 25px' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+    width: 100%;
+    margin: 0 25px;
+  }
 `
 
 export default Cart
