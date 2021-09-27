@@ -38,7 +38,7 @@ const TitleWrapper = styled.div`
 `
 const Title = styled.h1`
   ${(props) => props.theme.breakpoint.L} {
-    font-size: 40px;
+    font-size: 30px;
   }
 `
 const ButtonWrapper = styled.div<Props>`

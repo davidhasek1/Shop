@@ -1,37 +1,26 @@
-import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
-import { useSelector, RootStateOrAny } from 'react-redux'
+import { useSelector } from 'react-redux'
 import NavigationLinks from './NavigationLinks'
 import StyledImage from 'components/General/Image'
 import DropdownMenu from 'components/Layout/DropdownMenu'
 import { getOpenMobileMenu } from 'sagaStore/selectors'
+import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
 
 export const NAVBAR_HEIGHT = '60px'
 export type NavLinksType = {
   href: string
-  caption: string
-  icon: any
-}
-export type NavSection = {
-  left: Array<NavLinksType>
-  right: Array<NavLinksType>
+  content?: string | any
+  icon?: any
+  image?: any
 }
 
-//@ts-ignore
-const navlinks: NavSection = [
-  {
-    left: [
-      { href: '/shop', caption: 'Shop' },
-      { href: '/our-story', caption: 'Our Story' },
-      { href: '/blog', caption: 'Blog' },
-      { href: '/gift-card', caption: 'Gift Card' },
-    ],
-  },
-
-  {
-    right: [{ href: '/account/log-in', caption: 'Account' }],
-  },
+const navlinks: NavLinksType[] = [
+  { href: '/shop', content: 'Shop' },
+  { href: '/our-story', content: 'Our Story' },
+  { href: '/blog', content: 'Blog' },
+  { href: '/gift-card', content: 'Gift Card' },
+  { href: '/account/login', content: 'Account' },
 ]
 
 const Navigation = () => {
@@ -40,19 +29,7 @@ const Navigation = () => {
   return (
     <NavWrapper>
       <Container>
-        <NavigationLinks navlinks={navlinks[0].left} flexPosition={'left'} />
-        <Link href="/" passHref>
-          <ImageLink>
-            <StyledImage
-              imageSrc={'/images/wellu.png'}
-              imageWidth={100}
-              imageHeight={40}
-              fitting={'contain'}
-              layout={'fixed'}
-            />
-          </ImageLink>
-        </Link>
-        <NavigationLinks navlinks={navlinks[1].right} flexPosition={'right'} />
+        <NavigationLinks navlinks={navlinks} />
       </Container>
       {isMobileMenuOpen ? <DropdownMenu links={navlinks} /> : null}
     </NavWrapper>
@@ -67,7 +44,10 @@ const NavWrapper = styled.div`
   box-shadow: 0px 4px 10px -6px ${(props) => props.theme.fade2};
   color: ${(props) => props.theme.text};
   font-weight: 300;
-  ${breakpoints('font-size', '', [{ M: '14px' }])};
+
+  ${(props) => props.theme.breakpoint.M} {
+    font-size: 14px;
+  }
 `
 const Container = styled.div`
   height: ${NAVBAR_HEIGHT};
@@ -75,7 +55,10 @@ const Container = styled.div`
   margin: auto;
   display: flex;
   justify-content: space-between;
-  ${breakpoints('padding', '', [{ XL: '0 15px' }])}
+
+  ${(props) => props.theme.breakpoint.XL} {
+    padding: 0 15px;
+  }
 `
 const ImageLink = styled.a`
   font-size: 0;

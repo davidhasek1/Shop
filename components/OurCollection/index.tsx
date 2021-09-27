@@ -51,6 +51,7 @@ const SliderWrapper = styled.div`
   }
   ${(props) => props.theme.breakpoint.L} {
     display: flex;
+    overflow-y: hidden;
   }
 `
 const ContentWrapper = styled.div`
