@@ -1,23 +1,11 @@
 import styled from 'styled-components'
 import Link from 'next/link'
+import { InputType } from 'types'
 
 import CustomInput from 'components/General/CustomInput'
 
-export type InputType = {
-  type: string
-  placeholder?: string
-  value: any
-  onChange: () => void
-  text?: string
-  name: string
-  isName?: boolean
-  isSurename?: boolean
-  isCheckbox?: boolean
-}
-
-const Informations = () => {
+const Informations = (props: { shippingStep: () => void }) => {
   //TODO: Do reduxu udělat customer objekt obsahující data z formuláře
-  //(Selectors -> GET hodnoty) SET -> actions
 
   const inputsData: InputType[] = [
     {
@@ -213,7 +201,7 @@ const Informations = () => {
         name={inputsData[10].name}
       />
       <Actions>
-        <Button>Continue to shipping</Button>
+        <Button onClick={props.shippingStep}>Continue to shipping</Button>
         <Link href="/cart">Return to cart</Link>
       </Actions>
     </Wrapper>

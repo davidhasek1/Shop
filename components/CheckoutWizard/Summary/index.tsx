@@ -1,78 +1,37 @@
 import styled from 'styled-components'
+import AnimateHeight from 'react-animate-height'
 
-import CustomImage from 'components/General/Image'
-import CustomInput from 'components/General/CustomInput'
+import SummaryTotals from './Summary_Totals'
+import SummaryItems from './Summary_Items'
+import SummaryCoupon from './Summary_Coupon'
 
-const mockCart = [
-  {
-    title: 'item 1',
-    price: 200,
-    image: '/images/creme.jpg',
-  },
-  {
-    title: 'item 2',
-    price: 10000,
-    image: '/images/creme.jpg',
-  },
-]
-
-const Summary = () => {
+const Summary = (props: { onToggle?: any }) => {
   return (
-    <SummaryWrapper>
-      <CartItems>
-        <div>
-          {mockCart.map((item) => (
-            <Item>
-              <CustomImage
-                imageSrc={item.image}
-                imageWidth={140}
-                imageHeight={140}
-              />
-              <Title>{item.title}</Title>
-              <Price>{item.price}Kč</Price>
-            </Item>
-          ))}
-        </div>
-      </CartItems>
-      <Separator />
-      <CouponWrapper>
-        <CustomInput
-          type={'text'}
-          onChange={() => [
-            /* TODO */
-          ]}
-          value={''}
-          name={'coupon'}
-          placeholder={'Apply coupon'}
-        />
-        <Button>Apply</Button>
-      </CouponWrapper>
-    </SummaryWrapper>
+    <AnimateHeight height={props.onToggle ? 'auto' : 0}>
+      <SummaryWrapper>
+        <SummaryItems />
+        <Separator />
+        <SummaryCoupon />
+        <Separator />
+        <SummaryTotals />
+      </SummaryWrapper>
+    </AnimateHeight>
   )
 }
 
-const SummaryWrapper = styled.div``
-const CartItems = styled.div``
-const Item = styled.div`
-  display: flex;
-  margin: 15px 0;
-  align-items: center;
+const SummaryWrapper = styled.div`
+  margin: 0 10px;
+
+  ${(props) => props.theme.breakpoint.M} {
+    padding: 1rem;
+    margin: 0;
+  }
 `
-const Title = styled.div`
-  width: 100%;
-`
-const Price = styled.div`
-  width: 50%;
-`
-const CouponWrapper = styled.div`
-  display: flex;
-`
-const Button = styled.button`
-  padding: 0 10px;
-`
-const Separator = styled.div`
+
+export const Separator = styled.div`
   border: none;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #dfdddd;
+  margin: 1.5rem 0;
 `
 
 export default Summary
