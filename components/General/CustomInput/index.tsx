@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 const CustomInput = (props: {
   type: string
-  placeholder: string
+  placeholder?: string
   value: any
   onChange: () => void
   name: string

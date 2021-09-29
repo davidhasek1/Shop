@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { InputType } from 'types'
 
 import CustomInput from 'components/General/CustomInput'
+import FormActions from '../FormActions'
 
 const Informations = (props: { shippingStep: () => void }) => {
   //TODO: Do reduxu udělat customer objekt obsahující data z formuláře
@@ -101,7 +102,6 @@ const Informations = (props: { shippingStep: () => void }) => {
           </Link>
         </div>
       </Header>
-
       <CustomInput
         type={inputsData[0].type}
         placeholder={inputsData[0].placeholder}
@@ -123,7 +123,6 @@ const Informations = (props: { shippingStep: () => void }) => {
         <Text>Stay in touch</Text>
       </CheckboxInput>
       <h3>Shipping address</h3>
-
       <HalfInput>
         <CustomInputName
           type={inputsData[2].type}
@@ -200,10 +199,11 @@ const Informations = (props: { shippingStep: () => void }) => {
         text={inputsData[10].text}
         name={inputsData[10].name}
       />
-      <Actions>
-        <Button onClick={props.shippingStep}>Continue to shipping</Button>
-        <Link href="/cart">Return to cart</Link>
-      </Actions>
+      <FormActions
+        step={props.shippingStep}
+        buttonCaption={'Continue to shipping'}
+        linkCaption={'Back to cart'}
+      />
     </Wrapper>
   )
 }
@@ -239,15 +239,5 @@ const Text = styled.div`
 const Anchor = styled.a`
   color: ${(props) => props.theme.pink};
 `
-const Actions = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: ${(props) => props.theme.pink};
-  margin-top: 25px;
-`
-const Button = styled.button`
-  padding: 15px;
-  margin-right: 10px;
-`
+
 export default Informations

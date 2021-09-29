@@ -6,6 +6,10 @@ const CouponWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 2.5rem;
+  ${(props) => props.theme.breakpoint.L} {
+    max-width: 20rem;
+    margin: auto;
+  }
 `
 const Button = styled.button`
   padding: 0 15px;

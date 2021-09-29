@@ -25,6 +25,7 @@ const SummaryWrapper = styled.div`
   ${(props) => props.theme.breakpoint.M} {
     padding: 1rem;
     margin: 0;
+    border-bottom: 1px solid ${(props) => props.theme.pink};
   }
 `
 

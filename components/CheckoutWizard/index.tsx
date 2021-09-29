@@ -11,6 +11,7 @@ const CheckoutWizard = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [showInformations, setShowInformations] = useState(true)
   const [showShipping, setShowShipping] = useState(false)
+  const [showPayment, setShowPayment] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
   console.log(showInformations)
@@ -20,6 +21,11 @@ const CheckoutWizard = () => {
 
     setShowInformations(false)
     setShowShipping(true)
+  }
+  const paymentStep = () => {
+    //save shipping data do reduxu
+    setShowShipping(false)
+    setShowPayment(true)
   }
 
   console.log(showInformations, showShipping)
@@ -55,7 +61,7 @@ const CheckoutWizard = () => {
             </ImageContainer>
 
             {showInformations && <Informations shippingStep={shippingStep} />}
-            {showShipping && <Shipping />}
+            {showShipping && <Shipping paymentStep={paymentStep} />}
             {/* ... next steps */}
           </ProccessContainer>
         </LayoutContainer>
@@ -69,13 +75,12 @@ const CheckoutWizard = () => {
 }
 
 const Container = styled.div`
-  min-height: 100vh;
-
   background-color: #fff;
-  display: flex;
 `
 const Wrapper = styled.div`
+  min-height: 100vh;
   display: flex;
+
   ${(props) => props.theme.breakpoint.M} {
     //TODO: maybe L size ? test it
     flex-direction: column;
@@ -85,8 +90,13 @@ const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 60vw;
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100vw;
+  }
 `
 const ImageContainer = styled.div`
+  margin-bottom: 50px;
   ${(props) => props.theme.breakpoint.L} {
     display: none;
   }
@@ -111,7 +121,7 @@ const ProccessContainer = styled.div`
 `
 const SummaryContainer = styled.div`
   padding: 2.5rem 5% 2.5rem 2.5rem;
-  width: 60%;
+  width: 40vw;
   background-color: #fafafa;
   border-left: 1px solid ${(props) => props.theme.pink};
   ${(props) => props.theme.breakpoint.M} {
