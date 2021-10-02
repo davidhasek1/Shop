@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import { url } from 'config'
 
 import StyledImage from 'components/General/Image'
@@ -44,7 +44,9 @@ const FooterContainer = styled.section`
   padding: 10px;
   background-color: ${(props) => props.theme.white};
   box-shadow: inset 0px 8px 10px -6px ${(props) => props.theme.fade1};
-  ${breakpoints('height', '', [{ M: '100%' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    height: 100%;
+  }
 `
 const Content = styled.div`
   margin: auto;
@@ -56,16 +58,18 @@ const Content = styled.div`
 const UpperSection = styled.div`
   display: flex;
   justify-content: space-around;
-
-  ${breakpoints('flex-direction', '', [{ M: 'column' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    flex-direction: column;
+  }
 `
 const LowerSection = styled.div``
 const ImageWrapper = styled.div`
   font-size: 0;
   display: flex;
   align-items: center;
-
-  ${breakpoints('justify-content', '', [{ M: 'center' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    justify-content: center;
+  }
 `
 
 export default Footer

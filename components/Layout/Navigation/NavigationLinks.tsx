@@ -1,92 +1,91 @@
-import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
-import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
 import { useSelector } from 'react-redux'
 import { getCartItemsCount } from 'sagaStore/selectors'
 import BurgerMenu from 'components/Layout/BurgerMenu'
 import PriceSummary from 'components/CartSummaryIndicator'
 import { useRouter } from 'next/router'
+import { NavLinksType } from '.'
+import StyledImage from 'components/General/Image'
+import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
 
-const NavigationLinks = ({ navlinks, flexPosition }) => {
+const NavigationLinks = (props: { navlinks: NavLinksType[] }) => {
   const itemsCount = useSelector(getCartItemsCount)
   const router = useRouter()
 
   return (
-    <NavLinks>
-      <Links flexPosition={flexPosition}>
-        {navlinks.map((link, idx) => (
-          <LinkWrapper key={idx}>
-            <Link href={link.href}>
-              <AnchorLink isActive={link.href === router.pathname}>
-                {link.caption}
-                {link.icon}
-              </AnchorLink>
-            </Link>
-          </LinkWrapper>
-        ))}
-        <CartLink flexPosition={flexPosition}>
-          <Link href="/cart" passHref>
-            <AnchorLink isActive={router.pathname === '/cart'}>
-              <CartText>Cart</CartText>
-              {itemsCount > 0 && <PriceSummary />}
-              <CartStyled size={30} />
-            </AnchorLink>
-          </Link>
-        </CartLink>
+    <Wrapper>
+      <BurgerWrapper>
+        <BurgerMenu />
+      </BurgerWrapper>
+      <Links>
+        <Link href="/">
+          <a>
+            <StyledImage
+              imageSrc={'/images/wellu.png'}
+              imageWidth={100}
+              imageHeight={40}
+              fitting={'contain'}
+              layout={'fixed'}
+            />
+          </a>
+        </Link>
+        <DynamicLinks>
+          {props.navlinks.map((link) => (
+            <div>
+              <Link href={link.href} passHref>
+                <a>{link.content}</a>
+              </Link>
+            </div>
+          ))}
+        </DynamicLinks>
+        <Link href="/cart">
+          <CartLink>
+            <PriceSummary />
+            <ShoppingCart size={30} />
+          </CartLink>
+        </Link>
       </Links>
-
-      <BurgerMenu flexPosition={flexPosition} />
-    </NavLinks>
+    </Wrapper>
   )
 }
 
-type Props = {
-  flexPosition?: 'left' | 'right'
-  isActive?: boolean
-}
-
-const NavLinks = styled.div`
+const Wrapper = styled.div`
+  display: flex;
   width: 100%;
-`
-const Links = styled.ul<Props>`
-  display: flex;
-  flex-direction: row;
-  justify-content: ${({ flexPosition }) =>
-    flexPosition === 'left' ? 'flex-start' : 'flex-end'};
-  margin: 0;
-  height: 100%;
-  padding: 0;
-  list-style-type: none;
-  ${({ flexPosition }) =>
-    flexPosition === 'left' && breakpoints('display', '', [{ L: 'none' }])};
-`
-const LinkWrapper = styled.li`
-  display: flex;
-  ${breakpoints('display', '', [{ L: 'none' }])}
-`
-const AnchorLink = styled.a<Props>`
-  position: relative;
-  height: 100%;
-  padding: 0 20px;
-  display: flex;
   align-items: center;
-  font-weight: ${({ isActive }) => isActive && 500};
-  &:hover {
-    text-decoration: underline;
+`
+const Links = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+  ${(props) => props.theme.breakpoint.M} {
   }
+`
+const CartLink = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+`
+const DynamicLinks = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 
-  ${breakpoints('padding', '', [{ L: '0' }])};
-`
-const CartLink = styled.div<Props>`
-  display: ${({ flexPosition }) =>
-    flexPosition === 'left' ? 'none' : 'block'};
-`
-const CartText = styled.span`
-  ${breakpoints('display', '', [{ L: 'none' }])}
-`
-const CartStyled = styled(ShoppingCart)`
-  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
+  ${(props) => props.theme.breakpoint.M} {
+    display: none;
+  }
 `
 
+const BurgerWrapper = styled.div`
+  ${(props) => props.theme.breakpoint.XL} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    display: block;
+  }
+`
 export default NavigationLinks

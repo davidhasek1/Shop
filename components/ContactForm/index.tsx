@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 
 import Form from './Form'
 
@@ -24,9 +23,12 @@ const ContactForm = () => {
 const Content = styled.div`
   width: 60%;
   min-width: 200px;
-
-  ${breakpoints('width', '', [{ M: '90%' }])}
-  ${breakpoints('margin', '', [{ L: '25px 0' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    margin: 25px 0;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    width: 90%;
+  }
 `
 const WrapperTitle = styled.div`
   padding-top: 20px;

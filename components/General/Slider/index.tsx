@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import {
   ArrowIosBackOutline,
   ArrowIosForwardOutline,
@@ -41,7 +41,9 @@ const SliderWrapper = styled.div``
 const ItemsOuterWrapper = styled.div`
   display: flex;
   justify-content: center;
-  ${breakpoints('margin', '', [{ L: '50px 0px' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    margin: 50px 0px;
+  }
 `
 const ArrowWrapper = styled.div`
   display: flex;
@@ -54,8 +56,9 @@ const ArrowWrapper = styled.div`
       transform: scale(1.2);
     }
   }
-
-  ${breakpoints('display', '', [{ L: 'none' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+  }
 `
 const ItemsInnerWrapper = styled.div`
   display: flex;
@@ -63,8 +66,9 @@ const ItemsInnerWrapper = styled.div`
   overflow-y: hidden;
   padding: 20px 0;
   scroll-behavior: smooth;
-
-  ${breakpoints('padding', '', [{ L: '20px 15px' }])}
-  ${breakpoints('margin-right', '', [{ L: '10px' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    padding: 20px 15px;
+    margin-right: 10px;
+  }
 `
 export default Slider

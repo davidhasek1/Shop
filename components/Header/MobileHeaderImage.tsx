@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+import {} from 'utils/responsivity'
 import StyledImage from 'components/General/Image'
 
 const MobileHeaderImage = ({ image }) => {
@@ -18,7 +18,9 @@ const MobileHeaderImage = ({ image }) => {
 
 const MobileImage = styled.div`
   opacity: 0.7;
-  
-  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
+  display: none;
+  ${(props) => props.theme.breakpoint.M} {
+    display: flex;
+  }
 `
 export default MobileHeaderImage

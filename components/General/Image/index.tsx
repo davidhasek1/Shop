@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import Image from 'next/image'
-import { breakpoints } from 'utils/responsivity'
 
 const ImageComponent = (props: {
   imageSrc: string
@@ -15,7 +14,6 @@ const ImageComponent = (props: {
     //TODO:
     //@ts-ignore
     <ImageWrapper isScale={props.scaleing}>
-      <Content>{props.children}</Content>
       <ImageStyled
         src={props.imageSrc}
         width={props.imageWidth}
@@ -58,6 +56,8 @@ const Content = styled.div`
   top: 25%;
   left: 0;
   z-index: 1;
-  ${breakpoints('display', '', [{ M: 'none' }])};
+  ${(props) => props.theme.breakpoint.M} {
+    display: none;
+  }
 `
 export default ImageComponent

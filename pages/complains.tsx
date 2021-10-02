@@ -1,4 +1,3 @@
-import { breakpoints } from 'utils/responsivity'
 import { url } from 'config'
 import styled from 'styled-components'
 import Head from 'next/head'
@@ -59,7 +58,8 @@ const Wrapper = styled.div`
 const ContentContainer = styled.div`
   text-align: justify;
   margin: 0 15%;
-
-  ${breakpoints('margin', '', [{ M: 0 }])};
+  ${(props) => props.theme.breakpoint.M} {
+    margin: 0;
+  }
 `
 export default Complains

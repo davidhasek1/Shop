@@ -1,4 +1,3 @@
-import { breakpoints } from 'utils/responsivity'
 import { StyledIconBase } from '@styled-icons/styled-icon'
 import styled from 'styled-components'
 import Link from 'next/link'
@@ -7,19 +6,12 @@ const DropdownMenu = ({ links }) => {
   return (
     <DropdownWrapper>
       <Links>
-        {links[0].left.map((link, idx) => (
+        {links.map((link, idx) => (
           <StyledLink key={idx}>
             <Link href={link.href}>
-              <Anchor>{link.caption}</Anchor>
+              <Anchor>{link.content}</Anchor>
             </Link>
           </StyledLink>
-        ))}
-        {links[1].right.map((link, idx) => (
-          <StyledLinkLast key={idx}>
-            <Link href={link.href}>
-              <Anchor>{link.caption}</Anchor>
-            </Link>
-          </StyledLinkLast>
         ))}
       </Links>
     </DropdownWrapper>
@@ -29,13 +21,20 @@ const DropdownMenu = ({ links }) => {
 const DropdownWrapper = styled.div`
   background-color: ${(props) => props.theme.white};
   color: ${(props) => props.theme.text};
-  ${breakpoints('display', '', [{ L: 'none' }], 'min-width')}
+  ${(props) => props.theme.breakpoint.XL} {
+    display: none;
+  }
+  ${(props) => props.theme.breakpoint.L} {
+    display: flex;
+  }
 `
 const Links = styled.div`
   text-align: left;
   cursor: pointer;
   padding: 20px;
-  ${breakpoints('width', '', [{ L: '100%' }, { 600: '90vw' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+  }
 `
 const StyledLink = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.fade1};

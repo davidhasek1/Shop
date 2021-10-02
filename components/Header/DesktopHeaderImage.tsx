@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import StyledImage from 'components/General/Image'
 
 const DesktopHeaderImage = ({ image }) => {
@@ -18,6 +18,8 @@ const DesktopHeaderImage = ({ image }) => {
 
 const DesktopImage = styled.div`
   opacity: 0.7;
-  ${breakpoints('display', '', [{ L: 'none' }])}
+  ${(props) => props.theme.breakpoint.M}  {
+    display: none;
+  }
 `
 export default DesktopHeaderImage

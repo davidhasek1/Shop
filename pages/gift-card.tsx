@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { url } from 'config'
-import { breakpoints } from 'utils/responsivity'
+
 import { Facebook, Twitter } from '@styled-icons/boxicons-logos'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
@@ -153,19 +153,25 @@ const Container = styled.div`
   justify-content: center;
   max-width: 1200px;
   margin: 50px auto;
-  ${breakpoints('flex-direction', '', [{ L: 'column' }])};
-  ${breakpoints('padding', '', [{ L: '0 30px' }, { M: '0 15px' }])};
+  ${(props) => props.theme.breakpoint.L} {
+    flex-direction: column;
+    padding: 0 30px;
+  }
 `
 const ImageWrapper = styled.div`
   width: 65%;
-  ${breakpoints('width', '', [{ L: '100%' }])};
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+  }
 `
 const ProductContent = styled.div`
   width: 35%;
   margin: 0 25px;
   text-align: left;
-  ${breakpoints('width', '', [{ L: '100%' }])};
-  ${breakpoints('margin', '', [{ L: '20px 0' }])};
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+    margin: 20px 0;
+  }
 `
 const Price = styled.div`
   margin: 10px 0;

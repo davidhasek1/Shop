@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import { useSelector } from 'react-redux'
 import { url } from 'config'
 import Head from 'next/head'
@@ -9,13 +9,10 @@ import { CartItemType } from 'types'
 
 import { getCartItems } from 'sagaStore/cart/selectors'
 
-import CartItem from 'components/CheckoutProcess/Cart/CartItem'
-import CartSummary from 'components/CheckoutProcess/Cart/CartSummary'
+import CartItem from 'components/Cart/CartItem'
+import CartSummary from 'components/Cart/CartSummary'
 
-import CustomerData from 'components/CheckoutProcess/CustomerData'
-import Shipment from 'components/CheckoutProcess/Shipment'
-import OrderSummary from 'components/CheckoutProcess/OrderSummary'
-import Thankyou from 'components/CheckoutProcess/ThankYou'
+import CustomerData from 'components/CheckoutWizard/Informations'
 
 const Cart: NextPage = () => {
   const cartItems = useSelector(getCartItems)
@@ -66,7 +63,9 @@ const Wrapper = styled.div`
 `
 const CartTitle = styled.h1`
   text-align: left;
-  ${breakpoints('text-align', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    text-align: center;
+  }
 `
 const CartTitleEmpty = styled.h1`
   text-align: center;
@@ -76,16 +75,20 @@ const CartLabelsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-  ${breakpoints('justify-content', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    justify-content: center;
+  }
 `
 const Labels = styled.div`
   display: flex;
   width: 50%;
   justify-content: space-between;
   margin: 15px;
-  ${breakpoints('display', '', [{ L: 'none' }])}
-  ${breakpoints('width', '', [{ L: '100%' }])}
-  ${breakpoints('margin', '', [{ L: '0 25px' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+    width: 100%;
+    margin: 0 25px;
+  }
 `
 
 export default Cart

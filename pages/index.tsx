@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
+
 import { url } from 'config'
 import Head from 'next/head'
 
@@ -58,11 +58,18 @@ export const getStaticProps = async () => {
 
 const Wrapper = styled.div`
   padding: 100px 150px;
-  ${breakpoints('padding', '', [{ L: '100px' }, { M: '0 15px' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    padding: 100px;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    padding: 0 15px;
+  }
 `
 const Title = styled.h1`
   color: ${(props) => props.theme.pink};
-  ${breakpoints('font-weight', '', [{ L: 500 }])}
-  ${breakpoints('color', '', [{ L: '#000' }])}
+  ${(props) => props.theme.breakpoint.L} {
+    font-weight: 500;
+    color: ${(props) => props.theme.black};
+  }
 `
 export default HomePage

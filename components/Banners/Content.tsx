@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
 
 const BannerContent = (props: {
   title?: string
@@ -32,7 +31,9 @@ const Content = styled.div<Props>`
   font-size: 14px;
   line-height: 25px;
   font-weight: 300;
-  ${breakpoints('margin', '', [{ M: '15px 0' }])}
+  ${(props) => props.theme.breakpoint.M} {
+    margin: 15px 0;
+  }
 `
 
 const Title = styled.h3`

@@ -1,10 +1,13 @@
 import styled from 'styled-components'
-import { breakpoints } from 'utils/responsivity'
-import { getCartTotal } from 'sagaStore/selectors'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
+
+import { getCartTotal } from 'sagaStore/selectors'
 
 const CartSummary = () => {
+  const router = useRouter()
   const totalPrice = useSelector(getCartTotal)
+
   return (
     <Summary>
       <TotalPriceWrapper>
@@ -14,7 +17,9 @@ const CartSummary = () => {
       <div>Shipping & taxes calculated at checkout</div>
 
       <CheckoutButtonWrapper>
-        <CheckoutButton>Checkout</CheckoutButton>{' '}
+        <CheckoutButton onClick={() => router.push('/checkout')}>
+          Checkout
+        </CheckoutButton>{' '}
         {/* TODO:  pushni usera na checkout page */}
       </CheckoutButtonWrapper>
     </Summary>
@@ -29,8 +34,10 @@ const Summary = styled.div`
   flex-direction: column;
   align-items: flex-end;
   font-size: 14px;
-  ${breakpoints('margin', '', [{ L: '15px' }])}
-  ${breakpoints('align-items', '', [{ L: 'center' }])}
+  ${(props) => props.theme.breakpoint.L} {
+   margin: 15px;
+   align-items: center;
+  }
 `
 
 const TotalPriceWrapper = styled.div`

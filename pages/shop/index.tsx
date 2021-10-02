@@ -1,5 +1,4 @@
 import { url } from 'config'
-import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Head from 'next/head'
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import App, { AppContext, AppInitialProps } from 'next/app'
-import { Provider, RootStateOrAny, connect } from 'react-redux'
-import { createWrapper } from 'next-redux-wrapper'
+import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import { breakpoint } from 'utils/responsivity'
 import { url } from '../config'
 import sagaStore from 'sagaStore'
 import GlobalStyles from '../styles/globalStyles'
@@ -35,7 +35,7 @@ class MyApp extends App<AppInitialProps> {
     const { Component, pageProps } = this.props
 
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={{ ...theme, breakpoint }}>
         <Provider store={sagaStore}>
           <GlobalStyles />
           <Layout footerContent={pageProps.footer}>

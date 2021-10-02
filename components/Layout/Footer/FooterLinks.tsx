@@ -1,4 +1,3 @@
-import { breakpoints } from 'utils/responsivity'
 import styled from 'styled-components'
 import Link from 'next/link'
 
@@ -19,13 +18,14 @@ const Links = styled.ul`
   padding: 0;
   color: ${(props) => props.theme.fade3};
   font-weight: 300;
-
-  ${breakpoints('margin', '', [{ M: 'auto' }])};
+  ${(props) => props.theme.breakpoint.M} {
+    margin: auto;
+  }
 `
 const Item = styled.li`
   padding: 5px;
   &:hover {
-    color: ${props => props.theme.black};
+    color: ${(props) => props.theme.black};
   }
 `
 export default FooterLinks
