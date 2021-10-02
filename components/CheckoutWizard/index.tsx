@@ -3,11 +3,14 @@ import styled from 'styled-components'
 
 import Informations from './Informations'
 import Shipping from './Shipping'
+import Payment from './Payment'
 import Summary from './Summary'
 
 import CustomImage from 'components/General/Image'
+import { useRouter } from 'next/router'
 
 const CheckoutWizard = () => {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [showInformations, setShowInformations] = useState(true)
   const [showShipping, setShowShipping] = useState(false)
@@ -26,6 +29,11 @@ const CheckoutWizard = () => {
     //save shipping data do reduxu
     setShowShipping(false)
     setShowPayment(true)
+  }
+  const fininshCheckout = () => {
+    //save data do reduxu ?
+    //Redirect na homepage
+    router.push('/')
   }
 
   console.log(showInformations, showShipping)
@@ -62,7 +70,7 @@ const CheckoutWizard = () => {
 
             {showInformations && <Informations shippingStep={shippingStep} />}
             {showShipping && <Shipping paymentStep={paymentStep} />}
-            {/* ... next steps */}
+            {showPayment && <Payment finishCheckout={fininshCheckout} />}
           </ProccessContainer>
         </LayoutContainer>
 
