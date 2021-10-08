@@ -7,6 +7,7 @@ const theme = {
   fade2: '#bfbfbf',
   fade3: '#808080',
   bgGray: '#eeeef2',
+  backdrop: '#00000066',
 }
 
 export default theme
