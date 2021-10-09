@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 const WindowStyled = styled.div`
@@ -23,20 +24,35 @@ const Actions = styled.div`
   justify-content: flex-end;
   padding: 10px;
 `
+const Button = styled.button`
+  margin: 0 5px;
+`
+const CustomContent = styled(Message)``
 
 const Window = (props: {
   title: string
-  message: string
-  onConfirm: () => void
-  onCancel: () => void
+  message?: string
+  children?: any
+  isConfirmModal: boolean
+  setIsConfirmed: (value) => void
+  onClose?: () => void
 }) => {
   return (
     <WindowStyled>
       {props.title ? <Title>{props.title}</Title> : null}
       <Message>{props.message}</Message>
+      <CustomContent>{props.children}</CustomContent>
       <Actions>
-        <button onClick={props.onCancel}>Cancel</button>
-        <button onClick={props.onConfirm}>OK</button>
+        {props.isConfirmModal ? (
+          <>
+            <Button onClick={() => props.setIsConfirmed(false)}>Ne</Button>
+            <Button onClick={() => props.setIsConfirmed(true)}>Ano</Button>
+          </>
+        ) : (
+          <Button className={'inverted'} onClick={props.onClose}>
+            Close
+          </Button>
+        )}
       </Actions>
     </WindowStyled>
   )
