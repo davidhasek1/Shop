@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
+import { useDispatch } from 'react-redux'
+import { setConfirmModal } from 'sagaStore/actions'
 
 import Backdrop from './Backdrop'
 import ModalBody from './ModalBody'
@@ -7,8 +9,8 @@ import ModalBody from './ModalBody'
 const ModalRoot = (props: {
   title?: string
   message?: string
-  children: any
-  isConfirmModal: boolean
+  children?: any
+  isConfirmModal?: boolean
 }) => {
   //HANDLE if page is mounted => then is accessible document element
   const [isMounted, setIsMounted] = useState(false)
@@ -18,7 +20,7 @@ const ModalRoot = (props: {
   const [backdropClose, setBackdropClose] = useState(false)
   const [close, setClose] = useState(false)
 
-  const [isConfirmed, setIsConfirmed] = useState(null)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setIsMounted(true)
@@ -32,11 +34,12 @@ const ModalRoot = (props: {
     }
   }
   const confirmModalHandler = (value: boolean) => {
-    setIsConfirmed(value)
+    console.log('MODAL VALUE', value)
+    dispatch(setConfirmModal(value))
+
     setClose(true)
     setBackdropClose(true)
   }
-  console.log(isConfirmed)
 
   return (
     <>

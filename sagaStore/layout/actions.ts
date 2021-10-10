@@ -41,7 +41,37 @@ export const setOpenMobileMenuActionFailed = (
   payload,
 })
 
+export const LAYOUT_CONFIRM_MODAL_REQUEST = 'LAYOUT_CONFIRM_MODAL_REQUEST'
+export const LAYOUT_CONFIRM_MODAL_SUCEED = 'LAYOUT_CONFIRM_MODAL_SUCEED'
+export const LAYOUT_CONFIRM_MODAL_FAILED = 'LAYOUT_CONFIRM_MODAL_FAILED'
+
+type setConfirmModalType = {
+  type: typeof LAYOUT_CONFIRM_MODAL_REQUEST
+  payload: boolean
+}
+type setConfirmModalSuccedType = {
+  type: typeof LAYOUT_CONFIRM_MODAL_SUCEED
+  paylaod: boolean
+}
+type setConfirmModalFailedType = {
+  type: typeof LAYOUT_CONFIRM_MODAL_FAILED
+}
+export const setConfirmModal = (payload): setConfirmModalType => ({
+  type: LAYOUT_CONFIRM_MODAL_REQUEST,
+  payload,
+})
+export const setConfirmModalSucceed = (paylaod): setConfirmModalSuccedType => ({
+  type: LAYOUT_CONFIRM_MODAL_SUCEED,
+  paylaod,
+})
+export const setConfirmModalFailed = (): setConfirmModalFailedType => ({
+  type: LAYOUT_CONFIRM_MODAL_FAILED
+})
+
 export type LayoutActionsTypes =
   | setOpenMobileMenuActionType
   | setOpenMobileMenuActionSucceededType
   | setOpenMobileMenuActionFailedType
+  | setConfirmModalType
+  | setConfirmModalSuccedType
+  | setConfirmModalFailedType
