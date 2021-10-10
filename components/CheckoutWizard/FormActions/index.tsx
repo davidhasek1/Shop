@@ -13,7 +13,7 @@ const Button = styled.button`
   margin-right: 10px;
 `
 const FormActions = (props: {
-  step: () => void
+  step: (data) => void
   buttonCaption?: string
   linkCaption?: string
 }) => {

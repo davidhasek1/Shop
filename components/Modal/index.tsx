@@ -34,7 +34,6 @@ const ModalRoot = (props: {
     }
   }
   const confirmModalHandler = (value: boolean) => {
-    console.log('MODAL VALUE', value)
     dispatch(setConfirmModal(value))
 
     setClose(true)

@@ -5,6 +5,7 @@ import { InputType } from 'types'
 import CustomInput from 'components/General/CustomInput'
 import CustomerForm from '../Informations/CustomerForm'
 import FormActions from '../FormActions'
+import { useState } from 'react'
 
 export const inputsData: InputType[] = [
   {
@@ -89,8 +90,113 @@ export const inputsData: InputType[] = [
   },
 ]
 
-const Informations = (props: { shippingStep: () => void }) => {
+const Informations = (props: { shippingStep: (data) => any }) => {
   //TODO: Do reduxu udělat customer objekt obsahující data z formuláře
+  const [email, setEmail] = useState('')
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
+  const [company, setCompany] = useState('')
+  const [address, setAddress] = useState('')
+  const [apartment, setApartment] = useState('')
+  const [city, setCity] = useState('')
+  const [country, setCountry] = useState('')
+  const [zip, setZip] = useState('')
+  const [phone, setPhone] = useState('')
+
+  const customer = {
+    email: email,
+    firstname: firstname,
+    lastname: lastname,
+    address: address,
+    apartment: apartment,
+    city: city,
+    country: country,
+    zip: zip,
+    phone: phone,
+  }
+
+  const inputsData: InputType[] = [
+    {
+      type: 'text',
+      placeholder: 'Email',
+      value: email,
+      onChange: (e) => setEmail(() => e.target.value),
+      name: 'email',
+    },
+    {
+      type: 'checkbox', //TRUE/FALSE
+      value: '',
+      onChange: () => {},
+      name: 'newsletter',
+      isCheckbox: true,
+    },
+    {
+      type: 'text',
+      placeholder: 'First name',
+      value: firstname,
+      onChange: (e) => setFirstname(() => e.target.value),
+      name: 'firstname',
+      isName: true,
+    },
+    {
+      type: 'text',
+      placeholder: 'Last name',
+      value: lastname,
+      onChange: (e) => setLastname(() => e.target.value),
+      name: 'lastname',
+      isSurename: true,
+    },
+
+    {
+      type: 'text',
+      placeholder: 'Company (optional)',
+      value: company,
+      onChange: (e) => setCompany(() => e.target.value),
+      name: 'companyname',
+    },
+    {
+      type: 'text',
+      placeholder: 'Address',
+      value: address,
+      onChange: (e) => setAddress(() => e.target.value),
+      name: 'address',
+    },
+    {
+      type: 'text',
+      placeholder: 'Apartment (optional)',
+      value: apartment,
+      onChange: (e) => setApartment(() => e.target.value),
+      name: 'apartment',
+    },
+    {
+      type: 'text',
+      placeholder: 'City',
+      value: city,
+      onChange: (e) => setCity(() => e.target.value),
+      name: 'city',
+    },
+    {
+      type: 'text',
+      placeholder: 'Country',
+      value: country,
+      onChange: (e) => setCountry(() => e.target.value),
+      name: 'country',
+    },
+    {
+      type: 'text',
+      placeholder: 'Zip code',
+      value: zip,
+      onChange: (e) => setZip(() => e.target.value),
+      name: 'zipcode',
+    },
+    {
+      type: 'text',
+      placeholder: 'Phone',
+      value: phone,
+      onChange: (e) => setPhone(() => e.target.value),
+      name: 'phone',
+    },
+  ]
 
   return (
     <Wrapper>
@@ -126,7 +232,7 @@ const Informations = (props: { shippingStep: () => void }) => {
       <h3>Shipping address</h3>
       <CustomerForm inputsData={inputsData} />
       <FormActions
-        step={props.shippingStep}
+        step={() => props.shippingStep(customer)}
         buttonCaption={'Continue to shipping'}
         linkCaption={'Back to cart'}
       />

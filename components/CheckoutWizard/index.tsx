@@ -8,8 +8,11 @@ import Summary from './Summary'
 
 import CustomImage from 'components/General/Image'
 import { useRouter } from 'next/router'
+import { setCustomerForm } from 'sagaStore/actions'
+import { useDispatch } from 'react-redux'
 
 const CheckoutWizard = () => {
+  const dispatch = useDispatch()
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [showInformations, setShowInformations] = useState(true)
@@ -17,11 +20,10 @@ const CheckoutWizard = () => {
   const [showPayment, setShowPayment] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
-  console.log(showInformations)
 
-  const shippingStep = () => {
+  const shippingStep = (customerData) => {
     //save customer data do reduxu
-
+    dispatch(setCustomerForm(customerData))
     setShowInformations(false)
     setShowShipping(true)
   }
