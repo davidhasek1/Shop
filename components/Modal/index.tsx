@@ -11,6 +11,7 @@ const ModalRoot = (props: {
   message?: string
   children?: any
   isConfirmModal?: boolean
+  onClose?: () => void
 }) => {
   //HANDLE if page is mounted => then is accessible document element
   const [isMounted, setIsMounted] = useState(false)
@@ -44,7 +45,9 @@ const ModalRoot = (props: {
     <>
       {isMounted &&
         ReactDOM.createPortal(
-          !backdropClose && <Backdrop onBackdrop={closeHandler} />,
+          !backdropClose && (
+            <Backdrop onBackdrop={props.onClose || closeHandler} />
+          ),
           ModalBackdrop
         )}
       {isMounted &&
@@ -54,7 +57,7 @@ const ModalRoot = (props: {
               title={props.title}
               message={props.message}
               setIsConfirmed={confirmModalHandler}
-              onClose={closeHandler}
+              onClose={props.onClose}
               close={close}
               children={props.children}
               isConfirmModal={props.isConfirmModal}

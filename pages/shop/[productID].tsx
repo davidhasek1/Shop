@@ -21,19 +21,38 @@ import Title from 'components/Banners/Content'
 import Actions from 'components/ProductDetail/ProdctActions'
 import Dropdown from 'components/ProductDetail/Dropdowns'
 import ShareProduct from 'components/ProductDetail/ShareLinks'
+import LoadingSpinner from 'components/General/LoadingSpinner'
+import ErrorModal from 'components/Modal'
 
 const productDetail = (props: { product: CartPayload }) => {
   const dispatch = useDispatch()
-  const productID = props.product?._id
+  const productID = props?.product?._id
 
   const [quantity, setQuantity] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const addToCartHandler = async () => {
-    const productToCart = await fetchDataById(productID, 'products')
-    dispatch(setAddToCart(productToCart))
-    dispatch(setUpdateCart(productID, quantity))
-    dispatch(setCartItemsCount())
-    dispatch(setCartTotal())
+    try {
+      setIsLoading(true)
+      const productToCart = await fetchDataById(productID, 'products')
+
+      dispatch(setAddToCart(productToCart))
+      dispatch(setUpdateCart(productID, quantity)) //add quantity 1 to cart
+      dispatch(setCartItemsCount())
+      dispatch(setCartTotal())
+      setIsLoading(false)
+    } catch (error) {
+      setError({
+        statusCode: error?.statusCode,
+        error: error?.error,
+        message: error?.message,
+      })
+    }
+  }
+  const closeErrorModal = () => {
+    setIsLoading(false)
+    setError(null)
   }
   const router = useRouter()
   const relativePath = router.asPath
@@ -68,6 +87,13 @@ const productDetail = (props: { product: CartPayload }) => {
 
   return (
     <Container>
+      {error && (
+        <ErrorModal
+          title={error.error ? error.error : 'Error occured'}
+          message={error.message}
+          onClose={closeErrorModal}
+        />
+      )}
       <ImageWrapper>
         <StyledImage
           imageSrc={`${url}${props.product.Images.url}`}
@@ -90,7 +116,9 @@ const productDetail = (props: { product: CartPayload }) => {
         <Actions
           onAddToCart={() => addToCartHandler()}
           title={'Quantity'}
-          buttonTitle={'Add to cart'}
+          buttonTitle={
+            isLoading ? <LoadingSpinner spinnerSize={25} /> : 'Add to cart'
+          }
           quantity={quantity}
           setQuantity={setQuantity}
           productID={productID}
