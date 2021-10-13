@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 import { Separator } from '.'
+import { useSelector } from 'react-redux'
+
+import { getCartTotal } from 'sagaStore/selectors'
 
 const Totals = styled.div``
 
@@ -19,14 +22,15 @@ const Total = styled.span`
 const TotalPrice = styled(Total)``
 
 const SummaryTotals = () => {
+  const subtotal = useSelector(getCartTotal)
   return (
     <Totals>
       <List>
         <ListItem>
-          <span>Subtotal</span> <span>1000 kč</span>
+          <span>Subtotal</span> <span>{subtotal}Kč</span>
         </ListItem>
         <ListItem>
-          <span>Shipping</span> <span>1000 kč</span>
+          <span>Shipping</span> <span>todo kč</span>
         </ListItem>
         <Separator />
         <ListItem>
