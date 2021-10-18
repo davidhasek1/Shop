@@ -21,6 +21,14 @@ const CheckoutWizard = () => {
 
   const toggle = () => setIsOpen(!isOpen)
 
+  const stepBackToCustomer = () => {
+    setShowShipping(false)
+    setShowInformations(true)
+  }
+  const stepBackToShipping = () => {
+    setShowPayment(false)
+    setShowShipping(true)
+  }
   const shippingStep = (customerData) => {
     //save customer data do reduxu
     dispatch(setCustomerForm(customerData))
@@ -33,9 +41,9 @@ const CheckoutWizard = () => {
     setShowPayment(true)
   }
   const fininshCheckout = () => {
-    //save data do reduxu ?
+    //save data do reduxu polsat data na SERVER
     //Redirect na homepage
-    router.push('/')
+    router.push('/') //TODO
   }
 
   console.log(showInformations, showShipping)
@@ -71,8 +79,18 @@ const CheckoutWizard = () => {
             </ImageContainer>
 
             {showInformations && <Informations shippingStep={shippingStep} />}
-            {showShipping && <Shipping paymentStep={paymentStep} />}
-            {showPayment && <Payment finishCheckout={fininshCheckout} />}
+            {showShipping && (
+              <Shipping
+                stepBack={stepBackToCustomer}
+                paymentStep={paymentStep}
+              />
+            )}
+            {showPayment && (
+              <Payment
+                stepBack={stepBackToShipping}
+                finishCheckout={fininshCheckout}
+              />
+            )}
           </ProccessContainer>
         </LayoutContainer>
 

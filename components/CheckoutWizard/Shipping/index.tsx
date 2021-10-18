@@ -49,7 +49,7 @@ const Option = styled.div`
   margin: 10px 0;
 `
 
-const Shipping = (props: { paymentStep: () => void }) => {
+const Shipping = (props: { paymentStep: () => void; stepBack: () => void }) => {
   return (
     <Wrapper>
       <Summarization>
@@ -97,9 +97,10 @@ const Shipping = (props: { paymentStep: () => void }) => {
         </Option>
       </ShippingMethods>
       <FormActions
-        step={props.paymentStep}
+        stepForward={props.paymentStep}
+        stepBack={props.stepBack}
         buttonCaption={'Continue to payment'}
-        linkCaption={'Back to shipping'}
+        linkCaption={'Back to customer'}
       />
     </Wrapper>
   )

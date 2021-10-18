@@ -40,8 +40,8 @@ const SummaryItems = (props: { itemsFromCart: CartItemType[] }) => {
   return (
     <CartItems>
       <div>
-        {props.itemsFromCart?.map((item) => (
-          <Item>
+        {props.itemsFromCart?.map((item: CartItemType, idx: number) => (
+          <Item key={idx}>
             <ImageWrapper>
               <Quantity>{item.quantity}</Quantity>
               <CustomImage

@@ -6,6 +6,7 @@ import CustomInput from 'components/General/CustomInput'
 import CustomerForm from '../Informations/CustomerForm'
 import FormActions from '../FormActions'
 import { useState } from 'react'
+import router from 'next/router'
 
 export const inputsData: InputType[] = [
   {
@@ -91,7 +92,6 @@ export const inputsData: InputType[] = [
 ]
 
 const Informations = (props: { shippingStep: (data) => any }) => {
-  //TODO: Do reduxu udělat customer objekt obsahující data z formuláře
   const [email, setEmail] = useState('')
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
@@ -232,7 +232,8 @@ const Informations = (props: { shippingStep: (data) => any }) => {
       <h3>Shipping address</h3>
       <CustomerForm inputsData={inputsData} />
       <FormActions
-        step={() => props.shippingStep(customer)}
+        stepForward={() => props.shippingStep(customer)}
+        stepBack={() => router.push('/cart')}
         buttonCaption={'Continue to shipping'}
         linkCaption={'Back to cart'}
       />

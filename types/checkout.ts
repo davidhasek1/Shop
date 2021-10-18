@@ -9,3 +9,17 @@ export type InputType = {
   isSurename?: boolean
   isCheckbox?: boolean
 }
+
+export type CustomerStateType = {
+  customer: {
+    email: string
+    firstname: string
+    lastname: string
+    address: string
+    apartment: string
+    city: string
+    country: string
+    zip: string
+    phone: string
+  }
+}

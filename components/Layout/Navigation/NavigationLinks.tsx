@@ -1,18 +1,13 @@
 import styled from 'styled-components'
 import Link from 'next/link'
-import { useSelector } from 'react-redux'
-import { getCartItemsCount } from 'sagaStore/selectors'
-import BurgerMenu from 'components/Layout/BurgerMenu'
-import PriceSummary from 'components/CartSummaryIndicator'
-import { useRouter } from 'next/router'
 import { NavLinksType } from '.'
-import StyledImage from 'components/General/Image'
 import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
 
-const NavigationLinks = (props: { navlinks: NavLinksType[] }) => {
-  const itemsCount = useSelector(getCartItemsCount)
-  const router = useRouter()
+import BurgerMenu from 'components/Layout/BurgerMenu'
+import PriceSummary from 'components/CartSummaryIndicator'
+import StyledImage from 'components/General/Image'
 
+const NavigationLinks = (props: { navlinks: NavLinksType[] }) => {
   return (
     <Wrapper>
       <BurgerWrapper>
@@ -31,8 +26,8 @@ const NavigationLinks = (props: { navlinks: NavLinksType[] }) => {
           </a>
         </Link>
         <DynamicLinks>
-          {props.navlinks.map((link) => (
-            <div>
+          {props.navlinks.map((link: NavLinksType, idx: number) => (
+            <div key={idx}>
               <Link href={link.href} passHref>
                 <a>{link.content}</a>
               </Link>

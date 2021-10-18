@@ -4,7 +4,9 @@ import {
   CheckoutFormTypes,
 } from 'sagaStore/actions'
 
-const initialState = {
+import { CustomerStateType } from 'types'
+
+const initialState: CustomerStateType = {
   customer: {
     email: '',
     firstname: '',
@@ -24,7 +26,21 @@ const checkoutReducer = (state = initialState, action: CheckoutFormTypes) => {
       console.log('REDUCER PAYLOAD', action.payload)
 
       //TODO: add logic + check saga types for data objects and so on
-      return state
+
+      return {
+        ...state,
+        customer: {
+          email: action.payload.email,
+          firstname: action.payload.firstname,
+          lastname: action.payload.lastname,
+          address: action.payload.address,
+          apartment: action.payload.apartment,
+          city: action.payload.city,
+          country: action.payload.country,
+          zip: action.payload.zip,
+          phone: action.payload.phone,
+        },
+      }
     }
     case CHECKOUT_CUSTOMER_FORM_FAILED: {
       return state
