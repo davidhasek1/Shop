@@ -8,8 +8,11 @@ import Summary from './Summary'
 
 import CustomImage from 'components/General/Image'
 import { useRouter } from 'next/router'
+import { setCustomerForm } from 'sagaStore/actions'
+import { useDispatch } from 'react-redux'
 
 const CheckoutWizard = () => {
+  const dispatch = useDispatch()
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [showInformations, setShowInformations] = useState(true)
@@ -17,11 +20,18 @@ const CheckoutWizard = () => {
   const [showPayment, setShowPayment] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
-  console.log(showInformations)
 
-  const shippingStep = () => {
+  const stepBackToCustomer = () => {
+    setShowShipping(false)
+    setShowInformations(true)
+  }
+  const stepBackToShipping = () => {
+    setShowPayment(false)
+    setShowShipping(true)
+  }
+  const shippingStep = (customerData) => {
     //save customer data do reduxu
-
+    dispatch(setCustomerForm(customerData))
     setShowInformations(false)
     setShowShipping(true)
   }
@@ -31,9 +41,9 @@ const CheckoutWizard = () => {
     setShowPayment(true)
   }
   const fininshCheckout = () => {
-    //save data do reduxu ?
+    //save data do reduxu polsat data na SERVER
     //Redirect na homepage
-    router.push('/')
+    router.push('/') //TODO
   }
 
   console.log(showInformations, showShipping)
@@ -69,8 +79,18 @@ const CheckoutWizard = () => {
             </ImageContainer>
 
             {showInformations && <Informations shippingStep={shippingStep} />}
-            {showShipping && <Shipping paymentStep={paymentStep} />}
-            {showPayment && <Payment finishCheckout={fininshCheckout} />}
+            {showShipping && (
+              <Shipping
+                stepBack={stepBackToCustomer}
+                paymentStep={paymentStep}
+              />
+            )}
+            {showPayment && (
+              <Payment
+                stepBack={stepBackToShipping}
+                finishCheckout={fininshCheckout}
+              />
+            )}
           </ProccessContainer>
         </LayoutContainer>
 

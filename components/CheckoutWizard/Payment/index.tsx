@@ -33,7 +33,10 @@ const Separator = styled.div`
   margin: auto;
 `
 
-const Payment = (props: { finishCheckout: () => void }) => {
+const Payment = (props: {
+  finishCheckout: () => void
+  stepBack: () => void
+}) => {
   return (
     <div>
       <Summarization>
@@ -60,7 +63,8 @@ const Payment = (props: { finishCheckout: () => void }) => {
       <CustomerForm inputsData={inputsData} />
 
       <FormActions
-        step={props.finishCheckout}
+        stepForward={props.finishCheckout}
+        stepBack={props.stepBack}
         buttonCaption={'Complete payment'}
         linkCaption={'Back to shipping'}
       />

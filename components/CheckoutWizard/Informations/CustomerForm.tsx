@@ -92,7 +92,6 @@ const CustomerForm = (props: { inputsData: InputType[] }) => {
         text={props.inputsData[10].text}
         name={props.inputsData[10].name}
       />
- 
     </div>
   )
 }

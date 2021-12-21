@@ -1,4 +1,3 @@
-
 import { NextPage } from 'next'
 
 const LogIn: NextPage = () => {

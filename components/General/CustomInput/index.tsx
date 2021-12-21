@@ -4,7 +4,7 @@ const CustomInput = (props: {
   type: string
   placeholder?: string
   value: any
-  onChange: () => void
+  onChange: (e) => void
   name: string
   text?: string
   isName?: boolean

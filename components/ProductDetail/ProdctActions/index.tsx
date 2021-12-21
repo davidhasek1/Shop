@@ -3,7 +3,7 @@ import QuantitiyHandler from 'components/QuantityHandler'
 
 const ProductActions = (props: {
   title: string
-  buttonTitle: string
+  buttonTitle: any | string
   onAddToCart: () => void
   quantity: number
   setQuantity: React.Dispatch<React.SetStateAction<number>>

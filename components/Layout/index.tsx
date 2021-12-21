@@ -24,6 +24,7 @@ const Layout = ({ children, footerContent }) => {
 }
 
 const Container = styled.div<{ isWizard: boolean }>`
+  min-height: 100vh;
   text-align: center;
   margin: auto;
   padding-top: ${({ isWizard }) => (isWizard ? 0 : NAVBAR_HEIGHT)};

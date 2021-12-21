@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {
@@ -6,11 +7,12 @@ import {
   setUpdateCart,
   setCartTotal,
 } from 'sagaStore/actions'
-import styled from 'styled-components'
+import { fetchDataById } from 'services/fetchDataById'
 import Link from 'next/link'
 
 import StyledImage from 'components/General/Image'
-import { fetchDataById } from 'services/fetchDataById'
+import LoadingSpinner from 'components/General/LoadingSpinner'
+import ErrorModal from 'components/Modal'
 
 const ProductItem = (props: {
   detailID: string
@@ -19,14 +21,28 @@ const ProductItem = (props: {
   price: number
 }) => {
   const [isHovered, setIsHovered] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+
   const dispatch = useDispatch()
 
   const addToCartHandler = async () => {
+    setIsLoading(true)
     const productToCart = await fetchDataById(props.detailID, 'products')
-    dispatch(setAddToCart(productToCart))
-    dispatch(setUpdateCart(props.detailID, 1)) //add quantity 1 to cart
-    dispatch(setCartItemsCount())
-    dispatch(setCartTotal())
+
+    if (productToCart.error) {
+      setError({
+        statusCode: productToCart.statusCode,
+        error: productToCart.error,
+        message: productToCart.message,
+      })
+    } else {
+      dispatch(setAddToCart(productToCart))
+      dispatch(setUpdateCart(props.detailID, 1)) //add quantity 1 to cart
+      dispatch(setCartItemsCount())
+      dispatch(setCartTotal())
+      setIsLoading(false)
+    }
   }
   const hoverHandler = () => {
     setIsHovered(true)
@@ -35,8 +51,20 @@ const ProductItem = (props: {
     setIsHovered(false)
   }
 
+  const closeErrorModal = () => {
+    setIsLoading(false)
+    setError(null)
+  }
+
   return (
     <Item onMouseEnter={hoverHandler} onMouseLeave={hoverOut}>
+      {error && (
+        <ErrorModal
+          title={`${error.error} (${error.statusCode})`}
+          message={error.message}
+          onClose={closeErrorModal}
+        />
+      )}
       <Link href={`/shop/${props.detailID}`} passHref>
         <OuterContent>
           <StyledImage
@@ -64,7 +92,7 @@ const ProductItem = (props: {
       {isHovered && (
         <AddToCart>
           <Button onClick={() => addToCartHandler()} className={'inverted'}>
-            Add to Cart
+            {isLoading ? <LoadingSpinner spinnerSize={25} /> : 'Add to Cart'}
           </Button>
         </AddToCart>
       )}

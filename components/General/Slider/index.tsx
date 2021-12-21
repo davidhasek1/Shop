@@ -13,6 +13,8 @@ const Slider = (props: { children: any; slideDistatnce: number }) => {
     scrollRef.current.scrollLeft += offset
   }
 
+  //TODO: předělat a použít pole obrázků a přes jejich INDEXy ne přes useRef
+
   return (
     <SliderWrapper>
       <ItemsOuterWrapper>
@@ -21,7 +23,6 @@ const Slider = (props: { children: any; slideDistatnce: number }) => {
             onClick={() => scrolling(-1 * props.slideDistatnce)}
             size={50}
           />
-          {/*TODO: U obrazku udělat scroll o width obrazku */}
         </ArrowWrapper>
 
         <ItemsInnerWrapper ref={scrollRef}>{props.children}</ItemsInnerWrapper>

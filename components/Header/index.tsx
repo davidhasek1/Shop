@@ -10,7 +10,6 @@ const Header = (props: {
   isHomePage: boolean
   children?: any
 }) => {
-  console.log(props.ownHeight)
   return (
     <HeaderContainer setHeight={props.ownHeight}>
       <ImageWrapper>

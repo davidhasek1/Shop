@@ -1,15 +1,22 @@
 import styled from 'styled-components'
 import AnimateHeight from 'react-animate-height'
 
+import { useSelector } from 'react-redux'
+
+import { getCartItems, getCartTotal } from 'sagaStore/selectors'
 import SummaryTotals from './Summary_Totals'
 import SummaryItems from './Summary_Items'
 import SummaryCoupon from './Summary_Coupon'
 
 const Summary = (props: { onToggle?: any }) => {
+  const cartItems = useSelector(getCartItems)
+
+  console.log('CHECKOUT CART ', cartItems)
+
   return (
     <AnimateHeight height={props.onToggle ? 'auto' : 0}>
       <SummaryWrapper>
-        <SummaryItems />
+        <SummaryItems itemsFromCart={cartItems} />
         <Separator />
         <SummaryCoupon />
         <Separator />
