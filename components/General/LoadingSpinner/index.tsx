@@ -2,6 +2,8 @@ import React from 'react'
 
 import styled, { css } from 'styled-components'
 
+//BUG: smazat a použít ikonu + keyframes na rotaci - jednodušší a bez problémů
+
 const Spinner = (props: { spinnerSize?: number }) => (
   <StyledSpinner spinnerSize={props.spinnerSize} viewBox="0 0 50 50">
     <circle

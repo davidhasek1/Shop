@@ -1,4 +1,3 @@
-import { Dispatch } from 'hoist-non-react-statics/node_modules/@types/react'
 import styled from 'styled-components'
 
 import ModalWindow from './Window'
