@@ -1,15 +1,5 @@
 import styled from 'styled-components'
 
-const Burger = ({ onClick }) => {
-  return (
-    <BurgerContainer onClick={onClick}>
-      <BurgerLine />
-      <BurgerLineShort />
-      <BurgerLineShort />
-    </BurgerContainer>
-  )
-}
-
 const BurgerContainer = styled.div`
   height: 25px;
   width: 30px;
@@ -24,4 +14,14 @@ const BurgerLine = styled.div`
 const BurgerLineShort = styled(BurgerLine)`
   width: 20px;
 `
+const Burger = ({ onClick }) => {
+  return (
+    <BurgerContainer onClick={onClick}>
+      <BurgerLine />
+      <BurgerLineShort />
+      <BurgerLineShort />
+    </BurgerContainer>
+  )
+}
+
 export default Burger

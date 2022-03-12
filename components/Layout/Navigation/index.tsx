@@ -12,7 +12,7 @@ export const NAVBAR_HEIGHT = '60px'
 const NavWrapper = styled.div`
   position: fixed;
   width: 100%;
-  z-index: 20;
+  z-index: 1;
   background-color: ${(props) => props.theme.white};
   box-shadow: 0px 4px 10px -6px ${(props) => props.theme.fade2};
   color: ${(props) => props.theme.text};
@@ -26,8 +26,6 @@ const Container = styled.div`
   height: ${NAVBAR_HEIGHT};
   max-width: 1300px;
   margin: auto;
-  display: flex;
-  justify-content: space-between;
 
   ${(props) => props.theme.breakpoint.XL} {
     padding: 0 15px;

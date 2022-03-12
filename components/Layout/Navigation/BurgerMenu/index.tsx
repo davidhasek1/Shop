@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Close } from '@styled-icons/evil/Close'
-import Burger from './Burger'
 import { getOpenMobileMenu } from 'sagaStore/selectors'
 import { setOpenMobileMenuAction } from 'sagaStore/actions'
+
+import Burger from './Burger'
 
 const BurgerMenu = () => {
   const dispatch = useDispatch()
@@ -23,13 +24,13 @@ const BurgerMenu = () => {
   )
 }
 
-type Props = {
-  flexPosition: 'left' | 'right'
-}
-
 const BurgerWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  display: none;
+
+  ${(props) => props.theme.breakpoint.M} {
+    display: flex;
+    align-items: center;
+  }
 `
 const CloseStyled = styled(Close)`
   color: ${(props) => props.theme.black};
