@@ -6,6 +6,40 @@ import Head from 'next/head'
 import ContactForm from 'components/ContactForm'
 import MapCircle from 'components/MapPin'
 
+const Container = styled.div`
+  display: flex;
+  ${(props) => props.theme.breakpoint.L} {
+    flex-direction: column;
+  }
+`
+const FormWrapper = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+  }
+`
+const MapWrapper = styled.div`
+  position: relative;
+  width: 50%;
+  ${(props) => props.theme.breakpoint.L} {
+    width: 100%;
+  }
+`
+const Map = styled.iframe`
+  display: block; /* iframe je defaultne inline !! */
+  width: 100%;
+  height: 90vh;
+  border: none;
+  filter: grayscale(100%);
+  ${(props) => props.theme.breakpoint.L} {
+    height: 50vh;
+  }
+`
+
 const Contact: NextPage = () => {
   return (
     <div>
@@ -28,39 +62,5 @@ const Contact: NextPage = () => {
   )
 }
 //TODO: create cms content + Fetch data
-
-const Container = styled.div`
-  display: flex;
-  ${(props) => props.theme.breakpoint.L} {
-flex-direction: column;
-  }
-`
-const FormWrapper = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-  ${(props) => props.theme.breakpoint.L} {
-    width: 100%;
-}
-`
-const MapWrapper = styled.div`
-  position: relative;
-  width: 50%;
-  ${(props) => props.theme.breakpoint.L} {
-    width: 100%;
-  }
-`
-const Map = styled.iframe`
-  display: block; /* iframe je defaultne inline !! */
-  width: 100%;
-  height: 90vh;
-  border: none;
-  filter: grayscale(100%);
-  ${(props) => props.theme.breakpoint.L} {
-    height: 50vh;
-  }
-`
 
 export default Contact

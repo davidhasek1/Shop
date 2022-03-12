@@ -4,4 +4,6 @@ export type BlogPost = {
   title: string
 }
 
-export type BlogPosts = BlogPost[]
+export type GridProps = {
+  blogGrid?: boolean
+}

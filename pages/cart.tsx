@@ -14,6 +14,40 @@ import CartSummary from 'components/Cart/CartSummary'
 
 import CustomerData from 'components/CheckoutWizard/Informations'
 
+const Wrapper = styled.div`
+  max-width: 1000px;
+  margin: auto;
+`
+const CartTitle = styled.h1`
+  text-align: left;
+  ${(props) => props.theme.breakpoint.L} {
+    text-align: center;
+  }
+`
+const CartTitleEmpty = styled.h1`
+  text-align: center;
+`
+
+const CartLabelsWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  ${(props) => props.theme.breakpoint.L} {
+    justify-content: center;
+  }
+`
+const Labels = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  margin: 15px;
+  ${(props) => props.theme.breakpoint.L} {
+    display: none;
+    width: 100%;
+    margin: 0 25px;
+  }
+`
+
 const Cart: NextPage = () => {
   const cartItems = useSelector(getCartItems)
   console.log('CART ITEMS', cartItems)
@@ -56,39 +90,5 @@ const Cart: NextPage = () => {
     </Wrapper>
   )
 }
-
-const Wrapper = styled.div`
-  max-width: 1000px;
-  margin: auto;
-`
-const CartTitle = styled.h1`
-  text-align: left;
-  ${(props) => props.theme.breakpoint.L} {
-    text-align: center;
-  }
-`
-const CartTitleEmpty = styled.h1`
-  text-align: center;
-`
-
-const CartLabelsWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-  ${(props) => props.theme.breakpoint.L} {
-    justify-content: center;
-  }
-`
-const Labels = styled.div`
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-  margin: 15px;
-  ${(props) => props.theme.breakpoint.L} {
-    display: none;
-    width: 100%;
-    margin: 0 25px;
-  }
-`
 
 export default Cart

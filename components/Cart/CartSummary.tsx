@@ -4,28 +4,6 @@ import { useRouter } from 'next/router'
 
 import { getCartTotal } from 'sagaStore/selectors'
 
-const CartSummary = () => {
-  const router = useRouter()
-  const totalPrice = useSelector(getCartTotal)
-
-  return (
-    <Summary>
-      <TotalPriceWrapper>
-        <SubTotalLabel>subtotal</SubTotalLabel>
-        <SubTotalValue>{totalPrice} Kč</SubTotalValue>{' '}
-      </TotalPriceWrapper>
-      <div>Shipping & taxes calculated at checkout</div>
-
-      <CheckoutButtonWrapper>
-        <CheckoutButton onClick={() => router.push('/checkout')}>
-          Checkout
-        </CheckoutButton>{' '}
-        {/* TODO:  pushni usera na checkout page */}
-      </CheckoutButtonWrapper>
-    </Summary>
-  )
-}
-
 const Summary = styled.div`
   border-top: 1px solid ${(props) => props.theme.fade2};
   padding: 20px;
@@ -35,8 +13,8 @@ const Summary = styled.div`
   align-items: flex-end;
   font-size: 14px;
   ${(props) => props.theme.breakpoint.L} {
-   margin: 15px;
-   align-items: center;
+    margin: 15px;
+    align-items: center;
   }
 `
 
@@ -69,4 +47,27 @@ const CheckoutButton = styled.button`
     color: ${(props) => props.theme.white};
   }
 `
+
+const CartSummary = () => {
+  const router = useRouter()
+  const totalPrice = useSelector(getCartTotal)
+
+  return (
+    <Summary>
+      <TotalPriceWrapper>
+        <SubTotalLabel>subtotal</SubTotalLabel>
+        <SubTotalValue>{totalPrice} Kč</SubTotalValue>{' '}
+      </TotalPriceWrapper>
+      <div>Shipping & taxes calculated at checkout</div>
+
+      <CheckoutButtonWrapper>
+        <CheckoutButton onClick={() => router.push('/checkout')}>
+          Checkout
+        </CheckoutButton>{' '}
+        {/* TODO:  pushni usera na checkout page */}
+      </CheckoutButtonWrapper>
+    </Summary>
+  )
+}
+
 export default CartSummary

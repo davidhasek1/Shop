@@ -2,6 +2,13 @@ import styled from 'styled-components'
 
 import StyledImage from 'components/General/Image'
 
+const DesktopImage = styled.div`
+  opacity: 0.7;
+  ${(props) => props.theme.breakpoint.M}  {
+    display: none;
+  }
+`
+
 const DesktopHeaderImage = ({ image }) => {
   return (
     <DesktopImage>
@@ -16,10 +23,4 @@ const DesktopHeaderImage = ({ image }) => {
   )
 }
 
-const DesktopImage = styled.div`
-  opacity: 0.7;
-  ${(props) => props.theme.breakpoint.M}  {
-    display: none;
-  }
-`
 export default DesktopHeaderImage

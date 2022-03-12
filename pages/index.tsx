@@ -10,6 +10,23 @@ import OurCollection from 'components/OurCollection'
 import Banners from 'components/Banners'
 import Blog from 'components/BlogSection'
 
+const Wrapper = styled.div`
+  padding: 100px 150px;
+  ${(props) => props.theme.breakpoint.L} {
+    padding: 100px;
+  }
+  ${(props) => props.theme.breakpoint.M} {
+    padding: 0 15px;
+  }
+`
+const Title = styled.h1`
+  color: ${(props) => props.theme.pink};
+  ${(props) => props.theme.breakpoint.L} {
+    font-weight: 500;
+    color: ${(props) => props.theme.black};
+  }
+`
+
 const HomePage = ({ content, products }) => {
   return (
     <div>
@@ -56,20 +73,5 @@ export const getStaticProps = async () => {
   }
 }
 
-const Wrapper = styled.div`
-  padding: 100px 150px;
-  ${(props) => props.theme.breakpoint.L} {
-    padding: 100px;
-  }
-  ${(props) => props.theme.breakpoint.M} {
-    padding: 0 15px;
-  }
-`
-const Title = styled.h1`
-  color: ${(props) => props.theme.pink};
-  ${(props) => props.theme.breakpoint.L} {
-    font-weight: 500;
-    color: ${(props) => props.theme.black};
-  }
-`
+
 export default HomePage

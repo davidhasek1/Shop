@@ -1,12 +1,6 @@
 import styled from 'styled-components'
+import { GridProps } from 'types'
 
-const GridLayout = (props: { content: any; isBlogGrid?: boolean }) => {
-  return <Grid blogGrid={props.isBlogGrid}>{props.content}</Grid>
-}
-
-export type GridProps = {
-  blogGrid?: boolean
-}
 const Grid = styled.div<GridProps>`
   display: grid;
   grid-template-columns: ${({ blogGrid }) =>
@@ -25,5 +19,9 @@ const Grid = styled.div<GridProps>`
     margin: 50px 10px;
   }
 `
+
+const GridLayout = (props: { content: any; isBlogGrid?: boolean }) => {
+  return <Grid blogGrid={props.isBlogGrid}>{props.content}</Grid>
+}
 
 export default GridLayout

@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   order: 1;
 `
 const Dot = styled.div`
+  display: none;
   position: absolute;
   top: -12px;
   right: -3px;
@@ -25,9 +26,7 @@ const Dot = styled.div`
   height: 8px;
   border-radius: 50%;
   background-color: ${(props) => props.theme.black};
-  ${(props) => props.theme.breakpoint.XL} {
-    display: none;
-  }
+
   ${(props) => props.theme.breakpoint.L} {
     display: flex;
   }

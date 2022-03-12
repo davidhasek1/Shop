@@ -1,4 +1,4 @@
-import { url } from '../config'
+import { url } from 'config'
 
 export const fetchDataById = async (id: string, path: string) => {
   try {

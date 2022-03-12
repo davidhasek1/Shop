@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Link from 'next/link'
-import { NavLinksType } from '.'
+import { NavLinksType } from 'types'
 import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
 
 import BurgerMenu from 'components/Layout/BurgerMenu'
@@ -76,9 +76,8 @@ const DynamicLinks = styled.div`
 `
 
 const BurgerWrapper = styled.div`
-  ${(props) => props.theme.breakpoint.XL} {
-    display: none;
-  }
+  display: none;
+
   ${(props) => props.theme.breakpoint.M} {
     display: block;
   }

@@ -5,6 +5,20 @@ import ReactMarkdown from 'react-markdown'
 
 import Header from 'components/Header'
 
+const Wrapper = styled.div`
+  padding: 25px;
+  text-align: left;
+  border-radius: 10px;
+  background-color: ${(props) => props.theme.white};
+`
+const ContentContainer = styled.div`
+  text-align: justify;
+  margin: 0 15%;
+  ${(props) => props.theme.breakpoint.M} {
+    margin: 0;
+  }
+`
+
 const Complains = ({ complains }) => {
   console.log(complains)
   console.log(`${url}${complains.Image.url}`)
@@ -49,17 +63,4 @@ export const getStaticProps = async () => {
   }
 }
 
-const Wrapper = styled.div`
-  padding: 25px;
-  text-align: left;
-  border-radius: 10px;
-  background-color: ${(props) => props.theme.white};
-`
-const ContentContainer = styled.div`
-  text-align: justify;
-  margin: 0 15%;
-  ${(props) => props.theme.breakpoint.M} {
-    margin: 0;
-  }
-`
 export default Complains

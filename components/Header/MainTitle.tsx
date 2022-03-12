@@ -1,28 +1,6 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 
-const MainTitle = (props: {
-  headerTitle: string
-  isHomePage: boolean
-  children?: any
-}) => {
-  return (
-    <TitleWrapper>
-      <Title>{props.headerTitle}</Title>
-      {props.children}
-      <ButtonWrapper isHomePage={props.isHomePage}>
-        <Link href="/shop">
-          <Button>Shop now</Button>
-        </Link>
-      </ButtonWrapper>
-    </TitleWrapper>
-  )
-}
-
-type Props = {
-  isHomePage: boolean
-}
-
 const TitleWrapper = styled.div`
   position: absolute;
   font-size: 20px;
@@ -41,7 +19,7 @@ const Title = styled.h1`
     font-size: 30px;
   }
 `
-const ButtonWrapper = styled.div<Props>`
+const ButtonWrapper = styled.div<{ isHomePage: boolean }>`
   display: ${({ isHomePage }) => !isHomePage && 'none'};
 `
 const Button = styled.button`
@@ -50,5 +28,23 @@ const Button = styled.button`
     padding: 10px 40px;
   }
 `
+
+const MainTitle = (props: {
+  headerTitle: string
+  isHomePage: boolean
+  children?: any
+}) => {
+  return (
+    <TitleWrapper>
+      <Title>{props.headerTitle}</Title>
+      {props.children}
+      <ButtonWrapper isHomePage={props.isHomePage}>
+        <Link href="/shop">
+          <Button>Shop now</Button>
+        </Link>
+      </ButtonWrapper>
+    </TitleWrapper>
+  )
+}
 
 export default MainTitle

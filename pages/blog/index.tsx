@@ -7,6 +7,27 @@ import styled from 'styled-components'
 
 import { useRouter } from 'next/router'
 
+const MainPostContent = styled.div`
+  ${(props) => props.theme.breakpoint.L} {
+    text-align: left;
+  }
+`
+const MainPostButtonWrapper = styled.div`
+  margin-top: 15px;
+  ${(props) => props.theme.breakpoint.L} {
+    text-align: center;
+  }
+`
+const MainPostButton = styled.button`
+  border: 2px solid ${(props) => props.theme.black};
+  background: transparent !important;
+  color: ${(props) => props.theme.black};
+  &:hover {
+    background: ${(props) => props.theme.black} !important;
+    color: ${(props) => props.theme.white};
+  }
+`
+
 const Blog: NextPage = () => {
   const router = useRouter()
   const blogPosts = mocked_blogposts.map((post, idx: number) => (
@@ -42,26 +63,5 @@ const Blog: NextPage = () => {
     </div>
   )
 }
-
-const MainPostContent = styled.div`
-  ${(props) => props.theme.breakpoint.L} {
-    text-align: left;
-  }
-`
-const MainPostButtonWrapper = styled.div`
-  margin-top: 15px;
-  ${(props) => props.theme.breakpoint.L} {
-    text-align: center;
-  }
-`
-const MainPostButton = styled.button`
-  border: 2px solid ${(props) => props.theme.black};
-  background: transparent !important;
-  color: ${(props) => props.theme.black};
-  &:hover {
-    background: ${(props) => props.theme.black} !important;
-    color: ${(props) => props.theme.white};
-  }
-`
 
 export default Blog

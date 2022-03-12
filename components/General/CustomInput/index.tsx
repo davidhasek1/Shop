@@ -1,34 +1,5 @@
 import styled, { css } from 'styled-components'
 
-const CustomInput = (props: {
-  type: string
-  placeholder?: string
-  value: any
-  onChange: (e) => void
-  name: string
-  text?: string
-  isName?: boolean
-  isSurename?: boolean
-  isCheckbox?: boolean
-}) => {
-  return (
-    <>
-      <Input
-        isName={props.isName}
-        isSurename={props.isSurename}
-        isCheckbox={props.isCheckbox}
-        type={props.type}
-        placeholder={props.placeholder}
-        onChange={props.onChange}
-        value={props.value}
-        name={props.name}
-      />
-      {props.text}
-    </>
-  )
-}
-
-const Wrapper = styled.div``
 const Input = styled.input<{
   isName: boolean
   isSurename: boolean
@@ -60,5 +31,33 @@ const Input = styled.input<{
       padding: 20px;
     `}
 `
+
+const CustomInput = (props: {
+  type: string
+  placeholder?: string
+  value: any
+  onChange: (e) => void
+  name: string
+  text?: string
+  isName?: boolean
+  isSurename?: boolean
+  isCheckbox?: boolean
+}) => {
+  return (
+    <>
+      <Input
+        isName={props.isName}
+        isSurename={props.isSurename}
+        isCheckbox={props.isCheckbox}
+        type={props.type}
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+        value={props.value}
+        name={props.name}
+      />
+      {props.text}
+    </>
+  )
+}
 
 export default CustomInput

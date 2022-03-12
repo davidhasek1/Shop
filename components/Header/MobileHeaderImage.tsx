@@ -1,6 +1,13 @@
 import styled from 'styled-components'
-import {} from 'utils/responsivity'
 import StyledImage from 'components/General/Image'
+
+const MobileImage = styled.div`
+  opacity: 0.7;
+  display: none;
+  ${(props) => props.theme.breakpoint.M} {
+    display: flex;
+  }
+`
 
 const MobileHeaderImage = ({ image }) => {
   return (
@@ -16,11 +23,4 @@ const MobileHeaderImage = ({ image }) => {
   )
 }
 
-const MobileImage = styled.div`
-  opacity: 0.7;
-  display: none;
-  ${(props) => props.theme.breakpoint.M} {
-    display: flex;
-  }
-`
 export default MobileHeaderImage
