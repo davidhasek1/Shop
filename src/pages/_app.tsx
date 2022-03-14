@@ -6,7 +6,7 @@ import { breakpoint } from 'utils/responsivity'
 import { url } from '../config'
 import sagaStore from 'sagaStore'
 import GlobalStyles from '../styles/globalStyles'
-import theme from 'styles/theme'
+import theme from 'src/styles/theme'
 
 import Layout from '../components/Layout'
 
