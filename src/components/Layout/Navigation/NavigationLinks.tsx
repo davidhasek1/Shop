@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 import { NavLinksType } from 'types'
-import { ShoppingCart } from '@styled-icons/feather/ShoppingCart'
+import { ShoppingBag } from '@styled-icons/boxicons-regular/ShoppingBag'
 
 import BurgerMenu from 'components/Layout/Navigation/BurgerMenu'
 import PriceSummary from 'components/CartSummaryIndicator'
@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   display: flex;
   height: 100%;
   justify-content: space-between;
+  align-items: center;
 `
 const Logo = styled.div`
   display: flex;
@@ -37,7 +38,19 @@ const DynamicLinks = styled.div`
 const CartLink = styled.div`
   display: flex;
   align-items: center;
+  border: 2px solid ${(props) => props.theme.black};
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
   cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme.white};
+    border: 2px solid ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.black};
+    box-shadow: 0 0 0 3px ${(props) => props.theme.black};
+  }
 `
 
 const NavigationLinks = (props: { navlinks: NavLinksType[] }) => {
@@ -65,8 +78,7 @@ const NavigationLinks = (props: { navlinks: NavLinksType[] }) => {
       </DynamicLinks>
       <Link href="/cart">
         <CartLink>
-          <ShoppingCart size={30} />
-          <PriceSummary />
+          <ShoppingBag size={30} />
         </CartLink>
       </Link>
     </Wrapper>

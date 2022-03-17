@@ -32,7 +32,7 @@ const CartSummaryIndicator = () => {
   console.log(cartTotalPrice)
   return (
     <Wrapper>
-      <PriceSummary>({cartTotalPrice}Kč)</PriceSummary>
+      {/* <PriceSummary>({cartTotalPrice}Kč)</PriceSummary> */}
       {cartTotalPrice > 0 && <Dot />}
     </Wrapper>
   )
